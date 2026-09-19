@@ -53,10 +53,11 @@ corpus. Build on WCL report links.** Rationale:
 
 A WCL link being technically public (or reachable via an unlisted URL)
 is not the same as consent to have your fight used in simf's calibration
-corpus and cited in a `docs/validation/` doc with your character name
-attached (every existing validation doc in this project names real
-characters — Brutoh, AnonBrewmaster2, AnonBrewmaster1, AnonGuardian1 — because per-hit forensics
-needs a real name to re-derive against the log later). The submission
+corpus and cited in a `docs/validation/` doc with a character label
+attached that lets someone re-derive findings against the source log
+later — real, for the maintainer's own self-disclosed alts (Brutoh), or
+generic otherwise (AnonBrewmaster1/2, AnonGuardian1), per the
+anonymization policy CONTRIBUTING.md documents. The submission
 step must be an explicit, separate consent action, not an inference from
 "the link is public." Concretely: a submission form/flow states plainly
 what happens to a submitted link (used to compute K-sweep deltas and
