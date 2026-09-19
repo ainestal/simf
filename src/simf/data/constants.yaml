@@ -1944,7 +1944,7 @@ specs:
     # stale 11.0.2 value). The coeff below is the EFFECTIVE per-stack for a
     # typical M+ Killing-Strikes build (124% base × Killing Strikes +20% ≈ 1.49),
     # data-anchored to AnonGuardian1's 16-run COMBATANT_INFO armor ladder (per-stack
-    # ≈2,800 ≈ 1.4×agi at his agi, R²=0.99) + the live ~11k in-form anchor, and
+    # ≈2,800 ≈ 1.4×agi at their agi, R²=0.99) + the live ~11k in-form anchor, and
     # validated 13/16 runs within ±15% (mean |Δ| 9.2%). NOT universal — a
     # no-Killing-Strikes build is ~1.24; per-talent gating (cf. the Brewmaster
     # mitigation ledger) is the named follow-up. See
@@ -1980,7 +1980,7 @@ specs:
     #   detect_buff_spell_id = 202770 Fury of Elune — an Elune's Chosen capstone
     #       BUFF (Druid of the Claw lacks it), gated like the Brewmaster ledger.
     # HONESTY: k is UN-REGRESSABLE (AnonGuardian1's haste is gear-locked) and SINGLE-BUILD
-    # (~22% of his rage is EC Moonfire-engine a DotC build doesn't have). So this
+    # (~22% of their rage is EC Moonfire-engine a DotC build doesn't have). So this
     # is a MODELED, single-profile haste survival value — calibrated STAYS false,
     # and the UI must caption it "modeled / un-regressed / Elune's Chosen only".
     # A non-Elune's-Chosen or unknown build gets NO haste scaling (static 2.45,

@@ -46,7 +46,7 @@ simf usage-report
 
 Run `simf --help` for the full command list (`run`, `calibrate-k`, `cd-plan`,
 `analyze-log`, `replay-log`, `stat-weights`, `compare`, `import-character`,
-`rankings-refresh`, `ui`, `usage-report`).
+`fetch-gear`, `rankings-refresh`, `ui`, `usage-report`).
 
 ## Usage analytics
 
@@ -95,7 +95,7 @@ user, and that usage is real signal, not something to exclude.
 > looks stale, trust [CONTRIBUTING.md](CONTRIBUTING.md)'s Calibration section
 > over this file.
 
-- **Engine**: K=3430 (SimC DBC level-90 anchor). Prot Warrior sits at RMSE=0.080 on the ratified 16-log corpus (`characterized` tier — see below). SimC audit chain closed (F1/F4/F5/F7/F8/F11/F12/F13/F14) plus a further Shield Block/Vanguard-armor correction chain in July. Secondary-stat conversions refit to the real 12.0.7 rating→percent values + per-spec mastery scaling. ~2671 tests (pytest's collected-test count runs higher, 3002, once parametrize expansion is counted).
+- **Engine**: K=3430 (SimC DBC level-90 anchor). Prot Warrior sits at RMSE=0.080 on the ratified 16-log corpus (`characterized` tier — see below). SimC audit chain closed (F1/F4/F5/F7/F8/F11/F12/F13/F14) plus a further Shield Block/Vanguard-armor correction chain in July. Secondary-stat conversions refit to the real 12.0.7 rating→percent values + per-spec mastery scaling. 2986 tests collected via `pytest --collect-only`.
 - **Specs (0 of 6 currently flagged `calibrated: true`)**: this isn't a regression in the math — it's a harder, more honest bar. **Prot Warrior** and **Guardian Druid** each briefly held `calibrated: true` and were downgraded back to `characterized` after clearing new cross-validation gates that didn't exist when they first got the flag: Guardian fails a leave-one-out cross-validation check (2026-07-17); Warrior passes its own-corpus LOO-CV cleanly but fails a *cross-player* check — it fits its primary log donor well but misses 15 independent players by +11% mean bias (2026-07-25), a real generalization gap whose cause is still being investigated. Prot Paladin / Brewmaster / Blood DK / Vengeance DH are modeled and *characterized* but `calibrated: false` — each over- or under-predicts a known, documented amount and the UI surfaces honest caveats. **Blood DK** is closest to the bar — the only spec to pass the cross-player validation gate, now twice on two independent Season 2 corpora including both hero-talent builds — but still blocked from `calibrated` by a structural gap: F-consistency/LOO-CV require local ACL-on combat logs, which don't exist in-repo yet for either build. See `docs/calibration.md` for what these tiers mean and CONTRIBUTING.md's Calibration section for the full history.
 - **All talent-facing UI removed (2026-07-19)** — talent comparisons were Warrior-only and, per user judgment after a build-and-cut cycle, "aren't really accurate or helpful in a meaningful way." Every talent-gated engine calculation that feeds a real eHP/DR number (armor/HP/DR math, COMBATANT_INFO talent decode) stays; only the UI surfaces were cut.
 - **Try-any-item BiS**: Voidcore upgrade simulator (per-slot ΔeHP for a +N ilvl bump) + slot-dialog M+ loot section (plate + leather across all 8 dungeons), per-socket gem suggester (best survival gem by ΔeHP), track-aware vault verdict (dead-choice detection + ceiling-upgrade callout).

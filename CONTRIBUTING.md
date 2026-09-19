@@ -82,7 +82,7 @@ src/simf/
 ```bash
 make install        # create .venv, install deps (Python 3.13)
 make dev            # launch the dev app from THIS checkout at localhost:8502 (on-demand; Ctrl-C to stop)
-make test           # run pytest (~2671 tests; pytest --collect-only reports 3002 due to parametrize expansion)
+make test           # run pytest (2986 tests collected via pytest --collect-only)
 simf calibrate-k                                              # ratified 16-log corpus (default, see docs/calibration.md)
 simf calibrate-k --full-scan --logs-dir examples --k-min 3300 --k-max 3500 --k-step 25   # explore ALL of examples/ (opt-in)
 simf cd-plan <log_path>
@@ -92,7 +92,7 @@ simf cd-plan <log_path>
 
 **The live public simf.cc instance runs on separate, privately-managed infrastructure outside this repo.** Don't treat a local `/opt/simf` or `simf-public.service` (if you've set one up) as the production deploy, and don't treat simf.cc's liveness/staleness as part of local dev work — this repo is for running simf yourself locally (see Install above).
 
-## Current state (v0.13.0, 2026-08-07, ~2635 tests)
+## Current state (v0.13.0, 2026-08-07, ~2986 tests)
 
 **Phases done** (full history: `docs/CHANGELOG.md` Part 1; per-topic detail: `docs/validation/*.md`):
 - **Phase 1** (entry): SimC import (equipped + bag + vault), online gear lookup by name (Raider.IO / Blizzard), COMBATANT_INFO hydrate, shareable URLs, Brutoh demo.
