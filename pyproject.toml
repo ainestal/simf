@@ -1,0 +1,201 @@
+[project]
+name = "simf"
+version = "0.13.0"
+description = "WoW retail tank damage mitigation simulator (Mythic+, patch 12.1.0)"
+readme = "README.md"
+license = "AGPL-3.0-or-later"
+authors = [{ name = "ainestal" }]
+requires-python = ">=3.13"
+dependencies = [
+    "numpy>=2.4",
+    "pydantic>=2.13",
+    "pyyaml>=6.0.3",
+    "typer>=0.25",
+    "rich>=15.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/ainestal/simf"
+Repository = "https://github.com/ainestal/simf"
+Issues = "https://github.com/ainestal/simf/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.0.3",
+    "pytest-xdist>=3.6",
+    "pytest-cov>=6.0",
+    "ruff>=0.8",
+    "mypy>=1.13",
+    "coverage>=7.6",
+    "hypothesis>=6.115",
+    "vulture>=2.13",
+    "playwright>=1.45",
+    "deptry>=0.25",
+    "pip-audit>=2.10",
+    "diff-cover>=10.3",
+]
+ui = [
+    # Floor is >=1.64, not a stylistic choice: AppTest.session_state's public
+    # surface changed shape at 1.64 (added real .keys()/.items()/.to_dict(),
+    # dropped .filtered_state) — tests/test_wcl_url_analyze.py depends on the
+    # 1.64+ shape.
+    "streamlit>=1.64",
+    # plotly.py bundles plotly.js, which in turn bundles maplibre-gl — every
+    # plotly.py release through 7.0.0 (the latest as of 2026-09-15) ships a
+    # maplibre-gl vulnerable to CVE-2026-85061 (XSS via the map attribution
+    # control). No plotly.py release with the maplibre-gl fix exists yet
+    # (tracked upstream, unreleased) and pip-audit can't see this — it scans
+    # PyPI package advisories, not JS assets bundled inside a wheel. simf's
+    # own UI never renders scattermap/choroplethmap/densitymap traces, so
+    # this codebase doesn't exercise the vulnerable path; bump this floor
+    # past 7.0.0 once plotly.py ships the maplibre-gl fix.
+    "plotly>=6.7",
+    "pandas>=3.0",
+    "requests>=2.33.0",
+    # explicit floors on streamlit's own transitive deps — pip-audit flagged
+    # these below streamlit's loose floor as carrying known CVEs (2026-07-17)
+    "pillow>=12.3.0",
+    "python-multipart>=0.0.32",
+    "starlette>=1.3.1",
+]
+# FastAPI HTTP surface — Phase 5.1. Optional; default install only
+# carries the engine. `pip install .[api]` to add fastapi + uvicorn.
+api = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.32",
+    "httpx>=0.27",
+    "starlette>=1.3.1",  # see the `ui` extra — same pip-audit-driven floor
+]
+
+[project.scripts]
+simf = "simf.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/simf"]
+
+[tool.hatch.build.targets.wheel.shared-data]
+"src/simf/data" = "simf/data"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-n auto"
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+src = ["src"]
+extend-exclude = [".venv", "examples", "PROGRESS.md"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "UP",  # pyupgrade
+    "SIM", # flake8-simplify
+    "RUF", # ruff-specific
+    "S",   # flake8-bandit (security)
+]
+ignore = [
+    "E501",   # line length handled by formatter
+    "B008",   # function calls in default args (Typer/FastAPI pattern)
+    "RUF001", # ambiguous unicode in strings — WoW math uses × Δ α β
+    "RUF002", # ambiguous unicode in docstrings — same reason
+    "RUF003", # ambiguous unicode in comments — same reason
+    "S311",   # this IS a Monte Carlo sim — non-crypto random is correct by design, project-wide
+]
+
+[tool.ruff.lint.per-file-ignores]
+# assert/mock-secret/subprocess noise inherent to pytest style
+"tests/*" = ["S101", "S104", "S106", "S603", "S607"]
+# internal maintainer-only CLI tooling — no untrusted input crosses these scripts
+"scripts/*" = ["S110", "S112", "S310", "S603", "S607"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.mypy]
+python_version = "3.13"
+files = ["src/simf/core", "src/simf/io", "src/simf/optimizer"]
+# Lenient pass (check_untyped_defs off) but a BLOCKING gate in CI and
+# `make check` — a new type error in core/io/optimizer fails the build.
+# Tighten the leniency file-by-file over time. UI excluded — under review.
+ignore_missing_imports = true
+check_untyped_defs = false
+warn_return_any = false
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_no_return = true
+strict_equality = true
+no_implicit_optional = true
+
+[tool.coverage.run]
+source = ["src/simf"]
+omit = [
+    "src/simf/ui/*",     # UI under review — skip from coverage targets
+    "src/simf/cli.py",   # thin CLI wrapper
+    "src/simf/reports/*",
+]
+parallel = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "raise NotImplementedError",
+    "if TYPE_CHECKING:",
+    "if __name__ == .__main__.:",
+]
+show_missing = true
+precision = 1
+
+[tool.coverage.html]
+directory = ".coverage_html"
+
+[tool.vulture]
+paths = ["src/simf/core", "src/simf/io", "src/simf/optimizer"]
+min_confidence = 80
+exclude = ["src/simf/ui/"]
+
+[tool.deptry]
+# tests/ carries real imports of several dev deps (hypothesis, playwright) —
+# don't let deptry's default exclude list (which drops tests/) hide them.
+exclude = [".venv", "\\.git", "examples"]
+
+[tool.deptry.per_rule_ignores]
+# local sibling-script import via sys.path.insert, not a pip package
+DEP001 = ["measure_run_f", "full_chain_wedge"]
+# ruff/mypy/vulture/deptry/pytest-xdist/pytest-cov/coverage: CLI/plugin-
+# mechanism tools invoked via subprocess, pytest entry points, or `make`
+# targets — never `import`ed by name, so deptry can't see the real use.
+# uvicorn/httpx: the Phase 5.1 FastAPI surface's runtime + test-client deps
+# (see the `api` extra above) — not wired into default installs yet, not dead.
+# pillow/python-multipart/starlette: explicit pip-audit-driven CVE floors on
+# streamlit's/fastapi's OWN transitive deps — simf's code never imports them
+# directly, they're pinned purely to force a patched version at install time.
+DEP002 = [
+    "ruff",
+    "mypy",
+    "vulture",
+    "deptry",
+    "pip-audit",
+    "diff-cover",
+    "pytest-xdist",
+    "pytest-cov",
+    "coverage",
+    "uvicorn",
+    "httpx",
+    "pillow",
+    "python-multipart",
+    "starlette",
+]
+# known deptry limitation: absolute self-imports in a src-layout project read
+# as a "transitive dependency" (fpgmaas/deptry#1061) — this IS simf itself
+DEP003 = ["simf"]

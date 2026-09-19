@@ -1,0 +1,543 @@
+# M+ dungeon loot — items the user can chase. Powers the "From M+ dungeons"
+# section of the slot dialog: when the user opens a slot, simf lists any
+# items dropped by their prog-filtered dungeons as additional alternatives
+# alongside their bag + vault picks. Each item rides through the same
+# stat-resolution path (Wowhead by id) and the same ΔeHP scorer, so the
+# row reads exactly like a bag/vault alternative — just with an "m+ <DUN>"
+# source label.
+#
+# Schema:
+#   dungeons:
+#     <dungeon_id>:
+#       items:
+#         - id: <int>           # Wowhead / Blizzard item id
+#           name: <str>         # display name
+#           slot: <str>         # ItemSpec.slot key (head/chest/.../trinket1/main_hand)
+#           ilvl: <int>         # Midnight 12.0.5 base drop floor at M+ +2 (250). Matches the
+#                               # raid-Normal convention in trinkets.yaml. Per-key ilvl bumps
+#                               # (+6 end-of-run = 259, +10 cap = 266, vault = 272) and Voidcore
+#                               # / Ascendant Voidcore upgrades scale on top of this baseline via
+#                               # ``character_ilvl / base_ilvl`` — the Voidcore upgrade panel and
+#                               # Wowhead's bonus_id-aware stats lookup handle that separately.
+#           drop: <str>         # boss/encounter (free-form, shown in tooltip-style detail)
+#           # Optional:
+#           # bonus_ids: [int]  # if a non-base bonus list is needed for Wowhead
+#
+# Maintenance: when the season ilvl baseline shifts, the `ilvl` field is
+# advisory (the actual stat scaling comes from Wowhead). When loot tables
+# change between hotfixes, edit this file and bump `last_updated`.
+#
+# Coverage today:
+#   * Trinkets — sourced from data/trinkets.yaml entries that already name an
+#     "M+ Dungeon" drop. 6 of 8 dungeons covered (Maisara Caverns and
+#     Nexus-Point Xenas have no M+ trinket in the trinkets.yaml seed).
+#   * Plate slots (head / chest / shoulder / hands / legs / waist / wrist /
+#     feet) — populated for all 8 dungeons from conquestcapped.com's M+ gear
+#     guide, spot-checked against Wowhead's item-XML endpoint.
+#   * Leather slots (head / shoulder / chest / hands / wrist / waist / legs /
+#     feet) — populated 2026-05-23 from the same conquestcapped table for the
+#     non-plate tank specs (Guardian Druid, Brewmaster Monk, Vengeance DH).
+#     25 items across all 8 dungeons; per-slot coverage mirrors what plate
+#     gets (no dungeon drops every slot — that's the source-of-truth state).
+#   * Universal slots (neck / finger / back / main_hand / off_hand) —
+#     populated for the dungeons that drop them. ``finger1`` is the
+#     canonical key per ``alternatives.equivalent_slots``; the slot dialog
+#     surfaces these on both ``finger1`` and ``finger2`` clicks. Same for
+#     ``trinket1`` / ``trinket2``.
+#   * Mail / cloth — intentionally NOT covered. No tank spec wears either
+#     armor class in Midnight 12.0.5: Shamans/Hunters/Evokers (mail) and
+#     Priests/Mages/Warlocks (cloth) have no tank specs. The CONTRIBUTING.md
+#     priority list groups these under "mail/leather/cloth" but tank
+#     survivability only needs leather expansion.
+#
+# Sources:
+#   * Item IDs + names + slot mapping:
+#     https://conquestcapped.com/guides/wow/mythic-plus-gear/ (2026-05).
+#     This is the only aggregated M+ gear table that survived a WebFetch
+#     scrape from the Pi — Wowhead's per-dungeon pages are JS-rendered and
+#     return navigation chrome instead of loot tables.
+#   * Trinket entries: ../trinkets.yaml (already curated for survivability).
+
+last_updated: 2026-05-23
+patch: "12.0.5"
+notes: |
+  ilvls reflect the Midnight 12.0.5 M+ +2 drop floor (250), matching the
+  Normal-difficulty baseline convention in trinkets.yaml. Per-key ilvl
+  bumps + Voidcore / Ascendant Voidcore upgrades scale on top of this
+  baseline; the Voidcore upgrade panel and the character-ilvl ratio in
+  trinket_db.effective_stat_delta handle the scaling separately. Plate,
+  leather, and universal-slot (neck / finger / back / main-hand /
+  off-hand) coverage is comprehensive across the 8 dungeons. Mail and
+  cloth are intentionally not covered — neither has a tank spec in
+  Midnight 12.0.5, so adding them would be pure noise for the
+  survivability use case.
+
+dungeons:
+  windrunner_spire:
+    items:
+      # Trinkets (from trinkets.yaml)
+      - id: 250256
+        name: "Heart of Wind"
+        slot: trinket1
+        ilvl: 250
+        drop: "Restless Heart"
+      - id: 250144
+        name: "Emberwing Feather"
+        slot: trinket1
+        ilvl: 250
+        drop: "Emberdawn"
+      # Plate
+      - id: 251098
+        name: "Fletcher's Faded Faceplate"
+        slot: head
+        ilvl: 250
+        drop: "Restless Heart"
+      - id: 251091
+        name: "Sabatons of Furious Revenge"
+        slot: feet
+        ilvl: 250
+        drop: "Windrunner Spire"
+      - id: 251086
+        name: "Riphook Defender"
+        slot: waist
+        ilvl: 250
+        drop: "Windrunner Spire"
+      - id: 251081
+        name: "Embergrove Grasps"
+        slot: hands
+        ilvl: 250
+        drop: "Windrunner Spire"
+      # Leather
+      - id: 251092
+        name: "Fallen Grunt's Mantle"
+        slot: shoulder
+        ilvl: 250
+        drop: "Windrunner Spire"
+      - id: 251082
+        name: "Snapvine Cinch"
+        slot: waist
+        ilvl: 250
+        drop: "Windrunner Spire"
+      - id: 251087
+        name: "Legwraps of Lingering Legacies"
+        slot: legs
+        ilvl: 250
+        drop: "Windrunner Spire"
+      # Universal slots
+      - id: 251096
+        name: "Pendant of Aching Grief"
+        slot: neck
+        ilvl: 250
+        drop: "Windrunner Spire"
+      - id: 251088
+        name: "Warworn Cleaver"
+        slot: main_hand
+        ilvl: 250
+        drop: "Windrunner Spire"
+
+  nexus_point_xenas:
+    items:
+      # Plate
+      - id: 251157
+        name: "Searing Spaulders"
+        slot: shoulder
+        ilvl: 250
+        drop: "Nexus-Point Xenas"
+      - id: 251208
+        name: "Lightscarred Cuisses"
+        slot: legs
+        ilvl: 250
+        drop: "Nexus-Point Xenas"
+      - id: 251203
+        name: "Kasreth's Bindings"
+        slot: wrist
+        ilvl: 250
+        drop: "Nexus-Point Xenas"
+      # Leather
+      - id: 251204
+        name: "Corewright's Zappers"
+        slot: hands
+        ilvl: 250
+        drop: "Nexus-Point Xenas"
+      - id: 251205
+        name: "Leyline Leggings"
+        slot: legs
+        ilvl: 250
+        drop: "Nexus-Point Xenas"
+      - id: 251210
+        name: "Eclipse Espadrilles"
+        slot: feet
+        ilvl: 250
+        drop: "Nexus-Point Xenas"
+      # Universal slots
+      - id: 251217
+        name: "Occlusion of Void"
+        slot: finger1
+        ilvl: 250
+        drop: "Nexus-Point Xenas"
+      - id: 251093
+        name: "Omission of Light"
+        slot: finger1
+        ilvl: 250
+        drop: "Nexus-Point Xenas"
+
+  algeth_ar_academy:
+    items:
+      # Trinkets
+      - id: 193701
+        name: "Algeth'ar Puzzle Box"
+        slot: trinket1
+        ilvl: 250
+        drop: "Echo of Doragosa"
+      # Plate
+      - id: 193705
+        name: "Breastplate of Proven Knowledge"
+        slot: chest
+        ilvl: 250
+        drop: "Algeth'ar Academy"
+      - id: 193706
+        name: "Venerated Professor's Greaves"
+        slot: legs
+        ilvl: 250
+        drop: "Algeth'ar Academy"
+      # Leather
+      - id: 193714
+        name: "Frenzyroot Cuffs"
+        slot: wrist
+        ilvl: 250
+        drop: "Algeth'ar Academy"
+      # Universal slots
+      - id: 193708
+        name: "Platinum Star Band"
+        slot: finger1
+        ilvl: 250
+        drop: "Algeth'ar Academy"
+      - id: 193712
+        name: "Potion-Stained Cloak"
+        slot: back
+        ilvl: 250
+        drop: "Algeth'ar Academy"
+      - id: 193711
+        name: "Spellbane Cutlass"
+        slot: main_hand
+        ilvl: 250
+        drop: "Algeth'ar Academy"
+
+  pit_of_saron:
+    items:
+      # Trinkets
+      - id: 252421
+        name: "Rotting Globule"
+        slot: trinket1
+        ilvl: 250
+        drop: "Ick"
+      # Plate — legacy item ids re-used by the Midnight M+ rotation.
+      - id: 49819
+        name: "Skeleton Lord's Cranium"
+        slot: head
+        ilvl: 250
+        drop: "Scourgelord Tyrannus"
+      - id: 50234
+        name: "Shoulderplates of Frozen Blood"
+        slot: shoulder
+        ilvl: 250
+        drop: "Pit of Saron"
+      - id: 50272
+        name: "Frost Wyrm Ribcage"
+        slot: chest
+        ilvl: 250
+        drop: "Pit of Saron"
+      - id: 49808
+        name: "Bent Gold Belt"
+        slot: waist
+        ilvl: 250
+        drop: "Pit of Saron"
+      # Leather — legacy Wrath ids
+      - id: 50264
+        name: "Chewed Leather Wristguards"
+        slot: wrist
+        ilvl: 250
+        drop: "Pit of Saron"
+      - id: 49817
+        name: "Shaggy Wyrmleather Leggings"
+        slot: legs
+        ilvl: 250
+        drop: "Pit of Saron"
+      # Universal slots — legacy Wrath ids
+      - id: 50228
+        name: "Barbed Ymirheim Choker"
+        slot: neck
+        ilvl: 250
+        drop: "Pit of Saron"
+      - id: 49812
+        name: "Purloined Wedding Ring"
+        slot: finger1
+        ilvl: 250
+        drop: "Pit of Saron"
+      - id: 49823
+        name: "Cloak of the Fallen Cardinal"
+        slot: back
+        ilvl: 250
+        drop: "Pit of Saron"
+
+  skyreach:
+    items:
+      # Trinkets
+      - id: 252418
+        name: "Solar Core Igniter"
+        slot: trinket1
+        ilvl: 250
+        drop: "Araknath"
+      - id: 252420
+        name: "Solarflare Prism"
+        slot: trinket1
+        ilvl: 250
+        drop: "High Sage Viryx"
+      # Plate
+      - id: 258579
+        name: "Gutcrusher Greathelm"
+        slot: head
+        ilvl: 250
+        drop: "Skyreach"
+      - id: 258587
+        name: "Spaulders of Scorching Ray"
+        slot: shoulder
+        ilvl: 250
+        drop: "Skyreach"
+      - id: 258583
+        name: "Incarnadine Gauntlets"
+        slot: hands
+        ilvl: 250
+        drop: "Skyreach"
+      # Leather
+      - id: 258581
+        name: "Bloodfeather Mantle"
+        slot: shoulder
+        ilvl: 250
+        drop: "Skyreach"
+      - id: 258586
+        name: "Bloodfeather Chestguard"
+        slot: chest
+        ilvl: 250
+        drop: "Skyreach"
+      - id: 258577
+        name: "Boots of Burning Focus"
+        slot: feet
+        ilvl: 250
+        drop: "Skyreach"
+      # Universal slots
+      - id: 258575
+        name: "Rigid Scale Greatcloak"
+        slot: back
+        ilvl: 250
+        drop: "Skyreach"
+      - id: 110034
+        name: "Viryx's Indomitable Bulwark"
+        slot: off_hand
+        ilvl: 250
+        drop: "Skyreach"
+
+  seat_of_the_triumvirate:
+    items:
+      # Trinkets
+      - id: 151307
+        name: "Void Stalker's Contract"
+        slot: trinket1
+        ilvl: 250
+        drop: "Saprish"
+      - id: 151312
+        name: "Ampoule of Pure Void"
+        slot: trinket1
+        ilvl: 250
+        drop: "Zuraal the Ascended"
+      # Plate — legacy Legion ids re-used by the Midnight M+ rotation.
+      - id: 151333
+        name: "Crown of the Dark Envoy"
+        slot: head
+        ilvl: 250
+        drop: "Seat of the Triumvirate"
+      - id: 151331
+        name: "Pauldrons of the Broken"
+        slot: shoulder
+        ilvl: 250
+        drop: "Seat of the Triumvirate"
+      - id: 151329
+        name: "Breastplate of the Dark Touch"
+        slot: chest
+        ilvl: 250
+        drop: "Seat of the Triumvirate"
+      - id: 151332
+        name: "Voidclaw Gauntlets"
+        slot: hands
+        ilvl: 250
+        drop: "Seat of the Triumvirate"
+      - id: 151327
+        name: "Girdle of the Shadowguard"
+        slot: waist
+        ilvl: 250
+        drop: "Seat of the Triumvirate"
+      - id: 151330
+        name: "Trap Jammers"
+        slot: feet
+        ilvl: 250
+        drop: "Seat of the Triumvirate"
+      # Leather — legacy Legion ids
+      - id: 151336
+        name: "Voidlashed Hood"
+        slot: head
+        ilvl: 250
+        drop: "Seat of the Triumvirate"
+      - id: 151315
+        name: "Bracers of Dark Binding"
+        slot: wrist
+        ilvl: 250
+        drop: "Seat of the Triumvirate"
+      - id: 151318
+        name: "Gloves of the Dark Shroud"
+        slot: hands
+        ilvl: 250
+        drop: "Seat of the Triumvirate"
+      - id: 151316
+        name: "Cinch of the Umbral Lasher"
+        slot: waist
+        ilvl: 250
+        drop: "Seat of the Triumvirate"
+      - id: 151314
+        name: "Shifting Stalker Hide Pants"
+        slot: legs
+        ilvl: 250
+        drop: "Seat of the Triumvirate"
+      - id: 151317
+        name: "Footpads of Seeping Dread"
+        slot: feet
+        ilvl: 250
+        drop: "Seat of the Triumvirate"
+      # Universal slots — legacy Legion ids
+      - id: 151309
+        name: "Necklace of the Twisting Void"
+        slot: neck
+        ilvl: 250
+        drop: "Seat of the Triumvirate"
+      - id: 151308
+        name: "Eredath Seal of Nobility"
+        slot: finger1
+        ilvl: 250
+        drop: "Seat of the Triumvirate"
+      - id: 151311
+        name: "Band of the Triumvirate"
+        slot: finger1
+        ilvl: 250
+        drop: "Seat of the Triumvirate"
+      - id: 258525
+        name: "Scepter of the Endless Night"
+        slot: main_hand
+        ilvl: 250
+        drop: "Seat of the Triumvirate"
+
+  maisara_caverns:
+    items:
+      # Plate
+      - id: 251164
+        name: "Amalgamation's Harness"
+        slot: shoulder
+        ilvl: 250
+        drop: "Maisara Caverns"
+      - id: 263193
+        name: "Trollhunter's Bands"
+        slot: wrist
+        ilvl: 250
+        drop: "Maisara Caverns"
+      - id: 251169
+        name: "Footwraps of Ill-Fate"
+        slot: feet
+        ilvl: 250
+        drop: "Maisara Caverns"
+      # Leather
+      - id: 251177
+        name: "Fetid Vilecrown"
+        slot: head
+        ilvl: 250
+        drop: "Maisara Caverns"
+      - id: 251171
+        name: "Enthralled Bonespines"
+        slot: shoulder
+        ilvl: 250
+        drop: "Maisara Caverns"
+      - id: 251166
+        name: "Falconer's Cinch"
+        slot: waist
+        ilvl: 250
+        drop: "Maisara Caverns"
+      # Universal slots
+      - id: 251161
+        name: "Soulhunter's Mask"
+        slot: back
+        ilvl: 250
+        drop: "Maisara Caverns"
+
+  magisters_terrace:
+    items:
+      # Trinkets
+      - id: 250242
+        name: "Jelly Replicator"
+        slot: trinket1
+        ilvl: 250
+        drop: "Gemellus"
+      # Plate
+      - id: 251101
+        name: "Arcane Guardian's Shell"
+        slot: chest
+        ilvl: 250
+        drop: "Magisters' Terrace"
+      - id: 251112
+        name: "Shadowsplit Girdle"
+        slot: waist
+        ilvl: 250
+        drop: "Magisters' Terrace"
+      - id: 251118
+        name: "Legplates of Lingering Dusk"
+        slot: legs
+        ilvl: 250
+        drop: "Magisters' Terrace"
+      - id: 251107
+        name: "Oathsworn Stompers"
+        slot: feet
+        ilvl: 250
+        drop: "Magisters' Terrace"
+      # Leather
+      - id: 251109
+        name: "Spellsnap Shadowmask"
+        slot: head
+        ilvl: 250
+        drop: "Magisters' Terrace"
+      - id: 251103
+        name: "Custodial Cuffs"
+        slot: wrist
+        ilvl: 250
+        drop: "Magisters' Terrace"
+      - id: 251113
+        name: "Gloves of Viscous Goo"
+        slot: hands
+        ilvl: 250
+        drop: "Magisters' Terrace"
+      - id: 251121
+        name: "Domanaar's Dire Treads"
+        slot: feet
+        ilvl: 250
+        drop: "Magisters' Terrace"
+      # Universal slots
+      - id: 251115
+        name: "Bifurcation Band"
+        slot: finger1
+        ilvl: 250
+        drop: "Magisters' Terrace"
+      - id: 260312
+        name: "Defiant Defender's Drape"
+        slot: back
+        ilvl: 250
+        drop: "Magisters' Terrace"
+      - id: 251100
+        name: "Malfeasance Mallet"
+        slot: main_hand
+        ilvl: 250
+        drop: "Magisters' Terrace"

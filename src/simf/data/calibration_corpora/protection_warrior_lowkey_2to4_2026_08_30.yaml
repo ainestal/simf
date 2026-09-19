@@ -1,0 +1,91 @@
+# protection_warrior — low-key (+2 to +5) follow-up cross-player check
+# (2026-08-30), a scoped follow-up to the same-day S2 cross-spec check
+# (docs/validation/s2_cross_spec_keylevel_check_2026_08_30.md), which found
+# a -27.9% mean bias at key level 2 (n=3, 1 dungeon: Voidscar Arena x2) --
+# a key range neither that check nor the 2026-07-25 cross-player corpus
+# ever sampled (both floored at key 6).
+#
+# MEASUREMENT ONLY -- no engine/constants change. Discovered via
+# reportData.reports(zoneID: 55) (see wcl_public_report_discovery_technique
+# memory doc), confirmed gear-certain via CombatantInfo (character_from_wcl).
+#
+# Overlaps with protection_warrior_s2_keylevel_2026_08_30.yaml's
+# target_key_level: 2 bucket: Player 1, Player 2, Player 3 (all 3 reused
+# verbatim here, same fight -- this manifest EXTENDS that
+# bucket rather than replacing it).
+#
+# Deltas measured at canonical K=3430, iterations=50, seed=42,
+# healing_profile=m+_high_key_healer, via scripts/cross_player_validation.py.
+#
+# RESULT (n=8): mean bias -19.0%, RMSE 0.306, 0% within +/-15% -- gate FAILS
+# (this is expected/by design: MEASUREMENT ONLY, no gate is being sought here).
+# Per-actual-key-level: kl2 (n=6) mean -12.8%, RMSE 0.278, range [-27.8%,+41.7%]
+# across 4 distinct dungeons (Kings' Rest, Temple of Sethraliss, The Blinding
+# Vale, Voidscar Arena x3); kl3 (n=1, Player 2) -34.7%; kl4 (n=1, Player 4) -40.5%.
+# No key-level-5 fight was found in this pass (a WCL reportData.reports server-
+# side page cap of 25 was hit before kl5 was reached, NOT a search-budget
+# failure at kl2-4 -- see the accompanying validation writeup).
+# Per-fight deltas: Player 5 +41.7, Player 6 -25.6, Player 7 -26.8, Player 1 -21.3,
+# Player 3 -27.8, Player 8 -17.1, Player 2 -34.7, Player 4 -40.5.
+#
+# VERDICT: expanding kl2 from n=3 (2/3 in one dungeon) to n=6 (4 distinct
+# dungeons) roughly HALVES the magnitude (-27.9% -> -12.8%) and introduces a
+# large positive outlier (Player 5 +41.7%) the original sample never saw --
+# reads as the original -27.9% being substantially a small-n/single-dungeon
+# artifact. The larger kl2 mean now sits close to the same check's kl8
+# (-10.9%) and kl12 (-11.5%) buckets, consistent with ONE continuous bias-
+# vs-key-level curve rather than a separate low-key crater. But kl3/kl4
+# (n=1 each, -34.7%/-40.5%) are BOTH more negative than the improved kl2
+# mean -- inconsistent with a clean monotonic climb, and NOT distinguishable
+# from single-pull noise at n=1. Open question, not settled -- see
+# docs/validation/s2_calibration_followups_2026_08_30.md for the full
+# writeup and the recommended follow-up (a larger, time-windowed discovery
+# pass targeting >=3 fights each at kl3/4/5 across more dungeons).
+
+spec: protection_warrior
+k_constant: 3430
+iterations: 50
+
+fights:
+  # --- key_level: 2 ---
+  - player: "Player 5"
+    dungeon: "Kings' Rest"
+    key_level: 2
+    acl: true
+
+  - player: "Player 6"
+    dungeon: "Temple of Sethraliss"
+    key_level: 2
+    acl: true
+
+  - player: "Player 7"
+    dungeon: "The Blinding Vale"
+    key_level: 2
+    acl: true
+
+  - player: "Player 1"
+    dungeon: "Voidscar Arena"
+    key_level: 2
+    acl: true
+
+  - player: "Player 3"
+    dungeon: "Voidscar Arena"
+    key_level: 2
+    acl: true
+
+  - player: "Player 8"
+    dungeon: "Voidscar Arena"
+    key_level: 2
+    acl: true
+
+  # --- key_level: 3 ---
+  - player: "Player 2"
+    dungeon: "Kings' Rest"
+    key_level: 3
+    acl: true
+
+  # --- key_level: 4 ---
+  - player: "Player 4"
+    dungeon: "Kings' Rest"
+    key_level: 4
+    acl: true

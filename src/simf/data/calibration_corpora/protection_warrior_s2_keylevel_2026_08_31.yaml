@@ -1,0 +1,167 @@
+
+# protection_warrior — Season 2 (zone 55) cross-player accuracy spot-check,
+# ROUND 2 (2026-08-31), independent follow-up to round 1
+# (docs/validation/s2_cross_spec_keylevel_check_2026_08_30.md, manifest
+# protection_warrior_s2_keylevel_2026_08_30.yaml + the lowkey 2-4 follow-up
+# protection_warrior_lowkey_2to4_2026_08_30.yaml).
+#
+# NOT a ratified calibration manifest. Same methodology as round 1: 4 buckets
+# targeting key levels 2, 8, 12, 16 (3 fights each, 12 total), discovered via
+# reportData.reports(zoneID: 55) (the global recent-public-reports feed that
+# does not redact codes) and confirmed gear-certain via CombatantInfo
+# (character_from_wcl).
+#
+# DISCOVERY METHOD (deliberately different from round 1's windowless
+# page-based scan, to reach genuinely NEW reports and route around the
+# page<=25 hard cap from the start): time-windowed
+# reportData.reports(zoneID, page, startTime, endTime) queries, walking
+# backward from "now" (2026-08-31) in 6-hour windows. Every (report_code,
+# fight_id) already present in EITHER round-1 manifest was excluded up
+# front (17 keys total) so no fight below is a duplicate of round 1.
+#
+# RESULT: all 12 fights below come from a SINGLE 6-hour window
+# (2026-08-31 00:38-06:38 UTC, 384 reports scanned) — every target bucket
+# was satisfied (>=3 fights, >=2 distinct dungeons) without needing to walk
+# further back, i.e. one day of fresh S2 play already had enough volume.
+# This is genuinely fresh discovery, not reuse: 0 of these 12 fights overlap
+# either round-1 manifest, and 0 reuse was needed for any bucket.
+#
+# Two candidates were deliberately discarded during selection:
+#  1. A kl=10 fight (player "Player 1") whose WCL
+#     fight `name` came back as "Zul'jan / The Writhing Coil / ..." — not one
+#     of the 8 real Season 2 dungeons (Altar of Fangs / Murder Row / Den of
+#     Nalorakk / The Blinding Vale / Voidscar Arena / Ruby Life Pools /
+#     Temple of Sethraliss / King's Rest, per src/simf/data/dungeons.yaml's
+#     now-promoted Season 2 catalog). Read as a malformed/composite WCL
+#     pull-name artifact, not a real dungeon; excluded rather than risk
+#     mislabeling a fight.
+#  2. The original target_key_level=16 pick for the Murder Row slot, player
+#     "Player 2" (fight kl=16 exact) — hydrate
+#     failed with `ValueError: versatility_rating must be >= 0, got -62` from
+#     Character.from_dict's own sanity check. A real WCL COMBATANT_INFO
+#     data-quality problem for this specific player/fight (this project's
+#     stat parsing, not a manifest error) — swapped for the next-best
+#     candidate (Player 3, Den of Nalorakk, kl15) rather than force a fight
+#     the pipeline itself refuses to hydrate. Flagged for calibration-tooling
+#     awareness, not fixed here (measurement-only task).
+#
+# All 8 real S2 dungeons appear somewhere across round 1 + round 2 combined
+# once this manifest is added.
+#
+# Widening convention matches round 1: target 2 accepts key_level in {1,2,3}
+# (no lower key exists); targets 8/12/16 accept target +/-2, nearest-target
+# assignment, exact match preferred when a bucket has a choice. The kl8
+# bucket found NO exact key-8 Warrior fight in the scanned window (6
+# candidates, all kl=10, i.e. the top of the allowed +/-2 range) — flagged
+# as a real gap, not a search shortcut: the full window was exhausted before
+# reaching PER_BUCKET_BUFFER via widened matches only.
+#
+# Deltas measured at canonical K=3430, iterations=50, seed=42,
+# healing_profile=m+_high_key_healer, via scripts/cross_player_validation.py
+# (same tool + gate as every prior cross-player check).
+#
+# RESULT (n=12): mean bias -8.4%, RMSE 0.186, 41.7% within +/-15% -- gate
+# FAILS (mean|bias| bar is <=8%; misses by 0.4pp; within-15% bar is >=70%,
+# misses badly). Per-bucket: kl2 mean -18.8% (n=3, RMSE 0.204, 3 dungeons);
+# kl8-target (actual kl=10, no exact-8 fight found) mean -2.3% (n=3, RMSE
+# 0.191, 3 dungeons, high spread: +19.2/+0.9/-26.9); kl12 mean -13.5% (n=3,
+# RMSE 0.221, 3 dungeons); kl16-target mean +0.9% (n=3, RMSE 0.107, 3
+# dungeons). Per-fight deltas: Player 4 -15.0, Player 5 -30.0, Player 6
+# -11.3, Player 7 +19.2, Player 8 +0.9, Player 9 -26.9, Player 10 -22.0,
+# Player 11 -29.4, Player 12 +10.9, Player 13 -7.1, Player 3 -6.1, Player 14 +15.9.
+# Full narrative comparing to round 1: see the task's final report.
+
+spec: protection_warrior
+k_constant: 3430
+iterations: 50
+
+fights:
+  # --- target_key_level: 2 ---
+  - player: "Player 4"
+    dungeon: "Murder Row"
+    key_level: 2
+    target_key_level: 2
+    exact_match: true
+    acl: true
+
+  - player: "Player 5"
+    dungeon: "Den of Nalorakk"
+    key_level: 2
+    target_key_level: 2
+    exact_match: true
+    acl: true
+
+  - player: "Player 6"
+    dungeon: "Ruby Life Pools"
+    key_level: 2
+    target_key_level: 2
+    exact_match: true
+    acl: true
+
+  # --- target_key_level: 8 (no exact-8 Warrior fight found in the scanned
+  # window; all 6 candidates were kl=10, the top edge of the +/-2 widening
+  # rule -- picked the 3 most dungeon-diverse) ---
+  - player: "Player 7"
+    dungeon: "Altar of Fangs"
+    key_level: 10
+    target_key_level: 8
+    exact_match: false
+    acl: true
+
+  - player: "Player 8"
+    dungeon: "The Blinding Vale"
+    key_level: 10
+    target_key_level: 8
+    exact_match: false
+    acl: true
+
+  - player: "Player 9"
+    dungeon: "Temple of Sethraliss"
+    key_level: 10
+    target_key_level: 8
+    exact_match: false
+    acl: true
+
+  # --- target_key_level: 12 ---
+  - player: "Player 10"
+    dungeon: "Den of Nalorakk"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+
+  - player: "Player 11"
+    dungeon: "The Blinding Vale"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+
+  - player: "Player 12"
+    dungeon: "Altar of Fangs"
+    key_level: 11
+    target_key_level: 12
+    exact_match: false
+    acl: true
+
+  # --- target_key_level: 16 ---
+  - player: "Player 13"
+    dungeon: "Temple of Sethraliss"
+    key_level: 16
+    target_key_level: 16
+    exact_match: true
+    acl: true
+
+  - player: "Player 3"
+    dungeon: "Den of Nalorakk"
+    key_level: 15
+    target_key_level: 16
+    exact_match: false
+    acl: true
+
+  - player: "Player 14"
+    dungeon: "The Blinding Vale"
+    key_level: 17
+    target_key_level: 16
+    exact_match: false
+    acl: true

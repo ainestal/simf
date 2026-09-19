@@ -1,0 +1,168 @@
+# vengeance_demon_hunter — Season 2 (zone 55) cross-player accuracy spot-check,
+# ROUND 2 (2026-08-31). Independent follow-up to
+# docs/validation/s2_cross_spec_keylevel_check_2026_08_30.md's VDH bucket
+# (vengeance_demon_hunter_s2_keylevel_2026_08_30.yaml) and the same-day
+# 4/6/8 gap-fill sweep (vengeance_demon_hunter_keylevel_4_6_8_sweep_2026_08_30.yaml).
+#
+# METHODOLOGY NOTE -- THIS RUN WAS SEVERELY RATE-LIMITED, READ BEFORE USING:
+# Discovery used the same reportData.reports(zoneID: 55) global feed as round
+# 1. Early in the scan (page 1 of a windowless pass, ~08:06 BST) the shared
+# WCL API token started returning HTTP 429 with a `retry-after` header that
+# counted down from ~1818s to a fixed wall-clock reset (~08:37 BST,
+# independently confirmed via direct out-of-band probes against
+# `rateLimitData`, unaffected by continued light polling) -- consistent with
+# 6 concurrent `calibration-scientist` sibling agents (one per tank spec)
+# all hammering the same token for this same day's round-2 batch. Discovery
+# was cut short before the lockout cleared. Consequently:
+#   - Only 6 FRESH gear-certain VDH fights were found before the wall hit,
+#     covering target_key_level 8 (4 fights, all widened -- no exact kl=8
+#     fight was reached before the scan was cut off) and target_key_level 12
+#     (2 fights, 1 exact + 1 widened). Zero fresh fights were found for
+#     target_key_level 2 or 16 before the lockout.
+#   - kl2 (n=2) and kl16 (n=3) below are 100% REUSED from round 1
+#     (`reused_from_2026_08_30: true` on every entry in those two buckets) --
+#     literally the same fights, same report codes, as round 1's own kl2/kl16
+#     buckets. Their numbers in this run are a REPLAY of round 1, not an
+#     independent re-measurement -- treat them as confirmatory-at-best, not
+#     new evidence. kl2 also could not be brought up to n=3: round 1's own
+#     manifest only ever had 2 kl2 fights (both Altar of Fangs -- the
+#     single-dungeon confound round 1 already flagged), and this round found
+#     no third kl2 candidate before being cut off.
+#   - kl12's third fight (Player 8) is also reused from round 1 for the
+#     same reason (only 2 fresh kl12 fights were found in time).
+#   - kl8 is the only bucket with a fresh-majority (4/4 fresh, picked for
+#     3 distinct dungeons: The Blinding Vale, Ruby Life Pools, Temple of
+#     Sethraliss -- Player 5 is a 4th fresh fight, also Blinding Vale,
+#     kept as a disclosed extra rather than dropped).
+#
+# VALIDATION RUN STATUS: COMPLETE (re-run after the initial attempt crashed
+# on a WCL 429 under the active rate-limit lockout -- root cause was
+# wcl_api.fetch_buff_windows() and wcl_api.fetch_player_details() both never
+# threading cache_dir through to _gql, unlike their sibling WCL-fetch
+# functions, so they always hit the live network regardless of
+# --wcl-cache-dir. Both fixed in this same change -- see
+# docs/validation/s2_cross_spec_keylevel_check_round2_2026_08_31.md for the
+# full incident writeup.)
+#
+# RESULT (n=12, K=3430, iterations=50, seed=42, healing_profile=
+# m+_high_key_healer, via scripts/cross_player_validation.py): mean bias
+# +30.4%, RMSE 0.364, 17% within +/-15% -- GATE FAIL. Nearly identical to
+# round 1 (+30.7%/0.367/18%) -- a strong reproducibility signal that the
+# magic-DR residual's magnitude is stable, not sampling noise, though this
+# round's kl2/kl16 buckets are partially reused from round 1 (see discovery
+# notes above), so they aren't fully independent confirmation. Per-fight
+# deltas: AnonPlayerX7 -0.5%, Player 1 -12.6%, Player 2 +31.7%, Player 3 +44.8%,
+# Player 4 +15.5%, Player 5 +55.4%, Player 6 +37.5%, Player 7
+# +43.3%, Player 8 +25.1%, Player 9 +36.3%, Player 10 +55.9%, Player 11
+# +32.5%.
+#
+# Widening convention matches round 1: target 8/12/16 accept +/-2,
+# nearest-target assignment preferred, exact match preferred when available.
+#
+# Reproduce: python scripts/cross_player_validation.py \
+#   --manifest <this file> --wcl-cache-dir examples/wcl_cache
+
+spec: vengeance_demon_hunter
+k_constant: 3430
+iterations: 50
+
+fights:
+  # --- target_key_level: 2 (100% reused from round 1 -- see note above) ---
+  - player: "AnonPlayerX7"
+    dungeon: "Altar of Fangs"
+    key_level: 2
+    target_key_level: 2
+    exact_match: true
+    acl: true
+    reused_from_2026_08_30: true
+
+  - player: "Player 1"
+    dungeon: "Altar of Fangs"
+    key_level: 2
+    target_key_level: 2
+    exact_match: true
+    acl: true
+    reused_from_2026_08_30: true
+
+  # --- target_key_level: 8 (fresh -- discovered this round, pre-lockout) ---
+  - player: "Player 2"
+    dungeon: "The Blinding Vale"
+    key_level: 10
+    target_key_level: 8
+    exact_match: false
+    acl: true
+    reused_from_2026_08_30: false
+
+  - player: "Player 3"
+    dungeon: "Ruby Life Pools"
+    key_level: 10
+    target_key_level: 8
+    exact_match: false
+    acl: true
+    reused_from_2026_08_30: false
+
+  - player: "Player 4"
+    dungeon: "Temple of Sethraliss"
+    key_level: 6
+    target_key_level: 8
+    exact_match: false
+    acl: true
+    reused_from_2026_08_30: false
+
+  - player: "Player 5"
+    dungeon: "The Blinding Vale"
+    key_level: 9
+    target_key_level: 8
+    exact_match: false
+    acl: true
+    reused_from_2026_08_30: false
+
+  # --- target_key_level: 12 (2 fresh + 1 reused) ---
+  - player: "Player 6"
+    dungeon: "Voidscar Arena"
+    key_level: 10
+    target_key_level: 12
+    exact_match: false
+    acl: true
+    reused_from_2026_08_30: false
+
+  - player: "Player 7"
+    dungeon: "Temple of Sethraliss"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+    reused_from_2026_08_30: false
+
+  - player: "Player 8"
+    dungeon: "Den of Nalorakk"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+    reused_from_2026_08_30: true
+
+  # --- target_key_level: 16 (100% reused from round 1 -- see note above) ---
+  - player: "Player 9"
+    dungeon: "The Blinding Vale"
+    key_level: 16
+    target_key_level: 16
+    exact_match: true
+    acl: true
+    reused_from_2026_08_30: true
+
+  - player: "Player 10"
+    dungeon: "The Blinding Vale"
+    key_level: 15
+    target_key_level: 16
+    exact_match: false
+    acl: true
+    reused_from_2026_08_30: true
+
+  - player: "Player 11"
+    dungeon: "Den of Nalorakk"
+    key_level: 15
+    target_key_level: 16
+    exact_match: false
+    acl: true
+    reused_from_2026_08_30: true

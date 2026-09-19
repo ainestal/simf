@@ -1,0 +1,178 @@
+# AnonGuardian1 - Guardian - 2026-07-08 07:45 - EU/AnonRealm1
+# SimC Addon 12.1.0
+# WoW 12.0.7.68453, TOC 120007
+# Requires SimulationCraft 1000-01 or newer
+
+druid="AnonGuardian1"
+level=90
+race=tauren
+region=eu
+server=anonrealm1
+role=tank
+professions=herbalism=105/mining=100
+spec=guardian
+# loot_spec=guardian
+
+talents=CgGA8cL7tpvige+kkmGM9zUPWDAAAAAAAAAAAgZmZmFzMjZWmZxMPwMLLDMbGGNRmZWmZmZmlxMAAAAAAYmNzALbzMYMLDgpAAAAbYmBYxYYgZxCAzMAA
+
+# Saved Loadout: magetower
+# talents=CgGA8cL7tpvige+kkmGM9zUPWDAAAAAAAAAAAgZmxs4BmZMziZh5BmZZZghZMMwMzswMzMLjZAAAAAAYMbzAW2mZwYWGADAAAgNMzAssMGGMYbZAmZAM
+# Saved Loadout: archon-m+-12.0.5
+# talents=CgGA8cL7tpvige+kkmGM9zUPWDAAAAAAAAAAAgZmZmFzMjZWmZxMPwMLLDMbGGGwMzyMzMzsMmBAAAAAAzsZGYZbmBjZZAMAAAA2wMDwixwAziFAmZAA
+# Saved Loadout: raid
+# talents=CgGA8cL7tpvige+kkmGM9zUPWDAAAAAAAAAAAgZmxs4BGjZ2MLzMMLLDMbwwAzMzyMzMzYMjZAAAAAAzYZGwy2MDGz2AYAAAAshZGgFzgBsYxAMzAYA
+# Saved Loadout: m+bear
+# talents=CgGA8cL7tpvige+kkmGM9zUPWDAAAAAAAAAAAgZmZml5BmZMWMLeg5BmZZZgZzMGGYmZWYmZmlxMAAAAAAMsNDYZbmBjZZAMAAAA2wMPwAWMzwgBLbAmZAM
+# Saved Loadout: guardian-raid
+# talents=CgGA8cL7tpvige+kkmGM9zUPWDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+# Saved Loadout:  Open-World-WowHead
+# talents=CgGA8cL7tpvige+kkmGM9zUPWDAAAAAAAAAAAgZmBAwAwyAYYYgZmZhxMjxMAAAAAAgFAYgBDAAAAA2AAAMAAAAA
+
+omnium_talents=136817:1/136819:1/136825:1
+
+# Branches of the Luminous Bloom (289)
+head=,id=250024,gem_id=240916,bonus_id=6652/13440/13338/13575/12806/13534
+# Pendant of Aching Grief (289)
+neck=,id=251096,gem_id=240983,bonus_id=13440/6652/13668/12699/12806
+# Seedpods of the Luminous Bloom (289)
+shoulder=,id=250022,bonus_id=6652/13440/13340/13574/12806
+# Potion-Stained Cloak (289)
+back=,id=193712,bonus_id=13440/6652/13577/12699/12806
+# Silvermoon Agent's Coat (285)
+chest=,id=244570,enchant_id=7987,bonus_id=12214/13667/12497/12066/8960/12384/8793/13622,content_tuning=3615,crafted_stats=40/36,crafting_quality=5
+# Silvermoon City Tabard (1)
+tabard=,id=45585,content_tuning=3321
+# Custodial Cuffs (289)
+wrist=,id=251103,bonus_id=13440/6652/12667/13577/12699/12806
+# Arbortenders of the Luminous Bloom (289)
+hands=,id=250025,bonus_id=12806/6652/13440/13337/13574/3174
+# Falconer's Cinch (289)
+waist=,id=251166,bonus_id=13440/6652/12667/13577/12699/12806
+# Phloemwraps of the Luminous Bloom (289)
+legs=,id=250023,enchant_id=8159,bonus_id=6652/13440/13339/13575/12806
+# Eclipse Espadrilles (289)
+feet=,id=251210,bonus_id=13440/40/13577/12699/12806
+# Eredath Seal of Nobility (289)
+finger1=,id=151308,enchant_id=8025,gem_id=240894,bonus_id=13440/6652/13668/12699/12806
+# Band of the Triumvirate (276)
+finger2=,id=151311,enchant_id=8025,gem_id=240894,bonus_id=13440/6652/13668/12699/12798,content_tuning=1279
+# Emberwing Feather (298)
+trinket1=,id=250144,bonus_id=13440/41/12699/13654
+# Algeth'ar Puzzle Box (298)
+trinket2=,id=193701,bonus_id=13440/6652/12699/13654
+# Arcaneclaw Spear (298)
+main_hand=,id=258529,enchant_id=8039,bonus_id=13440/6652/12701/13654
+
+### Gear from Bags
+#
+# Vortex Visage (253)
+# head=,id=251119,bonus_id=12787/6652/12667/13577/12699/11215,content_tuning=1279
+#
+# Voidlashed Hood (272)
+# head=,id=151336,bonus_id=12801/13440/6652/12667/13577/12699
+#
+# Necklace of the Twisting Void (289)
+# neck=,id=151309,gem_id=240983,bonus_id=13440/6652/13668/12699/12806
+#
+# Vest of the Void's Embrace (272)
+# chest=,id=151313,bonus_id=12801/13440/6652/13577/12699
+#
+# Breastplate of the Dark Touch (253)
+# chest=,id=151329,bonus_id=12787/42/13577/12699/11215,content_tuning=1279
+#
+# Maledict Vest (272)
+# chest=,id=251216,bonus_id=12801/13440/6652/13577/12699
+#
+# Voidbender Robe (253)
+# chest=,id=151303,bonus_id=12787/6652/13577/12699/11215,content_tuning=1279
+#
+# Radiant Stalwart's Tabard (1)
+# tabard=,id=233289,content_tuning=2832
+#
+# Tabard of Brute Force (1)
+# tabard=,id=43349
+#
+# Radiant Recruit's Tabard (1)
+# tabard=,id=233288,content_tuning=2832
+#
+# Frenzyroot Cuffs (289)
+# wrist=,id=193714,bonus_id=13440/6652/13534/13577/12699/12806
+#
+# Osseoclad Spinegrapplers (246)
+# hands=,id=249639,bonus_id=12785/6652/11215/13577,content_tuning=6015
+#
+# Rampant Bramblegreaves (246)
+# legs=,id=249657,bonus_id=12785/6652/11215/13577,content_tuning=6015
+#
+# Bifurcation Band (276)
+# finger1=,id=251115,enchant_id=7969,gem_id=240892,bonus_id=13440/6652/13668/12699/12798,content_tuning=1279
+#
+# Eredath Seal of Nobility (276)
+# finger1=,id=151308,bonus_id=13440/6652/13668/12699/12798,content_tuning=1279
+#
+# Vibrant Wilderloop (276)
+# finger1=,id=249620,enchant_id=7965,gem_id=240891,bonus_id=6652/13668/12798,content_tuning=6015
+#
+# Occlusion of Void (272)
+# finger1=,id=251217,bonus_id=12801/13440/6652/13668/12699
+#
+# Omission of Light (276)
+# finger1=,id=251093,enchant_id=7969,gem_id=240892,bonus_id=13440/6652/13668/12699/12798,content_tuning=1279
+#
+# Platinum Star Band (272)
+# finger1=,id=193708,bonus_id=12801/13440/6652/13668/12699
+#
+# Crucible of Erratic Energies (263)
+# trinket1=,id=264507,bonus_id=12790,content_tuning=4240
+#
+# Ever-Collapsing Void Fissure (246)
+# trinket1=,id=251786,bonus_id=12785/6652/11215/40,content_tuning=6015
+#
+# Ampoule of Pure Void (272)
+# trinket1=,id=151312,bonus_id=12801/13440/6652/12699
+#
+# Emerald Coach's Whistle (298)
+# trinket1=,id=193718,bonus_id=13440/42/12699/13654
+#
+# Radiant Sunstone (272)
+# trinket1=,id=252411,bonus_id=12801/13440/6652/12699
+#
+# Refueling Orb (298)
+# trinket1=,id=250246,bonus_id=13440/6652/12699/13654
+#
+# Obsidian Goaltending Spire (298)
+# main_hand=,id=193723,enchant_id=8039,bonus_id=13440/6652/12701/13654
+#
+# Corespark Multitool (298)
+# main_hand=,id=251201,enchant_id=8039,bonus_id=13440/6652/12701/13654
+#
+# Splitshroud Stinger (272)
+# main_hand=,id=251111,bonus_id=12801/13440/40/12701
+#
+# Vexamus' Expulsion Rod (272)
+# off_hand=,id=193709,bonus_id=12801/13440/6652/12699
+
+### Weekly Reward Choices
+#
+# Rigid Scale Greatcloak (272)
+# back=,id=258575,bonus_id=12801/13440/6652/13577/12699
+#
+# Fluxweave Cloak (272)
+# back=,id=251206,bonus_id=12801/13440/6652/13577/12699
+#
+# Vessel of Tortured Souls (243)
+# trinket1=,id=250258,bonus_id=12780/13438/6652/12699
+#
+### End of Weekly Reward Choices
+
+### Additional Character Info
+#
+# catalyst_currencies=3269:8/3378:6/2813:8/3116:8
+#
+# upgrade_currencies=c:1792:240/c:3343:21/c:3347:449/c:3383:15/c:3345:21/i:268552:5/i:224072:2/i:232875:16
+#
+# slot_high_watermarks=0:289:289/1:289:289/2:289:289/3:285:289/4:289:289/5:289:289/6:289:289/7:289:289/8:289:289/9:276:289/10:298:298/11:289:289/12:298:298/13:272:298/14:0:298/15:0:276/16:272:298
+#
+# upgrade_achievements=40107/40942/40943/40944/40945/41886/41887/41888/41892/42767/42768/42769/42770/61809
+
+# Checksum: 813764d3

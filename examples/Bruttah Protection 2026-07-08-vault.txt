@@ -1,0 +1,115 @@
+# Bruttah - Protection - 2026-07-08 07:41 - EU/Uldum
+# SimC Addon 12.1.0
+# WoW 12.0.7.68453, TOC 120007
+# Requires SimulationCraft 1000-01 or newer
+
+paladin="Bruttah"
+level=90
+race=earthen_dwarf
+region=eu
+server=uldum
+role=tank
+professions=blacksmithing=100/enchanting=100
+spec=protection
+# loot_spec=protection
+
+talents=CIEAVg1HmQqr1Dwlv86ljju8vuNjBzyYbMjZmZZZMzwsMLDDAwAAAAAAgmmZWmZMDGmt2AwADYGsBAAQAmZW2WaZmxiZwAYMmhxAgZGAMzAG
+
+# Saved Loadout: M+Archon
+# talents=CIEAVg1HmQqr1Dwlv86ljju8vuNjBzyYbMjZmZZZMzwsMLDDAwAAAAAAAjZmlZGzghZzGAGYAzgNAAAAYmZZbxyMjFzgBwYMDjBAzMAYmBMA
+# Saved Loadout: M+prot-wowhead
+# talents=CIEAVg1HmQqr1Dwlv86ljju8vuNjBzyYZMjZmZZbMzwsMLzYAAGAAAAAAYMzwMmZYY2sBgBGwMYDAAAAmZW2WsMzYxMYAwYGGDAmZAYmZAD
+
+omnium_talents=136817:1/136819:1/136825:1
+
+# Luminant Verdict's Unwavering Gaze (289)
+head=,id=249961,enchant_id=7988,bonus_id=13338/13440/6652/12667/13575/12806
+# Amani Heartstring Pendant (253)
+neck=,id=265739,gem_id=240855,bonus_id=6652/13668/12787,content_tuning=4240
+# Luminant Verdict's Providence Watch (289)
+shoulder=,id=249959,bonus_id=6652/13440/13340/13574/12806
+# Luminant Verdict's Greatmantle (276)
+back=,id=249956,bonus_id=6652/13440/12802
+# Luminant Verdict's Divine Warplate (276)
+chest=,id=249964,bonus_id=6652/12798/13336/13575/3161
+# Silvermoon City Tabard (1)
+tabard=,id=45585,content_tuning=3321
+# Vambraces of Lost Hope (272)
+wrist=,id=151328,bonus_id=12801/13440/6652/12667/13577/12699
+# Luminant Verdict's Gauntlets (272)
+hands=,id=249962,bonus_id=6652/12801/13440/13337/13574/3157
+# Bent Gold Belt (263)
+waist=,id=49808,bonus_id=12794/13440/6652/12667/13577/12699,content_tuning=1279
+# Lightscarred Cuisses (263)
+legs=,id=251208,bonus_id=12794/13440/6652/13577/12699,content_tuning=1279
+# Oathsworn Stompers (279)
+feet=,id=251107,enchant_id=7963,bonus_id=13440/6652/13577/12699/12803
+# Omission of Light (266)
+finger1=,id=251093,enchant_id=7965,gem_id=240982,bonus_id=12795/13440/6652/13668/12699,content_tuning=1279
+# Platinum Star Band (285)
+finger2=,id=193708,enchant_id=7967,gem_id=240900,bonus_id=13440/6652/13668/12699/12805
+# Algeth'ar Puzzle Box (276)
+trinket1=,id=193701,bonus_id=13440/6652/12699/12798,content_tuning=1279
+# Heart of Wind (282)
+trinket2=,id=250256,bonus_id=13440/6652/12699/12804
+# Scepter of the Endless Night (269)
+main_hand=,id=258525,enchant_id=8039,bonus_id=12796/13440/6652/12701
+# Spellbreaker's Rebuke (295)
+off_hand=,id=237831,bonus_id=12214/13655/12497/12066/8960/12384/8792/13622,content_tuning=3615,crafted_stats=49/40,crafting_quality=5
+
+### Gear from Bags
+#
+# Fletcher's Faded Faceplate (272)
+# head=,id=251098,bonus_id=12801/13440/6652/12667/13577/12699
+#
+# Fluxweave Cloak (253)
+# back=,id=251206,bonus_id=12787/40/13577/12699/11215,content_tuning=1279
+#
+# Awakened Tabard (1)
+# tabard=,id=224166,content_tuning=863
+#
+# Light's March Bracers (263)
+# wrist=,id=249326,bonus_id=6652/12667/13577/13334/12794,content_tuning=4240
+#
+# Girdle of the Shadowguard (266)
+# waist=,id=151327,bonus_id=12795/13440/6652/12667/13577/12699,content_tuning=1279
+#
+# Crucible of Erratic Energies (263)
+# trinket1=,id=264507,bonus_id=12790,content_tuning=4240
+#
+# Glorious Crusader's Keepsake (250)
+# trinket1=,id=251792,bonus_id=12786/6652,content_tuning=6013
+#
+# Drum of Renewed Bonds (259)
+# trinket1=,id=248583,bonus_id=13183/6652/12793,content_tuning=6011
+#
+# Vessel of Tortured Souls (266)
+# trinket1=,id=250258,bonus_id=12795/13440/6652/12699,content_tuning=1279
+#
+# Savage Briaredge (263)
+# main_hand=,id=260188,enchant_id=7978,bonus_id=6652/12790,content_tuning=6011
+
+### Weekly Reward Choices
+#
+# Legplates of Lingering Dusk (272)
+# legs=,id=251118,bonus_id=12801/13440/6652/13577/12699
+#
+# Spaulders of Scorching Ray (272)
+# shoulder=,id=258587,bonus_id=12801/13440/6652/13577/12699
+#
+# Shadowsplit Girdle (269)
+# waist=,id=251112,bonus_id=12796/13440/40/12667/13577/12699
+#
+### End of Weekly Reward Choices
+
+### Additional Character Info
+#
+# catalyst_currencies=3269:8/3378:4/2813:8/3116:8
+#
+# upgrade_currencies=c:1792:216/c:3343:9/c:3347:2/c:3383:32/c:3345:8/c:3341:30/i:228338:3/i:224072:2/i:231756:1/i:232875:8/i:231768:1/i:229390:9
+#
+# slot_high_watermarks=0:289:289/1:253:289/2:289:289/3:276:289/4:266:289/5:263:289/6:279:289/7:272:289/8:272:289/9:266:289/10:276:298/11:276:289/12:263:298/13:0:298/14:269:298/15:237:276/16:295:298
+#
+# upgrade_achievements=40107/40942/40943/40944/40945/41886/41887/41888/41892/42767/42768/42769/42770/61809
+
+# Checksum: 208b0766

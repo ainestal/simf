@@ -1,0 +1,1490 @@
+{
+  "entry_catalog": {
+    "112110": {
+      "modeled_talent_id": null,
+      "name": "Hunker Down",
+      "spell_id": 1235022,
+      "tree": "spec"
+    },
+    "112112": {
+      "modeled_talent_id": null,
+      "name": "Battle Stance",
+      "spell_id": 386164,
+      "tree": "class"
+    },
+    "112115": {
+      "modeled_talent_id": null,
+      "name": "Bloodborne",
+      "spell_id": 385704,
+      "tree": "spec"
+    },
+    "112116": {
+      "modeled_talent_id": null,
+      "name": "Violent Outburst",
+      "spell_id": 386477,
+      "tree": "spec"
+    },
+    "112121": {
+      "modeled_talent_id": null,
+      "name": "Die by the Sword",
+      "spell_id": 118038,
+      "tree": "spec"
+    },
+    "112122": {
+      "modeled_talent_id": null,
+      "name": "Mortal Strike",
+      "spell_id": 12294,
+      "tree": "spec"
+    },
+    "112123": {
+      "modeled_talent_id": null,
+      "name": "Overpower",
+      "spell_id": 7384,
+      "tree": "spec"
+    },
+    "112125": {
+      "modeled_talent_id": null,
+      "name": "Improved Execute",
+      "spell_id": 316405,
+      "tree": "spec"
+    },
+    "112126": {
+      "modeled_talent_id": null,
+      "name": "Sudden Death",
+      "spell_id": 29725,
+      "tree": "spec"
+    },
+    "112128": {
+      "modeled_talent_id": null,
+      "name": "Fueled by Violence",
+      "spell_id": 383103,
+      "tree": "spec"
+    },
+    "112129": {
+      "modeled_talent_id": null,
+      "name": "Bloodsurge",
+      "spell_id": 384361,
+      "tree": "spec"
+    },
+    "112131": {
+      "modeled_talent_id": null,
+      "name": "Improved Overpower",
+      "spell_id": 385571,
+      "tree": "spec"
+    },
+    "112134": {
+      "modeled_talent_id": null,
+      "name": "Tactician",
+      "spell_id": 184783,
+      "tree": "spec"
+    },
+    "112135": {
+      "modeled_talent_id": null,
+      "name": "Bloodborne",
+      "spell_id": 383287,
+      "tree": "spec"
+    },
+    "112137": {
+      "modeled_talent_id": null,
+      "name": "Dreadnaught",
+      "spell_id": 262150,
+      "tree": "spec"
+    },
+    "112144": {
+      "modeled_talent_id": null,
+      "name": "Colossus Smash",
+      "spell_id": 167105,
+      "tree": "spec"
+    },
+    "112145": {
+      "modeled_talent_id": null,
+      "name": "Massacre",
+      "spell_id": 281001,
+      "tree": "spec"
+    },
+    "112146": {
+      "modeled_talent_id": null,
+      "name": "Impale",
+      "spell_id": 383430,
+      "tree": "spec"
+    },
+    "112147": {
+      "modeled_talent_id": null,
+      "name": "Cleave",
+      "spell_id": 845,
+      "tree": "spec"
+    },
+    "112149": {
+      "modeled_talent_id": null,
+      "name": "Ignore Pain",
+      "spell_id": 190456,
+      "tree": "spec"
+    },
+    "112150": {
+      "modeled_talent_id": null,
+      "name": "Devastating Focus",
+      "spell_id": 1264330,
+      "tree": "spec"
+    },
+    "112151": {
+      "modeled_talent_id": null,
+      "name": "Devastator",
+      "spell_id": 236279,
+      "tree": "spec"
+    },
+    "112152": {
+      "modeled_talent_id": null,
+      "name": "Revenge",
+      "spell_id": 6572,
+      "tree": "spec"
+    },
+    "112153": {
+      "modeled_talent_id": "fight_through_flames",
+      "name": "Fight Through the Flames",
+      "spell_id": 452494,
+      "tree": "spec"
+    },
+    "112154": {
+      "modeled_talent_id": null,
+      "name": "Bloodsurge",
+      "spell_id": 384361,
+      "tree": "spec"
+    },
+    "112155": {
+      "modeled_talent_id": null,
+      "name": "Instigate",
+      "spell_id": 394311,
+      "tree": "spec"
+    },
+    "112156": {
+      "modeled_talent_id": null,
+      "name": "Shield Wall",
+      "spell_id": 871,
+      "tree": "spec"
+    },
+    "112157": {
+      "modeled_talent_id": null,
+      "name": "Strategist",
+      "spell_id": 384041,
+      "tree": "spec"
+    },
+    "112158": {
+      "modeled_talent_id": "brace_for_impact",
+      "name": "Brace For Impact",
+      "spell_id": 386030,
+      "tree": "spec"
+    },
+    "112159": {
+      "modeled_talent_id": null,
+      "name": "Demoralizing Shout",
+      "spell_id": 1160,
+      "tree": "spec"
+    },
+    "112160": {
+      "modeled_talent_id": "armor_specialization",
+      "name": "Armor Specialization",
+      "spell_id": 1234769,
+      "tree": "spec"
+    },
+    "112162": {
+      "modeled_talent_id": "thunderlord",
+      "name": "Thunderlord",
+      "spell_id": 385840,
+      "tree": "spec"
+    },
+    "112163": {
+      "modeled_talent_id": null,
+      "name": "Best Served Cold",
+      "spell_id": 202560,
+      "tree": "spec"
+    },
+    "112165": {
+      "modeled_talent_id": null,
+      "name": "Deep Wounds",
+      "spell_id": 1261060,
+      "tree": "spec"
+    },
+    "112166": {
+      "modeled_talent_id": "enduring_defenses",
+      "name": "Enduring Defenses",
+      "spell_id": 386027,
+      "tree": "spec"
+    },
+    "112167": {
+      "modeled_talent_id": null,
+      "name": "Heavy Repercussions",
+      "spell_id": 203177,
+      "tree": "spec"
+    },
+    "112169": {
+      "modeled_talent_id": null,
+      "name": "Heavy Handed",
+      "spell_id": 1235088,
+      "tree": "spec"
+    },
+    "112170": {
+      "modeled_talent_id": null,
+      "name": "Booming Voice",
+      "spell_id": 202743,
+      "tree": "spec"
+    },
+    "112171": {
+      "modeled_talent_id": null,
+      "name": "Shield Specialization",
+      "spell_id": 386011,
+      "tree": "spec"
+    },
+    "112173": {
+      "modeled_talent_id": null,
+      "name": "Shield Charge",
+      "spell_id": 385952,
+      "tree": "spec"
+    },
+    "112174": {
+      "modeled_talent_id": null,
+      "name": "Defender's Aegis",
+      "spell_id": 397103,
+      "tree": "spec"
+    },
+    "112176": {
+      "modeled_talent_id": null,
+      "name": "Fueled by Violence",
+      "spell_id": 383103,
+      "tree": "spec"
+    },
+    "112177": {
+      "modeled_talent_id": null,
+      "name": "Tough as Nails",
+      "spell_id": 385888,
+      "tree": "spec"
+    },
+    "112179": {
+      "modeled_talent_id": null,
+      "name": "Two-Handed Weapon Specialization",
+      "spell_id": 382896,
+      "tree": "class"
+    },
+    "112181": {
+      "modeled_talent_id": null,
+      "name": "One-Handed Weapon Specialization",
+      "spell_id": 382895,
+      "tree": "class"
+    },
+    "112182": {
+      "modeled_talent_id": null,
+      "name": "Berserker Stance",
+      "spell_id": 386196,
+      "tree": "class"
+    },
+    "112183": {
+      "modeled_talent_id": null,
+      "name": "Impending Victory",
+      "spell_id": 202168,
+      "tree": "class"
+    },
+    "112184": {
+      "modeled_talent_id": null,
+      "name": "Battle Stance",
+      "spell_id": 386164,
+      "tree": "class"
+    },
+    "112185": {
+      "modeled_talent_id": null,
+      "name": "War Machine",
+      "spell_id": 262231,
+      "tree": "class"
+    },
+    "112186": {
+      "modeled_talent_id": null,
+      "name": "Intervene",
+      "spell_id": 3411,
+      "tree": "class"
+    },
+    "112187": {
+      "modeled_talent_id": null,
+      "name": "Defensive Stance",
+      "spell_id": 386208,
+      "tree": "class"
+    },
+    "112188": {
+      "modeled_talent_id": null,
+      "name": "Rallying Cry",
+      "spell_id": 97462,
+      "tree": "class"
+    },
+    "112190": {
+      "modeled_talent_id": null,
+      "name": "Second Wind",
+      "spell_id": 29838,
+      "tree": "class"
+    },
+    "112198": {
+      "modeled_talent_id": null,
+      "name": "Storm Bolt",
+      "spell_id": 107570,
+      "tree": "class"
+    },
+    "112205": {
+      "modeled_talent_id": null,
+      "name": "Thunder Clap",
+      "spell_id": 6343,
+      "tree": "class"
+    },
+    "112206": {
+      "modeled_talent_id": null,
+      "name": "Fast Footwork",
+      "spell_id": 382260,
+      "tree": "class"
+    },
+    "112208": {
+      "modeled_talent_id": null,
+      "name": "Heroic Leap",
+      "spell_id": 6544,
+      "tree": "class"
+    },
+    "112209": {
+      "modeled_talent_id": null,
+      "name": "Barbaric Training",
+      "spell_id": 383082,
+      "tree": "class"
+    },
+    "112210": {
+      "modeled_talent_id": null,
+      "name": "Fearless",
+      "spell_id": 1271925,
+      "tree": "class"
+    },
+    "112211": {
+      "modeled_talent_id": null,
+      "name": "Berserker Shout",
+      "spell_id": 384100,
+      "tree": "class"
+    },
+    "112214": {
+      "modeled_talent_id": null,
+      "name": "Shattering Throw",
+      "spell_id": 64382,
+      "tree": "class"
+    },
+    "112215": {
+      "modeled_talent_id": null,
+      "name": "Wrecking Throw",
+      "spell_id": 384110,
+      "tree": "class"
+    },
+    "112216": {
+      "modeled_talent_id": null,
+      "name": "Frothing Berserker",
+      "spell_id": 392792,
+      "tree": "class"
+    },
+    "112217": {
+      "modeled_talent_id": null,
+      "name": "Pain and Gain",
+      "spell_id": 382549,
+      "tree": "class"
+    },
+    "112219": {
+      "modeled_talent_id": null,
+      "name": "Bounding Stride",
+      "spell_id": 202163,
+      "tree": "class"
+    },
+    "112224": {
+      "modeled_talent_id": null,
+      "name": "Wild Strikes",
+      "spell_id": 382946,
+      "tree": "class"
+    },
+    "112233": {
+      "modeled_talent_id": null,
+      "name": "Armored to the Teeth",
+      "spell_id": 384124,
+      "tree": "class"
+    },
+    "112235": {
+      "modeled_talent_id": "reinforced_plates",
+      "name": "Reinforced Plates",
+      "spell_id": 382939,
+      "tree": "class"
+    },
+    "112238": {
+      "modeled_talent_id": null,
+      "name": "Leeching Strikes",
+      "spell_id": 382258,
+      "tree": "class"
+    },
+    "112240": {
+      "modeled_talent_id": null,
+      "name": "Dual Wield Specialization",
+      "spell_id": 382900,
+      "tree": "class"
+    },
+    "112241": {
+      "modeled_talent_id": null,
+      "name": "Rumbling Earth",
+      "spell_id": 275339,
+      "tree": "class"
+    },
+    "112242": {
+      "modeled_talent_id": null,
+      "name": "Shockwave",
+      "spell_id": 46968,
+      "tree": "class"
+    },
+    "112245": {
+      "modeled_talent_id": null,
+      "name": "Overwhelming Rage",
+      "spell_id": 382767,
+      "tree": "class"
+    },
+    "112247": {
+      "modeled_talent_id": null,
+      "name": "Champion's Spear",
+      "spell_id": 376079,
+      "tree": "class"
+    },
+    "112248": {
+      "modeled_talent_id": null,
+      "name": "Cruel Strikes",
+      "spell_id": 392777,
+      "tree": "class"
+    },
+    "112249": {
+      "modeled_talent_id": null,
+      "name": "Double Time",
+      "spell_id": 103827,
+      "tree": "class"
+    },
+    "112253": {
+      "modeled_talent_id": null,
+      "name": "Spell Reflection",
+      "spell_id": 23920,
+      "tree": "class"
+    },
+    "112255": {
+      "modeled_talent_id": null,
+      "name": "Wrath and Fury",
+      "spell_id": 392936,
+      "tree": "spec"
+    },
+    "112259": {
+      "modeled_talent_id": null,
+      "name": "Improved Raging Blow",
+      "spell_id": 383854,
+      "tree": "spec"
+    },
+    "112260": {
+      "modeled_talent_id": null,
+      "name": "Rampaging Ruin",
+      "spell_id": 1265357,
+      "tree": "spec"
+    },
+    "112261": {
+      "modeled_talent_id": null,
+      "name": "Bloodthirst",
+      "spell_id": 23881,
+      "tree": "spec"
+    },
+    "112263": {
+      "modeled_talent_id": null,
+      "name": "Warpaint",
+      "spell_id": 208154,
+      "tree": "spec"
+    },
+    "112264": {
+      "modeled_talent_id": null,
+      "name": "Enraged Regeneration",
+      "spell_id": 184364,
+      "tree": "spec"
+    },
+    "112265": {
+      "modeled_talent_id": null,
+      "name": "Raging Blow",
+      "spell_id": 85288,
+      "tree": "spec"
+    },
+    "112266": {
+      "modeled_talent_id": null,
+      "name": "Spite",
+      "spell_id": 383852,
+      "tree": "spec"
+    },
+    "112267": {
+      "modeled_talent_id": null,
+      "name": "Frenzied Enrage",
+      "spell_id": 383848,
+      "tree": "spec"
+    },
+    "112268": {
+      "modeled_talent_id": null,
+      "name": "Fresh Meat",
+      "spell_id": 215568,
+      "tree": "spec"
+    },
+    "112270": {
+      "modeled_talent_id": null,
+      "name": "Bloodborne",
+      "spell_id": 385703,
+      "tree": "spec"
+    },
+    "112271": {
+      "modeled_talent_id": null,
+      "name": "Cold Steel, Hot Blood",
+      "spell_id": 383959,
+      "tree": "spec"
+    },
+    "112272": {
+      "modeled_talent_id": null,
+      "name": "Focus in Chaos",
+      "spell_id": 383486,
+      "tree": "spec"
+    },
+    "112274": {
+      "modeled_talent_id": null,
+      "name": "Bloodcraze",
+      "spell_id": 393950,
+      "tree": "spec"
+    },
+    "112275": {
+      "modeled_talent_id": null,
+      "name": "Frenzy",
+      "spell_id": 335077,
+      "tree": "spec"
+    },
+    "112276": {
+      "modeled_talent_id": null,
+      "name": "Hack and Slash",
+      "spell_id": 383877,
+      "tree": "spec"
+    },
+    "112277": {
+      "modeled_talent_id": null,
+      "name": "Rampage",
+      "spell_id": 184367,
+      "tree": "spec"
+    },
+    "112279": {
+      "modeled_talent_id": null,
+      "name": "Massacre",
+      "spell_id": 206315,
+      "tree": "spec"
+    },
+    "112281": {
+      "modeled_talent_id": null,
+      "name": "Recklessness",
+      "spell_id": 1719,
+      "tree": "spec"
+    },
+    "112284": {
+      "modeled_talent_id": null,
+      "name": "Bladestorm",
+      "spell_id": 227847,
+      "tree": "spec"
+    },
+    "112285": {
+      "modeled_talent_id": null,
+      "name": "Avatar",
+      "spell_id": 107574,
+      "tree": "spec"
+    },
+    "112292": {
+      "modeled_talent_id": null,
+      "name": "Deft Experience",
+      "spell_id": 383295,
+      "tree": "spec"
+    },
+    "112296": {
+      "modeled_talent_id": null,
+      "name": "Critical Thinking",
+      "spell_id": 383297,
+      "tree": "spec"
+    },
+    "112298": {
+      "modeled_talent_id": null,
+      "name": "Improved Whirlwind",
+      "spell_id": 12950,
+      "tree": "spec"
+    },
+    "112299": {
+      "modeled_talent_id": null,
+      "name": "Cruelty",
+      "spell_id": 392931,
+      "tree": "spec"
+    },
+    "112300": {
+      "modeled_talent_id": null,
+      "name": "Improved Execute",
+      "spell_id": 316402,
+      "tree": "spec"
+    },
+    "112301": {
+      "modeled_talent_id": null,
+      "name": "Sudden Death",
+      "spell_id": 29725,
+      "tree": "spec"
+    },
+    "112304": {
+      "modeled_talent_id": null,
+      "name": "Whirling Blade",
+      "spell_id": 1235113,
+      "tree": "spec"
+    },
+    "112305": {
+      "modeled_talent_id": null,
+      "name": "Avatar",
+      "spell_id": 107574,
+      "tree": "spec"
+    },
+    "112306": {
+      "modeled_talent_id": "indomitable",
+      "name": "Indomitable",
+      "spell_id": 202095,
+      "tree": "spec"
+    },
+    "112307": {
+      "modeled_talent_id": "battle_scarred_veteran",
+      "name": "Battle-Scarred Veteran",
+      "spell_id": 386394,
+      "tree": "spec"
+    },
+    "112310": {
+      "modeled_talent_id": null,
+      "name": "Bloodletting",
+      "spell_id": 383154,
+      "tree": "spec"
+    },
+    "112311": {
+      "modeled_talent_id": null,
+      "name": "Fatality",
+      "spell_id": 383703,
+      "tree": "spec"
+    },
+    "112314": {
+      "modeled_talent_id": null,
+      "name": "Bladestorm",
+      "spell_id": 227847,
+      "tree": "spec"
+    },
+    "112317": {
+      "modeled_talent_id": null,
+      "name": "Critical Thinking",
+      "spell_id": 389306,
+      "tree": "spec"
+    },
+    "112318": {
+      "modeled_talent_id": null,
+      "name": "Executioner's Precision",
+      "spell_id": 386634,
+      "tree": "spec"
+    },
+    "112320": {
+      "modeled_talent_id": null,
+      "name": "Sharpened Blades",
+      "spell_id": 383341,
+      "tree": "spec"
+    },
+    "112321": {
+      "modeled_talent_id": null,
+      "name": "Punish",
+      "spell_id": 275334,
+      "tree": "spec"
+    },
+    "112323": {
+      "modeled_talent_id": "unyielding_stance",
+      "name": "Unyielding Stance",
+      "spell_id": 1235047,
+      "tree": "spec"
+    },
+    "112324": {
+      "modeled_talent_id": null,
+      "name": "Spellbreaker",
+      "spell_id": 1235023,
+      "tree": "spec"
+    },
+    "112325": {
+      "modeled_talent_id": "brutal_vitality",
+      "name": "Brutal Vitality",
+      "spell_id": 384036,
+      "tree": "spec"
+    },
+    "114641": {
+      "modeled_talent_id": null,
+      "name": "Improved Sweeping Strikes",
+      "spell_id": 383155,
+      "tree": "spec"
+    },
+    "114643": {
+      "modeled_talent_id": null,
+      "name": "Defensive Stance",
+      "spell_id": 386208,
+      "tree": "class"
+    },
+    "114644": {
+      "modeled_talent_id": null,
+      "name": "Defensive Stance",
+      "spell_id": 386208,
+      "tree": "class"
+    },
+    "114733": {
+      "modeled_talent_id": null,
+      "name": "Overpowering Finish",
+      "spell_id": 400205,
+      "tree": "spec"
+    },
+    "114739": {
+      "modeled_talent_id": null,
+      "name": "Powerful Momentum",
+      "spell_id": 1261050,
+      "tree": "spec"
+    },
+    "114740": {
+      "modeled_talent_id": null,
+      "name": "Battlelord",
+      "spell_id": 386630,
+      "tree": "spec"
+    },
+    "117381": {
+      "modeled_talent_id": null,
+      "name": "Show No Mercy",
+      "spell_id": 444771,
+      "tree": "hero"
+    },
+    "117382": {
+      "modeled_talent_id": null,
+      "name": "Thunder Blast",
+      "spell_id": 435607,
+      "tree": "hero"
+    },
+    "117383": {
+      "modeled_talent_id": null,
+      "name": "Culling Cyclone",
+      "spell_id": 444778,
+      "tree": "hero"
+    },
+    "117384": {
+      "modeled_talent_id": null,
+      "name": "Fierce Followthrough",
+      "spell_id": 444773,
+      "tree": "hero"
+    },
+    "117385": {
+      "modeled_talent_id": null,
+      "name": "Imminent Demise",
+      "spell_id": 444769,
+      "tree": "hero"
+    },
+    "117386": {
+      "modeled_talent_id": null,
+      "name": "Boneshaker",
+      "spell_id": 429639,
+      "tree": "hero"
+    },
+    "117389": {
+      "modeled_talent_id": null,
+      "name": "Gathering Clouds",
+      "spell_id": 436201,
+      "tree": "hero"
+    },
+    "117390": {
+      "modeled_talent_id": null,
+      "name": "Dominance of the Colossus",
+      "spell_id": 429636,
+      "tree": "hero"
+    },
+    "117391": {
+      "modeled_talent_id": null,
+      "name": "Precise Might",
+      "spell_id": 431548,
+      "tree": "hero"
+    },
+    "117392": {
+      "modeled_talent_id": null,
+      "name": "Relentless Pursuit",
+      "spell_id": 444776,
+      "tree": "hero"
+    },
+    "117393": {
+      "modeled_talent_id": null,
+      "name": "Practiced Strikes",
+      "spell_id": 429647,
+      "tree": "hero"
+    },
+    "117394": {
+      "modeled_talent_id": null,
+      "name": "Flashing Skies",
+      "spell_id": 437079,
+      "tree": "hero"
+    },
+    "117395": {
+      "modeled_talent_id": null,
+      "name": "Keep Your Feet on the Ground",
+      "spell_id": 438590,
+      "tree": "hero"
+    },
+    "117396": {
+      "modeled_talent_id": null,
+      "name": "One Against Many",
+      "spell_id": 429637,
+      "tree": "hero"
+    },
+    "117397": {
+      "modeled_talent_id": null,
+      "name": "Ground Current",
+      "spell_id": 436148,
+      "tree": "hero"
+    },
+    "117398": {
+      "modeled_talent_id": null,
+      "name": "Slayer's Malice",
+      "spell_id": 444779,
+      "tree": "hero"
+    },
+    "117400": {
+      "modeled_talent_id": null,
+      "name": "Lightning Strikes",
+      "spell_id": 434969,
+      "tree": "hero"
+    },
+    "117402": {
+      "modeled_talent_id": null,
+      "name": "Avatar of the Storm",
+      "spell_id": 437134,
+      "tree": "hero"
+    },
+    "117403": {
+      "modeled_talent_id": null,
+      "name": "Mountain of Muscle and Scars",
+      "spell_id": 429642,
+      "tree": "hero"
+    },
+    "117404": {
+      "modeled_talent_id": null,
+      "name": "Burst of Power",
+      "spell_id": 437118,
+      "tree": "hero"
+    },
+    "117405": {
+      "modeled_talent_id": null,
+      "name": "Strength of the Mountain",
+      "spell_id": 437068,
+      "tree": "hero"
+    },
+    "117406": {
+      "modeled_talent_id": null,
+      "name": "Reap the Storm",
+      "spell_id": 444775,
+      "tree": "hero"
+    },
+    "117407": {
+      "modeled_talent_id": null,
+      "name": "Overwhelming Blades",
+      "spell_id": 444772,
+      "tree": "hero"
+    },
+    "117408": {
+      "modeled_talent_id": null,
+      "name": "Tide of Battle",
+      "spell_id": 429641,
+      "tree": "hero"
+    },
+    "117409": {
+      "modeled_talent_id": null,
+      "name": "Martial Expert",
+      "spell_id": 429638,
+      "tree": "hero"
+    },
+    "117410": {
+      "modeled_talent_id": null,
+      "name": "Death Drive",
+      "spell_id": 444770,
+      "tree": "hero"
+    },
+    "117411": {
+      "modeled_talent_id": null,
+      "name": "Slayer's Dominance",
+      "spell_id": 444767,
+      "tree": "hero"
+    },
+    "117412": {
+      "modeled_talent_id": null,
+      "name": "No Stranger to Pain",
+      "spell_id": 429644,
+      "tree": "hero"
+    },
+    "117413": {
+      "modeled_talent_id": null,
+      "name": "Crashing Thunder",
+      "spell_id": 436707,
+      "tree": "hero"
+    },
+    "117414": {
+      "modeled_talent_id": null,
+      "name": "Storm Bolts",
+      "spell_id": 436162,
+      "tree": "hero"
+    },
+    "117415": {
+      "modeled_talent_id": null,
+      "name": "Demolish",
+      "spell_id": 436358,
+      "tree": "hero"
+    },
+    "117416": {
+      "modeled_talent_id": null,
+      "name": "Colossal Might",
+      "spell_id": 429634,
+      "tree": "hero"
+    },
+    "117417": {
+      "modeled_talent_id": null,
+      "name": "Unrelenting Onslaught",
+      "spell_id": 444780,
+      "tree": "hero"
+    },
+    "118833": {
+      "modeled_talent_id": null,
+      "name": "Snap Induction",
+      "spell_id": 456270,
+      "tree": "hero"
+    },
+    "118834": {
+      "modeled_talent_id": null,
+      "name": "Thorim's Might",
+      "spell_id": 436152,
+      "tree": "hero"
+    },
+    "118835": {
+      "modeled_talent_id": null,
+      "name": "Storm Shield",
+      "spell_id": 438597,
+      "tree": "hero"
+    },
+    "118836": {
+      "modeled_talent_id": null,
+      "name": "Steadfast as the Peaks",
+      "spell_id": 434970,
+      "tree": "hero"
+    },
+    "118850": {
+      "modeled_talent_id": null,
+      "name": "Honed Reflexes",
+      "spell_id": 391271,
+      "tree": "class"
+    },
+    "118853": {
+      "modeled_talent_id": null,
+      "name": "Crackling Thunder",
+      "spell_id": 203201,
+      "tree": "class"
+    },
+    "119112": {
+      "modeled_talent_id": null,
+      "name": "Powerful Enrage",
+      "spell_id": 440277,
+      "tree": "spec"
+    },
+    "119139": {
+      "modeled_talent_id": null,
+      "name": "Reckless Abandon",
+      "spell_id": 396749,
+      "tree": "spec"
+    },
+    "119856": {
+      "modeled_talent_id": null,
+      "name": "Arterial Bleed",
+      "spell_id": 440995,
+      "tree": "hero"
+    },
+    "119857": {
+      "modeled_talent_id": null,
+      "name": "Veteran Vitality",
+      "spell_id": 440993,
+      "tree": "hero"
+    },
+    "119858": {
+      "modeled_talent_id": null,
+      "name": "Earthquaker",
+      "spell_id": 440992,
+      "tree": "hero"
+    },
+    "123388": {
+      "modeled_talent_id": null,
+      "name": "0",
+      "spell_id": 0,
+      "tree": "hero"
+    },
+    "123389": {
+      "modeled_talent_id": null,
+      "name": "0",
+      "spell_id": 0,
+      "tree": "hero"
+    },
+    "123390": {
+      "modeled_talent_id": null,
+      "name": "0",
+      "spell_id": 0,
+      "tree": "hero"
+    },
+    "123391": {
+      "modeled_talent_id": null,
+      "name": "0",
+      "spell_id": 0,
+      "tree": "hero"
+    },
+    "123392": {
+      "modeled_talent_id": null,
+      "name": "0",
+      "spell_id": 0,
+      "tree": "hero"
+    },
+    "123393": {
+      "modeled_talent_id": null,
+      "name": "0",
+      "spell_id": 0,
+      "tree": "hero"
+    },
+    "123408": {
+      "modeled_talent_id": null,
+      "name": "Vicious Agility",
+      "spell_id": 444777,
+      "tree": "hero"
+    },
+    "123409": {
+      "modeled_talent_id": null,
+      "name": "Brutal Finish",
+      "spell_id": 446085,
+      "tree": "hero"
+    },
+    "123770": {
+      "modeled_talent_id": null,
+      "name": "Opportunist",
+      "spell_id": 444774,
+      "tree": "hero"
+    },
+    "132878": {
+      "modeled_talent_id": null,
+      "name": "Massacre",
+      "spell_id": 281001,
+      "tree": "spec"
+    },
+    "132879": {
+      "modeled_talent_id": null,
+      "name": "Last Stand",
+      "spell_id": 1243659,
+      "tree": "spec"
+    },
+    "132880": {
+      "modeled_talent_id": null,
+      "name": "Ravager",
+      "spell_id": 228920,
+      "tree": "spec"
+    },
+    "132881": {
+      "modeled_talent_id": null,
+      "name": "Impenetrable Wall",
+      "spell_id": 384072,
+      "tree": "spec"
+    },
+    "132882": {
+      "modeled_talent_id": null,
+      "name": "Enduring Alacrity",
+      "spell_id": 384063,
+      "tree": "spec"
+    },
+    "132883": {
+      "modeled_talent_id": null,
+      "name": "Focused Vigor",
+      "spell_id": 384067,
+      "tree": "spec"
+    },
+    "132884": {
+      "modeled_talent_id": null,
+      "name": "Sudden Death",
+      "spell_id": 29725,
+      "tree": "spec"
+    },
+    "132885": {
+      "modeled_talent_id": null,
+      "name": "Into the Fray",
+      "spell_id": 202603,
+      "tree": "spec"
+    },
+    "132886": {
+      "modeled_talent_id": null,
+      "name": "Disrupting Shout",
+      "spell_id": 386071,
+      "tree": "spec"
+    },
+    "134031": {
+      "modeled_talent_id": null,
+      "name": "Stance Mastery",
+      "spell_id": 1280961,
+      "tree": "class"
+    },
+    "134032": {
+      "modeled_talent_id": "anger_management",
+      "name": "Anger Management",
+      "spell_id": 152278,
+      "tree": "class"
+    },
+    "134033": {
+      "modeled_talent_id": null,
+      "name": "Battlefield Commander",
+      "spell_id": 424742,
+      "tree": "class"
+    },
+    "134213": {
+      "modeled_talent_id": null,
+      "name": "Interpose",
+      "spell_id": 1244088,
+      "tree": "class"
+    },
+    "134214": {
+      "modeled_talent_id": null,
+      "name": "Intervene",
+      "spell_id": 3411,
+      "tree": "class"
+    },
+    "134216": {
+      "modeled_talent_id": null,
+      "name": "Interpose",
+      "spell_id": 1244088,
+      "tree": "class"
+    },
+    "134217": {
+      "modeled_talent_id": null,
+      "name": "Intervene",
+      "spell_id": 3411,
+      "tree": "class"
+    },
+    "134225": {
+      "modeled_talent_id": null,
+      "name": "Resonant Voice",
+      "spell_id": 1243660,
+      "tree": "class"
+    },
+    "134226": {
+      "modeled_talent_id": null,
+      "name": "Crushing Force",
+      "spell_id": 382764,
+      "tree": "class"
+    },
+    "134254": {
+      "modeled_talent_id": null,
+      "name": "Intimidating Shout",
+      "spell_id": 5246,
+      "tree": "class"
+    },
+    "135597": {
+      "modeled_talent_id": null,
+      "name": "Rend",
+      "spell_id": 772,
+      "tree": "class"
+    },
+    "135932": {
+      "modeled_talent_id": null,
+      "name": "Fervor of Battle",
+      "spell_id": 202316,
+      "tree": "spec"
+    },
+    "135933": {
+      "modeled_talent_id": null,
+      "name": "Master Tactician",
+      "spell_id": 1261057,
+      "tree": "spec"
+    },
+    "135934": {
+      "modeled_talent_id": null,
+      "name": "Martial Prowess",
+      "spell_id": 1273062,
+      "tree": "spec"
+    },
+    "135935": {
+      "modeled_talent_id": null,
+      "name": "Efficiency",
+      "spell_id": 1261047,
+      "tree": "spec"
+    },
+    "135936": {
+      "modeled_talent_id": null,
+      "name": "Brute Force",
+      "spell_id": 1261046,
+      "tree": "spec"
+    },
+    "135937": {
+      "modeled_talent_id": null,
+      "name": "Collateral Damage",
+      "spell_id": 334779,
+      "tree": "spec"
+    },
+    "135938": {
+      "modeled_talent_id": null,
+      "name": "Crushing Combo",
+      "spell_id": 1261056,
+      "tree": "spec"
+    },
+    "135939": {
+      "modeled_talent_id": null,
+      "name": "Tactical Edge",
+      "spell_id": 1261051,
+      "tree": "spec"
+    },
+    "135940": {
+      "modeled_talent_id": null,
+      "name": "Deep Wounds",
+      "spell_id": 1261060,
+      "tree": "spec"
+    },
+    "135941": {
+      "modeled_talent_id": null,
+      "name": "Mortal Wounds",
+      "spell_id": 1261062,
+      "tree": "spec"
+    },
+    "135942": {
+      "modeled_talent_id": null,
+      "name": "Broad Strokes",
+      "spell_id": 1261049,
+      "tree": "spec"
+    },
+    "135943": {
+      "modeled_talent_id": null,
+      "name": "Just Warming Up",
+      "spell_id": 1261048,
+      "tree": "spec"
+    },
+    "135944": {
+      "modeled_talent_id": null,
+      "name": "Strength of Arms",
+      "spell_id": 400803,
+      "tree": "spec"
+    },
+    "136068": {
+      "modeled_talent_id": null,
+      "name": "Capacitance",
+      "spell_id": 1270724,
+      "tree": "hero"
+    },
+    "136069": {
+      "modeled_talent_id": null,
+      "name": "Conductivity",
+      "spell_id": 1270723,
+      "tree": "hero"
+    },
+    "136070": {
+      "modeled_talent_id": null,
+      "name": "Storm Surge",
+      "spell_id": 275336,
+      "tree": "hero"
+    },
+    "136071": {
+      "modeled_talent_id": null,
+      "name": "Celeritous Conclusion",
+      "spell_id": 1270710,
+      "tree": "hero"
+    },
+    "136072": {
+      "modeled_talent_id": null,
+      "name": "Cut to the Bone",
+      "spell_id": 1270709,
+      "tree": "hero"
+    },
+    "136073": {
+      "modeled_talent_id": null,
+      "name": "Decimator",
+      "spell_id": 1270704,
+      "tree": "hero"
+    },
+    "136074": {
+      "modeled_talent_id": null,
+      "name": "Unhinged",
+      "spell_id": 386628,
+      "tree": "hero"
+    },
+    "136075": {
+      "modeled_talent_id": null,
+      "name": "Deadly Focus",
+      "spell_id": 1270718,
+      "tree": "hero"
+    },
+    "136076": {
+      "modeled_talent_id": null,
+      "name": "Violent Euphoria",
+      "spell_id": 1270717,
+      "tree": "hero"
+    },
+    "136447": {
+      "modeled_talent_id": null,
+      "name": "Ragedrinker",
+      "spell_id": 1265356,
+      "tree": "spec"
+    },
+    "136448": {
+      "modeled_talent_id": null,
+      "name": "Vicious Contempt",
+      "spell_id": 383885,
+      "tree": "spec"
+    },
+    "136449": {
+      "modeled_talent_id": null,
+      "name": "Surge of Adrenaline",
+      "spell_id": 1265359,
+      "tree": "spec"
+    },
+    "136450": {
+      "modeled_talent_id": null,
+      "name": "Kill or Be Killed",
+      "spell_id": 1265361,
+      "tree": "spec"
+    },
+    "136451": {
+      "modeled_talent_id": null,
+      "name": "Deep Wounds",
+      "spell_id": 1261060,
+      "tree": "spec"
+    },
+    "136452": {
+      "modeled_talent_id": null,
+      "name": "Meat Cleaver",
+      "spell_id": 280392,
+      "tree": "spec"
+    },
+    "136453": {
+      "modeled_talent_id": null,
+      "name": "Executioner's Wrath",
+      "spell_id": 1265570,
+      "tree": "spec"
+    },
+    "136454": {
+      "modeled_talent_id": null,
+      "name": "Scent of Blood",
+      "spell_id": 1265355,
+      "tree": "spec"
+    },
+    "136625": {
+      "modeled_talent_id": null,
+      "name": "Javelineer",
+      "spell_id": 1271948,
+      "tree": "class"
+    },
+    "136626": {
+      "modeled_talent_id": null,
+      "name": "Field Dressing",
+      "spell_id": 1271926,
+      "tree": "class"
+    },
+    "136627": {
+      "modeled_talent_id": null,
+      "name": "Piercing Howl",
+      "spell_id": 12323,
+      "tree": "class"
+    },
+    "136700": {
+      "modeled_talent_id": null,
+      "name": "Mass Execution",
+      "spell_id": 1273075,
+      "tree": "spec"
+    },
+    "136701": {
+      "modeled_talent_id": null,
+      "name": "Ignore Pain",
+      "spell_id": 1277297,
+      "tree": "spec"
+    },
+    "136702": {
+      "modeled_talent_id": null,
+      "name": "Ravager",
+      "spell_id": 228920,
+      "tree": "spec"
+    },
+    "136703": {
+      "modeled_talent_id": null,
+      "name": "Avatar",
+      "spell_id": 107574,
+      "tree": "spec"
+    },
+    "136735": {
+      "modeled_talent_id": null,
+      "name": "Odyn's Fury",
+      "spell_id": 385059,
+      "tree": "spec"
+    },
+    "136890": {
+      "modeled_talent_id": null,
+      "name": "Invigorating Fury",
+      "spell_id": 383468,
+      "tree": "spec"
+    },
+    "136987": {
+      "modeled_talent_id": null,
+      "name": "Master of Warfare",
+      "spell_id": 1269307,
+      "tree": "spec"
+    },
+    "136988": {
+      "modeled_talent_id": null,
+      "name": "Master of Warfare",
+      "spell_id": 1269306,
+      "tree": "spec"
+    },
+    "136989": {
+      "modeled_talent_id": null,
+      "name": "Master of Warfare",
+      "spell_id": 1269314,
+      "tree": "spec"
+    },
+    "136999": {
+      "modeled_talent_id": null,
+      "name": "Phalanx",
+      "spell_id": 1269313,
+      "tree": "spec"
+    },
+    "137000": {
+      "modeled_talent_id": "phalanx",
+      "name": "Phalanx",
+      "spell_id": 1269312,
+      "tree": "spec"
+    },
+    "137001": {
+      "modeled_talent_id": null,
+      "name": "Phalanx",
+      "spell_id": 1269311,
+      "tree": "spec"
+    },
+    "137002": {
+      "modeled_talent_id": null,
+      "name": "Rampaging Berserker",
+      "spell_id": 1269310,
+      "tree": "spec"
+    },
+    "137003": {
+      "modeled_talent_id": null,
+      "name": "Rampaging Berserker",
+      "spell_id": 1269309,
+      "tree": "spec"
+    },
+    "137004": {
+      "modeled_talent_id": null,
+      "name": "Rampaging Berserker",
+      "spell_id": 1269308,
+      "tree": "spec"
+    }
+  },
+  "entry_id_to_modeled_talent": {
+    "112153": "fight_through_flames",
+    "112158": "brace_for_impact",
+    "112160": "armor_specialization",
+    "112162": "thunderlord",
+    "112166": "enduring_defenses",
+    "112235": "reinforced_plates",
+    "112306": "indomitable",
+    "112307": "battle_scarred_veteran",
+    "112323": "unyielding_stance",
+    "112325": "brutal_vitality",
+    "134032": "anger_management",
+    "137000": "phalanx"
+  },
+  "generated": "2026-07-13",
+  "source": "SimulationCraft trait_data.inc (midnight branch), joined against data/talents.yaml spell ids \u2014 see scripts/fetch_talent_tree.py"
+}

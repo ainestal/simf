@@ -1,0 +1,15 @@
+# Per-spec meta-baseline builds for the two-build diff card (2026-06-12 plan).
+#
+# The diff card answers "my build vs THE build everyone copies" — so the
+# baseline must be the build the user's guide/murlok would have handed them.
+# Hand-curated data, refreshed like trinkets.yaml; never scraped (murlok and
+# archon already do popularity — simf's job is the evaluated left half).
+#
+# `loadout` must name a `talent_loadouts` key in constants.yaml so the build
+# resolves through the same path the sim consumes. Only specs listed here get
+# a diff card; the UI says "Prot Warrior–only today" for everyone else.
+protection_warrior:
+  loadout: archon-meta
+  label: Archon meta build
+  source: archon.gg top-M+-key Prot Warrior loadouts (hand-curated)
+  updated: 2026-06-12

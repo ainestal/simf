@@ -1,0 +1,159 @@
+# AnonGuardian3 - Guardian - 2026-05-20 17:30 - EU/AnonRealm3
+# SimC Addon 12.0.5-04
+# WoW 12.0.5.67602, TOC 120005
+# Requires SimulationCraft 1000-01 or newer
+
+druid="AnonGuardian3"
+level=90
+race=night_elf
+region=eu
+server=anonrealm3
+role=tank
+professions=tailoring=66/enchanting=56
+spec=guardian
+# loot_spec=balance
+
+talents=CgGA8cL7tpvige+kkmGM9zUPWDAAAAAAAAAAAgZmZmFzMjZWmZxMmZZZAbGGNRzMzyYmZmlxMMAAAAAgZsZGYZbmBjZZAMFAAAYzYmBYxMYgZxCAzMAA
+
+# Saved Loadout: raid
+# talents=CgGA8cL7tpvige+kkmGM9zUPWDAAAAAAAAAAAgZmZml5BMeghLY2McBzyyAwYYYMzMLmZmhxMMAAAAAgxsMAAAAgZWmlZmZAAswYMgFzgBAAAA
+# Saved Loadout: clawbear
+# talents=CgGA8cL7tpvige+kkmGM9zUPWDAAAAAAAAAAAgZmxsMPwMjZWMLzDgxyAzmhhBmZmlZmZmZZMDDAAAAAYGLzAW2mBGz2AYYmlZZmZGAALYmHAYxMYALW2GAMzCM
+# Saved Loadout: lunarbear
+# talents=CgGA8cL7tpvige+kkmGM9zUPWDAAAAAAAAAAAgZmZmFzMjZWmZxMmZZZAbGGGYmZWGzMzsMmhBAAAAAMjNzALbzMYMLDgBAAAwmxMDwiZwAziFAmZAA
+# Saved Loadout: clawbear2
+# talents=CgGA8cL7tpvige+kkmGM9zUPWDAAAAAAAAAAAgZmxsMmZMziZZGmZZZAbzwwAzMzyYmZmlxMMAAAAAGMjNDAAAAMzysMzMDAgFmZAsYGMgFbGAMzGM
+
+# Branches of the Luminous Bloom (289)
+head=,id=250024,enchant_id=7959,bonus_id=6652/12667/13440/13338/13575/12806
+# Necklace of the Twisting Void (276)
+neck=,id=151309,gem_id=240916,bonus_id=13440/6652/13668/12699/12798
+# Seedpods of the Luminous Bloom (289)
+shoulder=,id=250022,enchant_id=8031,bonus_id=6652/13440/13340/13574/12806
+# Potion-Stained Cloak (289)
+back=,id=193712,bonus_id=13440/6652/13577/12699/12806
+# Silvermoon Agent's Coat (285)
+chest=,id=244570,enchant_id=7987,bonus_id=12214/13667/12497/12066/13622,crafted_stats=49/36,crafting_quality=5
+# Orange Mageweave Shirt (1)
+shirt=,id=10056
+# Silvermoon Agent's Deflectors (285)
+wrist=,id=244576,bonus_id=12214/13667/12497/12066/8960/12384/8793/13622/12667,crafted_stats=49/36,crafting_quality=5
+# Arbortenders of the Luminous Bloom (289)
+hands=,id=250025,bonus_id=41/13440/13337/13574/12806
+# Falconer's Cinch (276)
+waist=,id=251166,bonus_id=13440/6652/12667/13577/12699/12798
+# Phloemwraps of the Luminous Bloom (289)
+legs=,id=250023,enchant_id=8159,bonus_id=6652/13440/13339/13575/12806
+# Silvermoon Agent's Sneakers (285)
+feet=,id=244569,enchant_id=7963,bonus_id=12214/13667/12497/12066/8960/12384/8793/13622,crafted_stats=49/40,crafting_quality=5
+# Occlusion of Void (285)
+finger1=,id=251217,enchant_id=8027,gem_id=240916,bonus_id=13440/6652/13668/12699/12805
+# Bifurcation Band (276)
+finger2=,id=251115,enchant_id=7965,gem_id=240983,bonus_id=13440/6652/13668/12699/12798
+# Emberwing Feather (298)
+trinket1=,id=250144,bonus_id=13440/6652/12699/13654
+# Solarflare Prism (285)
+trinket2=,id=252420,bonus_id=13440/6652/12699/13653
+# Sunlance of Viryx (298)
+main_hand=,id=258484,enchant_id=8039,bonus_id=13440/42/12701/13654
+
+### Gear from Bags
+#
+# Fetid Vilecrown (246)
+# head=,id=251177,bonus_id=12785/6652/12667/13577/12699/11215
+#
+# Novice Combatant's Necklace (276)
+# neck=,id=266314,gem_id=240900,bonus_id=13447/12798
+#
+# Enthralled Bonespines (266)
+# shoulder=,id=251171,bonus_id=12795/13440/6652/13577/12699
+#
+# Fluxweave Cloak (276)
+# back=,id=251206,bonus_id=13440/6652/13577/12699/12798
+#
+# Fluxweave Cloak (272)
+# back=,id=251206,bonus_id=12801/13440/6652/13577/12699
+#
+# Verdant Tracker's Cover (233)
+# back=,id=257021,bonus_id=12777/6652/13577
+#
+# Reshii Wraps (170)
+# back=,id=235499,enchant_id=7403,gem_id=238042,bonus_id=12401/9893/12259
+#
+# Novice Combatant's Cloak (217)
+# back=,id=267491,bonus_id=13629/13447
+#
+# Vest of the Howling Gale (285)
+# chest=,id=251099,bonus_id=13440/6652/13577/12699/12805
+#
+# Sprawling Rhizomecord (246)
+# waist=,id=249635,bonus_id=12785/6652/12667/11215/13577
+#
+# Snapvine Cinch (276)
+# waist=,id=251082,bonus_id=13440/6652/12667/13577/12699/12798
+#
+# Eclipse Espadrilles (272)
+# feet=,id=251210,bonus_id=12801/13440/6652/13577/12699
+#
+# Eclipse Espadrilles (266)
+# feet=,id=251210,bonus_id=12795/13440/6652/13577/12699
+#
+# Occlusion of Void (276)
+# finger1=,id=251217,enchant_id=7964,gem_id=240914,bonus_id=13440/6652/13668/12699/12798
+#
+# Cyrce's Circlet (103)
+# finger1=,id=228411,enchant_id=7352,gem_id=228638/228639/228640,bonus_id=12028/1511
+#
+# Drum of Renewed Bonds (276)
+# trinket1=,id=248583,bonus_id=13183/6652/12798
+#
+# Puzzling Crypt Relic (139)
+# trinket1=,id=252677,bonus_id=13573/13613/13615/6652,drop_level=81
+#
+# Glorious Crusader's Keepsake (276)
+# trinket1=,id=251792,bonus_id=6652/12798
+#
+# Rotting Globule (266)
+# trinket1=,id=252421,bonus_id=12795/13440/6652/12699
+#
+# Novice Combatant's Emblem (201)
+# trinket1=,id=267077,bonus_id=13644/13451
+#
+# Crucible of Erratic Energies (263)
+# trinket1=,id=264507,bonus_id=12790
+#
+# Withered Saptor's Paw (263)
+# trinket1=,id=251782,bonus_id=6652/41/12790
+#
+# Novice Combatant's Medallion (201)
+# trinket1=,id=267076,bonus_id=13644/13451
+#
+# Algeth'ar Puzzle Box (266)
+# trinket1=,id=193701,bonus_id=12795/13440/6652/12699
+#
+# Excavating Cudgel (263)
+# main_hand=,id=251083,bonus_id=12794/13440/43/12701
+#
+# Lumenbloom Scepter (237)
+# main_hand=,id=257014,bonus_id=12778/6652
+#
+# Aln'hara Pikestaff (285)
+# main_hand=,id=245771,enchant_id=8039,bonus_id=12214/13667/12497/12066/8793/13622,crafted_stats=36/49,crafting_quality=5
+#
+# Spire of the Furious Construct (276)
+# main_hand=,id=258047,enchant_id=8039,bonus_id=13440/6652/12701/12798
+#
+# Elderbloom Lantern (246)
+# off_hand=,id=249672,bonus_id=12785/6652
+
+### Additional Character Info
+#
+# catalyst_currencies=3269:8/3378:3/2813:8/3116:8
+#
+# upgrade_currencies=c:3347:8/c:3383:64/c:3341:25/c:3343:13/c:1792:1950/c:3345:5/i:232875:2/i:211296:1
+#
+# slot_high_watermarks=0:289:289/1:276:276/2:289:289/3:285:289/4:276:285/5:289:289/6:285:285/7:285:289/8:289:289/9:276:276/10:285:285/11:289:289/12:298:298/13:263:263/14:0:289/15:0:276/16:266:285
+#
+# upgrade_achievements=19326/19397/19398/19577/19578/19579/40107/40115/40118/40942/40943/40944/40945/41886/41887/41888/41892/42767/42768/42769/61809/42770
+
+# Checksum: cb593d0

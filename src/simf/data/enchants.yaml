@@ -1,0 +1,268 @@
+# Midnight 12.0.5 permanent-enchant catalog — tank-relevant enchants for the
+# survival enchant suggester (mirrors data/gems.yaml's role for gems).
+#
+# PROVENANCE: names + stats were researched via Wowhead (two independent
+# passes, 2026-07-01) and then CROSS-VALIDATED against a live Blizzard
+# Profile API `/equipment` fetch for Brutoh (EU-Uldum) on the same day, which
+# returns a human-readable `display_string` per equipped enchantment. Every
+# entry below marked with a real `id:` was read directly off that live
+# response — the single most reliable source available (better than Wowhead
+# scraping, which cannot resolve the SpellItemEnchantment id namespace at
+# all: it only exposes the unrelated "on-use" spell id, e.g. Mark of the
+# Worldsoul's `id: 7987` casts spell 1236069 when applied — 1236069 is NOT
+# the enchant id and must never be used as one for MATCHING a live
+# character's equipped enchant against this catalog).
+#
+# `wowhead_spell_id` (added 2026-07-04) is exactly that "on-use" spell id —
+# useless for matching, but it IS a real, live Wowhead page (confirmed by
+# fetching each one: `wowhead.com/spell={id}` 301-redirects to
+# `/spell={id}/enchant-{slot}-{name}`, e.g. spell 1236069 →
+# `enchant-chest-mark-of-the-worldsoul`), found by searching Wowhead for each
+# enchant's exact name. Used purely to give the enchant name a real
+# hover-tooltip/click target (see `item_html._enchant_link_html`), same UX as
+# a gem's Wowhead link — never used for recognition logic. Note: Wowhead's
+# displayed magnitude on that page can lag the live-Blizzard-confirmed number
+# above it (e.g. Empowered Hex of Leeching: Wowhead says Leech 44, Brutoh's
+# live gear said 55) — harmless here since Leech/Avoidance/Speed aren't
+# modeled anyway (`stats: {}`), but don't treat the linked page's own numbers
+# as an additional source of truth for a stat simf DOES model.
+#
+# Entries with NO `id` are real, Wowhead-researched sibling options (same
+# family, different stat) that no live-probed character happened to be
+# wearing — the numbers are trustworthy, but we cannot yet resolve their
+# enchant_id, so they can't be matched against a character's equipped gear.
+# They still work fine as SUGGESTER candidates (find_enchant_by_id just can
+# never return them). Filling these in only needs one more real character
+# spotted wearing one — see optimizer/enchant_suggester.py.
+#
+# STRUCTURAL FINDINGS (both research passes + live data agree):
+#   - back (cloak), wrist (bracer), AND neck have NO permanent enchant in
+#     Midnight 12.0.5 — removed. back/wrist confirmed by zero `enchant_id`
+#     across 6+ real gear snapshots (2 characters) AND independent community
+#     sourcing (wow-professions.com, Method.gg, Icy Veins/Noxxic tank guides
+#     all omit both slots entirely). neck confirmed 2026-07-04: Wowhead's raw
+#     recipe database still lists "Enchant Neck - Breath/Gift of X" items,
+#     but their `reqskill` ids resolve to leftover Warlords-of-Draenor-era
+#     (~2015) content — the neck-enchant mechanic was WoD/MoP-only and was
+#     removed starting Legion (2016), never returning through Dragonflight/
+#     TWW/Midnight; wow-professions.com's live current Midnight Enchanting
+#     Guide page has zero "neck" mentions; and a real Guardian Druid's live
+#     `/simc` export (examples/anonguardian1-simc.txt line 32, a heavily-upgraded
+#     289/298-track neck) carries no `enchant_id=` at all. Not a data gap for
+#     any of the three — don't add a catalog entry for "no enchant exists
+#     here."
+#   - waist AND hands have NO permanent enchant in Midnight 12.0.5 either —
+#     confirmed 2026-07-05 (closing what used to be an unresearched gap, see
+#     git history for the prior "not yet catalogued" placeholder). Two
+#     independent current-patch guides (wow-professions.com's Midnight
+#     Enchanting Guide and Method.gg's Midnight Consumables/Enchants/Gems
+#     list) both give the SAME exhaustive 6-slot enumeration for the
+#     Enchanting profession's gear enchants — head, shoulder, chest, rings,
+#     boots, weapon — explicitly calling out cloak/bracer as removed, and
+#     never mentioning waist or hands at all. Legs (armor kits) are a
+#     separate Leatherworking/Tailoring/Blacksmithing mechanic, not
+#     "Enchanting," and were already documented above. Corroborated by every
+#     real Brutoh `/simc` export across multiple months (examples/*.simc):
+#     `waist=` and `hands=` lines never carry an `enchant_id=`, while sibling
+#     lines for slots that DO have one (`chest=`, `finger1=`) always do.
+#     Historically, hands/gloves enchants existed Vanilla-through-MoP but
+#     were discontinued well before Shadowlands/Dragonflight; waist was never
+#     a mainstream Enchanting-profession slot (the few "Belt Enchant: X"
+#     items that exist in WoW's history are one-off Legion
+#     mission-table/quest rewards, not a general recipe category). Same
+#     "confirmed absent, not a data gap" status as back/wrist/neck above.
+#   - off_hand has NO enchant UNLESS it's a genuine second one-handed weapon
+#     (Brewmaster Monk / Vengeance DH dual-wield) — a shield or caster
+#     off-hand item has never had an enchant slot in any WoW expansion. See
+#     `optimizer/enchant_suggester._DUAL_WIELD_SPECS`.
+#   - head and shoulder are enchantable again in Midnight (they were
+#     profession-self-only in Dragonflight/TWW) — Enchanting absorbed both
+#     slots, no profession gate, generic AH-tradeable scroll like every
+#     other enchant here.
+#   - ring enchants are back (absent since Dragonflight).
+#   - `stats` uses the SAME canonical marginal keys as gems.yaml (`primary`
+#     resolved to agility/strength by the suggester, `stamina`,
+#     `armor_from_gear`, `*_rating`). Several Midnight enchants (head,
+#     shoulder, all weapon enchants, part of the feet options) grant
+#     Avoidance/Leech/Speed or a combat proc instead — none of those are in
+#     simf's survivability model, so those entries carry an EMPTY or
+#     stamina-only `stats` dict on purpose. The suggester detects an
+#     all-near-zero pool and surfaces "not modeled" instead of fabricating a
+#     confident pick — see `EnchantSuggestion.modeled`.
+#   - only the BEST tier of each named enchant is catalogued (mirrors
+#     gems.yaml's ilvl-295-only convention) — a character wearing a
+#     lesser/base tier shows as "unrecognized," same accepted tradeoff gems
+#     already has for its ilvl-278 tier.
+
+enchants:
+  # ---- Chest ------------------------------------------------------------
+  - id: 7987
+    wowhead_spell_id: 1236069
+    name: "Mark of the Worldsoul"
+    slot: chest
+    stats: {primary: 50}
+    # Live-confirmed (Brutoh). Wowhead: "increasing your Primary stat by 50."
+
+  - wowhead_spell_id: 1236054
+    name: "Mark of Nalorakk"
+    slot: chest
+    stats: {strength: 32, stamina: 93}
+    # Wowhead-researched; strength-only (not primary — Troll-lore-flavored,
+    # distinct from Worldsoul's generic primary-stat grant). id unconfirmed.
+
+  # ---- Legs (Leatherworking-crafted armor kits, universal/BoE — Midnight
+  # made every profession-crafted enchant tradeable, not self-only) --------
+  - id: 8159
+    wowhead_spell_id: 1243976
+    name: "Forest Hunter's Armor Kit"
+    slot: legs
+    stats: {primary: 41, stamina: 115}
+    # Live-confirmed (Brutoh): "Enchanted: +41 Agility/Strength & +115 Stamina."
+    # wowhead_spell_id is the "Apply..." cast spell, not the passive/pattern
+    # page — the plain-named spell page carries no stats, only the "Apply"
+    # variant's tooltip does, and 41/115 matches exactly (cross-checked
+    # against a lower 32/70 tier that also exists under the same name).
+
+  - wowhead_spell_id: 1243979
+    name: "Blood Knight's Armor Kit"
+    slot: legs
+    stats: {primary: 32, armor_from_gear: 16}
+    # Wowhead-researched (item 244641's sibling kit). id unconfirmed.
+    # wowhead_spell_id same "Apply..." convention as above; 32/16 matches
+    # exactly (a higher 41/27 tier also exists under the same name, not this).
+
+  # ---- Feet — all three grant ~186 Stamina (modeled) plus a tertiary stat
+  # (Leech/Avoidance/Speed, none modeled) — expect near-tied suggestions. ---
+  - id: 7993
+    wowhead_spell_id: 1236072
+    name: "Shaladrassil's Roots"
+    slot: feet
+    stats: {stamina: 186}
+    # Live-confirmed (Brutoh). Also grants Leech +22 (not modeled). Current
+    # Prot Warrior community-meta pick per Icy Veins/Noxxic.
+
+  - wowhead_spell_id: 1236057
+    name: "Lynx's Dexterity"
+    slot: feet
+    stats: {stamina: 186}
+    # Wowhead-researched. Also grants Avoidance +15 (not modeled). id unconfirmed.
+    # (A third option, "Farstrider's Hunt"/Speed, is deliberately omitted —
+    # research found conflicting Stamina numbers across sources and neither
+    # could be confirmed live; don't publish an unverified number.)
+
+  # ---- Ring (either finger slot) -----------------------------------------
+  - id: 8025
+    wowhead_spell_id: 1236088
+    name: "Silvermoon's Alacrity"
+    slot: finger
+    stats: {haste_rating: 29}
+    # Live-confirmed (Brutoh, both rings).
+
+  - wowhead_spell_id: 1236060
+    name: "Zul'jin's Mastery"
+    slot: finger
+    stats: {mastery_rating: 29}
+    # Wowhead-researched sibling. id unconfirmed.
+
+  - wowhead_spell_id: 1236089
+    name: "Silvermoon's Tenacity"
+    slot: finger
+    stats: {versatility_rating: 29}
+    # Wowhead-researched sibling. id unconfirmed.
+
+  - wowhead_spell_id: 1236074
+    name: "Nature's Fury"
+    slot: finger
+    stats: {crit_rating: 29}
+    # Wowhead-researched sibling. id unconfirmed.
+
+  # ---- Head — Avoidance/Leech/Speed only, NONE modeled. Recognition-only;
+  # the suggester will report this slot as "not modeled" for every build. --
+  - id: 7961
+    wowhead_spell_id: 1236056
+    name: "Empowered Hex of Leeching"
+    slot: head
+    stats: {}
+    # Live-confirmed (Brutoh). Grants Leech +55 (not modeled). Wowhead's own
+    # spell page shows Leech 44 for the same enchant — see the header note.
+
+  - wowhead_spell_id: 1236084
+    name: "Empowered Rune of Avoidance"
+    slot: head
+    stats: {}
+    # Wowhead-researched sibling. Grants Avoidance +37 (not modeled). id unconfirmed.
+
+  - id: 7988
+    wowhead_spell_id: 1236071
+    name: "Blessing of Speed"
+    slot: head
+    stats: {}
+    # Live-confirmed (Bruttah, EU-Uldum, 2026-07-30) — a user report of a
+    # missing hover tooltip on this exact enchant traced to this entry having
+    # no `id`, so a real character wearing it could never match the catalog
+    # (current_wowhead_spell_id fell back to None, degrading the line to
+    # plain text with no Wowhead link/tooltip). Blizzard's live name is
+    # "Blessing of Speed" — no "Empowered" prefix, correcting the earlier
+    # Wowhead-researched guess. Grants Speed +22 (not modeled).
+
+  # ---- Shoulder — same Avoidance/Leech/Speed axis as head, not modeled. --
+  - id: 8031
+    wowhead_spell_id: 1236091
+    name: "Silvermoon's Mending"
+    slot: shoulder
+    stats: {}
+    # Live-confirmed (Brutoh). Grants Leech +166 (not modeled). Wowhead's own
+    # spell page shows Leech 132 for the same enchant — see the header note.
+
+  - wowhead_spell_id: 1236076
+    name: "Amirdrassil's Grace"
+    slot: shoulder
+    stats: {}
+    # Wowhead-researched sibling. Grants Avoidance +111 (not modeled). id unconfirmed.
+
+  - wowhead_spell_id: 1236062
+    name: "Akil'zon's Swiftness"
+    slot: shoulder
+    stats: {}
+    # Wowhead-researched sibling. Grants Speed +65 (not modeled). id unconfirmed.
+
+  # ---- Weapon (main_hand always; off_hand too for genuine dual-wield
+  # specs — see _DUAL_WIELD_SPECS). Every Midnight weapon enchant is either a
+  # DPS proc or an unmodeled-magnitude defensive proc — none grant a flat
+  # survival stat, so this slot always reports "not modeled." Kept narrow
+  # (3 of the 9 real options, added reactively whenever a live character is
+  # found wearing one — not a proactive full enumeration) since the rest are
+  # pure-DPS and out of scope for a survival tool. ----------------------
+  - id: 7983
+    wowhead_spell_id: 1236067
+    name: "Berserker's Rage"
+    slot: weapon
+    stats: {}
+    # Live-confirmed (Brutoh). DPS proc: +124 Haste for 15s on proc — a
+    # throughput pick, not a survival one. Wowhead's own spell page shows
+    # Haste 66/15s for the same enchant — see the header note.
+
+  - id: 8039
+    wowhead_spell_id: 1236095
+    name: "Acuity of the Ren'dorei"
+    slot: weapon
+    stats: {}
+    # Live-confirmed (Bruttah, EU-Uldum, 2026-07-31) — added after a user
+    # report of a missing hover tooltip on this exact enchant traced to it
+    # not existing in the catalog at all (same root cause class as the
+    # "Empowered Blessing of Speed" `id` gap fixed a day earlier: no catalog
+    # match → no `current_wowhead_spell_id` → plain-text fallback, no
+    # Wowhead link/tooltip). DPS proc: grants 53 Primary Stat for 15s on
+    # proc — a throughput pick, not a survival one, same category as
+    # Berserker's Rage above.
+
+  - wowhead_spell_id: 1236080
+    name: "Worldsoul Aegis"
+    slot: weapon
+    stats: {}
+    # Wowhead-researched. The one defensive-flavored weapon enchant: on
+    # taking damage, chance to grant a barrier absorbing the next ~14,039
+    # damage. Proc-rate/uptime isn't modeled (same reason Brewmaster's
+    # Stagger-absorb path and gems.yaml's Powerful Eversong proc aren't
+    # priced), so it's catalogued at stats:{} rather than faking a number.
+    # id unconfirmed.

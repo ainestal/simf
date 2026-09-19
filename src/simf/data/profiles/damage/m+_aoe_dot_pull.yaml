@@ -1,0 +1,43 @@
+# DoT-heavy mixed pull — physical melee plus periodic magic damage.
+# Models packs with nature/shadow casters that apply persistent
+# ground effects or debuffs: Algeth'ar Academy dragons, Vortex
+# Pinnacle stormcallers, or Afflicted affix healing enemies.
+#
+# The key characteristic: lower peak physical pressure than
+# m+_pull_melee, but persistent magic damage that bypasses armor,
+# making Versatility more valuable relative to Mastery/block.
+# Good profile for testing secondary stat weights.
+profile: m+_aoe_dot_pull
+duration_s: 60
+mobs:
+  - count: 3
+    swing_timer_s: 2.0
+    swing_damage_mean: 70000
+    swing_damage_variance: 0.30
+    school: physical
+    attack_type: melee
+  - count: 2
+    swing_timer_s: 3.0
+    swing_damage_mean: 40000
+    swing_damage_variance: 0.25
+    school: physical
+    attack_type: melee
+    casts:
+      - spell: nature_periodic
+        cadence_s: 3.0
+        damage_mean: 105000
+        school: nature
+      - spell: shadow_periodic
+        cadence_s: 4.5
+        damage_mean: 85000
+        school: shadow
+tank_busters:
+  - time_s: 35.0
+    damage: 480000
+    school: shadow
+    attack_type: spell
+    is_avoidable_by_spell_reflect: true
+affix:
+  fortified: false
+  tyrannical: false
+  seasonal_modifier: 1.0

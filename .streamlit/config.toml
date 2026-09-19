@@ -1,0 +1,32 @@
+[server]
+# Loopback-only by default — a contributor running the plain `make ui`/`make
+# dev` path shouldn't unknowingly expose their WoW character data (and any
+# configured Blizzard/WCL API creds) to their whole LAN. For real-device/
+# mobile testing, use a Cloudflare quick tunnel instead of widening this bind
+# (no account/DNS needed: `cloudflared tunnel --url http://localhost:8501`,
+# then share the printed URL) — it reaches any device on any network without
+# opening this box to the LAN.
+address = "127.0.0.1"
+# Default cap is 200 MB; a multi-hour M+ session log can easily run 250-400 MB
+# on a Pi-class machine with Advanced Combat Logging on. 500 MB keeps the
+# realistic tail covered without making the streamlit reverse proxy choke.
+maxUploadSize = 500
+
+[browser]
+# Streamlit phones home to Segment (https://data.streamlit.io) on every
+# session start unless this is disabled. simf is a local-first survivability
+# tool; we don't want anonymous usage pings leaving the machine.
+gatherUsageStats = false
+
+[theme]
+# Codex palette — steel + bronze on warm paper. Streamlit's own framework
+# widgets (buttons, inputs, tabs, expanders) read this block; the matching
+# CSS tokens in src/simf/ui/app.py drive everything else. Keep the two in
+# sync — divergence is what caused the cream-background + gold-button
+# mismatch in the v0.10.5 → Codex transition.
+base = "light"
+primaryColor = "#34556e"
+backgroundColor = "#f4f1ea"
+secondaryBackgroundColor = "#ffffff"
+textColor = "#1a1d22"
+font = "sans serif"

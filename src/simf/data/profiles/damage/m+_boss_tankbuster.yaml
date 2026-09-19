@@ -1,0 +1,47 @@
+# Tyrannical boss with a tank buster rotation.
+# Models a high-key boss fight: moderate sustained damage
+# with predictable, heavy tank busters on a fixed cadence.
+# The mechanic hits are the primary threat — cooldown sequencing
+# matters more here than Shield Block uptime.
+#
+# Inspired by bosses like Eudora (Siege of Boralus) or
+# Rik Reverb (Operation: Floodgate): single target, mix of
+# physical melee and targeted spell, one dangerous repeating mechanic.
+profile: m+_boss_tankbuster
+duration_s: 90
+mobs:
+  - count: 1
+    swing_timer_s: 2.5
+    swing_damage_mean: 220000
+    swing_damage_variance: 0.20
+    school: physical
+    attack_type: melee
+    casts:
+      - spell: boss_arcane_blast
+        cadence_s: 8.0
+        damage_mean: 180000
+        school: arcane
+      - spell: boss_fire_brand
+        cadence_s: 15.0
+        damage_mean: 240000
+        school: fire
+tank_busters:
+  - time_s: 20.0
+    damage: 900000
+    school: physical
+    attack_type: melee
+    is_avoidable_by_spell_reflect: false
+  - time_s: 45.0
+    damage: 900000
+    school: physical
+    attack_type: melee
+    is_avoidable_by_spell_reflect: false
+  - time_s: 70.0
+    damage: 900000
+    school: physical
+    attack_type: melee
+    is_avoidable_by_spell_reflect: false
+affix:
+  fortified: false
+  tyrannical: false
+  seasonal_modifier: 1.0

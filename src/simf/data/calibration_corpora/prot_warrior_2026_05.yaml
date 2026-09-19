@@ -1,0 +1,85 @@
+# Ratified Prot Warrior calibration corpus — frozen 2026-05-18.
+#
+# Pins the exact 16 replays behind the headline "RMSE 0.068, K=3430, 16 logs"
+# claim (docs/validation/k_calibration_2026_05_18.md) to an explicit
+# file[run_index] list instead of relying on a directory scan.
+#
+# Why this file exists: `calibrate-k` used to default to a recursive rglob of
+# `examples/`. As the user's personal log archive grew from 16 to 79 files
+# containing this target's name (root-level new sessions + other tanks'
+# dedicated subdirectories, e.g. examples/anonguardian1-guardian/), the "16-log
+# baseline" silently redefined itself release over release, moving the
+# reported RMSE from 0.068 to 0.124 with no engine change at all — a corpus
+# scope-creep + duplicate-file + gear-drift bug, not a model regression. See
+# the 2026-07-12 RMSE-drift investigation for the full writeup.
+#
+# Do NOT add or remove entries here casually. This list is exactly what the
+# 2026-05-18 doc measured; changing it invalidates the "reproduces 0.065-0.068"
+# claim. A wider/newer Brutoh corpus should live in its OWN manifest (e.g.
+# prot_warrior_2026_07.yaml) with its own frozen character snapshot and its
+# own ratification — not by editing this file.
+
+spec: protection_warrior
+character: src/simf/data/characters/brutoh-calibration-2026-05.yaml
+character_snapshot_date: 2026-05-06
+log_target: Brutoh-Uldum-EU
+k_constant: 3430
+frozen_date: 2026-05-18
+expected_rmse: 0.068  # what source_doc measured on 2026-05-18 — the REPLAY LIST below is
+# still exactly correct today; the ENGINE has since changed. A Demo Shout +
+# Phalanx replay double-count (fixed PR #387, 2026-07-18) was live when this
+# 0.068 was measured — re-running `calibrate-k` against this exact manifest
+# today correctly returns RMSE 0.138, not this frozen historical value. See
+# docs/validation/protwarrior_demo_shout_double_count_2026_07_17.md and
+# constants.yaml's `global_rmse` (the live, current number).
+source_doc: docs/validation/k_calibration_2026_05_18.md
+
+replays:
+  - file: WoWCombatLog-050626_172823.txt
+    run_index: 0
+    dungeon: "Algeth'ar Academy +12"
+  - file: WoWCombatLog-051026_151539.txt
+    run_index: 0
+    dungeon: "Skyreach +14 (partial)"
+  - file: WoWCombatLog-051826_135935.txt
+    run_index: 1
+    dungeon: "Algeth'ar Academy +14"
+  - file: WoWCombatLog-051026_090846.txt
+    run_index: 2
+    dungeon: "Windrunner Spire +14"
+  - file: WoWCombatLog-051526_210245.txt
+    run_index: 3
+    dungeon: "Windrunner Spire +14 (partial)"
+  - file: WoWCombatLog-051726_134819.txt
+    run_index: 1
+    dungeon: "Magisters' Terrace +14"
+  - file: WoWCombatLog-051026_073906.txt
+    run_index: 0
+    dungeon: "Nexus-Point Xenas +12"
+  - file: WoWCombatLog-051526_210245.txt
+    run_index: 0
+    dungeon: "Magisters' Terrace +12"
+  - file: WoWCombatLog-051326_171842.txt
+    run_index: 0
+    dungeon: "Pit of Saron +13"
+  - file: WoWCombatLog-051626_161830.txt
+    run_index: 3
+    dungeon: "Maisara Caverns +12"
+  - file: WoWCombatLog-050626_153703.txt
+    run_index: 0
+    dungeon: "Windrunner Spire +12"
+  - file: WoWCombatLog-051526_210245.txt
+    run_index: 2
+    dungeon: "Pit of Saron +12"
+  - file: WoWCombatLog-051826_135935.txt
+    run_index: 0
+    dungeon: "Maisara Caverns +14"
+  - file: WoWCombatLog-051026_105836.txt
+    run_index: 1
+    dungeon: "Pit of Saron +13"
+  - file: WoWCombatLog-051726_134819.txt
+    run_index: 0
+    dungeon: "Magisters' Terrace +13"
+  - file: WoWCombatLog-051726_090237.txt
+    run_index: 1
+    dungeon: "Pit of Saron +14"

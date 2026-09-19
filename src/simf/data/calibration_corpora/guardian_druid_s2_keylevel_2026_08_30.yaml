@@ -1,0 +1,106 @@
+# guardian_druid — Season 2 (zone 55) cross-player accuracy spot-check,
+# bucketed by target keystone level (2026-08-30).
+#
+# NOT a ratified calibration manifest. This is a reusable record of 10 real,
+# independent-player WCL fights from Midnight Mythic+ Season 2 (WCL zone 55,
+# "Mythic+ Season 2"), discovered via reportData.reports(zoneID: 55) (the
+# same global recent-public-reports feed used for the 2026-08-14 cross-spec
+# check, which — unlike characterRankings — does not redact report/fight
+# codes) and confirmed ACL-on via CombatantInfo. Fights are grouped into 4
+# buckets targeting key levels 2, 8, 12, and 16; where an exact-key-level
+# match wasn't available within the scan budget, the nearest available key
+# level was accepted (see `exact_match: false` entries) per the discovery
+# task's +/-2 widening rule. The target_key_level=2 bucket only produced 1
+# fight (not 3) despite a full 500-report scan of zone 55 and a widen-to-+/-1
+# attempt (widened bucket, +3, also came up empty) — three weeks into
+# Season 2 essentially nobody still logs +2 pulls. The target_key_level=8
+# bucket needed the widen-after-150-reports rule for all 3 of its entries
+# (no exact kl=8 Guardian Druid fight ever turned up in 500 reports); each
+# is within the allowed +/-2 tolerance (kl=9 or kl=10). Used to spot-check
+# whether simf's Guardian Druid predictions hold up across key-level depth
+# on fresh, live-S2 play this project didn't already have logs for.
+#
+# Deltas measured at canonical K=3430, iterations=50, seed=42,
+# healing_profile=m+_high_key_healer, via scripts/cross_player_validation.py
+# (the same tool + gate used for the 2026-07-25, 2026-08-14, and the
+# protection_warrior/protection_paladin/blood_death_knight 2026-08-30
+# cross-player checks).
+
+spec: guardian_druid
+k_constant: 3430
+iterations: 50
+
+fights:
+  # --- target_key_level: 2 ---
+  - player: "Player 1"
+    dungeon: "Voidscar Arena"
+    key_level: 2
+    target_key_level: 2
+    exact_match: true
+    acl: true
+
+  # --- target_key_level: 8 (no exact kl=8 match found in 500 reports; all 3 widened) ---
+  - player: "AnonPlayerX6"
+    dungeon: "Altar of Fangs"
+    key_level: 10
+    target_key_level: 8
+    exact_match: false
+    acl: true
+
+  - player: "Player 2"
+    dungeon: "Altar of Fangs"
+    key_level: 9
+    target_key_level: 8
+    exact_match: false
+    acl: true
+
+  - player: "Player 3"
+    dungeon: "Temple of Sethraliss"
+    key_level: 10
+    target_key_level: 8
+    exact_match: false
+    acl: true
+
+  # --- target_key_level: 12 ---
+  - player: "Player 4"
+    dungeon: "Ruby Life Pools"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+
+  - player: "Player 5"
+    dungeon: "Voidscar Arena"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+
+  - player: "Player 6"
+    dungeon: "Voidscar Arena"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+
+  # --- target_key_level: 16 ---
+  - player: "Player 7"
+    dungeon: "Murder Row"
+    key_level: 16
+    target_key_level: 16
+    exact_match: true
+    acl: true
+
+  - player: "Player 8"
+    dungeon: "Kings' Rest"
+    key_level: 16
+    target_key_level: 16
+    exact_match: true
+    acl: true
+
+  - player: "Player 9"
+    dungeon: "Altar of Fangs"
+    key_level: 14
+    target_key_level: 16
+    exact_match: false
+    acl: true

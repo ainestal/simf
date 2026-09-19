@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+# pre-push — run the full test suite before allowing a push.
+#
+# Installed via `make install-hooks`. To keep the shared `core.hooksPath`
+# (parent `.git/hooks/`) from pinning all worktrees to whichever clone was
+# installed last, the installer drops a tiny dispatcher wrapper that calls
+# back into THIS file via `git rev-parse --show-toplevel`. The wrapper means
+# this script always runs from the worktree that triggered the push.
+#
+# Resolution order for pytest mirrors `pre-commit`'s ruff lookup (PR #120):
+#   1. `<venv>/bin/pytest` where venv is resolved by scripts/detect_venv.py
+#      (walks .worktrees/<id>/ up to the parent clone's `.venv`).
+#   2. `command -v pytest` (system-wide install).
+#   3. Fail with a clear hint to either `make install` or set
+#      SKIP_PUSH_TESTS=1.
+#
+# SKIP_PUSH_TESTS=1 is checked FIRST, before any pytest probe, so the
+# escape hatch keeps working even when neither venv nor system pytest is
+# present (regression coverage in tests/test_pre_push_hook.py).
+set -euo pipefail
+
+# Skip pre-push if SKIP_PUSH_TESTS=1 (escape hatch for trusted hot-fixes,
+# and for worktrees that haven't symlinked .venv yet). Checked BEFORE the
+# pytest existence probe so an explicit opt-out always works, even when the
+# .venv path is missing.
+if [[ "${SKIP_PUSH_TESTS:-0}" == "1" ]]; then
+  echo "pre-push: SKIP_PUSH_TESTS=1 set — skipping tests."
+  exit 0
+fi
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+
+PYTEST=""
+VENV_DIR=""
+if [[ -f "$REPO_ROOT/scripts/detect_venv.py" ]]; then
+  VENV_DIR="$(python3 "$REPO_ROOT/scripts/detect_venv.py" 2>/dev/null || true)"
+fi
+
+if [[ -n "$VENV_DIR" && -x "$VENV_DIR/bin/pytest" ]]; then
+  PYTEST="$VENV_DIR/bin/pytest"
+elif command -v pytest >/dev/null 2>&1; then
+  PYTEST="$(command -v pytest)"
+else
+  echo "pre-push: pytest not found (no .venv detected and no system-wide pytest)." >&2
+  echo "pre-push: run \`make install\` first, or set SKIP_PUSH_TESTS=1 to bypass." >&2
+  exit 1
+fi
+
+cd "$REPO_ROOT"
+"$PYTEST" -q

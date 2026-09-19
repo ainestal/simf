@@ -1,0 +1,13 @@
+name: AnonBrewmaster1
+race: human
+class_spec: brewmaster_monk
+talents: anonbrewmaster1-brewmaster
+
+stamina: 30364
+armor_from_gear: 1307
+versatility_rating: 910
+haste_rating: 0
+crit_rating: 0
+mastery_rating: 0
+strength: 0
+max_hp_override: 668018

@@ -1,0 +1,113 @@
+# blood_death_knight — Season 2 (zone 55) cross-player accuracy spot-check,
+# bucketed by target keystone level (2026-08-30).
+#
+# NOT a ratified calibration manifest. This is a reusable record of 12 real,
+# independent-player WCL fights from Midnight Mythic+ Season 2 (WCL zone 55,
+# "Mythic+ Season 2"), discovered via reportData.reports(zoneID: 55) (the
+# same global recent-public-reports feed used for the 2026-08-14 cross-spec
+# check, which — unlike characterRankings — does not redact report/fight
+# codes) and confirmed ACL-on via CombatantInfo. Fights are grouped into 4
+# buckets targeting key levels 2, 8, 12, and 16 (3 fights each); every bucket
+# was filled with an EXACT key-level match — no +/-2 tolerance widening was
+# needed despite the discovery script being allowed to widen after 150
+# reports (only 149 reports were scanned in total). Used to spot-check
+# whether simf's Blood Death Knight predictions hold up across key-level
+# depth on fresh, live-S2 play this project didn't already have logs for.
+#
+# Deltas measured at canonical K=3430, iterations=50, seed=42,
+# healing_profile=m+_high_key_healer, via scripts/cross_player_validation.py
+# (the same tool + gate used for the 2026-07-25, 2026-08-14, and the
+# protection_warrior/protection_paladin 2026-08-30 cross-player checks).
+
+spec: blood_death_knight
+k_constant: 3430
+iterations: 50
+
+fights:
+  # --- target_key_level: 2 ---
+  - player: "Player 1"
+    dungeon: "Den of Nalorakk"
+    key_level: 2
+    target_key_level: 2
+    exact_match: true
+    acl: true
+
+  - player: "Player 2"
+    dungeon: "Kings' Rest"
+    key_level: 2
+    target_key_level: 2
+    exact_match: true
+    acl: true
+
+  - player: "Player 3"
+    dungeon: "The Blinding Vale"
+    key_level: 2
+    target_key_level: 2
+    exact_match: true
+    acl: true
+
+  # --- target_key_level: 8 ---
+  - player: "Player 4"
+    dungeon: "Voidscar Arena"
+    key_level: 8
+    target_key_level: 8
+    exact_match: true
+    acl: true
+
+  - player: "Player 5"
+    dungeon: "Altar of Fangs"
+    key_level: 8
+    target_key_level: 8
+    exact_match: true
+    acl: true
+
+  - player: "Player 6"
+    dungeon: "Ruby Life Pools"
+    key_level: 8
+    target_key_level: 8
+    exact_match: true
+    acl: true
+
+  # --- target_key_level: 12 ---
+  - player: "Player 7"
+    dungeon: "Kings' Rest"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+
+  - player: "Player 8"
+    dungeon: "Voidscar Arena"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+
+  - player: "Player 9"
+    dungeon: "Temple of Sethraliss"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+
+  # --- target_key_level: 16 ---
+  - player: "Player 10"
+    dungeon: "Temple of Sethraliss"
+    key_level: 16
+    target_key_level: 16
+    exact_match: true
+    acl: true
+
+  - player: "Player 11"
+    dungeon: "Voidscar Arena"
+    key_level: 16
+    target_key_level: 16
+    exact_match: true
+    acl: true
+
+  - player: "Player 12"
+    dungeon: "Murder Row"
+    key_level: 16
+    target_key_level: 16
+    exact_match: true
+    acl: true

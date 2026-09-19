@@ -1,0 +1,45 @@
+# Calibrated against Brutoh's Windrunner Spire +12 Fortified run (2026-05-06).
+# Real run: 1913 damage events over 1298s, post-mit DTPS 21,245, pre-mit DTPS 204,508,
+# school split: 78% physical / 13% nature / 7% fire / 2% shadow / 1% arcane.
+#
+# Damage values below are pre-mitigation but already INCLUDE the Fortified
+# multiplier (the real log numbers had Fortified active). So we set
+# affix.fortified=false here to avoid double-applying.
+profile: m+_pull_caster
+duration_s: 60
+mobs:
+  - count: 4
+    swing_timer_s: 2.0
+    swing_damage_mean: 80000
+    swing_damage_variance: 0.30
+    school: physical
+    attack_type: melee
+  - count: 1
+    swing_timer_s: 2.5
+    swing_damage_mean: 60000
+    swing_damage_variance: 0.30
+    school: physical
+    attack_type: melee
+    casts:
+      - spell: nature_attack
+        cadence_s: 3.0
+        damage_mean: 100000
+        school: nature
+      - spell: fire_attack
+        cadence_s: 5.0
+        damage_mean: 60000
+        school: fire
+      - spell: shadow_attack
+        cadence_s: 12.0
+        damage_mean: 40000
+        school: shadow
+tank_busters:
+  - time_s: 30.0
+    damage: 350000
+    school: physical
+    attack_type: melee
+    is_avoidable_by_spell_reflect: false
+affix:
+  fortified: false             # already baked into damage values above
+  tyrannical: false
+  seasonal_modifier: 1.0

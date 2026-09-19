@@ -1,0 +1,57 @@
+profile: m+_high_key_healer
+# Healer HPS as a multiplier of post-mit DTPS estimate. 1.2 = 20% overheal margin
+# (real M+ healers consistently output more HPS than the tank's net incoming).
+baseline_hps_pct_of_dtps: 1.2
+# Reactive healing — a real healer burst-heals when tank drops below threshold.
+# Models the spike-response behavior that simple "smooth HPS" misses, fixing
+# the 100% death-rate artifact in log replay.
+reactive_threshold_hp_pct: 0.40            # burst when HP < 40%
+reactive_burst_pct_of_max_hp: 0.45         # heal for 45% of max HP per burst
+reactive_cooldown_s: 6.0                   # min 6s between bursts
+# Token-bucket healer-throughput cap (Top-5 #3, 2026-07-06 retrospective).
+# Until now the reactive burst above was UNCAPPED — gated only by the 6s
+# cooldown, with no accounting for total healing already spent, which is
+# why death_rate wasn't an honest number. Both this baseline heal AND the
+# reactive burst now draw from a shared bank of capacity
+# `healer_budget_capacity_pct_of_max_hp * max_hp`, refilling at
+# `healer_budget_refill_pct_of_max_hp_per_s * max_hp` per second. A single
+# isolated burst still gets fully funded (the bank starts full and is sized
+# to cover one); only SUSTAINED chains of reactive bursts deplete it faster
+# than it refills.
+#
+# Measured from the two calibrated log corpora (scripts/measure_healer_budget.py,
+# 2026-07-06), NOT free-fit:
+#   R = p95 of the rolling 60s external-heal-received HPS, across all TIMED
+#       runs, EXCLUDING the tank's own self-heals (Ignore Pain/WoG/Death
+#       Strike/etc. are already modeled per-spec, not through this budget).
+#   B = max observed rolling-10s external-heal-received sum, minus R*10s —
+#       the bank size needed to fully cover the single biggest real burst
+#       episode on top of the sustainable rate.
+#   Prot Warrior  (examples/*.txt, 16 timed runs):            R=3.81%, B=163.7% of max_hp
+#   Guardian Druid (examples/anonguardian1-guardian/, 17 timed runs): R=4.31%, B=254.1% of max_hp
+# R agrees within ~13% across two different tanks/key-level mixes — a
+# reasonable signal it's measuring something real, not corpus noise. B
+# disagrees more (~55%) because the Guardian corpus skews to higher key
+# levels (+15-17 vs Warrior's +12-14) with bigger bursts; averaged rather
+# than picking either corpus alone — under-provisioning the bank would fail
+# saves that reality doesn't fail, reintroducing the artifact this exists
+# to prevent.
+healer_budget_refill_pct_of_max_hp_per_s: 0.040   # ~R, averaged (3.81%/4.31%)
+healer_budget_capacity_pct_of_max_hp: 2.1         # ~B, averaged (163.7%/254.1%)
+externals:
+  - time_s: 30
+    type: dr_cooldown
+    amount_pct: 0.40
+    duration_s: 8
+  - time_s: 60
+    type: absorb
+    amount: 8000000
+    duration_s: 10
+  - time_s: 90
+    type: dr_cooldown
+    amount_pct: 0.40
+    duration_s: 8
+  - time_s: 120
+    type: absorb
+    amount: 8000000
+    duration_s: 10

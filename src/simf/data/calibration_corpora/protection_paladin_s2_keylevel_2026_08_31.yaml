@@ -1,0 +1,129 @@
+# protection_paladin — Season 2 (zone 55) cross-player accuracy spot-check,
+# ROUND 2 (2026-08-31), bucketed by target keystone level.
+#
+# NOT a ratified calibration manifest. This is a follow-up to
+# docs/validation/s2_cross_spec_keylevel_check_2026_08_30.md's round-1 Prot
+# Paladin bucket (protection_paladin_s2_keylevel_2026_08_30.yaml), using the
+# identical methodology one day later: reportData.reports(zoneID: 55) (the
+# global recent-public-reports feed, undredacted) scanned two-phase (exact
+# key-level match first, widen only if a bucket comes up short) across the
+# full 625-report server-side page cap, confirmed gear-certain via
+# CombatantInfo. All 12 fights below are FRESH — zero overlap with round 1's
+# report codes — and all 12 are EXACT key-level matches (no widening was
+# needed this round). Each bucket spans 3 distinct dungeons.
+#
+# DATA-QUALITY NOTE (kl16 bucket only): the first 3 exact kl=16 matches this
+# scan found (Player 1/Altar of Fangs, Player 2/Voidscar Arena, Player 3/Temple of
+# Sethraliss) were all `kill: false` on WCL's fight record -- i.e. failed or
+# depleted key attempts, not completed clears (confirmed via a raw
+# `fights(translate:true) { kill }` query; WCL's `completeRaid` field is
+# uniformly false for every M+ compound fight in this corpus regardless of
+# outcome and is NOT the right completion signal -- `kill` is). All 9 kl2/8/12
+# fights were independently confirmed `kill: true`. Rather than commit a kl16
+# bucket built entirely from wipes/aborted keys (a materially different
+# damage-taken population than a steady completed run), the 3 kl16 fights
+# below were swapped for a second exact-match pass filtered to `kill: true`.
+# The replacement 3 are gear-certain, exact-match, and completed, spanning 3
+# distinct dungeons (Voidscar Arena / Ruby Life Pools / Den of Nalorakk) drawn
+# from 6 completed exact-kl16 candidates found (5 distinct dungeons among
+# those 6; picked for max dungeon diversity). See this task's report for the
+# discarded failed-attempt fight identities and why they were dropped.
+#
+# Deltas measured at canonical K=3430, iterations=50, seed=42,
+# healing_profile=m+_high_key_healer, via scripts/cross_player_validation.py
+# (the same tool + gate used for every prior cross-player check).
+
+spec: protection_paladin
+k_constant: 3430
+iterations: 50
+
+fights:
+  # --- target_key_level: 2 ---
+  - player: "Player 4"
+    dungeon: "Voidscar Arena"
+    key_level: 2
+    target_key_level: 2
+    exact_match: true
+    acl: true
+
+  - player: "Player 5"
+    dungeon: "Temple of Sethraliss"
+    key_level: 2
+    target_key_level: 2
+    exact_match: true
+    acl: true
+
+  - player: "Player 6"
+    dungeon: "Murder Row"
+    key_level: 2
+    target_key_level: 2
+    exact_match: true
+    acl: true
+
+  # --- target_key_level: 8 ---
+  - player: "Player 7"
+    dungeon: "Voidscar Arena"
+    key_level: 8
+    target_key_level: 8
+    exact_match: true
+    acl: true
+
+  - player: "Player 8"
+    dungeon: "Murder Row"
+    key_level: 8
+    target_key_level: 8
+    exact_match: true
+    acl: true
+
+  - player: "Player 9"
+    dungeon: "Ruby Life Pools"
+    key_level: 8
+    target_key_level: 8
+    exact_match: true
+    acl: true
+
+  # --- target_key_level: 12 ---
+  - player: "Player 10"
+    dungeon: "Temple of Sethraliss"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+
+  - player: "Player 11"
+    dungeon: "Murder Row"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+
+  - player: "Player 12"
+    dungeon: "Kings' Rest"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+
+  # --- target_key_level: 16 ---
+  # (kl16 fights below are the completed-run replacements -- see the
+  # DATA-QUALITY NOTE above for the 3 failed-attempt fights they replaced.)
+  - player: "Player 13"
+    dungeon: "Voidscar Arena"
+    key_level: 16
+    target_key_level: 16
+    exact_match: true
+    acl: true
+
+  - player: "Player 14"
+    dungeon: "Ruby Life Pools"
+    key_level: 16
+    target_key_level: 16
+    exact_match: true
+    acl: true
+
+  - player: "Player 15"
+    dungeon: "Den of Nalorakk"
+    key_level: 16
+    target_key_level: 16
+    exact_match: true
+    acl: true

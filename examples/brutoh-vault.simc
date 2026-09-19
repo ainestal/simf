@@ -1,0 +1,121 @@
+# Brutoh - Protection - 2026-05-13 09:00 - EU/Uldum
+# SimC Addon 12.0.5-02
+# WoW 12.0.5.67451, TOC 120005
+# Requires SimulationCraft 1000-01 or newer
+
+warrior="Brutoh"
+level=90
+race=earthen_dwarf
+region=eu
+server=uldum
+role=tank
+professions=alchemy=100/jewelcrafting=87
+spec=protection
+# loot_spec=protection
+
+talents=CkEAjLzRlq54bI5v+r8Sr9Xw43CAAYMjZmZmZGziZmlZMGjGzYYxMzMjZYmBAAAALzMAzYAGstNjZZZZ0MzwMsMLNmZDzMzMDjtBAzMzMAgZAPA
+
+# Saved Loadout: raid-wowhead
+# talents=CkEAjLzRlq54bI5v+r8Sr9Xw4bZAAgZmZMzMjZmZzYWmxYMjhZGWGzMzwMmZAAAAwyAwMGgB2glFDjZAMbYmNYGzMY2GAMzAAwAMA
+# Saved Loadout: Kirawarrior-m+
+# talents=CkEAjLzRlq54bI5v+r8Sr9Xw4bBAAMmxMzMzMjZxMzyMGjhxMGWMzMzYGmZAAAAwyMDwMGgBbbzYWWWGmZGmhlZxYmNMzMzMM2GAMzMzAAmB8AA
+# Saved Loadout: pvp
+# talents=CkEAjLzRlq54bI5v+r8Sr9Xw4bbAAgZmZMzMjZGbGzyMGjZMmxYhZmZYGmZAAAAwyYAmxAMwGssYYMDgZDzsxMMzMYWGAMzAAwMgB
+# Saved Loadout: myDelver
+# talents=CkEAjLzRlq54bI5v+r8Sr9Xw4DAAYMDzMzMzYWMzsMjxYYMjx2yMzMzwwMDAAAAWmZAmxAMwGssYYMDgZBzsBzMzMY2GAMzAAwAMA
+
+# Crown of the Dark Envoy (289)
+head=,id=151333,enchant_id=7961,bonus_id=13440/6652/12667/13577/12699/12806
+# Barbed Ymirheim Choker (272)
+neck=,id=50228,gem_id=240983,bonus_id=12801/13440/6652/13668/12699
+# Night Ender's Pauldrons (276)
+shoulder=,id=249950,enchant_id=7970,bonus_id=6652/13440/13340/13574/12798
+# Night Ender's Greatmantle (289)
+back=,id=249947,bonus_id=6652/13440/12806
+# Night Ender's Breastplate (276)
+chest=,id=249955,enchant_id=7987,bonus_id=6652/13440/13336/13575/12798
+# Spellbreaker's Bracers (285)
+wrist=,id=237834,bonus_id=12214/13667/12497/12066/8960/12384/8792/13622/12667,crafted_stats=32/36,crafting_quality=5
+# Night Ender's Fists (276)
+hands=,id=249953,bonus_id=6652/13337/13574/12798
+# Night Ender's Girdle (289)
+waist=,id=249949,bonus_id=6652/12667/13440/12806
+# Night Ender's Chausses (272)
+legs=,id=249951,enchant_id=8159,bonus_id=6652/12801/13440/13339/13575/3157
+# Night Ender's Greatboots (272)
+feet=,id=249954,bonus_id=6652/12801/13440/3157
+# Bifurcation Band (289)
+finger1=,id=251115,enchant_id=8025,gem_id=240894,bonus_id=13440/6652/13668/12699/12806
+# Band of the Triumvirate (276)
+finger2=,id=151311,enchant_id=7967,gem_id=240916,bonus_id=13440/6652/13668/12699/12798
+# Solarflare Prism (289)
+trinket1=,id=252420,bonus_id=13440/6652/12699/12806
+# Mark of Light (289)
+trinket2=,id=250241,bonus_id=13440/6652/12699/12806
+# Wildthorn Razorfang (276)
+main_hand=,id=262731,enchant_id=7982,bonus_id=6652/12798
+# Spellbreaker's Rebuke (285)
+off_hand=,id=237831,bonus_id=12214/13667/12497/12066/8960/12384/8790/13622,crafted_stats=32/40,crafting_quality=5
+
+### Gear from Bags
+#
+# Night Ender's Tusks (276)
+# head=,id=249952,enchant_id=7958,bonus_id=13338/6652/12667/13575/12798
+#
+# Radiant Recruit's Tabard (1)
+# tabard=,id=233288
+#
+# Awakened Tabard (1)
+# tabard=,id=224166
+#
+# Radiant Stalwart's Tabard (1)
+# tabard=,id=233289
+#
+# Sabatons of Furious Revenge (253)
+# feet=,id=251091,bonus_id=12787/6652/13577/12699/11215
+#
+# Platinum Star Band (272)
+# finger1=,id=193708,bonus_id=12801/13440/6652/13668/12699
+#
+# Omission of Light (276)
+# finger1=,id=251093,enchant_id=8022,gem_id=240904,bonus_id=13440/6652/13668/12699/12798
+#
+# Heart of Wind (276)
+# trinket1=,id=250256,bonus_id=13440/6652/12699/12798
+#
+# Primal Philosopher's Stone (165)
+# trinket1=,id=241291,bonus_id=12249/12248/4785/12493,crafting_quality=1
+#
+# Ampoule of Pure Void (289)
+# trinket1=,id=151312,bonus_id=13440/6652/12699/12806
+#
+# Emberwing Feather (266)
+# trinket1=,id=250144,bonus_id=12795/13440/6652/12699
+#
+# Warworn Cleaver (266)
+# main_hand=,id=251088,bonus_id=12795/13440/6652/12701
+
+### Weekly Reward Choices
+#
+# Preyseeker's Longsword (233)
+# main_hand=,id=259958,bonus_id=6652/12777
+#
+# Scepter of the Endless Night (272)
+# main_hand=,id=258525,bonus_id=12801/13440/6652/12701
+#
+# Warworn Cleaver (272)
+# main_hand=,id=251088,bonus_id=12801/13440/6652/12701
+#
+### End of Weekly Reward Choices
+
+### Additional Character Info
+#
+# catalyst_currencies=3269:8/3378:3/2813:8/3116:8
+#
+# upgrade_currencies=c:3347:20/c:3383:39/c:3341:30/c:3343:14/c:1792:2336/c:3345:48/i:256608:9/i:228338:1/i:224072:1/i:232875:6/i:256559:2
+#
+# slot_high_watermarks=0:289:289/1:272:289/2:276:276/3:276:289/4:289:289/5:272:289/6:272:285/7:285:289/8:276:276/9:276:276/10:289:289/11:289:289/12:80:289/13:0:266/14:276:276/15:266:266/16:285:285
+#
+# upgrade_achievements=40107/40942/40943/40944/40945/41886/41887/41888/41892/42767/42768/61809
+
+# Checksum: 8d0a00a5

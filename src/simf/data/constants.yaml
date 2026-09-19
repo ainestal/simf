@@ -1,0 +1,2478 @@
+# simf — sim constants for Midnight 12.0.5.
+# Values marked PLACEHOLDER need calibration vs in-game testing or class community data.
+# last_verified_patch: 12.0.5 (hotfix May 12 2026 — Phalanx 8%, IP buff applied)
+# K recalibrated 2026-05-10 with cleaner replay model: per-event log absorbs,
+# avoidance disabled for replay events, Demo Shout on CD, boss immunities applied.
+# K=2300 minimizes RMSE=0.070 across 5 logs (2026-05-10).
+
+last_verified_patch: "12.0.5"
+# Integer bumped on every mechanical change to constants/talents/specs.
+# `SimResult` embeds this; the UI uses it as a cache key so stale Monte
+# Carlo results auto-expire when the user upgrades simf or the patch
+# refits. Bumped on Phase 4 (4 new specs + state slot additions).
+# v21 (2026-05-24): Phase 3.9.2 — `party_dr_by_school` replaces the flat
+# `party_magic_dr` knob on protection_warrior. New per-school dict with
+# `all` (applies to physical and magic) and `magic` (stacks on top for
+# non-physical) keys. Closes the structural gap where the engine could
+# not model all-school healer-aura DR (Shaman Earth Shield, Druid Symbol
+# of Hope, etc.) on physical events. Defaults `all: 0.05, magic: 0.05`;
+# replay opt-in unchanged (state.party_magic_dr_active gate retained for
+# backwards-compat with the gap-measurement script). Expected gap
+# closure per docs/validation/magic_mit_gap_remeasurement_2026_05_23.md
+# fix #2: ~5pp physical, ~5pp incremental magic.
+# v14 (2026-05-21): Phase 2.10 v3 follow-up — `min_ds_press_rate` per tier
+# couples Demoralizing Shout cadence into log-based playstyle inference.
+# Press rate = actual_casts / (duration_s / base_cooldown_s), capped at 1.0.
+# Combined inference takes min(sb_tier, ds_tier) so both signals must clear a
+# tier's threshold. Engine math unchanged; no Monte Carlo impact. Old cached
+# SimResults still valid (`tier_id` lookup falls through gracefully) but the
+# bump is correct: per-tier YAML schema gained a field.
+# v16 (2026-05-22): Bottom-tier high-key relabel — `learning` tier gains
+# `high_key_min_level: 15` + `high_key_label: "Off your usual game"` +
+# `high_key_description` + `high_key_focus`. At key ≥ 15, the displayed
+# label/copy switches because the "Learning the buttons" cohort doesn't
+# queue +15+ (filtered by progression). Engine math unchanged; cosmetic
+# schema addition only. Multi-agent review 2026-05-22 (brutoh +
+# elite_tank + novice_tank + director + validator).
+# v15 (2026-05-21): `gear.ilvl_cap_current_season` — Midnight 12.0.5 hard ilvl
+# ceiling. Mythic-track item 289 + Voidcore (+6) = 295. The upgrade-impact
+# panel clamps projected ilvls to this so suggestions don't render items past
+# what's actually achievable in-game.
+# v13 (2026-05-20): Phase 2.10 Skill-Adjusted Verdict — new `skill_tiers` block
+# defines 4 named playstyle tiers (in_the_zone / anticipating / reading /
+# learning) with press-rate modifiers (1.00 / 0.85 / 0.65 / 0.40). The modifier
+# is consumed by ActiveMitigationPolicy via a separate RNG, so modifier=1.0
+# stays bit-identical to pre-v13. v2.10b adds `min_sb_uptime` thresholds per
+# tier (additive) for log-based playstyle inference — no math impact.
+# v12 (2026-05-20): ProtPal calibration — holy_power_per_second_base 0.33→0.55
+# (back-solved from real SotR uptime 86-87% in the AnonPPal1 corpus logs at 9.58%
+# haste). COMBATANT_INFO talent detection: spell_id added to reinforced_plates
+# (382939) and armor_specialization (1234769); calibrate-k auto-detects per run.
+# v11 (2026-05-20): Mastery-chain redesign atomic ship — F11 (already in
+# tree from F12) + F7 retune (mastery_crit_block_scaling 1.0 → 1.5) + F13
+# (new mastery_block_chance_scaling: 0.5, wired into Character.base_block).
+# Primary-source verified against SimC sc_warrior.cpp (midnight, lines
+# 8893/8910/8990) + spell 76857 + in-game tooltip — all three converge.
+# K sweep: best K shifted 3200 → 3400; RMSE at canonical K=3430 dropped
+# 0.079 → ~0.065 (the v11 figure, historical/2026-05-20 — NOT the current
+# canonical value; the `global_rmse` field below has been re-measured
+# several times since, most recently ratified 2026-07-21 to 0.162 — see the
+# `calibration:` block below and the v42/v43 entries above for the current
+# figure and its history). K stays at 3430 (empirical and canonical were
+# within 30 K as of this 2026-05-20 measurement; see the 2026-07-21 note
+# below for why K stays pinned despite a much wider empirical gap that
+# opened up after the 2026-07-18 Demo Shout double-count fix).
+# See docs/validation/k_calibration_mastery_chain_2026_05_20.md.
+# v10 (2026-05-19): Speculative version block for the mastery-chain ship that
+# was reverted same day; superseded by v11.
+# v25 (2026-06-24): Guardian Ironfur P1 — ironfur_flat_armor_per_agility_per_stack
+# 1.12→1.46 (124% SimC 12.0.x base × typical Killing-Strikes build; Ironfur adds
+# OUTSIDE composite_armor_multiplier so there is no pool multiplier — the earlier
+# ~1.30 hypothesis was refuted from primary SimC source) and
+# ironfur_avg_stacks_m_plus 1.5→2.45 (measured across 16 local AnonGuardian1 runs).
+# Validated 13/16 within ±15% (mean |Δ| 9.2%). calibrated stays false (stacks are
+# a AnonGuardian1-profile overfit; the haste→rage→Ironfur model is the named follow-up).
+# See docs/validation/phase4_guardian_local_logs_2026_06_24.md.
+# v26 (2026-06-24): Guardian haste→rage→Ironfur uptime-elasticity. New
+# specs.guardian_druid.ironfur_haste_model {detect_buff_spell_id: 202770 Fury of
+# Elune, k: 0.75, ref_haste_pct: 0.121} + ironfur_stacks_max: 8. Consumed by
+# Character._guardian_ironfur_avg_stacks() — gives haste a non-zero Guardian
+# survival marginal (was 0). Gated on the Elune's Chosen buff (Druid of the Claw
+# falls back to static 2.45, haste marginal 0). MODELED/un-regressable → calibrated
+# stays false. Warrior/BrM/VDH/Pal bit-identical. See
+# docs/validation/phase4_guardian_haste_model_2026_06_24.md.
+# v28 (2026-06-26): Guardian Mastery: Nature's Guardian healing-received lever
+# (+0.7×mastery to heals/absorbs received) — natures_guardian_heal_coeff +
+# base_mastery_pct + mastery_rating_per_pct_guardian under specs.guardian_druid;
+# Character.mastery_pct() gains a guardian branch. The NG max-HP aura is NOT added
+# (already baked into the stamina→HP path — an explicit term double-counts).
+# v37 (2026-07-03): ProtPal Ardent Defender parameters corrected — dr 0.20→0.30,
+# duration_s 8.0→12.0, cooldown_s 120.0→90.0. Forensically confirmed from a 4th
+# Bruttah log (Seat of the Triumvirate +9): 12/12 clean AURA_APPLIED→REMOVED
+# samples at 12.00±0.02s, a recast at 71.7s that falsifies the old 120s CD
+# outright, and Wowhead's live tooltip for spell 31850 agreeing on all three
+# (30%/12s/90s). Also resolves an internal inconsistency: the coaching registry
+# (this file, protection_paladin defensives) already assumed cooldown_s: 90.
+# Base values only — Unbreakable Spirit's further CD reduction is a talent, not
+# modeled. Does NOT flip calibrated: true (still false; gap narrows and reshapes
+# but a holy-power-economy shortfall dominates at high keys). See
+# docs/validation/phase4_protpal_ardent_defender_2026_07_03.md.
+# v38 (2026-07-03): VDH Painbringer modeled + party_dr_by_school parity. New
+# specs.vengeance_demon_hunter.painbringer_dr: 0.03 + painbringer_spell_id:
+# 212988, window-gated on the buff in replay (live path deliberately not yet
+# credited — the policy has no Soul-Fragment-consume model). Value pinned from
+# live Midnight data, NOT fitted: Wowhead tooltip (talent 207387, "reduces all
+# damage you take by 3% for 8 sec") + DB2 build 12.0.7.68367 (talent 207387
+# effect0 = A_ADD_FLAT_LABEL_MODIFIER(219) value −3, ModOp 3, label 2406 →
+# buff 212988 [carries label 2406] effect0 = A_MOD_DAMAGE_PERCENT_TAKEN(87)
+# base 0, school mask 127 = all schools; SpellAuraOptions.CumulativeAura = 1 →
+# NON-stacking in Midnight, unlike the DF-era per-stack version). This resolves
+# the old "SimC live effect base reads 0 (scripted/rank-driven)" blocker: the
+# base IS 0 and the −3 arrives via the talent's label modifier. A later check
+# found SimC likely resolves this at runtime anyway (same
+# set_default_value_from_effect_type pattern as Fiery Brand, which SimC
+# credits) — the earlier "0" read was static DB2 inspection, not proof SimC
+# omits it. The 3% here comes from Wowhead + DB2 regardless of SimC's read.
+# Also adds specs.vengeance_demon_hunter.party_dr_by_school {all: 0.05} —
+# structural parity with warrior/Guardian; replay opt-in gate unchanged
+# (state.party_magic_dr_active — NOT active in calibration runs, contributes
+# zero to the WCL corpus deltas). calibrated stays false.
+# v39 (2026-07-04): Blood DK first characterization (5 public zone-47 WCL
+# fights, 4 players, keys +20..+22). Bone Shield's placeholder flat DR
+# (3%/stack x avg 7 stacks) replaced with the real Midnight mechanic —
+# bonus armor = 180% of Strength while >=1 charge (SimC midnight
+# composite_bonus_armor; Wowhead 195181), window-gated in replay, stack-
+# count-independent. Rune Carved Plates (Deathbringer, buffs 440289/440290,
+# 1.5%/stack max 5) added as a replay buff-gated per-school layer. Icebound
+# Fortitude cooldown 180->120s (Wowhead 48792 "2 minutes"; resolves the
+# internal inconsistency with the coaching registry's cooldown_s: 120).
+# Does NOT flip calibrated: true. See
+# docs/validation/phase4_blood_dk_characterization_2026_07_03.md.
+# v40 (2026-07-04): ProtPal Holy-Power/WoG economy corrected from the 4-log
+# Bruttah corpus. (1) Word of Glory is overwhelmingly MANA-funded in Midnight
+# 12.0.5, NOT Holy-Power-funded: 93.5% of WoG SPELL_CAST_SUCCESS lines read
+# powerType=0 cost=50000 (pool 250000) with no Holy Power draw at all; a
+# minority (6.5%, 10/155) pipe-join a Holy Power leg alongside the mana leg
+# (uncharacterized mechanism, ~1% of corpus HP income). A pool-conservation
+# replay of income − (paid SotR + hybrid-WoG Holy Power) matches 917/919
+# pre-cast pool readings (909 SotR + 10 hybrid WoG) — the old model's
+# WoG-first Holy-Power spend on EVERY press starved SotR uptime exactly in
+# the low-HP/high-key regime (the fake key-level gradient in the deltas).
+# wog_holy_power_cost removed; wog_mana_cost + mana_max + mana_regen_per_s
+# added (all read off cast lines).
+# (2) holy_power_per_second_base 0.55→0.46 — re-derived from Bruttah's
+# MEASURED SotR buff uptime (78.1-85.8%) at each run's hydrated haste
+# (19.8-23.3%), replacing the single-player AnonPPal1 back-solve at 9.58%
+# haste. (3) wog_heal_pct_of_max_hp 0.30→0.18, measured PER PRESS (n=143,
+# mean 18.34%) rather than per heal-event (an earlier per-event read of the
+# same corpus, n=182, measured 0.15 — diluted by multi-heal presses).
+# WoG-first press priority + 0.55 threshold NOT touched (behavioral
+# heuristic, not retuned to one player). calibrated stays false. Canonical-K
+# deltas: +19.8/+1.6/+29.7/+47.5% (AD-fix baseline) → +14.7/-5.3/+28.2/+9.3%,
+# RMSE 0.297→0.168. See
+# docs/validation/phase4_protpal_holy_power_economy_2026_07_04.md.
+# v41 (2026-07-18): VDH magic-residual follow-through, decided autonomously
+# per user direction (owner: "I cannot ratify something this technical, carry
+# on yourself"). Re-ran the 3-fight WCL corpus post the 2026-07-17 Fiery Brand
+# double-count fix first (canonical-K deltas +37.5/+62.0/+36.5% -> correctly
+# WIDER at +48.7/+75.1/+47.9%, RMSE 0.468->0.586 — confirms the fix, the bug
+# had been masking part of the real gap). Then wired the 2 leads that
+# survived scrutiny: (1) Infernal Armor (talent 320331) activates Immolation
+# Aura's dormant +20% armor effect, window-gated like Metamorphosis, confirmed
+# taken by all 3 corpus fighters — REAL MEASURED IMPACT: deltas improved to
+# +39.9/+66.7/+38.8% (RMSE 0.586->0.502), the single largest VDH calibration
+# fix since Metamorphosis armor itself. (2) Void Reaver's Frailty (talent
+# 268175, -5% all-school "damage to caster" from a Frailty-debuffed mob) was
+# flagged genuinely ambiguous attacker/defender-side by SimC-source tracing
+# alone (Fiery Brand's own confirmed-attacker-side effect sits in the
+# identical SimC bucket, proving bucket placement isn't decisive) — RESOLVED
+# empirically via per-hit forensics on the same 3 WCL fights (same ability +
+# same mob, Frailty-active vs not: unmitigatedAmount itself runs ~5-15% lower
+# while Frailty is up, a strikingly tight ~0.91 cluster on AnonPlayerX2) —
+# ATTACKER-SIDE, already baked into logged damage. Modeled live/synthetic-
+# only (flat averaged like Fiery Brand, ~90% measured uptime); correctly
+# contributes ZERO to the corpus deltas above (confirmed by a mutation test —
+# wiring it into replay would double-count, the same bug class just fixed for
+# Fiery Brand one day earlier). Fel Flame Fortification (talent 389705, 2-of-3
+# sourced, taken by only 1 of 3 corpus fighters) stays UNWIRED — VDH has no
+# per-player talent-detection plumbing, and wiring a non-universal talent
+# without it risks over-crediting untalented players, a worse bug than the
+# ~2pp it would fix. A 4th data point search (Aldrachi Reaver, to de-confound
+# the all-Fel-Scarred corpus) found real candidates (AnonPlayerX9 PoS+20,
+# AnonPlayerX8 Algeth'ar+14) but AnonPlayerX8's talentTree resolved to an unidentified 3rd
+# Demon Hunter hero tree (entry ids under hero_tree_id 124, neither Aldrachi
+# Reaver's 35 nor Fel-Scarred's 34 — a genuinely new finding, not yet
+# understood) and AnonPlayerX9's report code, once found, didn't contain the
+# target Pit of Saron fight — deferred, not resolved. VDH stays
+# `calibration_tier: characterized`. See
+# docs/validation/phase4_vdh_magic_residual_leads_2026_07_18.md.
+# v42 (2026-07-21): Prot Warrior coupled Shield Block / block-value fix.
+# Two real, SimC-source-confirmed bugs shipped together (fixing only one
+# swings the ratified corpus materially worse — see the validation doc):
+# (1) `core/mitigation.py::calculate_armor_resist` applied its `multiplier`
+# to the input value BEFORE dividing by K; SimC's real formula (fetched live
+# from `engine/util/util.cpp`, branch `midnight`) divides first, THEN
+# multiplies the resulting fraction. Only the crit-block call site
+# (multiplier=2.0) was ever affected. (2) Shield Block's flat
+# `active_mitigation.shield_block.physical_dr` (was 0.30, now 0.0 —
+# uncited, unlike every neighboring constant) was a double-count: SimC's
+# real warrior mitigation chain has no separate physical-DR aura on
+# Shield Block beyond guaranteeing the block roll, confirmed via SimC
+# source, a live Wowhead effect-table fetch (spell 132404's "Mod % Damage
+# Taken" effect shows no populated value, unlike its 3 real siblings), and
+# an empirical block-rate cross-check (91.2% vs 25.8% in/out of SB windows
+# — a real 30% layer would predict a very different ratio). Canonical-K
+# (3430) deltas on the ratified 16-log corpus: RMSE 0.138→0.250, mean bias
+# +11.5%→+23.0%, 10/16→4/16 within ±15% — WORSE on every headline number,
+# and expected to be: removing a broad unconditional 30% cut (fired on
+# every physical hit during ~80%+ of fight-time SB uptime, blocked or not)
+# outweighs the crit-block formula fix's narrower gain (only on the subset
+# of hits that also roll a crit block), net-widening the pre-existing
+# "structural physical-mit gap" (see roadmap item 5) the two bugs had been
+# accidentally masking. `calibration_tier` and `global_rmse` NOT changed by
+# this bump — human ratification pending. A related, weaker-evidenced lead
+# (mastery_pct_warrior_prot's base=0.12 may be a stale, uncited placeholder)
+# was investigated and deliberately HELD, not shipped — see the doc for why.
+# See docs/validation/protwarrior_shield_block_fix_2026_07_21.md.
+#
+# v43 (2026-07-21): Shield Block's charge recharge is HASTED — SimC source
+# confirms (`shield_block_t`'s constructor sets `cooldown->hasted = true;`,
+# `engine/class_modules/sc_warrior.cpp`, same `midnight` commit this file's
+# other citations use). `core/policy.py`'s press-cadence model was applying
+# `active_mitigation.shield_block.recharge_s` (16s) FLAT, un-hasted — every
+# character recharged charges at the same rate regardless of haste. This was
+# the dominant driver of the v42 fix's +23.0% over-predict: measured directly
+# via a real `run_simulation` call against the ratified corpus,
+# `SimResult.mean_sb_uptime` (the sim's OWN modeled Shield Block uptime) was
+# 59.1% at skill_modifier=1.0 ("in the zone," press-on-cooldown) — dramatically
+# below the corpus's real logged SB uptime of 90.1% (time-weighted, from the
+# log's own Shield Block aura windows). At Brutoh's calibration haste
+# (23.18%), the hasted-recharge fix predicts a steady-state uptime of
+# 6/(16/1.2318/2) ≈ 92% — matching the real 90.1% far more closely than the
+# un-hasted model's 59.1%. `active_mitigation.shield_block.recharge_s`
+# ITSELF is unchanged (still 16, the correct BASE value); only the point of
+# use in `core/policy.py` now divides by `(1 + haste_pct)`, mirroring the
+# existing hasted-cooldown convention already used for Shield Slam's cycle
+# two lines above it. Canonical-K (3430) deltas on the ratified 16-log
+# corpus: RMSE 0.250→0.162, mean bias +23.0%→+13.7%, 4/16→8/16 within ±15%
+# — a large, real improvement, though still worse than the pre-v42 headline
+# (0.138/+11.5%), which was itself propped up by the two now-fixed bugs.
+# `calibration_tier` and `global_rmse` were NOT changed by this bump at the
+# time it shipped — human ratification was pending, same as v42.
+# See docs/validation/protwarrior_post_shield_block_bias_decomposition_2026_07_21.md.
+#
+# RATIFIED 2026-07-21 (same day, following human review): `global_rmse`
+# below is updated 0.138 → 0.162 and `calibration_tier`'s inline comment is
+# updated to match, reflecting the v42+v43 fixes' final measured state
+# (mean bias +13.7% over-predict, 8/16 within ±15%). `calibration_tier`
+# ITSELF stays `characterized` — not promoted, not downgraded: measured
+# against this project's own characterized→calibrated promotion bar
+# (`core/constants.py`: |mean bias|≤5%, ≥75% within ±15%, RMSE≤0.15, plus
+# the LOO-CV gate) and against BOTH live historical precedents this project
+# has actually used to award `calibrated` — this spec's own original bar
+# (RMSE 0.0652, unbiased +0.2%, 16/16 within ±15%) and Guardian Druid's
+# (RMSE 0.119, unbiased +0.2%, 12/16 within ±15%) — today's 0.162/+13.7%/50%
+# state falls short of every threshold in both, not a borderline case. This
+# is a real, intentional widening of the measured gap versus the
+# pre-2026-07-21 0.138 headline, not a regression to distrust: the two
+# v42-deleted double-counting bugs had been masking part of the
+# already-tracked "structural physical-mit gap" (roadmap item 5) — the
+# model is now more honestly wrong, not more wrong in absolute terms. The
+# per-dungeon table below has NOT been formally re-derived under this fixed
+# chain (stays flagged `⚠ STALE`); see CONTRIBUTING.md's "Known outliers" line for
+# a derived (not yet formally re-published into this file) per-dungeon
+# shape check confirming the worst residual has moved from Algeth'ar
+# Academy to Windrunner Spire / Magisters' Terrace. See
+# docs/validation/protwarrior_shield_block_fix_2026_07_21.md,
+# protwarrior_post_shield_block_bias_decomposition_2026_07_21.md, and
+# protwarrior_sb_press_cadence_2026_07_21.md (confirms no further code
+# change followed the v43 fix — this is the final ratified state).
+#
+# 2026-07-21 investigation, no constants_version bump (nothing here changed):
+# checked whether v43's remaining +13.7% bias would close further by moving
+# `core/policy.py`'s Shield Block press-cadence gate toward SimC's real APL
+# condition (`remains<=10`, a near-no-op given the buff's 6s duration —
+# effectively "press whenever a charge is ready"). It ROBUSTLY REGRESSES
+# instead (RMSE 0.162→0.323 at the extreme "press ASAP" case; a buffer sweep
+# in both directions confirmed a clean monotonic trend the WRONG way for a
+# SimC-literal mirror), because SimC's mechanic banks remaining duration
+# additively while this engine resets it — see the inline comment above
+# `sb_preconditions` in `core/policy.py` and
+# docs/validation/protwarrior_sb_press_cadence_2026_07_21.md for the full
+# sweep. No code/constant change shipped; kept as a named, closed lead.
+#
+# 2026-07-21 (same day, next lead): shipped Vanguard — a Prot Warrior SPEC
+# PASSIVE (not a talent, always active) adding bonus armor = Strength × 70%.
+# This is the "likely Vanguard" TODO named in two places elsewhere in this
+# file since 2026-05-18/19 (see the K=3430-vs-empirical-minimum note and the
+# old `talents:` block comment, both now superseded). Sourced 3 ways: live
+# Wowhead tooltip for spell 71 (raw Playwright accessibility-tree read, not
+# an AI-summarized fetch — Effect #1 "Mod Armor From Stat %", Value 70%),
+# SimC source (`sc_warrior.cpp`, same vendored `midnight` commit,
+# `composite_bonus_armor()`: `ba += spec.vanguard->effectN(1).percent() *
+# current_str`, gated only on Protection spec — no talent, no rating
+# conversion, no hidden budget scaling), and the two agreeing on the SAME
+# effect index. This resolves the old comments' 0.258-vs-40% discrepancy:
+# both numbers were wrong — 40% was Vanguard's OTHER effect (Stamina, not
+# armor) and 0.258 was an empirical fit measured under a replay chain with
+# three now-fixed mitigation bugs (this same day's v42/v43 work) live. New
+# key: `specs.protection_warrior.vanguard_armor_per_strength: 0.70`.
+# Canonical-K (3430) deltas on the ratified 16-log corpus: RMSE 0.162→0.073,
+# mean bias +13.7%→+1.8%, 8/16→16/16 within ±15% (RMSE 0.068 excluding the
+# 2 partial/truncated runs, n=14) — a large, clean, correctly-directed
+# improvement that numerically clears 3 of the 4 `calibrated` promotion-bar
+# gates in `core/constants.py` (RMSE≤0.15, |mean bias|≤5%, ≥75% within
+# ±15%); the 4th (LOO-CV) was NOT run in this pass. NOT self-certified as a
+# tier change regardless — `calibration_tier`/`global_rmse` below are
+# deliberately UNCHANGED pending human ratification (including the LOO-CV
+# gate), same posture as every other calibration-affecting fix today. See
+# docs/validation/protwarrior_vanguard_strength_armor_2026_07_21.md.
+#
+# 2026-07-22 (next day, no engine/constant math changed — tooling +
+# ratification only): `simf calibrate-k` extended with the LOO-CV gate
+# named as the missing 4th criterion above (PR #416, reusing
+# scripts/calibrate_spec_from_logs.py's existing `_run_loo_cv`). Run
+# against this same ratified 16-log corpus with Vanguard live:
+# **LOO-CV GATE: PASS** (K stability max_dev=180≤300, held-out prediction
+# 16/16 within ±15%, no fold beyond ±25% — the tightest result this
+# project has measured for any spec). RATIFIED same day (human decision):
+# `global_rmse` 0.162→0.073, `calibration_tier` (below) promoted
+# `characterized`→`calibrated` — the first spec to clear all five
+# promotion-bar sub-criteria at once. See
+# docs/validation/protwarrior_loo_cv_vanguard_2026_07_22.md.
+#
+# v45 (2026-07-22, merged 2026-07-25): `specs.protection_warrior` gained
+# `keep_feet_on_ground_dr: 0.08` + `keep_feet_on_ground_spell_id: 438591`
+# (Keep Your Feet on the Ground — Mountain Thane hero-talent proc, -8%
+# all-school DR while up) — this schema addition itself shipped on
+# 2026-07-22 (commit `0870ede`) but should have bumped this counter then
+# and didn't (v14's own precedent above: a schema-only addition still
+# warrants a bump even with no live-path Monte Carlo impact — see
+# `keep_feet_on_ground_dr`'s own comment for why: live/synthetic sim gets
+# no credit yet, log-replay-only). Bumped now, alongside the merge
+# ratification decision (`global_rmse` 0.073→0.080 in the `calibration:`
+# block below) rather than left permanently missing. See
+# docs/validation/protwarrior_magic_wedge_kyfotg_lead_2026_07_22.md and
+# docs/validation/protwarrior_kyfotg_wide_archive_2026_07_25.md.
+constants_version: 45
+
+# Bumped when the log-analysis pipeline shape changes (new fields on
+# DeathEvent / NPCAttribution, segmenter rework, mitigation-audit row
+# additions, etc.) — anything that would make a cached pickle from an
+# older simf incorrect to deserialize even if `constants_version` hasn't
+# moved. Evolves INDEPENDENTLY from `constants_version`: engine math and
+# analysis pipeline shape change for different reasons.
+# Used by `simf.io.log_analysis_cache` to invalidate every cached log
+# bundle on a pipeline bump.
+# v5 (2026-06-29): WCL DamageTakenEvents now carry a spawn-unique source_guid
+# (WCL actor id + instance) so the defensive-coverage join can credit a
+# tank-applied enemy debuff (Demoralizing Shout) spawn-precisely. Bumped so
+# warm WCL bundle caches re-build with the new field before the join reads it.
+#
+# v6 (2026-07-02): interruptible-cast coverage lever. `_cached_coverage_report`'s
+# disk-cached tuple grew a 3rd element (`interrupted_spell_ids`) — an old 2-tuple
+# cache entry would crash on unpack, not just serve a stale-but-valid payload.
+#
+# v7 (2026-07-03): cooldown-aware "kick was available" split. Same hazard as
+# v6 — `_cached_coverage_report`'s disk-cached tuple grew a 4th element
+# (`own_interrupt_cast_times`), so an old 3-tuple cache entry must be
+# invalidated rather than crash on unpack.
+analysis_version: 7
+
+# Damage-school badge colors (Brutoh idea #d, 2026-05-25).
+# Used on every "Why did I die?" surface to prefix ability names with a
+# colored pill so the user can see at a glance whether a hit was magic
+# (use Spell Reflect) or physical (use Shield Block). Color is decoration
+# only — every badge also carries a text label (WCAG 1.4.1).
+#
+# Contrast pairs measured against `--surface-elev` (#ffffff) AND
+# `--surface-base` (#f4f1ea) — every fg/bg combination clears WCAG 2.2
+# AA 4.5:1 because the pill text is 12px bold on a 0.16-alpha tint of
+# the bg color (so the readable text uses the `fg` ink directly, not
+# the pill fill). The `fg` is the text/border color; the `bg` is the
+# pill fill at full saturation (CSS adds the alpha).
+#
+# Bleed gets the same physical fg but a distinct text suffix
+# `Physical (bleed)` so the user knows armor mit didn't apply to that
+# bucket — surfaced because the engine carries `is_bleed` per event
+# (see core/bleed_detection.py).
+damage_school_colors:
+  physical:  { fg: "#7a3d2c", bg: "#c9a594" }   # bronze — matches --accent-warn
+  holy:      { fg: "#7a5e1c", bg: "#e2cf8e" }   # warm gold
+  fire:      { fg: "#8b3a1f", bg: "#e2a08a" }   # ember
+  nature:    { fg: "#2f5f2a", bg: "#a8c99c" }   # leaf
+  frost:     { fg: "#2a5b7a", bg: "#a8c9d9" }   # ice
+  shadow:    { fg: "#4a3168", bg: "#bba8d4" }   # plum
+  arcane:    { fg: "#6b2e6e", bg: "#d4a8d4" }   # rose-violet
+  unknown:   { fg: "#4a4a4a", bg: "#cccccc" }   # neutral fallback
+
+# ── Defensive-coverage coaching (the hit-vs-coverage join) ────────────────────
+#
+# Powers the "Defensive coverage on your biggest hits" section of the
+# Why-died surface. The headline analysis is the COVERAGE JOIN: the tank's
+# top-N biggest damage-taken events × which defensive cooldown was active at
+# each hit's timestamp. It is read 100% from the combat log (damage events +
+# buff/debuff aura events) and touches NO simulation — so it is
+# model-independent AND spec-agnostic (works on a `calibrated: false` spec).
+# This is the deliberate design (ROADMAP "Survivability coaching" entry,
+# validated 2026-06-29): the sim-vs-log gap is the counterfactual no other
+# tool computes, but the COACHING surface bills nothing to the model.
+#
+# HONESTY RULES baked into this registry (do not relax without re-reading the
+# ROADMAP entry's "MUST-FIX honesty traps"):
+#   1. NEVER enumerate a DELETED ability. Rage of the Sleeper (spell 200851)
+#      was removed from the game in patch 12.0.0 and stripped from the engine
+#      (PR #218). It must NOT appear below. A test greps this block for 200851.
+#   2. Levers are TALENT-GATED at runtime: a defensive only renders if the log
+#      shows ≥1 application/cast of it. A registry entry is a *candidate*, not
+#      a claim the player took the talent — so an over-inclusive list is safe
+#      (un-talented levers silently never match), but a wrong spell_id causes a
+#      fail-safe UNDER-credit (it just never matches), never an over-credit.
+#   3. `role` decides HOW the lever is judged (the core design rule):
+#        - role: coverage  → a reactive/emergency DR cooldown, judged by SPIKE
+#          COVERAGE (was it up for the big hit?). Pressing these on cooldown is
+#          *wrong*; holding for the tank-buster is correct play — so they only
+#          ever appear in the hit-vs-coverage join, never as a raw-uptime stat.
+#        - role: continuous → a near-permanent active-mitigation tool, judged by
+#          UPTIME (constant pack damage → you want it up always). Shown as a
+#          plain log-derived uptime line, EXCLUDED from the "no defensive up"
+#          determination (Shield Block not being up for one nature spike is not
+#          a failure). No "achievable" benchmark — that would be circular.
+#   4. `school_scope` gates which hits a lever can cover: all | physical | magic.
+#      A physical-only lever (Shield Block, Ironfur) never "covers" a Nature
+#      hit. Bleeds count as physical.
+#   5. `detect` is the log signal:
+#        - buff             → a BUFF aura applied to the tank (most CDs).
+#        - debuff_on_source → an enemy DEBUFF the tank applies (e.g. Demoralizing
+#          Shout reduces the *enemy's* damage). A hit is covered only if the
+#          hit's own source had the debuff active — never a blanket window, so
+#          mobs the debuff never touched are not falsely credited. Needs
+#          duration_s as a safety cap when a removal isn't logged.
+#   6. `tier` (default major) separates a personal big-button DR from a weaker
+#      one. `minor` = a partial-reduction lever (Demoralizing Shout, a −20%
+#      enemy debuff). A hit covered ONLY by a minor lever renders as "partial"
+#      and never flips the verdict to "every hit had a major defensive up" — so
+#      a 20% shave never reads the same as a 40-50% personal cooldown.
+#   7. `cooldown_s` (coverage levers only) is the base recharge time. It powers
+#      the "was a cooldown even AVAILABLE?" split on UNCOVERED hits: a hit you
+#      ate with your whole major kit on cooldown (spent earlier) is a pull-size
+#      / route problem, NOT a reaction-timing miss, and must not read as "you
+#      should have pressed something." Use the BASE cooldown (ignore charges,
+#      haste and talent reductions): that OVER-states recharge time, so the
+#      split errs toward "kit was spent" (the charitable, non-blaming call) and
+#      never wrongly tells a player a cooldown was ready when it wasn't. A lever
+#      with no `cooldown_s` is simply left out of the availability split (the hit
+#      falls back to the plain "no cooldown up" line) — fail-safe, never a lie.
+#
+# NOTE: editing this block changes which levers are detected; bump
+# `constants_version` above in the same change so the cached coverage windows
+# (keyed on constants_version) invalidate.
+#
+# VERIFICATION STATUS: protection_warrior is verified against a real Brutoh log;
+# guardian_druid is from the validated prototype. The other four specs list
+# their best-known signature DR cooldowns (buff-detected, conservative scope)
+# pending a per-spec log to verify spell_ids — the fail-safe property above
+# means an incomplete list under-shows but never lies.
+coaching:
+  top_hits_n: 8           # how many of the biggest hits to join against coverage
+  min_events_for_verdict: 20  # below this the run is too short to coach on
+  defensives:
+    protection_warrior:
+      - { spell_id: 871,    name: "Shield Wall",        school_scope: all,      role: coverage,   detect: buff, cooldown_s: 240 }
+      - { spell_id: 12975,  name: "Last Stand",         school_scope: all,      role: coverage,   detect: buff, cooldown_s: 180 }
+      - { spell_id: 1160,   name: "Demoralizing Shout", school_scope: all,      role: coverage,   detect: debuff_on_source, duration_s: 8.0, tier: minor, cooldown_s: 45 }
+      - { spell_id: 132404, name: "Shield Block",       school_scope: physical, role: continuous, detect: buff }
+    guardian_druid:
+      # Rage of the Sleeper (200851) deliberately ABSENT — deleted in 12.0.0.
+      - { spell_id: 61336,  name: "Survival Instincts", school_scope: all,      role: coverage,   detect: buff, cooldown_s: 180 }
+      - { spell_id: 22812,  name: "Barkskin",           school_scope: all,      role: coverage,   detect: buff, cooldown_s: 60 }
+      - { spell_id: 102558, name: "Incarnation",        school_scope: physical, role: coverage,   detect: buff, cooldown_s: 180 }
+      - { spell_id: 192081, name: "Ironfur",            school_scope: physical, role: continuous, detect: buff }
+    protection_paladin:
+      - { spell_id: 31850,  name: "Ardent Defender",        school_scope: all,      role: coverage,   detect: buff, cooldown_s: 90 }
+      - { spell_id: 86659,  name: "Guardian of Ancient Kings", school_scope: all,   role: coverage,   detect: buff, cooldown_s: 180 }
+      # Divine Shield only avoids the classic "boss re-aggros the party" tanking
+      # trap with the Final Stand talent (taunts everything on cast) — Final
+      # Stand is the default Midnight M+ capstone pick, so this stays listed.
+      # The talent gate (>=1 detected cast) is the only guard against a
+      # Final-Stand-less build getting coached to press this while tanking.
+      - { spell_id: 642,    name: "Divine Shield",           school_scope: all,      role: coverage,   detect: buff, cooldown_s: 300 }
+      - { spell_id: 132403, name: "Shield of the Righteous",  school_scope: physical, role: continuous, detect: buff }
+    blood_death_knight:
+      - { spell_id: 55233,  name: "Vampiric Blood",      school_scope: all,      role: coverage,   detect: buff, cooldown_s: 90 }
+      - { spell_id: 48792,  name: "Icebound Fortitude",  school_scope: all,      role: coverage,   detect: buff, cooldown_s: 120 }
+      # Dancing Rune Weapon's DR is +20% parry chance (probabilistic avoidance,
+      # not a flat cut) — minor tier, the same class as Demoralizing Shout's shave.
+      - { spell_id: 49028,  name: "Dancing Rune Weapon", school_scope: physical, role: coverage,   detect: buff, cooldown_s: 120, tier: minor }
+      - { spell_id: 48707,  name: "Anti-Magic Shell",    school_scope: magic,    role: coverage,   detect: buff, cooldown_s: 60 }
+      - { spell_id: 195181, name: "Bone Shield",         school_scope: physical, role: continuous, detect: buff }
+      - { spell_id: 51052,  name: "Anti-Magic Zone",     school_scope: magic,    role: coverage,   detect: buff, cooldown_s: 240, tier: minor }
+      - { spell_id: 194679, name: "Rune Tap",            school_scope: all,      role: coverage,   detect: buff, tier: minor }
+    vengeance_demon_hunter:
+      # Metamorphosis (Vengeance) grants +40% max HP and +200% armor only — no
+      # flat all-school DR line — so it mitigates physical hits only.
+      - { spell_id: 187827, name: "Metamorphosis", school_scope: physical, role: coverage,   detect: buff, cooldown_s: 180 }
+      - { spell_id: 204021, name: "Fiery Brand",   school_scope: all,      role: coverage,   detect: buff, cooldown_s: 60 }
+      - { spell_id: 203720, name: "Demon Spikes",  school_scope: physical, role: continuous, detect: buff }
+      # Netherwalk (196555) deliberately ABSENT — cut from the Vengeance kit in
+      # the Midnight redesign; do not re-add (mirrors the Guardian RotS pattern).
+    brewmaster_monk:
+      - { spell_id: 115203, name: "Fortifying Brew",     school_scope: all,      role: coverage,   detect: buff, cooldown_s: 360 }
+      - { spell_id: 122278, name: "Dampen Harm",         school_scope: all,      role: coverage,   detect: buff, cooldown_s: 120 }
+      - { spell_id: 122783, name: "Diffuse Magic",       school_scope: magic,    role: coverage,   detect: buff, cooldown_s: 90 }
+      # Celestial Brew is a reactive absorb-shield CD, not a keep-it-up tool —
+      # role: coverage (was miscategorized as continuous, which hid it from the
+      # hit-vs-coverage join entirely).
+      - { spell_id: 322507, name: "Celestial Brew",      school_scope: all,      role: coverage,   detect: buff, cooldown_s: 45 }
+
+  # Baseline interrupt ability per tank spec — powers ONLY the cooldown-aware
+  # "kick was available" split (core/coaching.py HitCoverage.kick_was_ready),
+  # never the interruptible-evidence gate itself (that stays log/WCL-proven
+  # per-spell, see the honesty-rules docstring in core/coaching.py). Unlike
+  # boss-ability interruptibility, every spec's interrupt is a long-stable
+  # baseline ability (not talent-gated), so this IS safe to hand-curate.
+  # Spell IDs + 15s base cooldown confirmed against Wowhead (live, 2026-07-03)
+  # for Midnight 12.0.5; Mind Freeze (47528) cross-validated against a real
+  # WCL Interrupts-dataType payload the same day.
+  interrupts:
+    protection_warrior:     { spell_id: 6552,   name: "Pummel",            cooldown_s: 15 }
+    protection_paladin:     { spell_id: 96231,  name: "Rebuke",            cooldown_s: 15 }
+    blood_death_knight:     { spell_id: 47528,  name: "Mind Freeze",       cooldown_s: 15 }
+    vengeance_demon_hunter: { spell_id: 183752, name: "Disrupt",           cooldown_s: 15 }
+    brewmaster_monk:        { spell_id: 116705, name: "Spear Hand Strike", cooldown_s: 15 }
+    guardian_druid:         { spell_id: 106839, name: "Skull Bash",        cooldown_s: 15 }
+
+# Gear hard caps — used by the upgrade-impact panel and the slot dialog's
+# "compare at ilvl" control to clamp projected ilvls. Update each season as
+# the upgrade tracks change.
+gear:
+  # Per-category reachable ilvl ceilings (Midnight 12.0.5 S1). Empirically
+  # grounded in `slot_high_watermarks` from real exports: armor slots top out
+  # at 289 (crest track max — Voidcore does NOT apply to armor, confirmed by
+  # a real player 2026-07-04, so this IS the true ceiling, not an
+  # intermediate step); trinkets and weapons reach 298 via Voidcore (+6 on
+  # top of their own crest-track max, the only slots Voidcore can go on).
+  # A single flat "season cap" number used to live here instead
+  # (`ilvl_cap_current_season: 295`, removed 2026-07-04) — it silently
+  # conflated the two categories and let the upgrade-impact ranker suggest
+  # "upgrading" an armor piece already at its own max, which is impossible
+  # in-game on every axis. Never reintroduce a flat cap; always key by
+  # category (or slot, via `category_ceiling`/`category_for_slot`).
+  # Refine as the season's upgrade tracks change; the player's own account
+  # watermark (parsed from their export) further clamps this per-slot.
+  ilvl_ceiling_by_category:
+    armor: 289
+    trinket: 298
+    weapon: 298
+
+  # Item levels a single upgrade-track level adds in the endgame band. Midnight
+  # 12.0.5 tracks are 6-rank and step ~+3-4 ilvl/level (pattern ≈ +4/+3/+3/+3/+4);
+  # 3 is the conservative round number (slightly OVER-estimates levels, the safe
+  # direction for a cost). Used to render an APPROXIMATE crest cost ("+30 ilvl ·
+  # ≈10 upgrade levels") on each normalized comparison. Exact crest tier +
+  # quantity per level is drift-prone per patch and intentionally NOT hardcoded
+  # here as a cost — see crest_currencies below + ROADMAP.
+  ilvl_per_upgrade_level: 3
+
+  # Upgrade crest currencies (Midnight 12.0.5 S1). Currency IDs are VERIFIED
+  # present in real-export `upgrade_currencies` strings; names are likely
+  # (guide-sourced); ≈20 crests/level is likely-not-verified. NOT used for the
+  # v1 cost display (which shows upgrade *levels*, not crest counts) — kept as a
+  # reference for a future "you have N crests" surface and to document the trap.
+  #
+  # ⚠️ The export's `upgrade_currencies` string is the addon's RAW currency dump,
+  # NOT a semantic crest list: it ALSO contains Honor (id 1792, often thousands)
+  # and catalyst charges. Filter out `crest_excluded_currency_ids` before
+  # treating parsed entries as crests, or a "crest balance" reads ~2789 Honor as
+  # an upgrade currency. (Confirmed against Brutoh's 2026-05-29 export.)
+  crest_currencies:
+    3383: { name: "Adventurer Dawncrest", track: "Adventurer" }
+    3341: { name: "Veteran Dawncrest", track: "Veteran" }
+    3343: { name: "Champion Dawncrest", track: "Champion" }
+    3345: { name: "Hero Dawncrest", track: "Hero" }
+    3347: { name: "Myth Dawncrest", track: "Myth" }
+  crest_excluded_currency_ids: [1792]  # Honor (PvP) — in the dump, not a crest
+
+  # Item-quality border for the gear paperdoll (mirrors WoW's quality-colored
+  # item frame). ItemSpec carries NO quality field — the /simc export and the
+  # Wowhead-fallback stats lookup don't surface one — so we apply an EPIC FLOOR:
+  # every equipped / bag / vault piece in the M+ endgame band is at least epic,
+  # so an unknown item renders the epic (purple) border. A small allowlist
+  # promotes specific item_ids to the legendary (orange) border. Only the
+  # CLASSIFICATION lives here; the hex colors are canonical Blizzard quality
+  # values carried as CSS tokens (--q-epic / --q-legendary) in the stylesheet,
+  # so a palette tweak doesn't touch this data and this data doesn't touch CSS.
+  quality_border:
+    default: epic              # epic floor — nothing in the endgame band drops below purple
+    # Equippable legendary item_ids (orange border). Seed empty: Midnight
+    # 12.0.5 S1 has no equippable legendary confirmed in the export corpus
+    # yet. Append ids as they appear — no Python change needed.
+    legendary_item_ids: []
+
+  # Upgrade-track position per rank bonus_id — feeds the paperdoll's
+  # "Myth 6/6 · i289" badge (replaces a bare ilvl). VERIFIED 2026-06-19 by
+  # diffing the same item_id across the repo .simc corpus (the rank id is the
+  # one that SWAPS when an item's ilvl changes — not the high-frequency generic
+  # flags 6652/13440/3157/40/42) and cross-referencing warcraft.wiki "Midnight
+  # Season 1" (Hero 259-276, Myth 272-289). Every tracked item in the corpus
+  # climbs to 289 = Myth 6/6, which disambiguates the track.
+  #
+  # HONESTY CONTRACT (see io/upgrade_track.py): only ids LISTED here name a
+  # track. Everything else degrades to ilvl-only. We NEVER infer a track from
+  # ilvl alone — ilvl→(track,rank) is many-to-one (272 = Hero 5/6 OR Myth 1/6),
+  # so that would lie. ⚠️ This table is patch-specific and WILL drift: the live
+  # data already shows weapon/trinket ilvls (298) above the wiki's 289 cap.
+  # Re-verify against the export corpus each season; add ids, don't guess them.
+  #
+  # NOT listed (degrade to ilvl-only, on purpose): Myth 4/6 (282 — no id seen
+  # in the corpus); the rare variant 12802 (276, one old snapshot) and 13653
+  # (285 trinket, one obs) — too thin to assert a track; any Hero/Champion/
+  # lower rank other than 12798 below (no PvE-Myth corpus coverage);
+  # crafted gear (different bonus space).
+  #
+  # CORRECTED 2026-07-04: `12798` was originally verified as "Myth 2/6"
+  # (2026-06-19 pass) by assuming every climbing item in the corpus reached
+  # Myth 6/6 — wrong for this one. A real player's ring carrying this exact
+  # id (`examples/anonguardian1-simc.txt` finger2) turned out to be "Hero 6/6" per
+  # the player directly, confirmed independently by fetching Wowhead's own
+  # item tooltip for that id combination (`Upgrade Level: Hero 6/6`, not
+  # Myth — see `wowhead.com/item={id}?bonus=...:12798&xml`). This means the
+  # 2026-06-19 "climbs to 289" assumption doesn't hold for every corpus item
+  # — a real methodology gap, not just one wrong number: an item ALREADY
+  # maxed on Hero (276) looks identical, ilvl-wise, to an early Myth rank,
+  # exactly the "many-to-one" trap this table's own honesty contract warns
+  # about. Re-verify any FUTURE addition to this table against the item's
+  # own "Upgrade Level" tooltip text, not just its position in an ilvl climb.
+  upgrade_track_ranks:
+    12801: { track: Myth, rank: 1, max_rank: 6, ilvl: 272 }
+    12798: { track: Hero, rank: 6, max_rank: 6, ilvl: 276 }
+    12803: { track: Myth, rank: 3, max_rank: 6, ilvl: 279 }
+    12805: { track: Myth, rank: 5, max_rank: 6, ilvl: 285 }
+    12806: { track: Myth, rank: 6, max_rank: 6, ilvl: 289 }
+    # Weapon/trinket ceiling (298), above the 289 armor cap — rank doesn't map
+    # cleanly to the 6-rank armor ladder, so track-only (renders "Myth · i298").
+    13654: { track: Myth, ilvl: 298 }
+
+  # Track tint for the badge — simf's own readable hues (NOT Blizzard-canonical),
+  # picked to clear WCAG 4.5:1 text contrast on the cream paper. Only Myth
+  # renders today (the only verified track above); the rest are defined so a
+  # future Hero/Champion id renders tinted without a code change. A track with
+  # no entry here falls back to the muted ilvl color.
+  upgrade_track_colors:
+    myth:       "#8a5a14"   # deep amber-gold — the top track
+    hero:       "#5a3d8a"   # deep violet
+    champion:   "#3a5a7a"   # steel blue
+    veteran:    "#2f6a4a"   # forest
+    adventurer: "#5a6a2a"   # olive
+    explorer:   "#6a5a4a"   # taupe
+
+rage:
+  # Rage gained per physical hit (non-avoided). Models Revenge procs, auto-attack
+  # rage, and Thunder Clap rage return that scale with incoming physical activity.
+  # Formula: rage += raw_damage / max_hp * hit_rage_per_max_hp_fraction
+  # Calibrated for ~2–3 rage/s in a typical M+ pull. PLACEHOLDER — verify vs logs.
+  hit_rage_per_max_hp_fraction: 20.0   # 20 rage per 100% max HP in raw physical damage
+
+  # Why-died rage-flow audit (parse_energize + timeline reconstruction).
+  # SPELL_ENERGIZE in modern WoW combat logs emits `amount` in DISPLAYED rage
+  # units already (warriors have a 0-100 displayed bar, `maxPower=1000` field is
+  # internal tenths). We don't divide. Verified against Brutoh log
+  # WoWCombatLog-051026_073906.txt: Shield Slam = 17, Shield Charge = 20,
+  # Devastator = 2, Rage passive = 3 — all match in-game expectations.
+  costs:
+    # Approximate rage spent per cast. Read by core/death_analysis when
+    # reconstructing rage timelines. Values err on the high side because
+    # Revenge-with-proc is free; the audit slightly over-counts spend, which
+    # over-reports starvation rather than under-reporting it (safer for a
+    # diagnostic that points players at a real failure mode).
+    shield_block: 30
+    ignore_pain: 40
+    revenge: 20             # APPROXIMATE — free with "Revenge!" proc; no proc-aware accounting yet
+    thunder_clap: 5
+  # A window where rage stays below this threshold for at least
+  # `starvation_min_duration` seconds is flagged as a starvation window.
+  # 20 rage = "can't afford the cheapest defensive (Shield Block at 30 or
+  # Ignore Pain at 40) on demand" — the band where button discipline
+  # collapses regardless of intent.
+  starvation_threshold: 20
+  starvation_min_duration: 3.0   # seconds; below this the gap is normal global-cooldown flow
+
+calibration:
+  # Per-K reference data so the UI can show a trust signal: which K is active,
+  # global RMSE across all logs, and per-dungeon residual for the dungeon the
+  # user has selected. Update whenever K is refit.
+  k_active: 3430
+  global_rmse: 0.080                  # 16 logs, K=3430 (SimC DBC); KYFOTG merged 2026-07-25 (was 0.073; see note at the end of this block)
+  # NOT YET RATIFIED (2026-07-21, same day, next lead after the Shield Block
+  # fixes above): shipping Vanguard (spec.protection_warrior.vanguard_armor_per_strength,
+  # see the `specs.protection_warrior` block + constants_version 44 changelog
+  # below) re-measures this corpus at RMSE 0.073, mean bias +1.8%, 16/16
+  # within ±15% at this same canonical K=3430 — a large, clean improvement
+  # that numerically clears 3 of the 4 `calibrated` promotion-bar gates
+  # (RMSE≤0.15, |bias|≤5%, ≥75% within ±15%); LOO-CV (the 4th gate) was not
+  # run. `global_rmse` above is LEFT AT 0.162 pending human ratification —
+  # this comment is the pointer, not a self-certified promotion. See
+  # docs/validation/protwarrior_vanguard_strength_armor_2026_07_21.md.
+  # RATIFIED 2026-07-18 (was 0.068, held under review since 2026-07-17): the
+  # old 0.068 figure was measured with a replay-side Demo Shout + Phalanx
+  # double-count live (attacker-side debuffs re-applied on top of a
+  # base_amount that already contains them — two errors partly canceling; see
+  # PR #387). Post-fix, the same ratified 16-log corpus at the pinned K=3430
+  # reads RMSE 0.1377 (rounds to 0.138), mean signed error +11.5% (over-
+  # predict), 10/16 runs within ±15% — re-run and confirmed exactly against
+  # this number 2026-07-18 (`simf calibrate-k --k-min 3430 --k-max 3430`).
+  # K stays pinned at 3430 (an empirical refit to ~2905-2930 fits ~as well,
+  # 0.068-0.0679, but was REJECTED on methodology — K is SimC's real DBC armor
+  # constant, not a free parameter to re-fit around a mob-side bug; moving it
+  # would silently absorb a named external layer and shift Guardian + every
+  # other spec's shared K). See
+  # docs/validation/protwarrior_demo_shout_double_count_2026_07_17.md for the
+  # full measurement, methodology reasoning, and three independent
+  # consistency checks. `protection_warrior`'s `calibration_tier` below is
+  # downgraded `calibrated` → `characterized` in the same ratification — a
+  # per-run F-factor fast-follow (measuring the separately-known mob-side
+  # wedge, `docs/validation/phase4_brewmaster_physical_gap_decomposition_2026_07_04.md`)
+  # should return this to ~+5% residual and likely re-earn `calibrated` with
+  # cleaner attribution than it ever had.
+  #
+  # F-layer fast-follow measured 2026-07-21 — see
+  # docs/validation/protwarrior_f_layer_measurement_2026_07_21.md. The corpus
+  # IS F-consistent (median F=0.699, 15/16 within ±0.05), but the "~+5%"
+  # prediction above is NEITHER confirmed nor refuted: the naive "sim × F"
+  # correction it implied is invalid (measure_run_f.py's F omits this spec's
+  # own Defensive Stance -15%, already inside `sim`, so multiplying double-
+  # counts it — empirically flips +11.5% into -22.3%, not toward +5%). This
+  # `global_rmse: 0.138` value (as it stood at the time) was UNCHANGED
+  # pending a correctly-scoped per-hit-forensics wedge measurement across
+  # the full corpus — since superseded by the Shield Block fixes below.
+  #
+  # Shield Block / block-value coupled fix measured 2026-07-21 — see
+  # docs/validation/protwarrior_shield_block_fix_2026_07_21.md. With BOTH
+  # real bugs fixed (calculate_armor_resist's multiplier order +
+  # active_mitigation.shield_block.physical_dr's double-count deleted), the
+  # SAME ratified 16-log corpus at K=3430 reads RMSE 0.250, mean signed
+  # error +23.0%, 4/16 within ±15% — WORSE than the 0.138/+11.5%/10-16
+  # figures above. `global_rmse: 0.138` and `calibration_tier` below were
+  # (at the time this fix shipped) DELIBERATELY left unchanged (this is a
+  # code-correctness fix, not a re-calibration; the two double-counting
+  # bugs had been masking a larger slice of the pre-existing "structural
+  # physical-mit gap," roadmap item 5) — human ratification was needed
+  # before either number moved.
+  #
+  # Hasted Shield Block recharge fix measured 2026-07-21 — see
+  # docs/validation/protwarrior_post_shield_block_bias_decomposition_2026_07_21.md.
+  # `core/policy.py`'s Shield Block charge-recharge cadence was applying the
+  # 16s base recharge FLAT (un-hasted); SimC source confirms it's hasted
+  # (`cooldown->hasted = true;`). Fixing this closes most of the v42 gap:
+  # the SAME ratified 16-log corpus at K=3430 now reads RMSE 0.162, mean
+  # signed error +13.7%, 8/16 within ±15% — a large improvement over
+  # 0.250/+23.0%/4-16, though still worse than the pre-v42 headline
+  # (0.138/+11.5%/10-16), which was itself propped up by the v42 bugs.
+  #
+  # RATIFIED 2026-07-21 (same day, following human review — see the
+  # matching note above the `v43` entry near the top of this file for the
+  # full reasoning, promotion-bar comparison, and citation trail).
+  # `global_rmse` above is updated 0.138 → 0.162 to reflect this final
+  # measured state; `calibration_tier` below stays `characterized` — this
+  # RMSE/bias/within-±15% state falls short of every numeric gate this
+  # project uses to award `calibrated` (both the formal bar in
+  # `core/constants.py` and both live historical precedents, this spec's
+  # own original bar and Guardian Druid's).
+  #
+  # Vanguard shipped 2026-07-21 (see the unversioned note above the
+  # `constants_version: 44` line) re-measured this corpus at RMSE 0.073,
+  # mean bias +1.8%, 16/16 within ±15% — numerically clearing 3 of the 4
+  # `calibrated` gates, but the 4th (LOO-CV) was left unrun that day and
+  # `global_rmse` was deliberately left at 0.162 pending it.
+  #
+  # LOO-CV gate run 2026-07-22 (`simf calibrate-k` itself, newly extended
+  # with the gate — PR #416 — reusing scripts/calibrate_spec_from_logs.py's
+  # existing `_run_loo_cv` rather than a second implementation): **PASS**.
+  # K stability max|bestK_-i − bestK_full=3250| = 180 (≤300 bar); held-out
+  # prediction 16/16 (100%) within ±15% (≥75% bar); no fold beyond ±25%.
+  # The tightest LOO-CV result this project has measured for any spec
+  # (Guardian's two attempts: 71%/69%, both FAIL). See
+  # docs/validation/protwarrior_loo_cv_vanguard_2026_07_22.md.
+  #
+  # RATIFIED 2026-07-22 (human decision, following the LOO-CV measurement
+  # above): `global_rmse` updated 0.162 → 0.073. `calibration_tier` below
+  # promoted `characterized` → `calibrated` — the first spec to clear
+  # ALL FIVE sub-criteria of the promotion bar simultaneously (≥8
+  # F-consistent runs: 15/16; |mean bias|≤5%: +1.8%; ≥75% within ±15%:
+  # 16/16; RMSE≤0.15: 0.073; LOO-CV: PASS). Two caveats carry forward,
+  # named not hidden: the cross-spec ~5-7% run-scoped wedge
+  # (`docs/validation/phase4_brewmaster_physical_gap_decomposition_2026_07_04.md`)
+  # is still open and unaccounted for here, and the separate ~11%
+  # magic-dominated "clean wedge" residual (`scripts/full_chain_wedge.py`)
+  # is untouched by Vanguard (a physical-only armor term) and remains a
+  # standing lead for anyone chasing the residual further.
+  #
+  # DOWNGRADED calibrated -> characterized 2026-07-25 (human-ratified).
+  # Applying this SAME promotion bar to 15 independent Protection Warrior
+  # players (found via WCL's public characterRankings, run through the
+  # identical calibrate-k machinery at K=3430) fails it: mean signed bias
+  # +11.0% (bar <=5%), 67% (10/15) within +/-15% (bar >=75%), RMSE 0.150
+  # (bar <=0.15, exactly at the line). Two rival explanations were checked
+  # and ruled out: a spot-check of 4 independent players' WCL-hydrated
+  # stats found no hydrate-quality artifact (shield_armor/crit/armor all
+  # plausible, matching Brutoh's own values' order of magnitude); and the
+  # gap is NOT primarily key-level-driven (even at +17-18, squarely inside
+  # Brutoh's own tested +10-17 range, independent players still miss by
+  # +9.3% mean while Brutoh's own corpus at the same keys sits at +1.8%).
+  # The model itself is UNCHANGED (global_rmse stays 0.073, still an honest
+  # description of the Brutoh-only fit) — same precedent as Guardian's
+  # 2026-07-17 downgrade: this reflects a cross-validation standard the
+  # tier had never actually been checked against, not a regression. See
+  # docs/validation/protwarrior_calibrated_downgrade_2026_07_25.md,
+  # docs/validation/protwarrior_independent_players_2026_07_25.md, and
+  # docs/validation/protwarrior_independent_players_lowkey_2026_07_25.md.
+  # Restoring `calibrated` needs a genuine cross-player validation pass
+  # (see the new promotion criterion in core/constants.py and
+  # docs/validation/protwarrior_cross_player_validation_gate_2026_07_25.md),
+  # not another single-corpus LOO-CV re-run.
+  #
+  # KYFOTG (Keep Your Feet on the Ground) MERGED 2026-07-25, same session
+  # as the cross-player gate above. Real, sourced two independent ways
+  # (Wowhead tooltip + SimC source talent placement), correctly
+  # window-gated on the log's own observed buff windows, not a flat
+  # always-on term — see
+  # docs/validation/protwarrior_magic_wedge_kyfotg_lead_2026_07_22.md for
+  # the discovery and
+  # docs/validation/protwarrior_kyfotg_wide_archive_2026_07_25.md for a
+  # wider (37-file, 70-run, non-ratified) reconfirmation that its
+  # magnitude is real, not a small-sample artifact (in/out ratio 0.916 at
+  # scale vs. the tooltip's exact -8%/0.92). Re-measuring the SAME
+  # ratified 16-log corpus at the SAME canonical K=3430 with KYFOTG live
+  # (confirmed live 2026-07-25, `simf calibrate-k --k-min 3430 --k-max
+  # 3430`): RMSE 0.073 → 0.0797 (rounds to 0.080), mean signed bias flips
+  # +1.8% → −4.4% (KYFOTG's credit pushes the model from over- to
+  # slightly under-predicting), within ±15% 16/16 → 14/16 (88%), LOO-CV
+  # still PASSES (K stability max deviation 0, held-out prediction 14/16 =
+  # 88% ≥75% bar, no fold beyond ±25%). Every one of the four same-player
+  # promotion-bar numeric gates still clears (|bias|≤5%: 4.4% ✓; ≥75%
+  # within ±15%: 88% ✓; RMSE≤0.15: 0.080 ✓; LOO-CV: PASS ✓) — this is a
+  # real but modest widening, not a failure of the same-player bar.
+  # `calibration_tier` stays `characterized` regardless, blocked ONLY by
+  # the separate cross-player gate above — unaffected by this change
+  # either way, since the 15-independent-player corpus that gate was
+  # measured against was already run WITH KYFOTG live on this branch (see
+  # the cross-player gate doc's own manifest header). The widening is NOT
+  # evidence KYFOTG is wrong: the wider, non-ratified 37-file sample shows
+  # its measured magnitude holds up even better at scale, not worse — the
+  # ratified 16-log corpus's prior near-zero bias was partly coincidental,
+  # quietly under-crediting this real gap the whole time. Merged on
+  # correctness grounds (real, sourced, correctly implemented) over
+  # score-preservation — the same trade already accepted for the Demo
+  # Shout and Shield Block fixes before Vanguard happened to close the
+  # rest of that gap. There is no guaranteed second "Vanguard" here: the
+  # wide-archive doc's own resid_out finding reads as diffuse (no single
+  # aura/ability correlate above noise), most likely the same cross-spec
+  # "universal wedge" already named above, not a second findable passive.
+  log_count: 16
+  last_calibrated: "2026-05-18"
+  # Per-dungeon residuals (signed % error). Positive = sim over-predicts damage;
+  # negative = sim under-predicts. Absolute > 0.10 means take that dungeon's
+  # verdict with extra skepticism. Populated from real M+ replay residuals.
+  # Post-F1+F4+F5 sweep 2026-05-18: K=3000→4000 step 100 against 16 replays.
+  # Empirical minimum at K=3200 (RMSE 0.064); we use K=3430 (SimC DBC) for
+  # structural correctness — see docs/simc-reference/AUDIT.md.
+  # The 230-K gap to the empirical minimum suggested ~230 of unmodelled bonus
+  # armor, hypothesized (2026-05-18) to be Vanguard's strength→armor spec
+  # passive. SHIPPED 2026-07-21 (`specs.protection_warrior.vanguard_armor_per_strength`)
+  # — this note's own K-gap framing is now moot: Vanguard's real magnitude
+  # (armor += strength × 70%, SimC-sourced) isn't a small K-offset, it
+  # materially changed the corpus-wide RMSE/bias directly; see
+  # docs/validation/protwarrior_vanguard_strength_armor_2026_07_21.md rather
+  # than trying to reconcile this stale K=3200-era narrative with it.
+  # ⚠ STALE (2026-07-18, even more so after 2026-07-21 and 2026-07-25): the
+  # per-dungeon table below AND the K=3200/0.064 empirical-minimum narrative
+  # above both predate the Demo Shout/Phalanx double-count fix (PR #387), the
+  # 2026-07-21 Shield Block fixes, AND the 2026-07-25 KYFOTG merge — they were
+  # measured under a since-fixed replay chain. Only the top-level
+  # `global_rmse` above (0.080 as of the KYFOTG merge — see this block's own
+  # chronological comments for the full history since 0.162) is current.
+  # Re-deriving the per-dungeon breakdown and the new
+  # empirical-minimum K under the fixed chain has not happened yet — this
+  # stays a dedicated re-derivation task with its own test coverage, not a
+  # side effect of a ratification pass (see CONTRIBUTING.md's "Known outliers"
+  # line for a derived-but-not-yet-formally-published per-run shape check
+  # under the current chain). Don't trust the individual dungeon numbers
+  # below until that lands.
+  per_dungeon:
+    windrunner_spire:       +0.038   # 3 replays (+12 / +14 / +14p); -2.1%, +4.6%, +6.7%
+    algeth_ar_academy:      -0.060   # 2 replays (+12 / +14); -10.8% and -7.4%; remains worst outlier (was -12.2%)
+    nexus_point_xenas:      -0.007   # 1 replay (+12); -0.7% (was -5.7%)
+    pit_of_saron:           +0.040   # 4 replays (+12 / +13 / +13 / +14); +5.3%, +1.8%, +2.0%, +7.0%
+    skyreach:               null     # No usable replay in this sweep
+    magisters_terrace:      +0.052   # 3 replays (+12 / +13 / +14); +6.7%, +3.4%, +2.8%
+    maisara_caverns:        +0.020   # 2 replays (+12 / +14); +2.2%, +2.2%
+    seat_of_the_triumvirate: null    # No usable replays in calibration corpus (failed runs only)
+  # calibrate-k's opt-in --full-scan hardening (see
+  # docs/validation/calibrate_k_corpus_manifest_2026_07_12.md). Not per-K
+  # reference data like the rest of this section — just CLI-hygiene knobs
+  # that shouldn't be hardcoded in Python per project convention.
+  corpus_scan:
+    date_drift_warn_days: 30      # warn when a scanned log's filename date is this far from the calibration character's gear snapshot
+    dedup_hash_chunk_bytes: 65536 # head+tail bytes hashed for the duplicate-file content signature
+
+armor:
+  # DR = Armor / (Armor + K). What is K, and why 3430? See docs/calibration.md
+  # for the plain-English explainer. Anchored to SimC's canonical DBC table:
+  # `dbc->armor_mitigation_constant(level)` → 3430 at level 90 (Midnight cap).
+  # Source: docs/simc-reference/expected_stat_level_90.txt (SimC commit fd60a63,
+  # WoW build 12.0.5.67602).
+  #
+  # Previously K=2700 (a self-fit minimum across 16 Brutoh-only logs at RMSE
+  # 0.068). That value absorbed missing Defensive Stance physical mitigation
+  # (15% all-schools per spell data 386208, NOT applied to physical events
+  # before this change) plus other small modelling errors. Empirical per-event
+  # analysis on two physical-heavy logs (scripts/empirical_mitigation_analysis.py)
+  # back-solved K ≈ 3116-3237 for DS=0.15 and K ≈ 3431-3569 for DS=0.20.
+  # SimC's DBC value 3430 lies in the middle of that range and is character-
+  # agnostic — preferred over a Brutoh-overfit value.
+  #
+  # Trade-off: Brutoh's RMSE expected to rise from 0.068 → ~0.075 short-term;
+  # the model is now structurally correct and generalises to other tanks.
+  # Recalibrate after landing to confirm actual RMSE; see docs/simc-reference/AUDIT.md.
+  k_constant: 3430
+  max_armor_dr: 0.85  # MAX_ARMOR_DAMAGE_REDUCTION, matches SimC engine/sc_enums.hpp:89
+
+stat_conversion:
+  # rating_per_pct: 100 across all secondaries — chosen so YAML rating values
+  # equal "percent × 100" (e.g. 23.18% haste → haste_rating = 2318). This is a
+  # consistent self-calibration. The absolute rating numbers won't match the
+  # in-game tooltip 1:1, but sim math is identical *as long as* the result is
+  # also adjusted for the Midnight stat-DR breakpoints (see secondary_dr below).
+  #
+  # Concretely: a self-fit rating of 4000 maps to a linear 40% pre-DR; with
+  # the DR curve, the effective in-game pct is 39%. This matches what a real
+  # WoW player at 4000-haste-rating-equivalent would see.
+  hp_per_stamina: 22
+  # REAL level-90 combat-rating conversions for the UNIFORM secondaries (12.0.7;
+  # source: Maxroll stat-DR page, 2026-06-28 recalibration). Replaced the old
+  # self-fit `100` anchor: rating values (in profiles AND log/WCL/paste imports) are
+  # now interpreted at the real in-game scale, so the DR breakpoints below trigger at
+  # the right %. Hand-authored profiles were rescaled from %×100 to real units to
+  # preserve their in-game % (so the warrior K calibration is a no-op).
+  #   haste 44, crit 46, versatility 54 — uniform across specs.
+  versatility_rating_per_pct: 54
+  haste_rating_per_pct: 44
+  crit_rating_per_pct: 46
+  # MASTERY rating→% is PER-SPEC and stays at 100 (NOT a uniform combat rating).
+  # Ground truth (AnonGuardian1 Guardian, 2026-06-28): mastery rating 332 → 10.6% displayed,
+  # and 668 → ~14% (older log) ⇒ a ~99 rating-per-1% line with ~7.2% base, i.e. ≈100.
+  # So the existing per-spec 100 anchor is correct for guardian; warrior/paladin have
+  # no in-game counter-evidence, and their mastery EFFECT is calibrated via the
+  # separate spec coefficient (mastery_crit_block_scaling / natures_guardian_heal_coeff),
+  # so leaving mastery at 100 keeps every mastery path bit-identical. Parry likewise
+  # stays 100 (no ground truth; avoidance, not a gem/DR secondary).
+  mastery_rating_per_pct_warrior_prot: 100
+  mastery_rating_per_pct_paladin_prot: 100
+  parry_per_strength: 500           # strength / 500 / 100 = parry fraction; 2182 str → 4.4% parry from strength
+  # Ground truth (Brutoh, 2026-07-12, two live in-game tooltip readings):
+  # "Parry of 490 adds 9.42% Parry" -> 490/9.42=52.02; "Parry of 870 adds
+  # 16.73% Parry" -> 870/16.73=52.00. Both reproduce their displayed % exactly
+  # at 52 (same clean-integer pattern as haste/crit/vers above). Replaces the
+  # old self-fit PLACEHOLDER=100 — see
+  # docs/validation/protwarrior_riposte_crit_parry_gap_2026_07_12.md.
+  parry_rating_per_pct: 52
+  # Base character stats at level 90 that the gear-item resolver (Wowhead/Blizzard
+  # item lookup) does NOT include. A /simc paste resolved from item IDs is
+  # GEAR-ONLY, but a character's real stats are gear + these base stats (+ always-on
+  # buffs like Mark of the Wild + gem/enchant stats). Without them a paste-loaded
+  # character had ~25% too little HP and ~half its primary stat (silently wrong
+  # eHP / marginals / gem + vault verdicts). Calibrated 2026-06-28 from AnonGuardian1's
+  # in-game tooltip (lvl 90 Guardian): gear stamina 17,327 + base 6,852 = 24,179
+  # (→ 535k humanoid / 749k bear HP, matching the tooltip); gear agility 1,072 +
+  # base 939 = 2,011. SINGLE-POINT, medium confidence (folds in always-on buffs +
+  # the meta gem's primary). Stamina is class-independent; primary base is similar
+  # in magnitude across classes so str/agi share paste_base_primary. Applied in
+  # ui/helpers/simc_load.py ONLY on the resolver fallback (stats_estimated) path —
+  # the log/WCL hydrate path already carries totals and is untouched. See
+  # docs/validation/simc_paste_stat_resolution_2026_06_27.md.
+  paste_base_stamina: 6852
+  paste_base_primary: 939
+
+secondary_dr:
+  # Midnight 12.0.1 stat diminishing returns. Source: Maxroll
+  # https://maxroll.gg/wow/resources/stat-diminishing-returns
+  #
+  # Each entry is (effective_pct_at_bracket_END, efficiency_in_bracket).
+  # `efficiency` is the fraction of additional linear-rating that becomes
+  # effective percent inside this bracket. e.g. 0.90 means every 1% linear
+  # contributes 0.9% effective once you're past the prior breakpoint.
+  #
+  # All secondary stats (haste, crit, mastery, versatility) share the same
+  # effective-percent breakpoints; only the rating-per-percent in the linear
+  # regime differs per stat (which simf already self-normalises via
+  # stat_conversion). Applied by character.py:apply_secondary_dr().
+  #
+  # Brutoh's current stats (haste 23%, crit 14%, mastery 16%, vers 3%) all
+  # sit below the first 30% breakpoint, so F5 is a no-op for him today.
+  # Matters for high-gear scaling (+18+) and stat-weight accuracy on stats
+  # the user pushes past the soft cap.
+  # Midnight 12.0.7 brackets are round LINEAR thresholds 30/40/50/60/70/200
+  # (efficiency 1.0/0.9/0.8/0.7/0.6/0.5, then 0 past 200%). Stored here as the
+  # EFFECTIVE % at each bracket end (what apply_secondary_dr consumes):
+  #   lin30→eff30, lin40→eff39, lin50→eff47, lin60→eff54, lin70→eff60, lin200→eff125.
+  # (The pre-2026-06-28 table had the classic 54-66/66-100 tail + a 113.3% cap; the
+  # Midnight tail is 60/125 — only matters above ~54% effective in one stat.)
+  breakpoints:
+    - [0.30, 1.00]   # lin 0-30%: no penalty
+    - [0.39, 0.90]   # lin 30-40%: -10%
+    - [0.47, 0.80]   # lin 40-50%: -20%
+    - [0.54, 0.70]   # lin 50-60%: -30%
+    - [0.60, 0.60]   # lin 60-70%: -40%
+    - [1.25, 0.50]   # lin 70-200%: -50%
+    - [9.99, 0.00]   # past lin 200%: capped (sentinel)
+  hard_cap: 1.25     # ~125% effective hard cap (at 200% linear)
+
+base:
+  dodge_chance: 0.03
+  parry_chance: 0.03
+  block_chance: 0.10           # Prot Warrior base block (with shield)
+  crit_pct: 0.05
+  mastery_pct_warrior_prot: 0.12
+  # F12 (2026-05-20): block_value is now sourced from shield armor per the SimC
+  # formula `block_value = shield.armor × 2.5` (engine/player/player.cpp:1681).
+  # See character.py:block_value_rating() and
+  # docs/validation/f12_shield_block_value_recon_2026_05_19.md.
+  block_value_armor_multiplier: 2.5       # SimC: engine/player/player.cpp:1681
+  # Mastery-chain coefficients — SimC sc_warrior.cpp (midnight branch):
+  #   composite_block_value (line 8910)  — mastery does NOT contribute → 0.0
+  #   composite_block       (line 8893)  — effectN(2).mastery_value() = 0.5
+  #   block_chance roll     (line 8990)  — effectN(1).mastery_value() = 1.5
+  # In-game tooltip cross-check (spell 76857 at 8% mastery): block +4%,
+  # crit-block +12%, AP +8% — confirms 0.5 / 1.5 / 1.0 coefficients.
+  mastery_block_value_scaling: 0.0        # F11 (2026-05-20): mastery does NOT scale block value
+  mastery_block_chance_scaling: 0.5       # F13 (2026-05-20): mastery → block chance
+  mastery_crit_block_scaling: 1.5         # F7 retune (2026-05-20): 1.0 → 1.5 per SimC
+  # F14 (2026-05-23): block-chance diminishing returns.
+  # SimC `player_t::composite_block_dr` in engine/player/player.cpp:5467:
+  #   diminished = bonus / (block_factor × bonus × 100 × block_vertical_stretch + horizontal_shift)
+  # Only the bonus portion (mastery + block-rating) is DR'd; the flat
+  # base block (`block_chance` above) is NOT. DBC constants are class-
+  # indexed (see engine/dbc/sc_extra_data.inc — `__gt_BlockFactor`,
+  # `__gt_BlockVerticalStretch`, `__gt_HorizontalShift`). For the
+  # Warrior class_id=1 entry — and identical for every modelled tank
+  # class in the table — the values are:
+  block_chance_diminishing_returns:
+    block_factor: 1.0                     # __gt_BlockFactor[warrior]
+    block_vertical_stretch: 0.0067        # __gt_BlockVerticalStretch[warrior]
+    horizontal_shift: 1.0638297872340426  # __gt_HorizontalShift[warrior] = 1/0.94
+
+racials:
+  earthen_titan_wrought_frame: 1.10        # +10% armor from items (modeled)
+  tauren_endurance_hp: 1.05                # +5% max HP (modeled)
+  kul_tiran_brush_it_off_vers: 0.01        # +1% versatility (modeled)
+  highmountain_tauren_dr: 0.01             # ~1% damage taken reduction (modeled — placeholder)
+  dwarf_stoneform_phys_dr_active: 0.10     # 10% phys DR for 8s/120s = ~0.7% avg phys DR (modeled as average)
+  dark_iron_dwarf_strength: 0.01           # situational; not modeled
+  dwarven_strength: 0.01                   # situational; not modeled
+  troll_regeneration_hp_pct: 0.10          # not used in sim
+
+active_mitigation:
+  shield_block:
+    # REMOVED 2026-07-21 (was 0.30, uncited — see mitigation.py's step "5b"
+    # removal comment + docs/validation/protwarrior_shield_block_fix_2026_07_21.md).
+    # Shield Block's real Midnight 12.0.5 effect is 100% block chance only;
+    # block VALUE (this constant used to double-count as a second flat cut)
+    # runs through the armor curve at step 3 of mitigation.py, same as any
+    # other block. Kept at 0.0 (not deleted) so any stale reference is a
+    # documented no-op rather than a KeyError; nothing in the engine reads
+    # this key anymore as of the same fix.
+    physical_dr: 0.0
+    duration_s: 6
+    rage_cost: 30
+    charges: 2
+    recharge_s: 16
+    block_chance_during: 1.0
+  ignore_pain:
+    rage_cost: 40
+    # PATCH 12.1.0 "CURSE OF ULA'TEK" SCALAR BUMP — confirmed 2026-08-13 via
+    # a real Playwright browser session against Blizzard's official patch
+    # notes (https://news.blizzard.com/en-us/article/24293281/curse-of-ula-tek-content-update-notes),
+    # Protection Warrior section, verbatim quote: "Ignore Pain absorb
+    # amount increased by 25%." Do NOT confuse this with the separate,
+    # unrelated "No Stranger to Pain" talent note in the same patch
+    # ("Damage prevented by each use of Ignore Pain increased by 30% (was
+    # 20%)") — that talent is not modeled by this constant.
+    # 0.216 was itself the pre-12.1.0 live baseline (0.20 base x 1.08 for
+    # the independent May 12 2026 +8% hotfix, unrelated to this patch);
+    # the new patch's +25% applies on top of that live value:
+    # 0.216 x 1.25 = 0.27.
+    # This is a correctness/tooltip-accuracy update, NOT a recalibration:
+    # `calibrate-k` is provably blind to this constant at any value —
+    # log-replay mode (mitigation.py, event.is_log_replay branch) sources
+    # absorbs from the log's own event.log_absorbed and never reads this
+    # key at all. Only observable in synthetic/forward-sim output
+    # (verdict, skill ladder, gear/vault recs, cooldown planner). See the
+    # brutal_vitality comment below for the same point plus the empirical
+    # re-run that confirmed it (byte-identical RMSE across candidate
+    # values).
+    absorb_pct_of_max_hp: 0.27
+    cap_pct_of_max_hp: 0.30
+    duration_s: 12
+    # Synthetic-mode-only press gate (core/policy.py) — NOT a real ability
+    # cost/cooldown, just the recent-DTPS threshold this engine presses IP
+    # above when it isn't replaying a real log's actual cast timing. Moved
+    # out of a hardcoded literal 2026-07-11 (talent-leftovers deep review).
+    synthetic_cast_dtps_threshold: 200000
+  demoralizing_shout:
+    cooldown_s: 45
+    duration_s: 10
+    damage_taken_reduction: 0.20
+    # Synthetic-mode-only press gate (core/policy.py) — see ignore_pain's
+    # sibling key above. Also gates whether Unyielding Stance's DR-increase
+    # ever has a Demo Shout window to apply to under a fixed sweep profile.
+    synthetic_cast_dtps_threshold: 250000
+    # Bosses confirmed immune to Demoralizing Shout debuff in Midnight 12.0.5.
+    # Source: warcraftlogs / in-game testing. Matched against DamageEvent.source_id (attacker name).
+    immune_sources:
+      - "Echo of Doragosa"   # Algeth'ar Academy final boss
+  shield_wall:
+    cooldown_s: 240
+    duration_s: 8
+    damage_reduction: 0.40
+  last_stand:
+    cooldown_s: 180
+    duration_s: 15
+    max_hp_increase: 0.30
+  spell_reflect:
+    cooldown_s: 25
+    duration_s: 5
+
+# Phase 2.10f (2026-05-22) — skill-gate parameters for reactive abilities.
+# Two channels modelled here:
+#   - Spell Reflect: a Bernoulli press, one draw per incoming spell tank-
+#     buster. SR is reactive — the opportunity is the event itself, not
+#     a recurring CD-elapsed tick — so the "edge" is the tank-buster
+#     arrival.
+#   - Shield Wall + Last Stand: emergency CDs that *always* fire under
+#     sustained pressure (gear can't save you from forgetting them at
+#     <40% HP), but a tired / distracted tank presses them late. Modelled
+#     as a reaction-lag delay sampled per HP-threshold cross. At
+#     modifier=1.0 the lag is 0 (bit-identity preserved). At lower
+#     modifiers the lag grows; sigma scales linearly with (1 - modifier),
+#     so a "Reading the fight" tank reacts in ~0.6s mean, an "Off your
+#     usual game" tank in ~1.0s mean (half-normal mean = sigma * 0.8).
+#
+# Sigma chosen to land Brutoh's +18 Learning death rate inside the
+# 0.18-0.24 band that elite_tank predicted for the "bad night" cohort
+# (validator audit, session-21 close-out 2026-05-22). Tune downward if
+# the existing `test_modifier_zero_still_survives_via_emergency_cds`
+# tripwire flips to 100% death rate — that's the floor.
+skill_modifier_reaction_lag:
+  shield_wall_sigma_at_zero_s: 2.0
+  last_stand_sigma_at_zero_s: 2.0
+
+# Adaptive-lookahead CD policy (Phase A 2026-05-23, Phase B 2026-05-23).
+# When ``policy.lookahead_window_s`` > 0, the runner threads a time-
+# bounded slice of upcoming damage events into every ``policy.decide()``
+# call via the new ``upcoming_events`` parameter. Phase A landed the
+# plumbing and one consumer (``demo_shout_precast``) gated behind the
+# toggle below — default-OFF preserves bit-identity at every pinned
+# seed. Setting ``lookahead_window_s`` to 0 short-circuits the slice
+# allocation entirely (use it as a "skip Phase A allocations" perf
+# toggle if every consumer below is also disabled).
+policy:
+  lookahead_window_s: 3.0
+
+  # Phase B 2026-05-23 — first lookahead consumer. ActiveMitigationPolicy
+  # gains an optional pre-cast trigger for Demoralizing Shout: if the
+  # sum of physical damage scheduled within ``upcoming_window_s`` from
+  # now exceeds ``upcoming_physical_threshold``, fire DS pre-emptively
+  # instead of waiting for ``recent_dtps > 250_000`` (the past-burst
+  # gate). Encodes the canonical Prot Warrior coaching tip — "pre-cast
+  # Demo Shout one GCD before a tank-buster" — that the skill_tiers
+  # `focus` callout already names. Default ``enabled: false`` to keep
+  # bit-identity at every pinned seed; only synthetic-sim runs see a
+  # behaviour delta when this is flipped on, because replay mode fires
+  # DS unconditionally via the existing ``is_replay_event`` clause.
+  # Threshold = 250_000 (the past-burst DTPS gate) × 1.5s window = 375_000
+  # — symmetric to the existing past-burst gate. Tune window/threshold
+  # in lockstep if recalibrating.
+  lookahead_consumers:
+    demo_shout_precast:
+      enabled: false
+      upcoming_window_s: 1.5
+      upcoming_physical_threshold: 375000.0
+
+talents:
+  # Armor-multiplier talents for Prot Warrior (modelled in Character.total_armor()).
+  # Source: SimC sc_warrior.cpp composite_armor_multiplier() — both stack as
+  # separate `ar *= 1 + X%` multipliers (multiplicative across, not additive).
+  # See docs/simc-reference/AUDIT.md F8 + docs/validation/nexus_12_wowhead_talents_2026_05_18.md.
+  reinforced_plates:
+    armor_multiplier: 0.05      # +5% armor (class talent, spell 382939 effect 2, subtype 101 "Modify Armor%")
+    spell_id: 382939
+  armor_specialization:
+    armor_multiplier: 0.06      # +6% armor (Prot spec talent, spell 1234769 effect 1, subtype 101)
+    spell_id: 1234769
+  # NOTE (superseded 2026-07-21): Vanguard is NOT a talent — it's a Prot
+  # Warrior SPEC PASSIVE (find_specialization_spell, always active), so it
+  # was never listed as a talent entry here and doesn't belong in this
+  # block. This comment used to claim "spell data effect value is 40%"
+  # against an empirical "~0.258" fit and left both unresolved/default-OFF —
+  # both numbers were wrong: 40% was Vanguard's unrelated Stamina effect
+  # (Effect #2), not its armor effect (Effect #1, actually 70%, confirmed by
+  # live Wowhead tooltip + SimC source agreeing), and 0.258 was fit under a
+  # replay chain with 3 mitigation bugs that got fixed later the same day as
+  # this note's removal. Real coefficient now shipped, unconditional (no
+  # toggle — every Protection Warrior has this passive) as
+  # `specs.protection_warrior.vanguard_armor_per_strength: 0.70`, consumed by
+  # `Character.total_armor()`. See
+  # docs/validation/protwarrior_vanguard_strength_armor_2026_07_21.md.
+  indomitable:
+    damage_reduction: 0.04
+    max_hp_increase: 0.04
+  battle_scarred_veteran:
+    trigger_hp_pct: 0.30
+    damage_reduction: 0.30
+    duration_s: 6
+    internal_cd_s: 60.0    # ICD prevents consecutive procs when HP stays low
+  brutal_vitality:
+    # PATCH 12.1.0 "CURSE OF ULA'TEK" SCALAR BUMP — confirmed 2026-08-13 via
+    # a real Playwright browser session against Blizzard's official patch
+    # notes (https://news.blizzard.com/en-us/article/24293281/curse-of-ula-tek-content-update-notes),
+    # Protection Warrior section, verbatim quote: "Brutal Vitality adds 10%
+    # of damage dealt to Ignore Pain (was 8%)."
+    #
+    # The value below (0.10) is the real live tooltip number, not a scaled
+    # version of the prior 0.05. The prior comment on this constant claimed
+    # it was a "PLACEHOLDER — calibrated down to match log replay", but a
+    # 2026-08-13 audit (`git log -S pct_of_damage_dealt_to_ip_absorb --
+    # src/simf/data/constants.yaml`) found that claim had NO backing: only
+    # the repo's initial commit ever touched this key — there was never a
+    # real fitting event behind the "calibrated down" language. The
+    # project owner was told this explicitly and chose to trust the real
+    # tooltip value instead of preserving an unverifiable fudge factor,
+    # especially since the missing `cap_pct_of_max_hp` self-cap below
+    # (previously absent — see policy.py's clamp logic) removes the likely
+    # original motivation for fudging the rate down.
+    #
+    # This is a correctness/tooltip-accuracy update, NOT a recalibration:
+    # `calibrate-k` is provably blind to both constants in this block at
+    # ANY value. Log-replay mode (mitigation.py, the `event.is_log_replay`
+    # branch) routes absorbs through the log's own
+    # `event.log_absorbed` field, completely bypassing the modeled Ignore
+    # Pain/Brutal Vitality chain in policy.py — the ratified 16-log
+    # calibration corpus runs entirely in replay mode. Verified empirically
+    # 2026-08-13: temporarily setting these constants to candidate values
+    # and re-running `calibrate-k` against the ratified corpus produced a
+    # byte-identical RMSE=0.0792 and LOO-CV result before reverting. These
+    # constants are only observable in synthetic/live forward-sim output
+    # (verdict, skill ladder, gear/vault recommendations, cooldown
+    # planner) — `calibration_tier` must not move either direction from
+    # this fix.
+    pct_of_damage_dealt_to_ip_absorb: 0.10
+    # Brutal Vitality's OWN self-cap on what it specifically contributes to
+    # the Ignore Pain shield — separate from and in addition to the shared
+    # `ignore_pain.cap_pct_of_max_hp` (0.30) cap on the whole shield. Live
+    # tooltip text: "up to 15% of max health." Blizzard's 12.1.0 patch
+    # notes (cited above) say nothing about this self-cap changing, and
+    # the notes are precise enough elsewhere (e.g. they DO call out the
+    # 8%->10% damage-conversion rate change in the same ability) that a
+    # silent change here would be surprising — treated as unchanged.
+    # Previously missing entirely: policy.py only enforced the shared 30%
+    # cap on the whole shield, never this separate 15% self-limit on BV's
+    # own cumulative contribution (fixed alongside this scalar update —
+    # see MitigationState.brutal_vitality_absorb).
+    cap_pct_of_max_hp: 0.15
+  brace_for_impact:
+    shield_slam_stack_dr: 0.01
+    max_stacks: 4
+  thunderlord:
+    demo_shout_cdr_per_thunder_clap_s: 1.0
+    enemies_affected_increase: 5
+  enduring_defenses:
+    shield_wall_cdr_pct: 0.30
+  unyielding_stance:
+    # Spell 1235047. DBC: A_ADD_FLAT_MODIFIER / SPELLMOD op 3 ("Modifies
+    # Effect #1's Value"), value -4 — a flat modifier to Defensive Stance's
+    # OWN Effect 1 magnitude (-15 -> -19 at live), not a separate aura, so it
+    # folds ADDITIVELY into defensive_stance_dr in mitigation.py — unlike
+    # fight_through_flames below, which activates a different effect slot
+    # (Effect 3) and correctly composes as its own multiplicative layer.
+    # Previously miscoded as a Demoralizing Shout DR bump (a different
+    # ability entirely) at the wrong value (0.05).
+    # 0.04 is the LIVE value — confirmed by both the DBC effect value above
+    # AND WoW patch 12.1.0's own patch notes ("Unyielding increases the
+    # damage reduction bonus of Defensive Stance by 6% (was 4%)") — do not
+    # bump to 0.06 before 12.1.0 ships (~Aug 11 2026); see the patch's
+    # readiness plan for the scalar-bump PR.
+    defensive_stance_dr_increase: 0.04
+  anger_management:
+    rage_per_cd_s: 10   # 10 rage spent reduces Shield Block charge CD by 1s
+  fight_through_flames:
+    # Prot Warrior magic-DR talent (spell 452494). Activates Defensive Stance
+    # buff Effect 3 to a non-zero value — −6% magic damage taken (school mask
+    # 126 = magic schools). Composes multiplicatively on top of DS Effect 1
+    # (−15% all-schools). May 12 2026 hotfix buffed 4% → 6%. Source: docs/
+    # simc-reference/AUDIT.md F4 + Icy Veins tank tuning hotfixes May 12.
+    # NOT in brutoh-actual loadout — modelled here for users who pick FtF.
+    magic_dr: 0.06
+    spell_id: 452494
+  phalanx:
+    damage_taken_debuff_on_target: 0.08    # buffed 5% → 8% in May 12 2026 hotfix
+    duration_s: 8
+    avg_uptime: 0.50    # TC applies debuff, SS consumes it; ~50% real uptime in M+ single-target
+    # Bosses confirmed immune to the Phalanx Mark debuff in Midnight 12.0.5.
+    # Phalanx is a *target debuff* — a boss flagged immune to negative effects
+    # never receives the mark, so the player gets no DR from that source.
+    # Matched against DamageEvent.source_id (attacker name).
+    # Empirically the DS-immune set is also Phalanx-immune in M+ — see
+    # dungeons.yaml algethar note (-9% → -16.8% gap when Phalanx wrongly
+    # credits Echo of Doragosa). Keep this list parallel to demoralizing_shout.immune_sources
+    # but separate: a future boss could be immune to one and not the other.
+    immune_sources:
+      - "Echo of Doragosa"   # Algeth'ar Academy final boss
+
+skill_tiers:
+  # Phase 2.10 — Skill-Adjusted Verdict. The single-number verdict implicitly
+  # assumes optimal play; this block defines a ladder so the player can see how
+  # the answer changes with playstyle. Each tier carries:
+  #   - id        — stable key (don't rename without bumping constants_version)
+  #   - label     — growth-framed, encouraging — what you DO at this tier,
+  #                 not a judgement on the player
+  #   - modifier  — Bernoulli probability that an opportunistic press
+  #                 (Shield Block / Demoralizing Shout) fires when the
+  #                 optimal policy would have pressed. Emergency CDs
+  #                 (Shield Wall / Last Stand) and reactive (Spell Reflect)
+  #                 are unaffected — nobody at +14 forgets Shield Wall at
+  #                 25% HP. RNG is separate from the iteration RNG so
+  #                 modifier=1.0 is bit-identical to pre-v13.
+  #   - focus     — the one habit to build to move up a tier. Generic in
+  #                 v1; v2 anchors it to specific moments in the player's
+  #                 logs ("at 4:21 in the Gemellus run-up, SB was idle 11s").
+  #   - min_sb_uptime — lower bound on Shield Block uptime % for this
+  #                 tier when inferring playstyle from a real log
+  #                 (v2.10b). Player's measured uptime → first tier whose
+  #                 `min_sb_uptime` they meet or exceed. Top-down match,
+  #                 so a 90% uptime player buckets as `in_the_zone`.
+  #   - min_ds_press_rate — lower bound on Demoralizing Shout press rate
+  #                 (actual_casts / theoretical_max_casts at the base
+  #                 45s CD, capped at 1.0) for the same tier (v3,
+  #                 2026-05-21). Combined tier = min(sb_tier, ds_tier)
+  #                 per YAML ordering, so a player must clear both
+  #                 thresholds to claim a tier. Mirrors the engine's
+  #                 `_skill_allows_press()` gate — that Bernoulli draw
+  #                 applies to both spells equally, so the inference
+  #                 should too. Thresholds are initial heuristics —
+  #                 refine once we have a multi-player log corpus
+  #                 (Phase 6.5).
+  # Modifiers are initial guesses; refine against logs once we land
+  # log-based tier inference. Order matters: top tier first.
+  - id: in_the_zone
+    label: "In the zone"
+    modifier: 1.00
+    min_sb_uptime: 0.75
+    min_ds_press_rate: 0.75
+    description: "Optimal play — pressing every button on cooldown."
+    focus: "Skill cap reached on the buttons. Gear and talents are your next bottleneck."
+  - id: anticipating
+    label: "Anticipating the spike"
+    modifier: 0.85
+    min_sb_uptime: 0.50
+    min_ds_press_rate: 0.50
+    description: "Predictive presses, occasional missed timing."
+    focus: "Stack Shield Wall with Last Stand on the same lethal hit instead of spacing them."
+  - id: reading
+    label: "Reading the fight"
+    modifier: 0.65
+    min_sb_uptime: 0.25
+    min_ds_press_rate: 0.25
+    description: "Reactive use — press after seeing the damage, not before."
+    focus: "Pre-cast Demoralizing Shout one GCD before a tank-buster lands, not after."
+  - id: learning
+    label: "Learning the buttons"
+    modifier: 0.40
+    min_sb_uptime: 0.0
+    min_ds_press_rate: 0.0
+    description: "Inconsistent presses, frequent charge cap."
+    focus: "Press Shield Block on cooldown during physical trash — don't save it for bosses."
+    # High-key relabel (2026-05-22). At +15+ a "Learning the buttons"
+    # tank doesn't exist as a population — they got filtered by the
+    # +14-17 progression gate. The modifier=0.40 cohort at +18 is an
+    # experienced tank having a degraded night (post-raid, on an alt,
+    # learning a new dungeon's cadence). Wording from brutoh + elite_tank
+    # multi-agent review 2026-05-22.
+    high_key_min_level: 15
+    high_key_label: "Off your usual game"
+    high_key_description: "Late presses on a tired night."
+    high_key_focus: "Cycle Shield Block back in on the next pull — one full cycle catches you up fast."
+
+survivability_recommender:
+  # Conversion factor used by the per-slot recommender's composite scorer.
+  # ΔDPS values from `dps_stat_weights` are in the order of single digits per
+  # swap; ΔeHP is in the hundreds-to-thousands. Multiplying ΔDPS by this
+  # constant puts both axes in the same magnitude band so the 0-100% slider's
+  # extremes feel symmetric. Tune downward if DPS picks dominate too easily.
+  dps_to_ehp_ratio: 1000.0
+  # Meaningful-upgrade gate (2026-06-30). A slot is only flagged as a swap on the
+  # default paperdoll when its survival gain clears this fraction of the
+  # character's baseline eHP — otherwise any +1 eHP vers re-shuffle lit up ~14/16
+  # slots ("good for max-vers, not super helpful" — user). Below the bar a slot
+  # reads a quiet "Best you own"; the FULL max-vers sweep stays reachable via the
+  # per-slot Browse control + the upgrade panel (those are NOT gated). 0.005 =
+  # 0.5% of eHP, matching AskMrRobot's 0.5% Best-in-Bags default; Raidbots treats
+  # sub-margin swaps as "sidegrades" and keeps the equipped item. Set 0 to disable.
+  meaningful_upgrade_ehp_pct: 0.005
+
+dps_stat_weights:
+  # Relative DPS value per 1000 secondary rating for Prot Warrior (Midnight 12.0.5).
+  # Used to show the survivability/DPS tradeoff in `simf stat-weights` and to
+  # break ties between similar-eHP gear picks in the slot-dialog scorer.
+  #
+  # ORDERING refit 2026-05-23 against Method's Midnight 12.0.5 DPS priority —
+  # https://www.method.gg/guides/protection-warrior/stats-races-and-consumables
+  # which reads "Strength >> Haste > Crit = Vers > Mastery for all situations."
+  # Pre-this-refit YAML had `mastery (1.05) > vers (0.80)`, which directly
+  # contradicted Method's "mastery last, vers tied for 2nd" — every slot-dialog
+  # tie that came down to a mastery-vs-vers swap rendered the wrong winner.
+  #
+  # Bloodmallet's per-distribution chart is the canonical numerical source but
+  # its pages JS-render and don't survive a WebFetch from the Pi (same failure
+  # mode as Wowhead per-dungeon loot pages — see midnight_loot_data_refs.md).
+  # The magnitudes below stay PLACEHOLDER until a Bloodmallet JSON endpoint
+  # exists or a Brutoh-specific Raidbots stat-weight sim lands; the ordering
+  # is now correct against the authoritative qualitative source.
+  #
+  # Normalization: kept on the same scale as the pre-refit YAML so any UI
+  # consumer that hard-codes a max ≈ 1.4 is unaffected. Only the relative
+  # ranking moved.
+  haste_rating: 1.40        # #1 — Method ranks Haste strictly above the Crit/Vers tier
+  crit_rating: 1.10         # #2 (tied with vers) — Crit = Vers per Method
+  versatility_rating: 1.05  # #2 (tied with crit) — bumped from 0.80; flat % damage + survivability side-benefit
+  mastery_rating: 0.80      # #4 — Method ranks Mastery LAST; was 1.05 (incorrectly above vers)
+
+# Per-spec registry of talents whose mechanical effect IS modeled by the
+# engine (talent honesty infra, 2026-06-12). Consumed by
+# optimizer/talent_manifest.py to bucket every build comparison: a talent
+# absent from its spec's list must render "not modeled — no Δ claim", never
+# a silent zero-delta ("no survivability difference" and "no modeled effect"
+# are different claims). Keep in lockstep with the `talents:` blocks above
+# (warrior) and per-spec `mitigation_ledger` rows below (brewmaster).
+modeled_talents:
+  protection_warrior:
+    - indomitable
+    - battle_scarred_veteran
+    - brutal_vitality
+    - brace_for_impact
+    - thunderlord
+    - enduring_defenses
+    - unyielding_stance
+    - anger_management
+    - phalanx
+    - fight_through_flames
+    - reinforced_plates
+    - armor_specialization
+  brewmaster_monk:
+    - predictive_training   # Shado-Pan ledger row (buff-gated, PR #139)
+
+# Known-but-unmodeled talents per spec — names we recognize and explicitly
+# refuse to claim a delta for. A name here renders "not modeled" with the
+# spec's coverage note; a name in NEITHER list renders "unrecognized".
+# Populated as meta-build data lands (Phase: two-build diff card).
+known_unmodeled_talents:
+  protection_warrior:
+    # Moved out of `modeled_talents` above (2026-08-07): its heal only fires
+    # on a Spell-Reflect deflect, and every M+ tank-buster profile in
+    # data/profiles/damage/m+_boss_tankbuster.yaml is melee/not-reflectable
+    # (see data/talents.yaml's own `fueled_by_violence.trigger` note, which
+    # already documented this) — the credit could never fire in any modeled
+    # M+ scenario. The dead crediting code itself was removed from
+    # core/runner.py in the same change, not just reclassified here.
+    - fueled_by_violence
+    # Colossus hero talent (node 117412 / spell 429644) — genuinely
+    # unmodeled, not previously registered either way.
+    - no_stranger_to_pain
+
+talent_loadouts:
+  kiratank-defensive:
+    talents:
+      - indomitable
+      - battle_scarred_veteran
+      - brutal_vitality
+      - brace_for_impact
+      - thunderlord
+      - enduring_defenses
+      - unyielding_stance
+      - fueled_by_violence
+  archon-meta:
+    talents:
+      - indomitable
+      - battle_scarred_veteran
+      - brutal_vitality
+      - brace_for_impact
+      - thunderlord
+      - enduring_defenses
+      - phalanx
+  brutoh-actual:
+    # Brutoh's actual M+ build per MGT+12 2026-05-15 log
+    # (Phalanx + Fueled by Violence on top of kiratank base).
+    talents:
+      - indomitable
+      - battle_scarred_veteran
+      - brutal_vitality
+      - brace_for_impact
+      - thunderlord
+      - enduring_defenses
+      - phalanx
+      - fueled_by_violence
+  wowhead-prot:
+    # Wowhead-recommended Prot Warrior M+ build (used in Brutoh's
+    # 2026-05-18 Nexus+12 run). Empirical analysis showed effective K=2557
+    # (DS=0.15) vs Brutoh-actual's K=3116 — ~19% lower because of the
+    # armor-multiplier talents this build picks up:
+    #   reinforced_plates    +5% armor
+    #   armor_specialization +6% armor
+    # See docs/validation/nexus_12_wowhead_talents_2026_05_18.md.
+    # NOTE: full talent list inferred from cast patterns + Wowhead defaults;
+    # exact talent string wasn't extractable (no COMBATANT_INFO in that log).
+    talents:
+      - indomitable
+      - battle_scarred_veteran
+      - brutal_vitality
+      - brace_for_impact
+      - thunderlord
+      - enduring_defenses
+      - phalanx
+      - reinforced_plates
+      - armor_specialization
+  anonbrewmaster1-brewmaster:
+    spec: brewmaster_monk
+    talents: []
+  anonguardian2-guardian:
+    spec: guardian_druid
+    talents: []
+  default-paladin:
+    spec: protection_paladin
+    talents: []
+  default-dk:
+    spec: blood_death_knight
+    talents: []
+  default-dh:
+    spec: vengeance_demon_hunter
+    talents: []
+
+specs:
+  # `calibration_tier` (Top-5 #4, 2026-07-06 retrospective — replaces the old
+  # `calibrated: true/false` boolean): placeholder | characterized |
+  # calibrated. Only the top tier means K, mitigation constants, and
+  # dispatch are all log-anchored to the Warrior/Guardian parity bar; UI
+  # surfaces an amber "uncalibrated spec" warning below it. Promotion
+  # criteria: see `core.constants.spec_is_calibrated`'s docstring.
+  protection_warrior:
+    calibration_tier: characterized  # DOWNGRADED 2026-07-25 — 15 independent WCL players fail this tier's own promotion bar (mean bias +11.0% vs <=5%, 67% vs >=75% within +/-15%); Brutoh-only fit (RMSE 0.080 as of the same-day KYFOTG merge, was 0.073) is still excellent, still blocked only by the cross-player gate — see docs/validation/protwarrior_calibrated_downgrade_2026_07_25.md and docs/validation/protwarrior_cross_player_validation_gate_2026_07_25.md
+    # DOWNGRADED calibrated → characterized 2026-07-18 (human-ratified). Was
+    # calibrated:true on RMSE 0.068 (2026-05-18 structural fix) — that number
+    # was measured with a replay-side Demo Shout + Phalanx double-count live
+    # (attacker-side debuffs re-applied on top of a base_amount that already
+    # contains them). Fixed in PR #387; post-fix the same 16-log corpus at the
+    # pinned canonical K=3430 reads RMSE 0.138, mean +11.5% over-predict (biased
+    # — fails this project's own unbiased bar for `calibrated`). The underlying
+    # engine model did not regress — the fix only unmasked an already-known,
+    # separately-tracked mob-side wedge (the "structural physical-mit gap")
+    # that had been silently canceling this bug. A per-run F-factor fast-follow
+    # measuring that wedge should return this to ~+5% residual and likely
+    # re-earn `calibrated` with cleaner attribution than it ever had. See
+    # docs/validation/protwarrior_demo_shout_double_count_2026_07_17.md.
+    #
+    # F-layer fast-follow measured 2026-07-21 (`simf calibrate-k` now reports
+    # per-run F — see docs/validation/protwarrior_f_layer_measurement_2026_07_21.md):
+    # this corpus IS F-consistent (median F=0.699, 15/16 runs within ±0.05 —
+    # a real, clean signal, same band convention used to gate other specs).
+    # BUT the naive "sim × F" residual correction the note above anticipated
+    # is INVALID as specified and does NOT confirm the "~+5%" prediction —
+    # measure_run_f.py's F is relative to armor+versatility ONLY and does not
+    # divide out this spec's own Defensive Stance -15% (already inside every
+    # `sim` value), so multiplying sim by F double-counts it (empirically
+    # confirmed: it flips +11.5% over-predict into -22.3% mean bias, not
+    # toward +5%). Values here were UNCHANGED at the time (still RMSE 0.138,
+    # `characterized`) pending the correctly-scoped follow-up: a
+    # per-hit-forensics wedge (dividing out the FULL always-on chain, not
+    # just armor+vers) across the whole 16-log corpus, not just the 2 logs
+    # checked so far — see the Shield Block fixes and RATIFIED note below,
+    # which is that follow-up.
+    #
+    # Shield Block / calculate_armor_resist coupled fix (2026-07-21) — see
+    # docs/validation/protwarrior_shield_block_fix_2026_07_21.md. That
+    # per-hit-forensics wedge (run as `scripts/full_chain_wedge.py`) is what
+    # surfaced the follow-up above: it found Shield Block's flat 30%
+    # physical-DR layer (mitigation.py step "5b") does not exist in SimC's
+    # real mitigation chain — a double-count — COUPLED with a genuine
+    # transcription bug in `calculate_armor_resist` (multiplier applied to
+    # the input value instead of the resulting DR fraction, diverging from
+    # SimC only on the crit-block call site). Both fixed together (deleting
+    # step 5b was independently confirmed to swing the corpus MUCH worse
+    # alone, +11.5%→+32.4%, without the formula fix). Net result at
+    # canonical K=3430: RMSE 0.138→0.250, mean bias +11.5%→+23.0%, 10/16→
+    # 4/16 within ±15% — worse on every headline number, and expected to be:
+    # this closes the "block-value magnitude" half of the gap (modeled
+    # blended block DR moves from ~49% to ~59.5%, close to the corpus's own
+    # measured real ~57%) while removing a broader, unconditional mitigation
+    # cut that had been masking most of the pre-existing structural
+    # physical-mit gap (roadmap item 5). Stays `characterized` — this is a
+    # code-correctness fix, not a recalibration; at the time it shipped the
+    # resulting number was pending human ratification, not a self-certified
+    # promotion or demotion (see RATIFIED note below).
+    #
+    # Hasted Shield Block recharge fix (2026-07-21, same day) — see
+    # docs/validation/protwarrior_post_shield_block_bias_decomposition_2026_07_21.md.
+    # Decomposing the v42 fix's +23.0% bias found the dominant driver:
+    # `core/policy.py`'s Shield Block press-cadence model recharged charges
+    # at a flat, un-hasted 16s, while SimC source confirms the real ability's
+    # cooldown IS hasted (`cooldown->hasted = true;`). A real `run_simulation`
+    # call against the ratified corpus showed the sim's OWN modeled SB uptime
+    # (`SimResult.mean_sb_uptime`, skill_modifier=1.0) was only 59.1% against
+    # the corpus's real logged SB uptime of 90.1% — the sim believed Shield
+    # Block was down for ~41% of every fight when the real player kept it up
+    # ~90% of the time. Fixed by dividing the recharge by `(1 + haste_pct)`,
+    # mirroring the existing hasted-cooldown convention already used for
+    # Shield Slam's cycle. Canonical-K (3430) deltas: RMSE 0.250→0.162, mean
+    # bias +23.0%→+13.7%, 4/16→8/16 within ±15% — closes most, not all, of
+    # the v42 gap. Also checked and refuted as contributors: avoidance
+    # (dodge/parry) frequency — structurally calibration-INERT, `log_replay.py`
+    # sets `is_avoidable=False` unconditionally on every mob-sourced replayed
+    # event, so the avoidance roll never fires during a `calibrate-k` sweep
+    # regardless of how well the modeled rate matches reality (it does,
+    # within ~1pp) — and a "does the outside-SB minority carry
+    # disproportionate damage" hypothesis (physical-non-bleed hits outside a
+    # real SB window are 2.07% of that population's hit count AND 2.49% of
+    # its damage — proportionate, not disproportionate; refuted). Stays
+    # `characterized` — still a code-correctness fix, not a recalibration;
+    # at the time it shipped this was pending human ratification like v42.
+    #
+    # RATIFIED 2026-07-21 (same day, following human review — see the
+    # matching `calibration:` block above for the full reasoning). This
+    # inline comment and `global_rmse` above are updated to the final
+    # measured state (RMSE 0.162, mean bias +13.7%, 8/16 within ±15%).
+    # `calibration_tier` stays `characterized`: today's state clears none of
+    # the four `calibrated` promotion-bar gates in `core/constants.py`
+    # (|mean bias|≤5%, ≥75% within ±15%, RMSE≤0.15, plus LOO-CV), and is
+    # worse on every axis than BOTH of this project's actual `calibrated`
+    # precedents — this spec's own pre-2026-07-18 bar (RMSE 0.0652, unbiased
+    # +0.2%, 16/16 within ±15%) and Guardian Druid's (RMSE 0.119, unbiased
+    # +0.2%, 12/16 within ±15%). See
+    # docs/validation/protwarrior_shield_block_fix_2026_07_21.md,
+    # protwarrior_post_shield_block_bias_decomposition_2026_07_21.md, and
+    # protwarrior_sb_press_cadence_2026_07_21.md (confirms this is the final
+    # state, no further code change followed).
+    #
+    # NOT YET RATIFIED (2026-07-21, same day): the next lead named at the top
+    # of this file's calibration TODO — Vanguard's strength→armor spec
+    # passive (spell 71, `vanguard_armor_per_strength` below) — is real,
+    # sourced (live Wowhead tooltip + SimC source, both agreeing on Effect #1
+    # = 70%), and shipped this same day. Re-measured against this same
+    # ratified corpus at canonical K=3430: RMSE 0.162→0.073, mean bias
+    # +13.7%→+1.8%, 8/16→16/16 within ±15% (0.068 excluding 2
+    # partial/truncated runs) — numerically clears 3 of the 4 `calibrated`
+    # gates (RMSE≤0.15, |bias|≤5%, ≥75% within ±15%); LOO-CV not run this
+    # pass. `calibration_tier` stays `characterized` here — this is a
+    # measurement pending human ratification (including the LOO-CV gate),
+    # not a self-certified promotion, same posture this project used for
+    # every calibration-affecting fix earlier today. See
+    # docs/validation/protwarrior_vanguard_strength_armor_2026_07_21.md.
+    #
+    # LOO-CV gate run 2026-07-22 — `simf calibrate-k` extended with the gate
+    # (PR #416, reusing scripts/calibrate_spec_from_logs.py's existing
+    # `_run_loo_cv` rather than re-implementing it) against this same
+    # ratified corpus with Vanguard live: **PASS** — K stability
+    # max|bestK_-i − bestK_full=3250|=180 (≤300 bar), held-out prediction
+    # 16/16 (100%) within ±15% (≥75% bar), no fold beyond ±25%. The
+    # tightest LOO-CV result this project has measured for any spec
+    # (Guardian's two attempts: 71%/69%, both FAIL). See
+    # docs/validation/protwarrior_loo_cv_vanguard_2026_07_22.md.
+    #
+    # RATIFIED 2026-07-22 (human decision): `calibration_tier` promoted
+    # `characterized` → `calibrated` below — the first spec to clear ALL
+    # FIVE sub-criteria of the promotion bar at once (≥8 F-consistent runs:
+    # 15/16; |mean bias|≤5%: +1.8%; ≥75% within ±15%: 16/16; RMSE≤0.15:
+    # 0.073; LOO-CV: PASS). Named caveats that carry forward regardless:
+    # the cross-spec ~5-7% run-scoped wedge
+    # (`docs/validation/phase4_brewmaster_physical_gap_decomposition_2026_07_04.md`)
+    # is still open, and the separate ~11% magic-dominated "clean wedge"
+    # residual (`scripts/full_chain_wedge.py`) is untouched by Vanguard (a
+    # physical-only armor term) and stays a standing lead.
+    # Defensive Stance passive: -15% damage taken, all schools. Source: spell
+    # data effect 1 of spell 386208 (`base_value = -15.0`, school mask 127 =
+    # all schools). SimC parses this via `parse_effects(buff.defensive_stance,
+    # effect_mask_t(true).disable(2, 5, 6))` — see
+    # docs/simc-reference/warrior_target_mitigation.cpp and AUDIT.md F4.
+    #
+    # Effects 2 (damage done penalty), 5/6 (Stance Mastery chunk DR) are
+    # disabled — effect 2 because Prot doesn't take the offense hit, effects
+    # 5/6 because the SimC code comment "Stance Mastery for Defensive stance
+    # is not working in game as of Dec 04 2025" flags the chunk-DR variant
+    # broken in-game. Effect 3 (magic DR) activates to +6% only when "Fight
+    # Through the Flames" talent (spell 452494) is taken — talent-gated in
+    # `mitigation.py` (checks `"fight_through_flames" in state.talents`,
+    # reads this magnitude from `talents.fight_through_flames.magic_dr`
+    # below). Stale TODO fixed 2026-07-11 (talent-leftovers deep review) —
+    # this comment previously said the gating wasn't modelled yet; it has
+    # been since before this fix, the comment just never caught up.
+    #
+    # Previously simf used 0.20 magic-only — both scope and magnitude wrong.
+    # The 0.20 was empirically derived from MGT+12 magic events to compensate
+    # for missing party auras; that conflation moves to party_magic_dr below.
+    defensive_stance_dr: 0.15
+    # Vanguard — Prot Warrior SPEC PASSIVE (spell 71, find_specialization_spell
+    # — always active for every Protection Warrior, NOT a talent, same class
+    # of ability as Riposte in base_parry() above). Adds bonus armor =
+    # Strength × 70%, same "Mod Armor From Stat %" subtype as Blood DK's
+    # `bone_shield_armor_from_strength` below (1.80/180%) — the mechanic
+    # class, not the magnitude, matches. Sourced 2 independent ways in
+    # agreement: live Wowhead tooltip for spell 71 (raw Playwright
+    # accessibility-tree read, 2026-07-21 — Effect #1 "Mod Armor From Stat %",
+    # Value 70%; plain-text tooltip "your Armor is increased by 70% of your
+    # Strength") and SimC source (`sc_warrior.cpp`, `midnight` commit
+    # `fd60a6384dcd55f3737f18f31755141c1fe1e540`,
+    # `warrior_t::composite_bonus_armor()`:
+    # `ba += spec.vanguard->effectN(1).percent() * current_str;`, gated only
+    # on `specialization() == WARRIOR_PROTECTION` — the same Effect #1).
+    # `current_str` is total effective Strength (no combat-rating detour —
+    # Strength is a primary stat). Resolves the old, now-deleted "empirical
+    # 0.258 vs spell value 40%" discrepancy that used to be noted near the
+    # `talents:` block: 40% was Vanguard's Effect #2 (Stamina, unrelated to
+    # armor, mis-cited), and 0.258 was an empirical fit measured under a
+    # replay chain with 3 now-fixed mitigation bugs live (this same day's
+    # armor-resist-multiplier-order, Shield-Block-double-count, and
+    # hasted-SB-recharge fixes) — neither number was ever the real
+    # coefficient. See
+    # docs/validation/protwarrior_vanguard_strength_armor_2026_07_21.md.
+    vanguard_armor_per_strength: 0.70
+    vanguard_spell_id: 71
+    # Keep Your Feet on the Ground — Mountain Thane HERO TALENT (spell
+    # 438591), a flat -8% ALL-school DR proc while the buff is up (5s,
+    # refreshed by Thunder Blast casts every 2-9s in the ratified corpus —
+    # NOT a passive, window-gated same as Painbringer/Metamorphosis below).
+    # Sourced 2 independent ways in agreement: live Wowhead tooltip fetch for
+    # spell 438591 ("Apply Aura: Mod % Damage Taken [all 7 schools] -8%, 5
+    # sec") and Warcraft Wiki's tooltip text ("Thunder Blast reduces damage
+    # you take by 8% for 5 sec"), talent placement (Mountain Thane, exclusive
+    # choice with Steadfast as the Peaks) cross-checked against SimC source
+    # (`sc_warrior.cpp`, `find_talent_spell(talent_tree::HERO, "Keep Your
+    # Feet on the Ground")`). Measured in the ratified 16-log corpus: the
+    # buff's own in/out residual ratio (0.900 all-clean-hits, 0.911
+    # non-frost-magic-only) sits within 2-3pp of the tooltip's exact -8%
+    # (=0.92) prediction. Window-gated on event.active_buffs in replay (real
+    # log windows, io.log_replay.load_replay's buff_ability_ids parameter);
+    # the live/synthetic path gets NO credit yet — Thunder Blast has no
+    # policy/rotation model (same calibration-path-first staging as
+    # Painbringer/Metamorphosis). Does NOT close the whole non-frost-magic
+    # residual — resid_out (hits with the buff confirmed down) still sits at
+    # 0.90-0.93, an unexplained ~7-10% cut remains. The talent's OTHER
+    # component ("Physical damage taken reduced by 2%", a true always-on
+    # passive with no discrete buff-application event) is NOT credited here
+    # — not yet isolated from the separate "universal ~5-7% wedge", a
+    # deliberately deferred follow-up, named not silently absorbed. See
+    # docs/validation/protwarrior_magic_wedge_kyfotg_lead_2026_07_22.md.
+    keep_feet_on_ground_dr: 0.08
+    keep_feet_on_ground_spell_id: 438591
+    # Party-aura DR layer — generalised from the previous flat `party_magic_dr`
+    # knob to a per-school dict (Phase 3.9.2, 2026-05-24). The schema:
+    #   all: applied to BOTH physical and non-physical events.
+    #   magic: stacked multiplicatively on `all` for non-physical events.
+    # Effective DR for physical = 1 - all. For magic = 1 - (1-all)*(1-magic).
+    # Applied only in replay mode (event.is_log_replay) or when callers
+    # explicitly set state.party_magic_dr_active. Synthetic predictions
+    # stay unbiased so the K calibration on physical-heavy logs is
+    # unaffected.
+    #
+    # Magnitudes: `all: 0.05` anchored to Shaman Earth Shield 4% / Druid
+    # Symbol of Hope 5%, the dominant all-school healer-aura class. The
+    # parent doc (docs/validation/magic_mit_gap_remeasurement_2026_05_23.md)
+    # said this layer would close ~5pp physical; empirical pre-merge gap
+    # remeasurement (2026-05-24) showed only +1.33pp because of DR-
+    # stacking arithmetic (5% applied multiplicatively on top of an
+    # existing 73% DR adds 1.33pp marginal, not 5pp). The doc's "−13pp
+    # is one missing layer" thesis is therefore partly wrong; a deeper
+    # structural miss remains on physical (likely BfI stack-up + bonus
+    # armor + reactive-heal compensation).
+    #
+    # `magic: 0.00` — the speculative magic-only stack was retuned to
+    # zero after pre-merge measurement showed it pushed frost (already
+    # +5.68pp over-mit) and nature p90 further into engine over-
+    # mitigation territory. Magic schools matched the baseline at
+    # magic=0.05 in the under-mit cases (which are dominated by all-
+    # school auras anyway). Schema retained for future per-log aura
+    # detection that lights up `magic` per real party composition.
+    party_dr_by_school:
+      all: 0.05
+      magic: 0.00
+
+  brewmaster_monk:
+    calibration_tier: characterized  # global K=3430; validated 2026-06-07 — over-predicts +27%/+57% at K=3430 (real model gap; see docs/validation/phase4_brewmaster_calibration_2026_06_07.md); F-factor issue blocks calibrated tier, see phase4_brewmaster_physical_gap_decomposition_2026_07_04.md
+    # Stagger: a % of incoming damage is *delayed* into a DoT pool that
+    # drains over 10s. Purifying Brew clears 50% of the current pool;
+    # Ironskin Brew extends stagger duration. The synthetic sim now
+    # models the stagger pool explicitly (Phase 4.4) so Purifying Brew
+    # actually does something instead of being abstracted as flat DR.
+    stagger_pct_physical: 0.40
+    stagger_pct_magic: 0.10
+    stagger_dot_duration_s: 10.0
+    # Ironskin Brew — adds ~5% extra stagger BEYOND base while up;
+    # 20s recharge. Modeled as a per-stack stagger boost.
+    ironskin_brew_stagger_increase: 0.05
+    ironskin_brew_recharge_s: 20.0
+    ironskin_brew_avg_uptime: 0.70  # high uptime in active M+
+    # Purifying Brew — clears 50% of current stagger pool. Fires when
+    # the pool exceeds the threshold (% of max HP). 0.10 is a "press
+    # often when ticking heavy" approximation; real high-key Brewmaster
+    # purifies near this band rather than waiting for the in-game
+    # "heavy stagger" debuff at 30%. Rate-limited by avg-per-minute so
+    # a runaway scenario doesn't get free clears.
+    purifying_brew_clear_pct: 0.50
+    purifying_brew_threshold_pct_of_max_hp: 0.10
+    purifying_brew_avg_per_minute: 12.0   # active M+ purify cadence
+    # Fortifying Brew: emergency CD
+    fortifying_brew_dr: 0.20
+    fortifying_brew_duration_s: 15.0
+    fortifying_brew_cooldown_s: 360.0   # Midnight 12.0.5 tuning
+    # Celestial Brew: absorb shield that scales with recent stagger pool.
+    # cooldown_s corrected 2026-08-07: was 60.0, a 33% overstatement that
+    # disagreed with this project's OWN research on the same ability
+    # (coaching.defensives.brewmaster_monk's registry entry two spells below,
+    # cooldown_s: 45 — researched 2026-07-02 against Wowhead/Icy Veins/
+    # Method.gg/Maxroll/Peak of Serenity, see
+    # docs/validation/coaching_registry_audit_2026_07_02.md). This is a
+    # correctness/game-accuracy fix, NOT a mitigation improvement — measured
+    # effect is exactly zero on the replay-based calibration corpus (the log's
+    # own real absorbed amount is used in replay, never this cooldown) AND
+    # exactly zero on a geared tank's forward-sim verdict sweep (the
+    # `hp_pct < 0.70` press gate in BrewmasterPolicy.decide() rarely fires for
+    # a geared character regardless of cooldown), and mildly NEGATIVE for an
+    # undergeared tank (a shorter cooldown slides the same 8s absorb window
+    # onto a lower-damage moment before it expires, buying no extra presses).
+    # See docs/validation/phase4_brewmaster_celestial_brew_cooldown_fix_2026_08_07.md
+    # for the full before/after measurements.
+    #
+    # PATCH 12.1.0 SCALAR CORRECTION (2026-08-13): PR #472 bumped the absorb
+    # constant to 0.25 citing Warcraft Wiki's "+25%" figure, but that figure
+    # belongs to a DIFFERENT talent (Awakening Spirit, which modifies
+    # Purifying Brew/Stagger absorption, not Celestial Brew's shield) — a
+    # research misattribution, not a game-data error. Confirmed 2026-08-13 by
+    # a direct Playwright browser fetch of Blizzard's own official patch
+    # notes (news.blizzard.com/en-us/article/24293281/curse-of-ula-tek-content-
+    # update-notes, Monk/Brewmaster section, expanded and read verbatim — not
+    # a third-party wiki paraphrase), cross-checked twice with zero
+    # disagreement. The real, verbatim note reads: "Celestial Brew and
+    # Celestial Infusion absorb increased by 150% and cooldown increased by
+    # 100%." The live tooltip's real mechanic is a flat 2268%-of-Attack-Power
+    # absorb, and this constant is itself an unvalidated %-of-max-HP
+    # approximation of that (same shape as VDH's Soul Cleave conversion
+    # above), never corpus-fit (Brewmaster is `characterized`, not
+    # `calibrated`, and this specific constant has no regression history —
+    # docs/validation/phase4_audit_2026_05_16.md:248 called 0.20 "roughly
+    # right" pre-PTR by inspection, not a fit). Derivation, preserving that
+    # same conversion ratio as a defensible same-fidelity carry-forward:
+    # absorb 0.20 (pre-12.1.0 baseline) x2.5 ("+150%" = new = old + 1.5*old)
+    # = 0.50; cooldown 45.0 (pre-12.1.0 baseline, see the fix note directly
+    # above) x2 ("+100%" = doubled) = 90.0.
+    celestial_brew_absorb_pct_of_max_hp: 0.50
+    celestial_brew_cooldown_s: 90.0
+    # --- Hero-talent flat mitigation ledger (Phase 4, 2026-06-07) ---
+    # Always-on / averaged-uptime damage-taken reductions the engine applies
+    # ONLY when the talent is detected active. The 2026-06-07 characterization
+    # (docs/validation/phase4_brewmaster_magic_layers_2026_06_07.md) proved the
+    # Brewmaster over-prediction is a HERO-TALENT-DEPENDENT flat DR the engine
+    # omits — NOT the absorb/Stagger path — so a single flat constant for all
+    # Brewmasters would over-credit builds that lack the talent. Each row is
+    # gated, independently checkable, and fails visibly on a build that lacks it.
+    #
+    # DETECTION NOTE: gated on the talent's BUFF aura `spell_id`, observed in the
+    # replay log on the tank. COMBATANT_INFO talents are trait-node-ENTRY ids
+    # (124xxx range), NOT spell ids, so `detected_talent_spell_ids` can't carry
+    # the buff id — the buff aura is the reliable replay signal. Synthetic /
+    # production (non-replay) gating via the trait tree is a follow-up.
+    #
+    # `dr_pct` is the in-game reduction; `avg_uptime` averages it over the pull
+    # (PT is a 6s dodge/parry proc, NOT always-on). `school: all` applies to
+    # every event. `dr_pct: 0.08` = the audited Midnight value (2026-04-07
+    # hotfix cut PT 10% -> 8%; talent 450992, buff 451230 — verified in-log).
+    # `avg_uptime: 0.88` is the *measured* damage-weighted PT uptime on AnonBrewmaster2's
+    # +12 (87.7% dmg-weighted; 75.2% wall-clock — the ~12pp gap is the
+    # unmitigated opening hit of each pull). One Shado-Pan run; refine when a
+    # second lands. NOT 1.0 — the log refutes "always-on".
+    # Validated: PT closes most of AnonBrewmaster2's +27% over-prediction; AnonBrewmaster1
+    # (Master of Harmony, no PT buff) is correctly unchanged.
+    mitigation_ledger:
+      - name: predictive_training        # Shado-Pan hero talent
+        detect_buff_spell_id: 451230     # "Predictive Training" aura (verified in-log)
+        school: all
+        dr_pct: 0.08
+        avg_uptime: 0.88
+
+  guardian_druid:
+    # global K=3430. CALIBRATED 2026-06-29 on the AnonGuardian1 16-log single-player corpus
+    # (Warrior-parity bar): UNBIASED (mean +0.2%), 12/16 within ±15%, mean |Δ| 9.9%,
+    # RMSE 0.119. The path here closed two real bugs the validation surfaced: the
+    # phantom Rage of the Sleeper (deleted in 12.0.0) and the #214 haste-elasticity
+    # coupling regression (PR #218). CAVEATS (surfaced in the UI, decoupled from this
+    # flag): single-build (Elune's-Chosen) un-regressed haste slope; medium-confidence
+    # mastery→healing; a small magic residual (slightly over-predicts magic-heavy
+    # content — 3 of 16 outliers, all positive/magic). RMSE was looser than Warrior's
+    # 0.068 as measured on 2026-06-29 (Guardian is a spikier spec: no parry, heavy
+    # magic exposure) — NOTE: Warrior's own RMSE has since moved twice (0.138 as of
+    # 2026-07-18, ratified 0.162 as of 2026-07-21), which INVERTS this specific
+    # numeric comparison (Guardian's 0.119 now reads tighter, not looser); the
+    # qualitative "spikier spec" reasoning stands on its own, independent of either
+    # number. The 11-log cross-player WCL set is the generalization check (wider
+    # scatter = build variance),
+    # not the bar. See docs/validation/phase4_guardian_calibrated_2026_06_29.md.
+    #
+    # DOWNGRADED to characterized 2026-07-17 (human-ratified). This tier was
+    # GRANDFATHERED (2026-07-06 retrospective, PR #289) past the real LOO-CV
+    # promotion gate added the same day. The gate was run against Guardian's
+    # real 17-run corpus (2026-07-08) and FAILS at both scopes checked — full
+    # corpus 12/17 (71%) and the F-consistent subset 9/13 (69%), both under the
+    # ≥75% bar — and the shortfall is NOT just this spec's known F-outlier runs
+    # (3 of the 4 excluded runs were held-out successes; excluding them made the
+    # ratio worse). See docs/validation/phase4_guardian_loo_cv_f_consistent_2026_07_08.md.
+    # The model itself is unchanged (still RMSE 0.119, unbiased on the original
+    # 16-log corpus) — this reflects the project's own cross-validation standard
+    # not being cleared yet, not a regression in the underlying fit. Flipping
+    # back to `calibrated` requires a fresh LOO-CV pass that clears ≥75%.
+    calibration_tier: characterized
+    # Bear Form (5487): +220% Mod Base Resistance (Physical) → a PERMANENT
+    # base_armor_multiplier (×3.2) on gear armor. The COMBATANT_INFO hydrate
+    # snapshot is the OUT-OF-FORM (caster) armor, so this is NOT already in it
+    # (verified: ~2,961 ≈ caster, not the ~9.5k in-form value). The clean analog
+    # of VDH's Metamorphosis armor, but PERMANENT rather than a cooldown. See
+    # docs/validation/phase4_guardian_characterization_2026_06_22.md.
+    bear_form_armor_multiplier: 3.20
+    # Bear Form (5487) also increases STAMINA by 40% → +40% max HP (HP is linear
+    # in stamina). Applied in Character.max_hp() to the stamina-derived base, on
+    # the assumption that the stored `stamina` is the OUT-OF-FORM (caster) value:
+    # the SimC paste's gear stamina IS caster (form-independent), and the
+    # COMBATANT_INFO hydrate sources the caster snapshot (_select_combatant_info).
+    # Ground truth: AnonGuardian1 in-game caster 543,420 → bear 759,384 = ×1.3974 ≈ 1.40
+    # (the +40% stamina tooltip; buffs cancel in the form ratio). Without this a
+    # SimC-paste Guardian was scored at ~52-73% of true bear HP (caster HP, no
+    # form mult) → wildly over-pessimistic. NOT applied to a max_hp_override (that
+    # is already the in-form sheet value). See
+    # docs/validation/phase4_guardian_mastery_hp_2026_06_25.md.
+    bear_form_stamina_multiplier: 1.40
+    # Ironfur (192081): bonus armor = X% of Agility per stack, added to the
+    # already-Bear-Form-multiplied pool. SimC druid_t::composite_armor() does
+    # `a = player_t::composite_armor(); a += if_val * cache.agility()` — the
+    # Ironfur term is added OUTSIDE composite_armor_multiplier, so there is NO
+    # extra ~1.30 pool multiplier to model (an earlier hypothesis, REFUTED from
+    # the SimC midnight source). simf's `gear×3.2 + agi×coeff×stacks` is the
+    # SimC-faithful shape. Live 12.0.x base = 124% of Agility/stack (112% was the
+    # stale 11.0.2 value). The coeff below is the EFFECTIVE per-stack for a
+    # typical M+ Killing-Strikes build (124% base × Killing Strikes +20% ≈ 1.49),
+    # data-anchored to AnonGuardian1's 16-run COMBATANT_INFO armor ladder (per-stack
+    # ≈2,800 ≈ 1.4×agi at his agi, R²=0.99) + the live ~11k in-form anchor, and
+    # validated 13/16 runs within ±15% (mean |Δ| 9.2%). NOT universal — a
+    # no-Killing-Strikes build is ~1.24; per-talent gating (cf. the Brewmaster
+    # mitigation ledger) is the named follow-up. See
+    # docs/validation/phase4_guardian_local_logs_2026_06_24.md.
+    ironfur_flat_armor_per_agility_per_stack: 1.46
+    # Avg effective Ironfur stacks in M+. Measured 2.45 (range 2.18–2.69, rising
+    # with key) across AnonGuardian1's 16 timed +10..+16 local runs — Ironfur is
+    # RAGE-CAPPED (2–9× more "Not enough rage" fails than casts), not GCD-capped,
+    # so this is the rage-economy average, well below the raw 8-stack ceiling.
+    # This is the haste model's REFERENCE stacks (at ironfur_haste_model.ref_haste_pct);
+    # for a non-Elune's-Chosen Guardian it is used flat (haste-independent).
+    ironfur_avg_stacks_m_plus: 2.45
+    ironfur_stacks_max: 8            # raw Ironfur stack ceiling — the haste model true-clamps to this
+    # Haste→rage→Ironfur uptime-elasticity (Phase: Guardian model finish, 2026-06-24).
+    # Consumed by Character._guardian_ironfur_avg_stacks(): stacks scale with haste
+    # because Ironfur is hard rage-capped in M+ and ~94% of Guardian rage is
+    # haste-scaled (auto + DoT-tick + haste-reduced-CD sources; there is NO
+    # rage-from-damage-taken in 12.0.x — verified vs SimC + the 16-run energize
+    # breakdown). stacks = ironfur_avg_stacks_m_plus × (1 + k·(haste% − ref)/ref),
+    # true-clamped to [0, ironfur_stacks_max].
+    #   k = 0.75 = haste-scaled-rage-fraction (0.945, mechanistic ceiling; band
+    #       0.85–0.97) × concave rage→stacks transmission (~0.8, since the
+    #       fail:cast ratio softens as rage rises). RATIFIED conservative central
+    #       value 2026-06-24 (user is an expert Guardian) — NOT the raw 0.945.
+    #   ref_haste_pct = 0.275 = AnonGuardian1's MEASURED 16-run mean haste_pct at the REAL
+    #       12.0.7 conversion (haste 44 rating/pct; <0.30 breakpoint so pre/post-DR
+    #       identical). At ref the elasticity factor is exactly 1.0 → a NO-OP at the
+    #       P1 corpus. RE-EXPRESSED 2026-06-29: was 0.121 under the old self-fit
+    #       100-rating/pct conversion; the #214 recal (haste 100→44, 2026-06-28)
+    #       changed the units but left ref stale, so the elasticity read ~2.3× the
+    #       real haste deviation and over-stacked Ironfur (4.87 vs live ~2.45 →
+    #       ~20% over-mitigation). 0.121 × 100/44 = 0.275 restores the no-op anchor.
+    #   detect_buff_spell_id = 202770 Fury of Elune — an Elune's Chosen capstone
+    #       BUFF (Druid of the Claw lacks it), gated like the Brewmaster ledger.
+    # HONESTY: k is UN-REGRESSABLE (AnonGuardian1's haste is gear-locked) and SINGLE-BUILD
+    # (~22% of his rage is EC Moonfire-engine a DotC build doesn't have). So this
+    # is a MODELED, single-profile haste survival value — calibrated STAYS false,
+    # and the UI must caption it "modeled / un-regressed / Elune's Chosen only".
+    # A non-Elune's-Chosen or unknown build gets NO haste scaling (static 2.45,
+    # haste marginal 0). Promote toward calibrated only after a 2nd Guardian
+    # profile at a MATERIALLY different haste% (or a DotC log) confirms the slope.
+    # See docs/validation/phase4_guardian_haste_model_2026_06_24.md.
+    ironfur_haste_model:
+      detect_buff_spell_id: 202770
+      k: 0.75
+      ref_haste_pct: 0.275
+    ironfur_duration_s: 7.0
+    # Baseline flat all-school DR — the Defensive-Stance / Demonic-Wards analog
+    # the Guardian path previously lacked entirely. Thick Hide (16931, -4% all)
+    # × Bear Form passive (5487, -3% all) ≈ -6.9%. Consumed by Character._always_on_dr.
+    thick_hide_dr: 0.04
+    bear_form_passive_dr: 0.03
+    # Magic-school DR the Guardian path omitted until 2026-06-29. VALIDATED against
+    # 11 gear-certain WCL logs: the sim under-mitigated EVERY magic school by a
+    # near-uniform ~15pp (real magic mit ~38% vs sim ~22%), over-predicting damage
+    # in magic-heavy content (Nexus-Point Xenas +21/+33%). Two sourced layers, both
+    # baseline-on (ratified 2026-06-29 — WCL COMBATANT_INFO carries no talent data
+    # to gate on; the uniform gap across all 11 logs shows they run these). See
+    # docs/validation/phase4_guardian_wcl_validation_2026_06_28.md.
+    #   Ursol's Warding (471492): magic DR modeled as 10% of the tank's ARMOR DR
+    #     (~8.5% for a geared bear), all non-physical schools. PROVENANCE (corrected
+    #     2026-06-30 audit): spell-data-derived, NOT from the SimC code path — SimC
+    #     marks Ursol's Warding `// TODO: NYI` (sc_druid.cpp:1115/11269; declared,
+    #     never implemented in target_mitigation), so the 10%-of-armor formula is
+    #     UNVALIDATED against SimC's model. Magnitude/formula medium-confidence;
+    #     do not "tune" it to chase the magic residual (that residual is execution —
+    #     see docs/validation/phase4_guardian_magic_mit_2026_06_29.md, 2026-06-30).
+    ursols_warding_magic_dr_pct_of_armor: 0.10
+    #   Bear Form (5487 Effect #14): EXTRA -6% ARCANE, on top of the all-school
+    #     bear_form_passive_dr. SimC source (sc_druid.cpp:14603-14613): this is the
+    #     arcane half of GLISTENING FUR (Elune's-Chosen hero talent), gated on
+    #     `talent.glistening_fur.ok()` — NOT a baseline Bear Form effect. We apply it
+    #     baseline-on (unconditional) as an Elune's-Chosen meta-default, which
+    #     OVER-CREDITS a non-Glistening-Fur / Druid-of-the-Claw bear by 6% arcane.
+    #     KNOWN GAP (2026-06-30 docs-only decision, validator-audited): the SIBLING
+    #     effect #13 (-3% to all NON-arcane magic — shadow/fire/frost/nature/holy) is
+    #     deliberately NOT modeled. Adding it would close ~2.6pp of the ~8.4pp shadow
+    #     over-prediction; the remaining ~5.8pp is reactive-CD-timing execution, not a
+    #     constant. Effect-#13/#14 magnitudes are Wowhead/DBC-sourced (medium-confidence;
+    #     the .cpp reads them from DBC). See phase4_guardian_magic_mit_2026_06_29.md.
+    bear_form_arcane_dr: 0.06
+    # Party-aura DR (healer + party magic auras) — parity with the warrior path.
+    # Replay opt-in (state.party_magic_dr_active); `all` applies to every event,
+    # `magic` stacks on non-physical. Mirrors protection_warrior's values.
+    party_dr_by_school:
+      all: 0.05
+      magic: 0.00
+    # Barkskin: 20% DR for 8s on 60s CD → ~2.7% average effective DR
+    barkskin_dr: 0.20
+    barkskin_duration_s: 8.0
+    barkskin_cooldown_s: 60.0
+    barkskin_avg_dr: 0.027
+    # Survival Instincts: emergency 50% DR. Live 12.0.7: 180s CD, 2 charges baseline
+    # (verified 2026-06-29). The 2nd charge is unmodeled — SI is emergency-triggered
+    # here, low-stakes; revisit if SI spike-coverage matters for the coaching surface.
+    survival_instincts_dr: 0.50
+    survival_instincts_duration_s: 6.0
+    survival_instincts_cooldown_s: 180.0
+    # NOTE: Rage of the Sleeper was REMOVED in patch 12.0.0 (verified 2026-06-29 vs
+    # SimC source + Warcraft Wiki "12.0.0: Removed"). The prior ~3.3% all-school
+    # baseline DR (rage_of_the_sleeper_dr/avg_dr) was a phantom layer crediting a
+    # deleted ability for every Guardian, and even mis-valued (25% vs the old real
+    # 20%). Removed from the chain — do not re-add without re-verifying it exists.
+    # Tooth and Claw: passive — every Mangle has a 35% chance to grant a
+    # 2-stack debuff making your next 2 attacks heal you for ~6% max HP.
+    # Modeled as a periodic 6% max-HP heal at the proc rate.
+    tooth_and_claw_heal_pct_max_hp: 0.06
+    tooth_and_claw_procs_per_minute: 12.0
+    # Mastery: Nature's Guardian (155783) — two always-on auras. SimC realizes
+    # BOTH as the FULL mastery_value (coeff 1.0, NOT 0.7) — see sc_druid.cpp
+    # (midnight) line 13122 max-HP `resources.max *= 1 + cache.mastery_value()`
+    # and lines 12463-12492 healing:
+    #   (1) Mod Increase Max Health %  — +mastery to max HP. DELIBERATELY NOT
+    #       modeled as an explicit max_hp() term: simf's stamina→HP conversion
+    #       (hp_per_stamina=22, vs WoW's real ~20) already reproduces the in-game
+    #       SHEET HP, which is always-on-NG-inclusive. AnonGuardian1 log-path 770,962 vs
+    #       observed bear 782,078 = +1.4% with NO term; an explicit ×(1+mastery)
+    #       would DOUBLE-COUNT. The 22-vs-20 gap already absorbs NG's max-HP aura.
+    #   (2) Mod Healing/Absorb Taken %  — scales ALL non-percent healing & absorbs
+    #       RECEIVED. SimC implements it as spell 227034 ("Nature's Guardian"), a
+    #       proc that fires on every non-pct heal received and heals for
+    #       `received_heal × mastery_value`. So 227034 in a combat log IS this
+    #       mastery aura realized as discrete heal events — it is NOT a separate
+    #       ability and must NOT be modeled as an extra self-heal stream (that
+    #       double-counts mastery). simf models the same effect as a multiplier via
+    #       Character.incoming_healing_multiplier(), consumed in runner.py (healer
+    #       HPS, externals, reactive bursts) + guardian_druid.py (Tooth & Claw).
+    #       NOTE the proc EXCLUDES percent-of-max-HP heals (sc_druid.cpp:12480), so
+    #       Frenzied Regeneration (a %-max-HP heal) is mastery-NEUTRAL — see the
+    #       frenzied_regeneration block below; it is intentionally NOT multiplied.
+    # COEFF RECALIBRATED 0.70 → 1.0 (2026-06-27, constants_version 29). SimC heals
+    # 227034 for `received_heal × cache.mastery_value()` (coeff 1.0, NOT 0.7 — the
+    # 0.7 Wowhead "SP mod" is the per-mastery-POINT value already baked into the
+    # displayed mastery %, so applying it again on top double-counted). The true
+    # coefficient is mastery_value itself ≈ 0.147 at AnonGuardian1's 668 rating, confirmed
+    # THREE ways: (1) simf's own mastery_pct(668)=0.1468; (2) a dual-validator
+    # proc-pairing measurement on the logs (227034_raw / trigger_raw ≈ 0.13–0.14);
+    # (3) SimC's max-HP aura uses the same full mastery_value. So
+    # incoming_healing_multiplier(668) = 1 + 1.0 × 0.1468 = 1.147 (was 1.103).
+    #
+    # DO NOT use the whole-fight EFFECTIVE ratio 227034_eff/other_eff ≈ 0.226
+    # (×1.226) as the multiplier — it is inflated by differential overheal (the
+    # efficient ~95% proc vs ~50%-overhealing healer streams). simf applies this
+    # multiplier to the OFFERED baseline_hps (runner.py) which is then clamped to
+    # missing HP; survival is decided in low-HP windows where overheal→0 so
+    # effective≈raw. Using 0.226 would over-credit healing ~7% in exactly those
+    # windows (dual-validator log-replay finding, 2026-06-27).
+    #
+    # LEVEL log-grounded (raw mastery_value ~0.147 + SimC coeff 1.0); SLOPE
+    # single-gear-underdetermined (one mastery point) → calibrated stays false.
+    # Kept in simf's normalized mastery space (rating_per_pct=100) so cross-stat
+    # gem/weight comparisons stay consistent and K-calibration is untouched. See
+    # docs/validation/phase4_guardian_self_heal_mastery_2026_06_27.md (and
+    # phase4_guardian_mastery_hp_2026_06_25.md for the original lever).
+    natures_guardian_heal_coeff: 1.0
+    base_mastery_pct: 0.08
+    mastery_rating_per_pct_guardian: 100
+    # Frenzied Regeneration (22842) — reactive self-heal. Modern (8.0.1+) FrR is a
+    # FLAT % of max HP over 3s (NOT the pre-8.0 "% of recent damage taken"); Icy
+    # Veins 12.0.7 lists ~20% max HP, 4 ticks. Innate Resolve (near-mandatory M+
+    # talent, in AnonGuardian1's build) adds a 2nd charge and scales the heal up to +120%
+    # the lower your health. Modeled in GuardianPolicy.decide as a single effective
+    # heal per press, clamped to missing HP, gated on hp_pct + charges/recharge.
+    # MASTERY-NEUTRAL: FrR is a %-max-HP heal, which the 227034 mastery proc
+    # excludes (sc_druid.cpp:12480), so it is NOT multiplied by
+    # incoming_healing_multiplier(). Magnitudes MEDIUM confidence (single build,
+    # un-regressable) → calibrated stays false. recharge_s patch-uncertain (24-36s).
+    frenzied_regeneration:
+      base_pct_max_hp: 0.20            # ~20% max HP per press (Icy Veins 12.0.7)
+      innate_resolve_low_hp_bonus: 1.2 # ×(1 + 1.2×(1−hp_pct)) — stronger when low
+      trigger_hp_pct: 0.50             # press when hp ≤ 50% and a charge is up
+      charges: 2                       # base 1 + Innate Resolve
+      recharge_s: 24.0                 # per-charge recharge (patch-uncertain)
+    # Incarnation: Guardian of Ursoc — full Bear form duration; +30% max
+    # HP + 30% armor for 30s on 180s CD. Treated as a Last-Stand pattern.
+    incarnation_max_hp_increase: 0.30
+    incarnation_armor_multiplier: 1.30
+    incarnation_duration_s: 30.0
+    incarnation_cooldown_s: 180.0
+    # Agility → dodge scaling (Guardian uniqueness)
+    agility_per_dodge_pct: 1000.0    # 1000 agi → +1% dodge (PLACEHOLDER)
+    base_dodge_chance: 0.05          # higher Guardian baseline
+
+  blood_death_knight:
+    # First characterized 2026-07-04 against 5 public Midnight (zone-47) WCL
+    # M+ fights (4 players, 5 dungeons, keys +20..+22) — see
+    # docs/validation/phase4_blood_dk_characterization_2026_07_03.md.
+    # Global K=3430 applies (the armor curve is class-agnostic at level 90).
+    # Bone Shield + Rune Carved Plates values are pinned to SimC (midnight
+    # branch) + Wowhead DBC, NOT fitted. `characterized` (2026-07-03 5-log
+    # pass, 4/5 within +/-15%, RMSE 0.152 — closest untouched spec to the
+    # calibrated tier, blocked on a second hero-talent build); UI surfaces
+    # the amber "uncalibrated spec" warning below the top tier.
+    calibration_tier: characterized
+    # Bone Shield (spell 195181, SimC midnight composite_bonus_armor):
+    # bonus armor = 180% of Strength while >=1 charge — the armor is
+    # INDEPENDENT of the stack count (SimC parses the buff IGNORE_STACKS;
+    # stacks are charges consumed by auto-attacks, not intensity). The old
+    # flat 3%/stack physical DR was a placeholder mechanism that does not
+    # exist in Midnight. Measured on the 5-fight corpus: >=1-charge uptime
+    # 97.4-99.9% wall-clock, 99.6-100% damage-weighted; avg ~10 stacks.
+    # Replay gates on the log's real buff windows; the synthetic sim treats
+    # it as always-on (the rotational refresh keeps it up, and the measured
+    # uptime supports that).
+    bone_shield_armor_from_strength: 1.80  # Wowhead 195181 effect#1 "Mod Armor From Stat %: 180%"
+    bone_shield_spell_id: 195181
+    # Death Strike: heals max(7% max HP, 25% of damage taken in last 5s).
+    # The 5s recent_damage_window is already tracked on MitigationState.
+    # Cast rate scales with rune regen + runic power generation; modeled as
+    # a periodic policy tick during low-HP windows.
+    death_strike_heal_pct_of_recent_dmg: 0.25
+    death_strike_min_heal_pct_of_max_hp: 0.07
+    death_strike_runic_power_cost: 45.0
+    death_strike_avg_per_minute: 8.0  # ~8 DS per min in active M+ pace
+    # Vampiric Blood: +35% max HP, +30% healing for 10s on 90s CD. Reuses
+    # the shield_wall slot pattern; max HP boost handled via Last Stand
+    # mechanism (temporary max_hp inflation that contributes to survival).
+    vampiric_blood_max_hp_increase: 0.30   # Midnight 12.0.5 (was +35% pre-tuning)
+    vampiric_blood_healing_increase: 0.30
+    vampiric_blood_duration_s: 10.0
+    vampiric_blood_cooldown_s: 90.0
+    # Icebound Fortitude: 30% all-school DR for 8s on a 120s CD (Wowhead
+    # spell 48792, live Midnight 12.0.5: "Mod % Damage Taken ... -30%",
+    # duration 8s, cooldown "2 minutes"; matches the coaching-registry
+    # cooldown_s: 120 above — the old 180 contradicted it). Emergency CD slot.
+    icebound_fortitude_dr: 0.30
+    icebound_fortitude_duration_s: 8.0
+    icebound_fortitude_cooldown_s: 120.0
+    # Rune Carved Plates (Deathbringer hero talent 440282; buffs 440289
+    # physical / 440290 magical): each Rune GENERATED grants a stack of the
+    # physical buff, each Rune SPENT a stack of the magical buff — 1.5% less
+    # damage of that type per stack, max 5, 5s (SimC midnight resource_gain/
+    # resource_loss + buff default_value effectN(1)/1000; warcraft.wiki +
+    # 11.0.5 patch note "1.5% per stack (was 2%)"). Replay-only, gated on the
+    # buff windows observed in the log (a San'layn build has no RCP auras and
+    # gets no credit — the honest failure mode). active_buffs carries
+    # presence, not stack count, so the model credits per_stack x the
+    # damage-weighted average stacks measured while the buff is up:
+    # 2.9-3.8 across all 10 (fight x school) measurements on the 5-fight
+    # corpus -> 3.5. All 5 corpus tanks are Deathbringer (the M+ meta).
+    rune_carved_plates_physical_spell_id: 440289
+    rune_carved_plates_magical_spell_id: 440290
+    rune_carved_plates_dr_per_stack: 0.015
+    rune_carved_plates_avg_stacks_while_up: 3.5
+    # Blood-Soaked Ground (San'layn hero talent 434033; buff 434034): while
+    # standing in your own Death and Decay, physical damage taken is
+    # reduced by a flat 5% (live Midnight 12.0.5/12.0.7 Wowhead tooltip:
+    # "While you are within your Death and Decay, your physical damage
+    # taken is reduced by 5%..."; cross-confirmed via WebSearch 2026-07-31
+    # after the two research passes used different-but-consistent spell
+    # ids — 434033 is the talent node itself (Passive, "Not In Spellbook",
+    # never referenced by literal id in SimC either), 434034 is the actual
+    # buff object SimC's midnight branch triggers/expires via
+    # death_and_decay_buff_t::trigger_buffs()/expire_buffs() — the same
+    # DnD-presence callback the base-tree Sanguine Ground talent uses).
+    # Unlike Rune Carved Plates this is flat (no stacks) and physical-only
+    # (no magical branch — the ability has no magic-school counterpart).
+    # Replay-only, gated on the buff window observed in the log (a
+    # Deathbringer build has no Blood-Soaked Ground aura and gets no
+    # credit — the same honest failure mode RCP already has in the other
+    # direction for San'layn builds; this key closes that gap).
+    #
+    # PATCH 12.1.0 SCALAR BUMP (prepared 2026-08-07, held for ship ~Aug 11
+    # 2026 — see patch/12.1.0-scalars branch / PR): live 5% -> PTR 8%,
+    # confirmed verbatim by Warcraft Wiki's Patch 12.1.0 page ("reduces
+    # physical damage taken by 8% (was 5%)") and unrevised since the
+    # 2026-07-28 PTR research pass. A simple flat replace — this constant
+    # was never corpus-fit (Blood DK is `calibrated: false`), so no
+    # recalibration is needed alongside the bump.
+    blood_soaked_ground_spell_id: 434034
+    blood_soaked_ground_physical_dr: 0.08
+    # Blood Shield: Death Strike grants an absorb equal to ~50% of the heal
+    # amount. Modeled as a healer-absorb addition on the iteration tick.
+    blood_shield_pct_of_ds_heal: 0.50
+    # Base values (no shield → no block; melee parry instead)
+    base_parry_chance: 0.05          # base DK parry (no shield); strength scales
+    # Mastery: Blood Shield — 1% mastery → 1% blood-shield absorb increase.
+    # Captured indirectly via death_strike_heal_pct (mastery scales DS heal).
+    mastery_ds_heal_scaling: 0.005   # 1% mastery → +0.5% DS heal effectiveness
+
+  vengeance_demon_hunter:
+    # Coefficients PINNED TO SIMC (midnight branch, build 12.0.5.67823 — see
+    # docs/validation/phase4_vdh_characterization_2026_06_09.md + the SimC
+    # engine-math audit). The armor formula + K=3430 + 0.85 cap are confirmed
+    # bit-correct against SimC; these are the spec mitigation layers.
+    # `characterized`. v38 (Painbringer, see
+    # docs/validation/phase4_vdh_painbringer_2026_07_03.md) moved the 3-fight
+    # WCL corpus to +37.5%/+62.0%/+36.5% at canonical K (RMSE 0.551→0.468).
+    # 2026-07-17: Fiery Brand's -40% target-source DR was found double-
+    # counted in log replay (attacker-side debuff, already baked into logged
+    # damage — see the Fiery Brand step comment in vengeance_dh.py) and
+    # gated out; re-running the corpus (2026-07-18) correctly WIDENED the
+    # deltas to +48.7%/+75.1%/+47.9% (RMSE 0.586) — the bug had been masking
+    # part of the real gap. v41 (same day, decided autonomously — see
+    # constants_version changelog above): of the 3 previously-uncharacterized
+    # leads, Infernal Armor shipped (physical armor bump, window-gated —
+    # deltas -> +39.9%/+66.7%/+38.8%, RMSE 0.502, the single largest VDH fix
+    # since Metamorphosis armor) and Void Reaver's Frailty shipped
+    # LIVE/SYNTHETIC-ONLY after empirical per-hit forensics proved it
+    # attacker-side (contributes zero to these deltas, correctly). Fel Flame
+    # Fortification stays unwired (only 1-of-3 corpus fighters had it; no
+    # VDH talent-detection plumbing exists to gate it safely). See
+    # docs/validation/phase4_vdh_magic_residual_leads_2026_07_18.md. Still
+    # far outside +/-15%; still `characterized`.
+    calibration_tier: characterized
+    # Demon Spikes (spell 203819, SimC): +8% PARRY + armor = +75% of Agility
+    # for 12s (2 charges). It has NO flat damage reduction — the old 0.20 was a
+    # phantom/stale value (SimC effect base = 0). On landed hits the parry is
+    # irrelevant in replay (avoided hits never appear), so DS mitigation comes
+    # from the agi-armor bump. NB: SimC itself omits the 75%-agi armor (its
+    # parse_effects doesn't handle subtype 268) — we model it for game-accuracy
+    # since the real logs reflect it.
+    demon_spikes_duration_s: 12.0
+    demon_spikes_physical_dr: 0.0
+    demon_spikes_armor_from_agility: 0.75
+    demon_spikes_parry_chance_during: 0.08
+    demon_spikes_fury_cost: 60.0
+    demon_spikes_spell_id: 203819
+    # Metamorphosis (Vengeance, spell 187827, SimC): +40% max HP + ×3.0 base
+    # armor (+200% base resistance, physical) for 15s on a 120s CD. NO innate
+    # leech (the 0.50 was mis-attributed Soul Rending, a separate talent). The
+    # ×3.0 ARMOR is the single highest-leverage layer and was previously
+    # unmodeled. Credited window-gated (only while the buff is actually up —
+    # armor DR is non-linear, so averaging over its ~50% M+ uptime is wrong).
+    metamorphosis_max_hp_increase: 0.40
+    metamorphosis_leech_increase: 0.0
+    metamorphosis_duration_s: 15.0
+    metamorphosis_cooldown_s: 120.0
+    metamorphosis_armor_multiplier: 3.0
+    metamorphosis_spell_id: 187827
+    # Infernal Armor (talent 320331, Demon Hunter CLASS tree, level 30):
+    # activates Immolation Aura's dormant armor effect (spell 258920 effect
+    # #5, base 0%) to a real +20% armor while the Immolation Aura buff is up.
+    # Pinned 2026-07-18 via live Wowhead tooltip ("Immolation Aura increases
+    # your armor by 20%...") + SimC midnight source
+    # (demon_hunter_t::composite_armor_multiplier():
+    # `am *= pow(1 + spell.immolation_aura->effectN(5).percent(), stacks)`).
+    # PHYSICAL ONLY (armor never reduces magic damage) — does not touch the
+    # magic-DR residual (see docs/validation/phase4_vdh_magic_residual_leads_2026_07_18.md).
+    # Window-gated on immolation_aura_spell_id being in event.active_buffs,
+    # same pattern as Metamorphosis's armor multiplier — stacks multiplicatively
+    # with it (both are armor_multiplier-type effects in SimC). Modeled
+    # UNCONDITIONALLY (no talent gate): confirmed rank 2/2 taken by all 3
+    # corpus fighters (2026-07-18 talent check against real WCL CombatantInfo
+    # talentTree data), same "assumed baseline" convention already used for
+    # Demon Spikes/Metamorphosis/Demonic Wards/Painbringer, since VDH has no
+    # per-player talent-detection plumbing yet. Live/synthetic mode gets NO
+    # credit (the policy has no Immolation-Aura-cast model) — same
+    # calibration-path-first staging as Metamorphosis/Painbringer.
+    infernal_armor_multiplier: 0.20
+    immolation_aura_spell_id: 258920
+    # Demonic Wards (spell 203513, SimC): flat -12% magic AND -12% physical =
+    # -12% all-school always-on baseline DR. The clean analog of the Prot
+    # Warrior Defensive Stance layer. (Stamina/armor live on Thick Skin 320380,
+    # which is already baked into the COMBATANT_INFO armor snapshot we hydrate —
+    # do NOT re-apply it.)
+    demonic_wards_dr: 0.12
+    # Soul Cleave + Frailty: 30 Fury → heals 25% missing HP + Frailty debuff
+    # on target generates Soul Fragments that heal on pickup. Modeled as a
+    # periodic self-heal in the policy tick — ~6 soul fragments/min in M+.
+    # `soul_cleave_heal_pct_missing_hp` is itself a %-missing-HP APPROXIMATION
+    # of the ability's real mechanic (a flat 240% Attack Power heal, per
+    # Warcraft Wiki) — not a live tooltip transcription.
+    #
+    # PATCH 12.1.0 SCALAR BUMP (prepared 2026-08-07, held for ship ~Aug 11
+    # 2026 — see patch/12.1.0-scalars branch / PR): Warcraft Wiki's Patch
+    # 12.1.0 page states the AP coefficient rises 240% -> 300% (a relative
+    # +25%), confirmed by a PTR spell-data scrape landing at exactly that
+    # ratio. A straight x1.25 on the existing constant is a defensible
+    # same-fidelity carry-forward — VDH has never corpus-fit this constant
+    # (`calibrated: false`, no VDH log corpus exists), so 0.25 was never a
+    # calibrated value to begin with, just an unvalidated AP-to-%-missing-HP
+    # conversion; x1.25 preserves that same conversion ratio rather than
+    # re-deriving it against a representative AP/max-HP profile.
+    soul_cleave_heal_pct_missing_hp: 0.3125
+    soul_fragment_heal_pct_max_hp: 0.06
+    soul_fragments_per_minute: 11.0   # active M+ pace; Spirit Bomb + Soul Cleave + procs
+    # Fiery Brand (debuff 207744, SimC): -40% damage taken from the branded
+    # target, 12s on ~60s CD. Averaged here (target-side, so only a fraction of
+    # M+ incoming is covered). Measured buff uptime ~38%; kept conservative.
+    fiery_brand_target_dr: 0.40
+    fiery_brand_avg_uptime_in_m_plus: 0.17
+    # Void Reaver (talent 268175, Vengeance spec tree) layers a defensive
+    # effect onto the existing Frailty debuff (247456, applied via Soul
+    # Cleave/Fracture/Spirit Bomb): -5% all-school "damage to caster" from the
+    # Frailty-debuffed mob (Wowhead tooltip + DB2 SpellEffect: EffectAura=269
+    # A_MOD_DAMAGE_TO_CASTER, EffectBasePointsF=-5, school mask 127; capped at
+    # 1 stack in Midnight — SpellAuraOptions.stack_amount=1, de-stacked from
+    # the older Dragonflight/TWW multi-stack design). SimC source
+    # (parse_target_effects gated on talent.vengeance.void_reaver) was
+    # genuinely ambiguous on attacker vs defender side (its bucket placement
+    # is demonstrably not a reliable signal — Fiery Brand's OWN confirmed-
+    # attacker-side effect sits in the identical SimC bucket). RESOLVED
+    # empirically 2026-07-18: per-hit forensics on all 3 WCL corpus fights
+    # (same ability + same mob, Frailty-active vs not) show unmitigatedAmount
+    # itself running ~5-15% lower while Frailty is up (AnonPlayerX2: a strikingly
+    # tight ~0.91 cluster across 8 ability/mob pairs) — ATTACKER-SIDE,
+    # already baked into logged damage, same bug class as Fiery Brand/Demo
+    # Shout/Phalanx. Modeled live/synthetic-only (flat averaged like Fiery
+    # Brand); NEVER in replay — wiring it there would double-count. Uptime
+    # measured as the fraction of the tank's physical hits landing while the
+    # attacking spawn carried Frailty (86.1%/91.5%/93.3% across the 3 corpus
+    # fights, mean ~90%) — consistent with Soul Cleave being a near-constant
+    # Fury spender against the tanked target in M+. Confirmed TAKEN (rank 1)
+    # by all 3 corpus fighters. See
+    # docs/validation/phase4_vdh_magic_residual_leads_2026_07_18.md.
+    void_reaver_dr: 0.05
+    void_reaver_avg_uptime_in_m_plus: 0.90
+    # Painbringer (buff 212988, talent 207387): flat −3% ALL-school DR (school
+    # mask 127) while the buff is up, refreshed on every Soul Fragment consume
+    # (8s, ~95% observed uptime on the 3-fight WCL corpus). NON-stacking in
+    # Midnight (SpellAuraOptions.CumulativeAura = 1 — the DF-era per-stack
+    # version is gone). Value pinned v38 from live Wowhead tooltip + DB2 build
+    # 12.0.7.68367: the buff's effect base IS 0 and the −3 arrives via the
+    # talent's A_ADD_FLAT_LABEL_MODIFIER (label 2406) — which is why the old
+    # audit read "effect base 0" and correctly refused to guess. Window-gated
+    # on event.active_buffs in replay (real log windows); the live path gets
+    # NO credit yet (policy has no Soul-Fragment-consume model — same
+    # calibration-path-first staging as Metamorphosis armor / Brewmaster PT).
+    painbringer_dr: 0.03
+    painbringer_spell_id: 212988
+    # Party/healer aura DR — structural parity with the warrior + Guardian
+    # paths (same values). Replay opt-in via state.party_magic_dr_active; NOT
+    # active in Monte-Carlo calibration runs (contributes zero to the WCL
+    # corpus deltas — every spec's corpus is judged with it off).
+    party_dr_by_school:
+      all: 0.05
+      magic: 0.00
+    # Base values
+    base_parry_chance: 0.05         # base VDH parry (no shield)
+    base_dodge_chance: 0.08         # VDH has higher base dodge than Warrior
+
+  protection_paladin:
+    # characterized — three passes so far, all on the Bruttah corpus (Pit
+    # of Saron +2 / Algeth'ar Academy +2 / Magisters' Terrace +5 / Seat of the
+    # Triumvirate +9): F15 block-value armor-curve port + hydrate-snapshot fix
+    # (2026-07-03, docs/validation/phase4_protpal_block_value_2026_07_03.md),
+    # Ardent Defender 30%/12s/90s (2026-07-03,
+    # docs/validation/phase4_protpal_ardent_defender_2026_07_03.md), and the
+    # Holy-Power/WoG economy correction (2026-07-04, v39 above — WoG is
+    # mana-funded and never competed with SotR; generation re-derived from
+    # measured uptime; docs/validation/
+    # phase4_protpal_holy_power_economy_2026_07_04.md, incl. the post-fix
+    # 4-log deltas at canonical K). runner.py's buff-window-blind cheat-death
+    # gate FIXED 2026-07-06 (Top-5 #3 prerequisite — see
+    # docs/validation/phase4_healer_throughput_cap_2026_07_06.md). Remaining
+    # named candidates for the gap: Divine Bulwark's mastery-scaled
+    # spell-block chance (unmodeled), the blocked-DoT absorb (unmodeled),
+    # Sanctuary's Consecration-linger DR (approximated by consecration_dr),
+    # and the cross-spec ~5-7% run-scoped wedge the Brewmaster decomposition
+    # surfaced on the warrior corpus too (that corpus was `calibrated` when
+    # this was written 2026-07-04; it is `characterized` as of 2026-07-18,
+    # downgraded further and re-ratified at RMSE 0.162 on 2026-07-21).
+    calibration_tier: characterized
+    # Base values for paladin (overrides `base:` block when class_spec == protection_paladin).
+    base_block_chance: 0.10               # has shield like Prot Warrior
+    base_mastery_pct: 0.12                # Divine Bulwark base mastery
+    # Mastery: Divine Bulwark — every 1% mastery adds block chance (spell 76671:
+    # "requires Paladin... increases your chance to block by 8.0%" at 8% base
+    # mastery → coefficient 1.0, confirmed against live Wowhead tooltip data,
+    # F15 2026-07-03). No flat-DR component exists on Divine Bulwark in
+    # Midnight — the previous `mastery_dr_scaling` term modeled a DF/TWW-era
+    # rank-2 effect that SimC's midnight branch no longer applies (rank 2 is
+    # now spell-block chance; the old flat-DR role moved to the Sanctuary
+    # talent, already approximated by `consecration_dr` below).
+    mastery_block_chance_scaling: 1.0
+    # Shield of the Righteous: 3 Holy Power → ~4.5s phys DR window. Stacks duration.
+    sotr_holy_power_cost: 3
+    sotr_duration_s: 4.5
+    sotr_physical_dr: 0.20                # 20% phys DR window (block + DR similar to SB but smaller)
+    sotr_block_chance_during: 1.0         # 100% block while SotR up
+    # Holy Power generation (rotation abstraction): smooth income the policy
+    # spends on SotR presses near buff expiry. Re-derived 2026-07-04 from the
+    # 4-log Bruttah corpus by back-solving the MEASURED SotR buff uptime
+    # (buff 132403: 78.1/81.4/85.5/85.8%) at each run's hydrated haste
+    # (19.8/23.3/19.8/21.1%): base = 3×uptime/(sotr_duration_s×(1+haste)),
+    # duration-weighted 0.4584 → 0.46. Deliberately NOT raw energize income
+    # (0.582 HP/s spendable, weighted): Bruttah presses at pool cap and loses
+    # pandemic extension (realized 3.5-4.2s buff per press vs the sim's
+    # near-expiry 4.5s), so income-parity would overshoot her real coverage.
+    # Cross-player anchor: AnonPPal1's 86-87% uptime at 9.58% haste
+    # back-solves to 0.526 — the ABSOLUTE rates agree (0.55-0.58 HP/s) across
+    # an 11pp haste gap, so the (1+haste) scaling is likely too aggressive;
+    # single-build caveat, flagged in the validation doc.
+    holy_power_per_second_base: 0.46
+    holy_power_max: 5
+    # Word of Glory — funded by MANA in Midnight 12.0.5 for the large
+    # majority of casts, NOT Holy Power. Log-proven 2026-07-04: 93.5%
+    # (145/155) of WoG cast lines read powerType=0 cost=50000 (pool 250000)
+    # and never touch Holy Power. A minority — 6.5% (10/155) — pipe-join a
+    # Holy Power leg alongside the mana leg (e.g. ptype="9|0" cost="3|50000":
+    # that press draws BOTH 3 Holy Power AND 50k mana; mechanism
+    # uncharacterized, materiality to these constants negligible — ~30 HP
+    # over 4,778s ≈1% of HP income). Including these hybrid casts (charged
+    # like a paid SotR press) in the pool-conservation replay resolves
+    # 917/919 pre-cast Holy Power pool readings exactly (99.8%); the 2
+    # residual mismatches are unexplained noise, not a further hidden draw.
+    # `scripts/analyze_protpal_holy_power.py` reproduces this split. A
+    # further 6.5% (10/155, disjoint from the hybrid set) are free-proc
+    # (cost 0 in every resource) and are NOT modeled — sim WoG is slightly
+    # scarcer than the real one. Regen is the pooled median of 34
+    # between-cast estimates (~1% of max/s; noisy upper tail from untracked
+    # income) — sustains one WoG per ~20s after a 5-cast pool burst, matching
+    # her observed 13-35s median cadence.
+    wog_mana_cost: 50000
+    mana_max: 250000
+    mana_regen_per_s: 2500
+    # WoG heal size: measured PER PRESS (summing same-cast self-heal events —
+    # a press sometimes fires more than one, e.g. a bonus/echo heal alongside
+    # the main one — before dividing by max HP; per-event averaging would
+    # dilute this) over 143 presses across the corpus: mean 18.3% / median
+    # 16.9% of max HP (previous 0.30 PLACEHOLDER was ~1.6× too generous; an
+    # earlier per-EVENT-not-per-press read of this same corpus had measured
+    # 0.15, understating it by ~20%).
+    wog_heal_pct_of_max_hp: 0.18
+    wog_threshold_hp_pct: 0.55            # press WoG below this HP (policy heuristic — deliberately NOT retuned to Bruttah)
+    # Ardent Defender: 30% DR for 12s on 90s CD (base; Unbreakable Spirit talent
+    # cuts this further, not modeled — see docs/validation/phase4_protpal_ardent_defender_2026_07_03.md),
+    # cheat-death at <20% HP heals to 20% once per CD.
+    ardent_defender_dr: 0.30
+    ardent_defender_duration_s: 12.0
+    ardent_defender_cooldown_s: 90.0
+    ardent_defender_cheat_death_threshold: 0.20
+    ardent_defender_cheat_death_heal_pct: 0.20
+    # Sentinel: stacking absorb generated passively during combat. Modeled as ~3% max HP / 10s.
+    sentinel_absorb_pct_per_10s: 0.03
+    sentinel_max_pct_of_max_hp: 0.30
+    # Consecration: always-on 5% damage reduction while standing in it. Avg uptime ~90% in M+.
+    consecration_dr: 0.05
+    consecration_avg_uptime: 0.90
+    # Divine Shield/Bubble taunt-removal CD not modeled (not a survivability button in M+).

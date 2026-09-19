@@ -1,0 +1,148 @@
+# AnonGuardian2 - Guardian - 2026-05-10 18:18 - EU/AnonRealm2
+# SimC Addon 12.0.5-02
+# WoW 12.0.5.67451, TOC 120005
+# Requires SimulationCraft 1000-01 or newer
+
+druid="AnonGuardian2"
+level=90
+race=troll
+region=eu
+server=anonrealm2
+role=tank
+professions=leatherworking=52/skinning=15
+spec=guardian
+# loot_spec=restoration
+
+talents=CgGA8cL7tpvige+kkmGM9zUPWDAAAAAAAAAAAgZmxsMmZMziZZegxMLLDMbmxMNRzMzyMzMjlxMAAAAAAMjtZALbzMYMLDgpmZZWmZmBAwCm5BAWMGGwCGAMzGM
+
+# Saved Loadout: m+ elunes chosen
+# talents=CgGA8cL7tpvige+kkmGM9zUPWDAAAAAAAAAAAgZmxsMmZMWMLzDMzMLLDMbmxwAzMzyMzMzsMm5BAAAAAAMsMDYZbmBjZZAMMjZZMzAAYDz8AALGYwgFDwMjZBG
+# Saved Loadout: m+ druid claw dmg
+# talents=CgGA8cL7tpvige+kkmGM9zUPWDAAAAAAAAAAAgZmxsMmZMziZZegxMLLDMbmxMGYmZWmZmZsMmBAAAAAgZsNDYZbmBjZZAMMzysMzMDAgFMzDAsYMMgFMAYmNYA
+# Saved Loadout: m+ druid claw
+# talents=CgGA8cL7tpvige+kkmGM9zUPWDAAAAAAAAAAAgZmxsMmZMWMLzMPgZZZgZzMmxAzMzyMzMjlxMAAAAAAMjtZALbzMYMLDghZWmlZmZAAswMzDAsYgBwy2AgZ2gB
+
+# Branches of the Luminous Bloom (266)
+head=,id=250024,bonus_id=13338/42/12667/13575/12795
+# Necklace of the Twisting Void (266)
+neck=,id=151309,bonus_id=12795/13440/6652/13668/12699
+# Seedpods of the Luminous Bloom (266)
+shoulder=,id=250022,bonus_id=6652/12795/13440/13340/13574/3151
+# Preyseeker's Rugged Stole (250)
+back=,id=258532,bonus_id=6652/13577/12786
+# Trunk of the Luminous Bloom (266)
+chest=,id=250027,enchant_id=7987,bonus_id=6652/12795/13440/13336/13575/3151
+# Bilgewater Cartel Tabard (1)
+tabard=,id=64884
+# Silvermoon Agent's Deflectors (285)
+wrist=,id=244576,bonus_id=12214/13667/12497/12066/8960/12384/8793/13622/12667,crafted_stats=40/32,crafting_quality=5
+# Arbortenders of the Luminous Bloom (272)
+hands=,id=250025,bonus_id=13337/12801/13440/6652/13574
+# Osseoclad Waistbone (250)
+waist=,id=249643,bonus_id=12786/6652/12667/13577
+# Devouring Outrider's Chausses (253)
+legs=,id=250457,bonus_id=6652/13577/13333/12787
+# Boots of Burning Focus (266)
+feet=,id=258577,bonus_id=12795/13440/6652/13577/12699
+# Occlusion of Void (272)
+finger1=,id=251217,bonus_id=12801/13440/6652/13668/12699
+# Eredath Seal of Nobility (266)
+finger2=,id=151308,bonus_id=12795/13440/6652/13668/12699
+# Emberwing Feather (272)
+trinket1=,id=250144,bonus_id=12801/13440/6652/12699
+# Jelly Replicator (259)
+trinket2=,id=250242,bonus_id=12793/13440/6652/12699
+# Aln'hara Pikestaff (259)
+main_hand=,id=245771,bonus_id=12214/12497/12066/12693/8960/8792,crafted_stats=49/40,crafting_quality=5
+
+### Gear from Bags
+#
+# Taskmaster's Sadistic Shoulderguards (220)
+# shoulder=,id=264573,bonus_id=12769/6652/13578/11311
+#
+# Blooming Barklight Spaulders (240)
+# shoulder=,id=249333,bonus_id=6652/13577/13332/12779/11215
+#
+# Reshii Wraps (170)
+# back=,id=235499,gem_id=238041,bonus_id=12401/9893/12260
+#
+# Warcloak of the Butcher (220)
+# back=,id=264593,bonus_id=12769/6652/13578/11311
+#
+# Frilly Leather Vest (220)
+# chest=,id=264554,bonus_id=12769/6652/13578/11311
+#
+# Mirevine Wristguards (220)
+# wrist=,id=264540,bonus_id=12769/6652/13534/13578/11311
+#
+# Stonecarved Smashers (220)
+# hands=,id=264584,bonus_id=12769/6652/13578/11311
+#
+# Sprawling Tendrils (237)
+# hands=,id=249631,bonus_id=12778/40/11215/13577
+#
+# Snapdragon Pantaloons (220)
+# legs=,id=264543,bonus_id=12769/6652/13578/11311
+#
+# Shifting Stalker Hide Pants (243)
+# legs=,id=151314,bonus_id=12780/6652/13577/12699/11215
+#
+# Noble's Signet Ring (1)
+# finger1=,id=265814,bonus_id=13639
+#
+# Cyrce's Circlet (103)
+# finger1=,id=228411,gem_id=228638/228639/228640,bonus_id=12028/1511
+#
+# Solar Core Igniter (246)
+# trinket1=,id=252418,bonus_id=12785/13439/6652/12699
+#
+# Crucible of Erratic Energies (246)
+# trinket1=,id=264507,bonus_id=12785
+#
+# Whisper of the Duskwraith (240)
+# trinket1=,id=250253,bonus_id=12779/13439/6652/12699
+#
+# Gift of Light (220)
+# trinket1=,id=251788,bonus_id=42/12769/6652/11311
+#
+# Ash'an's Spare Cleaver (220)
+# main_hand=,id=264643,bonus_id=12769/6652/11311
+#
+# Fang of the Dame (220)
+# main_hand=,id=264624,bonus_id=12769/6652/11311
+#
+# Emblazoned Sunglaive (233)
+# main_hand=,id=249280,bonus_id=6652/13332/12777/11215
+#
+# Sharpened Borer Claw (220)
+# main_hand=,id=264640,bonus_id=12769/6652/11311
+#
+# Malfeasance Mallet (227)
+# main_hand=,id=251100,bonus_id=12771/6652/12700/11215
+#
+# Spellboon Saber (253)
+# main_hand=,id=193710,bonus_id=12787/6652/12701/11215
+#
+# Aged Farstrider Bow (220)
+# main_hand=,id=264645,bonus_id=12769/6652/11311
+#
+# Aged Farstrider Bow (220)
+# main_hand=,id=264645,bonus_id=12769/6652/11311
+#
+# Ash'an's Spare Cleaver (220)
+# main_hand=,id=264643,bonus_id=12769/6652/11311
+#
+# Aln'hara Cane (285)
+# main_hand=,id=245770,enchant_id=8039,bonus_id=12214/13667/12497/12066/12693/8960/8793/13622,crafted_stats=40/36,crafting_quality=5
+
+### Additional Character Info
+#
+# catalyst_currencies=3269:8/3378:4/2813:8/3116:8
+#
+# upgrade_currencies=c:3347:18/c:3383:42/c:1813:2310/c:3343:160/c:1792:400/c:2122:2/c:3345:74
+#
+# slot_high_watermarks=0:266:276/1:266:285/2:266:289/3:266:289/4:250:289/5:253:289/6:266:289/7:285:285/8:272:282/9:266:276/10:259:276/11:250:289/12:285:289/13:0:276/14:0:289/15:0:285/16:263:285
+#
+# upgrade_achievements=19326/19397/19398/19577/19578/19579/40107/40115/40118/40942/40943/41886/41887/41888/41892/42767/42768/61809
+
+# Checksum: ea0ac8af

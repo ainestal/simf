@@ -1,0 +1,4100 @@
+{
+  "class_id": 11,
+  "spec_id": 104,
+  "nodes": [
+    {
+      "node_id": 82043,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117104,
+          "name": "Grove Guardians",
+          "spell_id": 1226140,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82045,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103096,
+          "name": "Improved Wild Growth",
+          "spell_id": 328025,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82046,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103097,
+          "name": "Waking Dream",
+          "spell_id": 392221,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82047,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103098,
+          "name": "Swiftmend",
+          "spell_id": 18562,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82048,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103099,
+          "name": "Ysera's Gift",
+          "spell_id": 145108,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82049,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103100,
+          "name": "Lifebloom",
+          "spell_id": 33763,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82050,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103101,
+          "name": "Nature's Swiftness",
+          "spell_id": 132158,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82051,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103103,
+          "name": "Overgrowth",
+          "spell_id": 203651,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 103102,
+          "name": "Passing Seasons",
+          "spell_id": 382550,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82052,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103105,
+          "name": "Intensity",
+          "spell_id": 1264649,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82053,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103106,
+          "name": "Flourish",
+          "spell_id": 197721,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82054,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103108,
+          "name": "Tranquility",
+          "spell_id": 740,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82055,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103109,
+          "name": "Soul of the Forest",
+          "spell_id": 158478,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82056,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103110,
+          "name": "Flash of Clarity",
+          "spell_id": 392220,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82057,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103111,
+          "name": "Efflorescence",
+          "spell_id": 145205,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82058,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103112,
+          "name": "Rampant Growth",
+          "spell_id": 404521,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82059,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103113,
+          "name": "Germination",
+          "spell_id": 155675,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82060,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103114,
+          "name": "Renewing Surge",
+          "spell_id": 470562,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82062,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 103117,
+          "name": "Regenesis",
+          "spell_id": 383191,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82063,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103118,
+          "name": "Cenarius' Guidance",
+          "spell_id": 393371,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82064,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103120,
+          "name": "Incarnation: Tree of Life",
+          "spell_id": 33891,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 103119,
+          "name": "Convoke the Spirits",
+          "spell_id": 391528,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82065,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103121,
+          "name": "Power of the Archdruid",
+          "spell_id": 392302,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82066,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103122,
+          "name": "Dream of Cenarius",
+          "spell_id": 158504,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82067,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103123,
+          "name": "Call of the Elder Druid",
+          "spell_id": 426784,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82068,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 103124,
+          "name": "Thriving Vegetation",
+          "spell_id": 447131,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82069,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103125,
+          "name": "Reforestation",
+          "spell_id": 392356,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82070,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103126,
+          "name": "Embrace of the Dream",
+          "spell_id": 392124,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82071,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103127,
+          "name": "Verdancy",
+          "spell_id": 392325,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82072,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103128,
+          "name": "Nature's Bounty",
+          "spell_id": 1263879,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82073,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103129,
+          "name": "Photosynthesis",
+          "spell_id": 274902,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82074,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103130,
+          "name": "Liveliness",
+          "spell_id": 426702,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 114809,
+          "name": "Master Shapeshifter",
+          "spell_id": 289237,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82075,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103131,
+          "name": "Regenerative Heartwood",
+          "spell_id": 392116,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82076,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103132,
+          "name": "Nurturing Dormancy",
+          "spell_id": 392099,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82077,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103134,
+          "name": "Harmonious Blooming",
+          "spell_id": 392256,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82079,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 137508,
+          "name": "Verdant Infusion",
+          "spell_id": 392410,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 137507,
+          "name": "Prosperity",
+          "spell_id": 200383,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82080,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 103138,
+          "name": "Unstoppable Growth",
+          "spell_id": 382559,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82081,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103140,
+          "name": "Stonebark",
+          "spell_id": 197061,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 103139,
+          "name": "Improved Ironbark",
+          "spell_id": 382552,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82082,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103141,
+          "name": "Ironbark",
+          "spell_id": 102342,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82083,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103142,
+          "name": "Improved Regrowth",
+          "spell_id": 231032,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82085,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103144,
+          "name": "Coiled to Spring",
+          "spell_id": 449537,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82086,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103145,
+          "name": "Double-Clawed Rake",
+          "spell_id": 391700,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82088,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103147,
+          "name": "Infected Wounds",
+          "spell_id": 48484,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82090,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103149,
+          "name": "Blood Spattered",
+          "spell_id": 1244532,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82091,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103150,
+          "name": "Soul of the Forest",
+          "spell_id": 158476,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82092,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103152,
+          "name": "Circle of Life and Death",
+          "spell_id": 400320,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82093,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103154,
+          "name": "Veinripper",
+          "spell_id": 391978,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 103153,
+          "name": "Rip and Tear",
+          "spell_id": 391347,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82094,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 103155,
+          "name": "Saber Jaws",
+          "spell_id": 421432,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82095,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103156,
+          "name": "Hunger for Battle",
+          "spell_id": 1244547,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82096,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103157,
+          "name": "Lacerating Claws",
+          "spell_id": 1244632,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82098,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103159,
+          "name": "Rampant Ferocity",
+          "spell_id": 391709,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82099,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103160,
+          "name": "Savage Fury",
+          "spell_id": 449645,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82100,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103161,
+          "name": "Berserk: Heart of the Lion",
+          "spell_id": 391174,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82101,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103162,
+          "name": "Berserk",
+          "spell_id": 343223,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82102,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103163,
+          "name": "Sabertooth",
+          "spell_id": 202031,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82103,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103164,
+          "name": "Merciless Claws",
+          "spell_id": 231063,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82104,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103165,
+          "name": "Taste for Blood",
+          "spell_id": 384665,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82105,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103166,
+          "name": "Wild Slashes",
+          "spell_id": 390864,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82106,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103167,
+          "name": "Moment of Clarity",
+          "spell_id": 236068,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82107,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103169,
+          "name": "Raging Fury",
+          "spell_id": 391078,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 103168,
+          "name": "Tiger's Tenacity",
+          "spell_id": 391872,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82108,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103170,
+          "name": "Lunar Inspiration",
+          "spell_id": 155580,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 134212,
+          "name": "Chomp",
+          "spell_id": 1244258,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82109,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103172,
+          "name": "Apex Predator's Craving",
+          "spell_id": 391881,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82110,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 103173,
+          "name": "Carnivorous Instinct",
+          "spell_id": 390902,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82111,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103174,
+          "name": "Focused Frenzy",
+          "spell_id": 1244544,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 134211,
+          "name": "Frantic Frenzy",
+          "spell_id": 1243807,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82112,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103175,
+          "name": "Feral Frenzy",
+          "spell_id": 274837,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82113,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103176,
+          "name": "Ashamane's Guidance",
+          "spell_id": 391548,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82114,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103178,
+          "name": "Incarnation: Avatar of Ashamane",
+          "spell_id": 102543,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 103177,
+          "name": "Convoke the Spirits",
+          "spell_id": 391528,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82115,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 103179,
+          "name": "Frantic Momentum",
+          "spell_id": 391875,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82116,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103180,
+          "name": "Survival Instincts",
+          "spell_id": 61336,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82117,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103181,
+          "name": "Panther's Guile",
+          "spell_id": 1280316,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82118,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103182,
+          "name": "Dreadful Bleeding",
+          "spell_id": 391045,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82119,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103183,
+          "name": "Pouncing Strikes",
+          "spell_id": 390772,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82120,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103184,
+          "name": "Primal Wrath",
+          "spell_id": 285381,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82121,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 103185,
+          "name": "Tireless Energy",
+          "spell_id": 383352,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82122,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103186,
+          "name": "Predator",
+          "spell_id": 202021,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82123,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103187,
+          "name": "Omen of Clarity",
+          "spell_id": 16864,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82124,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103188,
+          "name": "Tiger's Fury",
+          "spell_id": 5217,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82126,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103190,
+          "name": "Gore",
+          "spell_id": 210706,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82127,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103191,
+          "name": "Maul",
+          "spell_id": 6807,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82129,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103193,
+          "name": "Survival Instincts",
+          "spell_id": 61336,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82131,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103195,
+          "name": "Vulnerable Flesh",
+          "spell_id": 372618,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82134,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103198,
+          "name": "Elune's Favored",
+          "spell_id": 370586,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82135,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103199,
+          "name": "Ursoc's Guidance",
+          "spell_id": 393414,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82136,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103201,
+          "name": "Incarnation: Guardian of Ursoc",
+          "spell_id": 102558,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 103200,
+          "name": "Convoke the Spirits",
+          "spell_id": 391528,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82137,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103202,
+          "name": "Raze",
+          "spell_id": 400254,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82138,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 103203,
+          "name": "Fury of Nature",
+          "spell_id": 370695,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82140,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103206,
+          "name": "After the Wildfire",
+          "spell_id": 371905,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82142,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103209,
+          "name": "Blood Frenzy",
+          "spell_id": 203962,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82143,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 103210,
+          "name": "Survival of the Fittest",
+          "spell_id": 203965,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82144,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 103211,
+          "name": "Memory of Ysera",
+          "spell_id": 1250906,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82145,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103212,
+          "name": "Galactic Guardian",
+          "spell_id": 203964,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82146,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 103213,
+          "name": "Scintillating Moonlight",
+          "spell_id": 238049,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82147,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103214,
+          "name": "Twin Moonfire",
+          "spell_id": 372567,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 135336,
+          "name": "Red Moon",
+          "spell_id": 1252871,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82148,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103215,
+          "name": "Ursol's Warding",
+          "spell_id": 471492,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82149,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103216,
+          "name": "Berserk",
+          "spell_id": 50334,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82152,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103221,
+          "name": "Rend and Tear",
+          "spell_id": 204053,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 103220,
+          "name": "Untamed Savagery",
+          "spell_id": 372943,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82153,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103222,
+          "name": "Killing Blow",
+          "spell_id": 1252994,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82154,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 103223,
+          "name": "Flashing Claws",
+          "spell_id": 393427,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82156,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103225,
+          "name": "Natural Resilience",
+          "spell_id": 1278789,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82157,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 103226,
+          "name": "Reinvigoration",
+          "spell_id": 372945,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82159,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103228,
+          "name": "Ursoc's Fury",
+          "spell_id": 377210,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82160,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103229,
+          "name": "Innate Resolve",
+          "spell_id": 377811,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82161,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103231,
+          "name": "Reinforced Fur",
+          "spell_id": 393618,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 103230,
+          "name": "Bristling Fur",
+          "spell_id": 155835,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82198,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103276,
+          "name": "Wild Charge",
+          "spell_id": 102401,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 103275,
+          "name": "Tiger Dash",
+          "spell_id": 252216,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82199,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103277,
+          "name": "Rake",
+          "spell_id": 1822,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82200,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103278,
+          "name": "Starsurge",
+          "spell_id": 197626,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82201,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103279,
+          "name": "Starfire",
+          "spell_id": 194153,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82202,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103280,
+          "name": "Starsurge",
+          "spell_id": 78674,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82205,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103283,
+          "name": "Wild Growth",
+          "spell_id": 48438,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82206,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103284,
+          "name": "Natural Recovery",
+          "spell_id": 377796,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82207,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103285,
+          "name": "Mass Entanglement",
+          "spell_id": 102359,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 128589,
+          "name": "Ursol's Vortex",
+          "spell_id": 102793,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82208,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103286,
+          "name": "Moonkin Form",
+          "spell_id": 24858,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82209,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103287,
+          "name": "Typhoon",
+          "spell_id": 132469,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82210,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103288,
+          "name": "Astral Influence",
+          "spell_id": 197524,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82211,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103289,
+          "name": "Hibernate",
+          "spell_id": 2637,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82214,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 103292,
+          "name": "Nurturing Instinct",
+          "spell_id": 33873,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82217,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103295,
+          "name": "Rejuvenation",
+          "spell_id": 774,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82218,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103296,
+          "name": "Verdant Heart",
+          "spell_id": 301768,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82219,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103297,
+          "name": "Ursoc's Spirit",
+          "spell_id": 449182,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82220,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103298,
+          "name": "Frenzied Regeneration",
+          "spell_id": 22842,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82221,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103299,
+          "name": "Maim",
+          "spell_id": 22570,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82222,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103300,
+          "name": "Rip",
+          "spell_id": 1079,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82223,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103301,
+          "name": "Swipe",
+          "spell_id": 213764,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82224,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103302,
+          "name": "Primal Fury",
+          "spell_id": 159286,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82225,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 103303,
+          "name": "Killer Instinct",
+          "spell_id": 108299,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82227,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103305,
+          "name": "Ironfur",
+          "spell_id": 192081,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82228,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103306,
+          "name": "Thick Hide",
+          "spell_id": 16931,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82229,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103307,
+          "name": "Soothe",
+          "spell_id": 2908,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 128587,
+          "name": "Cyclone",
+          "spell_id": 33786,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82230,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103308,
+          "name": "Improved Stampeding Roar",
+          "spell_id": 288826,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82231,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103309,
+          "name": "Heart of the Wild",
+          "spell_id": 1261867,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82232,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 128581,
+          "name": "Aessina's Renewal",
+          "spell_id": 474678,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82233,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 103311,
+          "name": "Lycara's Teachings",
+          "spell_id": 378988,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82234,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103312,
+          "name": "Stampeding Roar",
+          "spell_id": 106898,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82235,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103313,
+          "name": "Well-Honed Instincts",
+          "spell_id": 377847,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82236,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103314,
+          "name": "Feline Swiftness",
+          "spell_id": 131768,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82237,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103316,
+          "name": "Incapacitating Roar",
+          "spell_id": 99,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 103315,
+          "name": "Mighty Bash",
+          "spell_id": 5211,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82239,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103318,
+          "name": "Grievous Wounds",
+          "spell_id": 474526,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82240,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103319,
+          "name": "Lingering Healing",
+          "spell_id": 231040,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82241,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103320,
+          "name": "Remove Corruption",
+          "spell_id": 2782,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82242,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103322,
+          "name": "Skull Bash",
+          "spell_id": 106839,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82243,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 103323,
+          "name": "Forestwalk",
+          "spell_id": 400129,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82244,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103324,
+          "name": "Innervate",
+          "spell_id": 29166,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 82246,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103326,
+          "name": "Fluid Form",
+          "spell_id": 449193,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88200,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 109832,
+          "name": "Total Eclipse",
+          "spell_id": 1240206,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88201,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109833,
+          "name": "Twin Moons",
+          "spell_id": 279620,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88202,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109834,
+          "name": "Sunseeker Mushroom",
+          "spell_id": 468936,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 128232,
+          "name": "Wild Mushroom",
+          "spell_id": 88747,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88203,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109835,
+          "name": "Solstice",
+          "spell_id": 343647,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88204,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109836,
+          "name": "Wild Surges",
+          "spell_id": 406890,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88206,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109839,
+          "name": "Incarnation: Chosen of Elune",
+          "spell_id": 394013,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 109838,
+          "name": "Convoke the Spirits",
+          "spell_id": 391528,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88207,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 109840,
+          "name": "Starlord",
+          "spell_id": 202345,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88208,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109842,
+          "name": "Umbral Intensity",
+          "spell_id": 383195,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88209,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109843,
+          "name": "Aetherial Kindling",
+          "spell_id": 327541,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 133406,
+          "name": "Meteor Storm",
+          "spell_id": 1240262,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88210,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109844,
+          "name": "Force of Nature",
+          "spell_id": 205636,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88212,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109846,
+          "name": "Stellar Amplification",
+          "spell_id": 450212,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88213,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109847,
+          "name": "Radiant Moonlight",
+          "spell_id": 394121,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88214,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 109848,
+          "name": "Balance of All Things",
+          "spell_id": 394048,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88215,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109849,
+          "name": "Celestial Alignment",
+          "spell_id": 395022,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88216,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109850,
+          "name": "Sculpt the Stars",
+          "spell_id": 1240188,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88218,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109852,
+          "name": "Sundered Firmament",
+          "spell_id": 394094,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 133403,
+          "name": "Orbit Breaker",
+          "spell_id": 383197,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88219,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109853,
+          "name": "Soul of the Forest",
+          "spell_id": 114107,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88220,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117100,
+          "name": "Astral Communion",
+          "spell_id": 450598,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88221,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109856,
+          "name": "Whirling Stars",
+          "spell_id": 468743,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 109855,
+          "name": "Orbital Strike",
+          "spell_id": 390378,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88222,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109857,
+          "name": "Touch the Cosmos",
+          "spell_id": 450356,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88223,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109858,
+          "name": "Eclipse",
+          "spell_id": 1239669,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88224,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109859,
+          "name": "Fury of Elune",
+          "spell_id": 202770,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 109860,
+          "name": "New Moon",
+          "spell_id": 274281,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88225,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109861,
+          "name": "Shooting Stars",
+          "spell_id": 202342,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88226,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109862,
+          "name": "Nature's Balance",
+          "spell_id": 202430,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88227,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 109863,
+          "name": "Cosmic Rapidity",
+          "spell_id": 400059,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88228,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109864,
+          "name": "Elune's Guidance",
+          "spell_id": 393991,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88231,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109867,
+          "name": "Solar Beam",
+          "spell_id": 78675,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88232,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109868,
+          "name": "Meteorites",
+          "spell_id": 1240907,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88234,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109870,
+          "name": "Umbral Embrace",
+          "spell_id": 393760,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88235,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109871,
+          "name": "Power of Goldrinn",
+          "spell_id": 394046,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 88236,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 109873,
+          "name": "Starweaver",
+          "spell_id": 393940,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 109872,
+          "name": "Rattle the Stars",
+          "spell_id": 393954,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 91044,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112967,
+          "name": "Starfire",
+          "spell_id": 197628,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 91046,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112969,
+          "name": "Starfire",
+          "spell_id": 197628,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 91047,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112970,
+          "name": "Moonkin Form",
+          "spell_id": 197625,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 91048,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 115458,
+          "name": "Improved Eclipse",
+          "spell_id": 1240906,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 92226,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103208,
+          "name": "Soul of the Forest",
+          "spell_id": 158477,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 92227,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103218,
+          "name": "Persistence",
+          "spell_id": 1251406,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 92229,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 114300,
+          "name": "Lycara's Inspiration",
+          "spell_id": 1232897,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 92585,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 114698,
+          "name": "Dream of Cenarius",
+          "spell_id": 372119,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 136806,
+          "name": "Dream Guide",
+          "spell_id": 1278886,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 92586,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 114699,
+          "name": "Moonless Night",
+          "spell_id": 400278,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 92587,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 114700,
+          "name": "Lunar Beam",
+          "spell_id": 204066,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 92588,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 114701,
+          "name": "Sundering Roar",
+          "spell_id": 1253799,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 92641,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 114771,
+          "name": "Sudden Ambush",
+          "spell_id": 384667,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 92674,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 114808,
+          "name": "Tranquil Mind",
+          "spell_id": 403521,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 93714,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 116102,
+          "name": "Sunfire",
+          "spell_id": 93402,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 94535,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117105,
+          "name": "Wild Synthesis",
+          "spell_id": 400533,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 94585,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117176,
+          "name": "The Light of Elune",
+          "spell_id": 428655,
+          "id_sub_tree": 24,
+          "hero_tree_name": "Elune's Chosen"
+        },
+        {
+          "entry_id": 117772,
+          "name": "Astral Insight",
+          "spell_id": 429536,
+          "id_sub_tree": 24,
+          "hero_tree_name": "Elune's Chosen"
+        }
+      ]
+    },
+    {
+      "node_id": 94586,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117178,
+          "name": "Arcane Affinity",
+          "spell_id": 429540,
+          "id_sub_tree": 24,
+          "hero_tree_name": "Elune's Chosen"
+        },
+        {
+          "entry_id": 117177,
+          "name": "Lunation",
+          "spell_id": 429539,
+          "id_sub_tree": 24,
+          "hero_tree_name": "Elune's Chosen"
+        }
+      ]
+    },
+    {
+      "node_id": 94587,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117179,
+          "name": "The Eternal Moon",
+          "spell_id": 424113,
+          "id_sub_tree": 24,
+          "hero_tree_name": "Elune's Chosen"
+        }
+      ]
+    },
+    {
+      "node_id": 94588,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117181,
+          "name": "Lunar Insight",
+          "spell_id": 429530,
+          "id_sub_tree": 24,
+          "hero_tree_name": "Elune's Chosen"
+        }
+      ]
+    },
+    {
+      "node_id": 94590,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117183,
+          "name": "Lunar Calling",
+          "spell_id": 429523,
+          "id_sub_tree": 24,
+          "hero_tree_name": "Elune's Chosen"
+        }
+      ]
+    },
+    {
+      "node_id": 94591,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117184,
+          "name": "Bounteous Bloom",
+          "spell_id": 429215,
+          "id_sub_tree": 23,
+          "hero_tree_name": "Keeper of the Grove"
+        },
+        {
+          "entry_id": 117895,
+          "name": "Early Spring",
+          "spell_id": 428937,
+          "id_sub_tree": 23,
+          "hero_tree_name": "Keeper of the Grove"
+        }
+      ]
+    },
+    {
+      "node_id": 94592,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117185,
+          "name": "Power of the Dream",
+          "spell_id": 434220,
+          "id_sub_tree": 23,
+          "hero_tree_name": "Keeper of the Grove"
+        },
+        {
+          "entry_id": 117894,
+          "name": "Control of the Dream",
+          "spell_id": 434249,
+          "id_sub_tree": 23,
+          "hero_tree_name": "Keeper of the Grove"
+        }
+      ]
+    },
+    {
+      "node_id": 94593,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117186,
+          "name": "Protective Growth",
+          "spell_id": 433748,
+          "id_sub_tree": 23,
+          "hero_tree_name": "Keeper of the Grove"
+        }
+      ]
+    },
+    {
+      "node_id": 94594,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117769,
+          "name": "Glistening Fur",
+          "spell_id": 429533,
+          "id_sub_tree": 24,
+          "hero_tree_name": "Elune's Chosen"
+        }
+      ]
+    },
+    {
+      "node_id": 94595,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117189,
+          "name": "Grove's Inspiration",
+          "spell_id": 429402,
+          "id_sub_tree": 23,
+          "hero_tree_name": "Keeper of the Grove"
+        },
+        {
+          "entry_id": 117188,
+          "name": "Potent Enchantments",
+          "spell_id": 429420,
+          "id_sub_tree": 23,
+          "hero_tree_name": "Keeper of the Grove"
+        }
+      ]
+    },
+    {
+      "node_id": 94596,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117190,
+          "name": "Stellar Command",
+          "spell_id": 429668,
+          "id_sub_tree": 24,
+          "hero_tree_name": "Elune's Chosen"
+        }
+      ]
+    },
+    {
+      "node_id": 94597,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117192,
+          "name": "Moondust",
+          "spell_id": 429538,
+          "id_sub_tree": 24,
+          "hero_tree_name": "Elune's Chosen"
+        },
+        {
+          "entry_id": 123304,
+          "name": "Elune's Grace",
+          "spell_id": 443046,
+          "id_sub_tree": 24,
+          "hero_tree_name": "Elune's Chosen"
+        }
+      ]
+    },
+    {
+      "node_id": 94598,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117193,
+          "name": "Moon Guardian",
+          "spell_id": 429520,
+          "id_sub_tree": 24,
+          "hero_tree_name": "Elune's Chosen"
+        }
+      ]
+    },
+    {
+      "node_id": 94599,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117194,
+          "name": "Treants of the Moon",
+          "spell_id": 428544,
+          "id_sub_tree": 23,
+          "hero_tree_name": "Keeper of the Grove"
+        }
+      ]
+    },
+    {
+      "node_id": 94600,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117195,
+          "name": "Dream Surge",
+          "spell_id": 433831,
+          "id_sub_tree": 23,
+          "hero_tree_name": "Keeper of the Grove"
+        }
+      ]
+    },
+    {
+      "node_id": 94601,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117196,
+          "name": "Blooming Infusion",
+          "spell_id": 429433,
+          "id_sub_tree": 23,
+          "hero_tree_name": "Keeper of the Grove"
+        }
+      ]
+    },
+    {
+      "node_id": 94602,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117197,
+          "name": "Expansiveness",
+          "spell_id": 429399,
+          "id_sub_tree": 23,
+          "hero_tree_name": "Keeper of the Grove"
+        }
+      ]
+    },
+    {
+      "node_id": 94604,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117199,
+          "name": "Cenarius' Might",
+          "spell_id": 455797,
+          "id_sub_tree": 23,
+          "hero_tree_name": "Keeper of the Grove"
+        }
+      ]
+    },
+    {
+      "node_id": 94605,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117201,
+          "name": "Power of Nature",
+          "spell_id": 428859,
+          "id_sub_tree": 23,
+          "hero_tree_name": "Keeper of the Grove"
+        },
+        {
+          "entry_id": 117200,
+          "name": "Durability of Nature",
+          "spell_id": 429227,
+          "id_sub_tree": 23,
+          "hero_tree_name": "Keeper of the Grove"
+        }
+      ]
+    },
+    {
+      "node_id": 94606,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117203,
+          "name": "Harmony of the Grove",
+          "spell_id": 428731,
+          "id_sub_tree": 23,
+          "hero_tree_name": "Keeper of the Grove"
+        }
+      ]
+    },
+    {
+      "node_id": 94607,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117204,
+          "name": "Atmospheric Exposure",
+          "spell_id": 429532,
+          "id_sub_tree": 24,
+          "hero_tree_name": "Elune's Chosen"
+        }
+      ]
+    },
+    {
+      "node_id": 94608,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117205,
+          "name": "Boundless Moonlight",
+          "spell_id": 424058,
+          "id_sub_tree": 24,
+          "hero_tree_name": "Elune's Chosen"
+        }
+      ]
+    },
+    {
+      "node_id": 94609,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117206,
+          "name": "Ravage",
+          "spell_id": 441583,
+          "id_sub_tree": 21,
+          "hero_tree_name": "Druid of the Claw"
+        }
+      ]
+    },
+    {
+      "node_id": 94610,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117207,
+          "name": "Wildshape Mastery",
+          "spell_id": 441678,
+          "id_sub_tree": 21,
+          "hero_tree_name": "Druid of the Claw"
+        }
+      ]
+    },
+    {
+      "node_id": 94611,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117208,
+          "name": "Bestial Strength",
+          "spell_id": 441841,
+          "id_sub_tree": 21,
+          "hero_tree_name": "Druid of the Claw"
+        }
+      ]
+    },
+    {
+      "node_id": 94612,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117210,
+          "name": "Empowered Shapeshifting",
+          "spell_id": 441689,
+          "id_sub_tree": 21,
+          "hero_tree_name": "Druid of the Claw"
+        },
+        {
+          "entry_id": 117209,
+          "name": "Wildpower Surge",
+          "spell_id": 441691,
+          "id_sub_tree": 21,
+          "hero_tree_name": "Druid of the Claw"
+        }
+      ]
+    },
+    {
+      "node_id": 94613,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117211,
+          "name": "Claw Rampage",
+          "spell_id": 441835,
+          "id_sub_tree": 21,
+          "hero_tree_name": "Druid of the Claw"
+        }
+      ]
+    },
+    {
+      "node_id": 94614,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117214,
+          "name": "Strike for the Heart",
+          "spell_id": 441845,
+          "id_sub_tree": 21,
+          "hero_tree_name": "Druid of the Claw"
+        },
+        {
+          "entry_id": 117213,
+          "name": "Tear Down the Mighty",
+          "spell_id": 441846,
+          "id_sub_tree": 21,
+          "hero_tree_name": "Druid of the Claw"
+        }
+      ]
+    },
+    {
+      "node_id": 94615,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117215,
+          "name": "Pack's Endurance",
+          "spell_id": 441844,
+          "id_sub_tree": 21,
+          "hero_tree_name": "Druid of the Claw"
+        }
+      ]
+    },
+    {
+      "node_id": 94616,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117216,
+          "name": "Aggravate Wounds",
+          "spell_id": 441829,
+          "id_sub_tree": 21,
+          "hero_tree_name": "Druid of the Claw"
+        }
+      ]
+    },
+    {
+      "node_id": 94618,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117218,
+          "name": "Fount of Strength",
+          "spell_id": 441675,
+          "id_sub_tree": 21,
+          "hero_tree_name": "Druid of the Claw"
+        }
+      ]
+    },
+    {
+      "node_id": 94619,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117219,
+          "name": "Exacerbating Wounds",
+          "spell_id": 1271839,
+          "id_sub_tree": 21,
+          "hero_tree_name": "Druid of the Claw"
+        }
+      ]
+    },
+    {
+      "node_id": 94620,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117220,
+          "name": "Dreadful Wound",
+          "spell_id": 441809,
+          "id_sub_tree": 21,
+          "hero_tree_name": "Druid of the Claw"
+        }
+      ]
+    },
+    {
+      "node_id": 94621,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117221,
+          "name": "Wildstalker's Power",
+          "spell_id": 439926,
+          "id_sub_tree": 22,
+          "hero_tree_name": "Wildstalker"
+        }
+      ]
+    },
+    {
+      "node_id": 94622,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117222,
+          "name": "Entangling Vortex",
+          "spell_id": 439895,
+          "id_sub_tree": 22,
+          "hero_tree_name": "Wildstalker"
+        },
+        {
+          "entry_id": 119855,
+          "name": "Flower Walk",
+          "spell_id": 439901,
+          "id_sub_tree": 22,
+          "hero_tree_name": "Wildstalker"
+        }
+      ]
+    },
+    {
+      "node_id": 94623,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117223,
+          "name": "Strategic Infusion",
+          "spell_id": 439890,
+          "id_sub_tree": 22,
+          "hero_tree_name": "Wildstalker"
+        }
+      ]
+    },
+    {
+      "node_id": 94624,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117224,
+          "name": "Lethal Preservation",
+          "spell_id": 455461,
+          "id_sub_tree": 22,
+          "hero_tree_name": "Wildstalker"
+        }
+      ]
+    },
+    {
+      "node_id": 94625,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117225,
+          "name": "Bond with Nature",
+          "spell_id": 439929,
+          "id_sub_tree": 22,
+          "hero_tree_name": "Wildstalker"
+        },
+        {
+          "entry_id": 119854,
+          "name": "Harmonious Constitution",
+          "spell_id": 440116,
+          "id_sub_tree": 22,
+          "hero_tree_name": "Wildstalker"
+        }
+      ]
+    },
+    {
+      "node_id": 94626,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117226,
+          "name": "Thriving Growth",
+          "spell_id": 439528,
+          "id_sub_tree": 22,
+          "hero_tree_name": "Wildstalker"
+        }
+      ]
+    },
+    {
+      "node_id": 94627,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117227,
+          "name": "Vigorous Creepers",
+          "spell_id": 440119,
+          "id_sub_tree": 22,
+          "hero_tree_name": "Wildstalker"
+        }
+      ]
+    },
+    {
+      "node_id": 94628,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117230,
+          "name": "Twin Sprouts",
+          "spell_id": 440117,
+          "id_sub_tree": 22,
+          "hero_tree_name": "Wildstalker"
+        },
+        {
+          "entry_id": 117229,
+          "name": "Implant",
+          "spell_id": 440118,
+          "id_sub_tree": 22,
+          "hero_tree_name": "Wildstalker"
+        }
+      ]
+    },
+    {
+      "node_id": 94629,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117231,
+          "name": "Hunt Beneath the Open Skies",
+          "spell_id": 439868,
+          "id_sub_tree": 22,
+          "hero_tree_name": "Wildstalker"
+        }
+      ]
+    },
+    {
+      "node_id": 94630,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117232,
+          "name": "Patient Custodian",
+          "spell_id": 1270592,
+          "id_sub_tree": 22,
+          "hero_tree_name": "Wildstalker"
+        }
+      ]
+    },
+    {
+      "node_id": 94631,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117234,
+          "name": "Resilient Flourishing",
+          "spell_id": 439880,
+          "id_sub_tree": 22,
+          "hero_tree_name": "Wildstalker"
+        },
+        {
+          "entry_id": 117233,
+          "name": "Root Network",
+          "spell_id": 439882,
+          "id_sub_tree": 22,
+          "hero_tree_name": "Wildstalker"
+        }
+      ]
+    },
+    {
+      "node_id": 99805,
+      "node_type": 3,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 123297,
+          "name": "0",
+          "spell_id": 0,
+          "id_sub_tree": 21,
+          "hero_tree_name": "Druid of the Claw"
+        },
+        {
+          "entry_id": 123296,
+          "name": "0",
+          "spell_id": 0,
+          "id_sub_tree": 22,
+          "hero_tree_name": "Wildstalker"
+        }
+      ]
+    },
+    {
+      "node_id": 99806,
+      "node_type": 3,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 123299,
+          "name": "0",
+          "spell_id": 0,
+          "id_sub_tree": 23,
+          "hero_tree_name": "Keeper of the Grove"
+        },
+        {
+          "entry_id": 123298,
+          "name": "0",
+          "spell_id": 0,
+          "id_sub_tree": 22,
+          "hero_tree_name": "Wildstalker"
+        }
+      ]
+    },
+    {
+      "node_id": 99807,
+      "node_type": 3,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 123301,
+          "name": "0",
+          "spell_id": 0,
+          "id_sub_tree": 21,
+          "hero_tree_name": "Druid of the Claw"
+        },
+        {
+          "entry_id": 123295,
+          "name": "0",
+          "spell_id": 0,
+          "id_sub_tree": 24,
+          "hero_tree_name": "Elune's Chosen"
+        }
+      ]
+    },
+    {
+      "node_id": 99808,
+      "node_type": 3,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 123302,
+          "name": "0",
+          "spell_id": 0,
+          "id_sub_tree": 24,
+          "hero_tree_name": "Elune's Chosen"
+        },
+        {
+          "entry_id": 123300,
+          "name": "0",
+          "spell_id": 0,
+          "id_sub_tree": 23,
+          "hero_tree_name": "Keeper of the Grove"
+        }
+      ]
+    },
+    {
+      "node_id": 100173,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 123792,
+          "name": "Symbiotic Relationship",
+          "spell_id": 474750,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 100174,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 123793,
+          "name": "Ursine Vigor",
+          "spell_id": 377842,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 100175,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 123794,
+          "name": "Gift of the Wild",
+          "spell_id": 1262034,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 100176,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 123795,
+          "name": "Oakskin",
+          "spell_id": 449191,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 100177,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 123796,
+          "name": "Matted Fur",
+          "spell_id": 385786,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 100223,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 123868,
+          "name": "Starlight Conduit",
+          "spell_id": 451211,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 103846,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 128230,
+          "name": "Hail of Stars",
+          "spell_id": 469004,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 103847,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 128231,
+          "name": "Celestial Fire",
+          "spell_id": 1240185,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 103873,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 128274,
+          "name": "Improved Swiftmend",
+          "spell_id": 470549,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 103874,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 128708,
+          "name": "Lifetreading",
+          "spell_id": 1217941,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 103876,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 128277,
+          "name": "Abundance",
+          "spell_id": 207383,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 104078,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 128580,
+          "name": "Circle of the Wild",
+          "spell_id": 474530,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 128579,
+          "name": "Circle of the Heavens",
+          "spell_id": 474541,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 104079,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 128583,
+          "name": "Gale Winds",
+          "spell_id": 400142,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 128582,
+          "name": "Incessant Tempest",
+          "spell_id": 400140,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 104080,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 128584,
+          "name": "Lore of the Grove",
+          "spell_id": 449185,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 104081,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 128585,
+          "name": "Instincts of the Claw",
+          "spell_id": 449184,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 104082,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 128586,
+          "name": "Perfectly-Honed Instincts",
+          "spell_id": 1213597,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 104083,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 128588,
+          "name": "Light of the Sun",
+          "spell_id": 202918,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 104084,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 128590,
+          "name": "Improved Nature's Cure",
+          "spell_id": 392378,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 104085,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 128591,
+          "name": "Improved Barkskin",
+          "spell_id": 327993,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 104125,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 128707,
+          "name": "Omen of Clarity",
+          "spell_id": 113043,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 108032,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 133404,
+          "name": "Harmony of the Heavens",
+          "spell_id": 450558,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 108033,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 133405,
+          "name": "Denizen of the Dream",
+          "spell_id": 394065,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109275,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 103205,
+          "name": "Front of the Pack",
+          "spell_id": 377835,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109302,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135488,
+          "name": "Waking Nightmare",
+          "spell_id": 1253461,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109375,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135568,
+          "name": "Ursoc's Endurance",
+          "spell_id": 393611,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 135566,
+          "name": "Gory Fur",
+          "spell_id": 200854,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109376,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135567,
+          "name": "Infected Wounds",
+          "spell_id": 345208,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109377,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135491,
+          "name": "Gift of an Ancient Guardian",
+          "spell_id": 1251876,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 135569,
+          "name": "Guardian of Elune",
+          "spell_id": 155578,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109378,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135337,
+          "name": "Ward of the Forest",
+          "spell_id": 1250923,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 135570,
+          "name": "Brambles",
+          "spell_id": 203953,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109379,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135490,
+          "name": "Harnessed Rage",
+          "spell_id": 1253035,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109712,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135970,
+          "name": "Spirit of the Thicket",
+          "spell_id": 1264899,
+          "id_sub_tree": 23,
+          "hero_tree_name": "Keeper of the Grove"
+        }
+      ]
+    },
+    {
+      "node_id": 109713,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135971,
+          "name": "Dryad's Dance",
+          "spell_id": 1264776,
+          "id_sub_tree": 23,
+          "hero_tree_name": "Keeper of the Grove"
+        }
+      ]
+    },
+    {
+      "node_id": 109714,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135972,
+          "name": "Sylvan Beckoning",
+          "spell_id": 1264614,
+          "id_sub_tree": 23,
+          "hero_tree_name": "Keeper of the Grove"
+        }
+      ]
+    },
+    {
+      "node_id": 109715,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135973,
+          "name": "Rampancy",
+          "spell_id": 1270586,
+          "id_sub_tree": 22,
+          "hero_tree_name": "Wildstalker"
+        }
+      ]
+    },
+    {
+      "node_id": 109716,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135974,
+          "name": "Bursting Growth",
+          "spell_id": 440120,
+          "id_sub_tree": 22,
+          "hero_tree_name": "Wildstalker"
+        }
+      ]
+    },
+    {
+      "node_id": 109717,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135975,
+          "name": "Green Thumb",
+          "spell_id": 1270565,
+          "id_sub_tree": 22,
+          "hero_tree_name": "Wildstalker"
+        }
+      ]
+    },
+    {
+      "node_id": 109718,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135976,
+          "name": "Bask in Moonlight",
+          "spell_id": 1271305,
+          "id_sub_tree": 24,
+          "hero_tree_name": "Elune's Chosen"
+        }
+      ]
+    },
+    {
+      "node_id": 109719,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135977,
+          "name": "Penumbral Swell",
+          "spell_id": 1271261,
+          "id_sub_tree": 24,
+          "hero_tree_name": "Elune's Chosen"
+        }
+      ]
+    },
+    {
+      "node_id": 109720,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135978,
+          "name": "Star Cascade",
+          "spell_id": 1271206,
+          "id_sub_tree": 24,
+          "hero_tree_name": "Elune's Chosen"
+        }
+      ]
+    },
+    {
+      "node_id": 109721,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135979,
+          "name": "Twin Claw",
+          "spell_id": 1271635,
+          "id_sub_tree": 21,
+          "hero_tree_name": "Druid of the Claw"
+        }
+      ]
+    },
+    {
+      "node_id": 109722,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135980,
+          "name": "Limb from Limb",
+          "spell_id": 1271540,
+          "id_sub_tree": 21,
+          "hero_tree_name": "Druid of the Claw"
+        }
+      ]
+    },
+    {
+      "node_id": 109723,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135981,
+          "name": "Ruthless Aggression",
+          "spell_id": 441814,
+          "id_sub_tree": 21,
+          "hero_tree_name": "Druid of the Claw"
+        },
+        {
+          "entry_id": 136624,
+          "name": "Killing Strikes",
+          "spell_id": 441824,
+          "id_sub_tree": 21,
+          "hero_tree_name": "Druid of the Claw"
+        }
+      ]
+    },
+    {
+      "node_id": 110279,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 136832,
+          "name": "Nature's Grace",
+          "spell_id": 450347,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 136831,
+          "name": "Elune's Challenge",
+          "spell_id": 1240283,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 110421,
+      "node_type": 1,
+      "max_ranks": 4,
+      "entries": [
+        {
+          "entry_id": 137031,
+          "name": "Ascendant Eclipses",
+          "spell_id": 1261564,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 137030,
+          "name": "Ascendant Eclipses",
+          "spell_id": 1261565,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 137029,
+          "name": "Ascendant Eclipses",
+          "spell_id": 1261566,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 110424,
+      "node_type": 1,
+      "max_ranks": 4,
+      "entries": [
+        {
+          "entry_id": 137040,
+          "name": "Everbloom",
+          "spell_id": 392167,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 137039,
+          "name": "Everbloom",
+          "spell_id": 1244331,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 137038,
+          "name": "Everbloom",
+          "spell_id": 1244470,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 110426,
+      "node_type": 1,
+      "max_ranks": 4,
+      "entries": [
+        {
+          "entry_id": 137046,
+          "name": "Unseen Predator",
+          "spell_id": 1263657,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 137045,
+          "name": "Unseen Predator",
+          "spell_id": 1263658,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 137044,
+          "name": "Unseen Predator",
+          "spell_id": 1263660,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 110431,
+      "node_type": 1,
+      "max_ranks": 4,
+      "entries": [
+        {
+          "entry_id": 137061,
+          "name": "Wild Guardian",
+          "spell_id": 1269614,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 137060,
+          "name": "Wild Guardian",
+          "spell_id": 1269617,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 137059,
+          "name": "Wild Guardian",
+          "spell_id": 1269619,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 110694,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 137510,
+          "name": "Cultivation",
+          "spell_id": 200390,
+          "id_sub_tree": null
+        }
+      ]
+    }
+  ],
+  "source": "SimulationCraft trait_data.inc (midnight branch) \u2014 see scripts/fetch_talent_string_nodes.py",
+  "generated": "2026-08-31"
+}

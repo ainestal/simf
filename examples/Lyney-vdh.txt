@@ -1,0 +1,82 @@
+# Lyney - Vengeance - 2026-05-19 18:36 - EU/Uldum
+# SimC Addon 12.0.5-04
+# WoW 12.0.5.67602, TOC 120005
+# Requires SimulationCraft 1000-01 or newer
+
+demonhunter="Lyney"
+level=90
+race=blood_elf
+region=eu
+server=uldum
+role=tank
+professions=herbalism=100/mining=100
+spec=vengeance
+# loot_spec=vengeance
+
+talents=CUkAG5bbocFKcv+yIq8fPd6ORBA2mxMzMGzMyMzgZxMzMYmxMjZMzMjBz2MjNzMGjZAAAAAAAEwMGbAAAAYwMzMzMLtNzMDAAAAAwA
+
+# Saved Loadout: RAID
+# talents=CUkAG5bbocFKcv+yIq8fPd6ORBA2mxMzMGzMYmZwsYmZGMzYmxMmZmxgZbmxmZGjxMAAAAAAAAMjxGAAAAGMzMzMzitZmZAAAAAAG
+# Saved Loadout: M+
+# talents=CUkAG5bbocFKcv+yIq8fPd6ORBAWmxMzMGmBzMjxsMzMzgZYmxMGzMGMbzM2egZmtxwAAAAAAAAwMzYDAAAADMzMzMb2mZmBAAAAAYA
+
+# Aspirador de atracador devorador (276)
+head=,id=250033,enchant_id=7990,bonus_id=6652/12667/12798/13440/13338/13575/3161
+# Gargantilla de púas de Ymirheim (276)
+neck=,id=50228,bonus_id=13440/6652/13668/12699/12798
+# Placas de escape de atracador devorador (276)
+shoulder=,id=250031,bonus_id=13334/6652/13340/13574/12798
+# Sudario sedoso de partidario (285)
+back=,id=239656,bonus_id=12214/13667/12497/12066/8960/12384/8792/13622,crafted_stats=36/40,crafting_quality=5
+# Jubón de abrazo del Vacío (276)
+chest=,id=151313,enchant_id=7987,bonus_id=13440/6652/13577/12699/12798
+# Guardamuñecas de cuero roído (276)
+wrist=,id=50264,bonus_id=13440/6652/12667/13577/12699/12798
+# Mandiletes de esencia de atracador devorador (289)
+hands=,id=250034,bonus_id=43/13440/13337/13574/12806
+# Cinturón negro del despellejador (289)
+waist=,id=49806,gem_id=240890,bonus_id=13440/41/13577/12699/12806/13534
+# Pistones de atracador devorador (289)
+legs=,id=250032,enchant_id=8159,bonus_id=6652/13440/13339/13575/12806
+# Alpargatas de eclipse (289)
+feet=,id=251210,enchant_id=8019,bonus_id=13440/6652/13577/12699/12806
+# Oclusión del Vacío (289)
+finger1=,id=251217,enchant_id=7967,gem_id=240983,bonus_id=13440/6652/13668/12699/12806
+# Omisión de la Luz (289)
+finger2=,id=251093,enchant_id=7967,gem_id=240890,bonus_id=13440/6652/13668/12699/12806
+# Guion de la Compañía de la Luz (276)
+trinket1=,id=249344,bonus_id=6652/13334/12798
+# Mirada del Alnvidente (276)
+trinket2=,id=249343,bonus_id=6652/13334/12798
+# Guja de guerra de rompechizos (295)
+main_hand=,id=237840,enchant_id=8039,bonus_id=12214/13655/12497/12066/12693/8960/8790/13622,crafted_stats=40/49,crafting_quality=5
+# Recuerdo presto de Arator (276)
+off_hand=,id=260423,enchant_id=8039,bonus_id=6652/13334/12798
+
+### Gear from Bags
+#
+# Collar de flores preciosas (220)
+# neck=,id=264608,bonus_id=12769/6652/13668/11311
+#
+# Alpargatas de eclipse (266)
+# feet=,id=251210,bonus_id=12795/13440/6652/13577/12699
+#
+# Omisión de la Luz (266)
+# finger1=,id=251093,bonus_id=12795/13440/6652/13668/12699
+#
+# Omisión de la Luz (276)
+# finger1=,id=251093,bonus_id=13440/40/13668/12699/12798
+
+### Additional Character Info
+#
+# catalyst_currencies=3269:8/3378:3/2813:8/3116:8
+#
+# upgrade_currencies=c:3347:180/c:3383:68/c:1813:1665/c:3341:110/c:3343:62/c:1792:300/c:3345:162/i:268552:1/i:232875:5
+#
+# slot_high_watermarks=0:276:289/1:276:289/2:276:289/3:276:289/4:289:289/5:289:289/6:289:289/7:276:276/8:289:289/9:289:289/10:276:276/11:285:289/12:0:151/13:15:233/14:295:295/15:276:285/16:40:174
+#
+# upgrade_achievements=19326/19397/19398/19577/19578/19579/41886/41887/41888/41892/42767/42768/42769/61809
+
+
+
+# Checksum: 1473c485

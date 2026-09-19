@@ -1,0 +1,131 @@
+# protection_paladin — Season 2 (zone 55) cross-player accuracy spot-check,
+# bucketed by target keystone level (2026-08-30).
+#
+# NOT a ratified calibration manifest. This is a reusable record of 12 real,
+# independent-player WCL fights from Midnight Mythic+ Season 2 (WCL zone 55,
+# "Mythic+ Season 2"), discovered via reportData.reports(zoneID: 55) (the
+# same global recent-public-reports feed used for the 2026-08-14 cross-spec
+# check, which — unlike characterRankings — does not redact report/fight
+# codes) and confirmed ACL-on via CombatantInfo. Fights are grouped into 4
+# buckets targeting key levels 2, 8, 12, and 16 (3 fights each); where an
+# exact-key-level match wasn't available within the scan budget, the nearest
+# available key level was accepted (see `exact_match: false` entries) per
+# the discovery task's widen-after-150-reports rule. Used to spot-check
+# whether simf's Prot Paladin predictions hold up across key-level depth on
+# fresh, live-S2 play this project didn't already have logs for.
+#
+# Deltas measured at canonical K=3430, iterations=50, seed=42,
+# healing_profile=m+_high_key_healer, via scripts/cross_player_validation.py
+# (the same tool + gate used for the 2026-07-25, 2026-08-14, and
+# protection_warrior's 2026-08-30 cross-player checks).
+#
+# DISCLOSURE added 2026-08-31 (found during round 2's discovery pass, see
+# docs/validation/s2_cross_spec_keylevel_check_round2_2026_08_31.md): 2 of
+# the 12 fights below are `kill: false` on WCL's raw fight record — a failed
+# or depleted key attempt, not a completed clear. WCL's `completeRaid` field
+# (previously assumed usable for this check) is uniformly `false` across
+# every M+ compound fight regardless of real outcome — `kill` is the field
+# that actually distinguishes a finish from a wipe/abandon, and this
+# manifest was built without checking it. Independently confirmed via a
+# direct `fights(translate:true) { kill }` query: Player 1 (kl12) kill=false;
+# Player 2 (kl16) kill=false; a control fight from the same manifest
+# (Player 3) correctly shows kill=true. Neither delta (+3.9%, +15.6%) was an extreme
+# outlier in this corpus, so this most likely did not materially change the
+# headline numbers below — but it was not disclosed at the time and should
+# have been. Not retroactively re-run (the numbers below are exactly what
+# shipped and were cited in the original writeup); flagged here so a future
+# reader knows. Future manifests should filter on `kill: true`, not just
+# gear-certainty and key-level match.
+
+spec: protection_paladin
+k_constant: 3430
+iterations: 50
+
+fights:
+  # --- target_key_level: 2 ---
+  - player: "Player 4"
+    dungeon: "Murder Row"
+    key_level: 2
+    target_key_level: 2
+    exact_match: true
+    acl: true
+
+  - player: "Player 5"
+    dungeon: "Altar of Fangs"
+    key_level: 2
+    target_key_level: 2
+    exact_match: true
+    acl: true
+
+  - player: "Player 6"
+    dungeon: "Murder Row"
+    key_level: 2
+    target_key_level: 2
+    exact_match: true
+    acl: true
+
+  # --- target_key_level: 8 ---
+  - player: "Player 7"
+    dungeon: "The Blinding Vale"
+    key_level: 8
+    target_key_level: 8
+    exact_match: true
+    acl: true
+
+  - player: "Player 8"
+    dungeon: "Altar of Fangs"
+    key_level: 8
+    target_key_level: 8
+    exact_match: true
+    acl: true
+
+  - player: "Player 9"
+    dungeon: "Temple of Sethraliss"
+    key_level: 10
+    target_key_level: 8
+    exact_match: false
+    acl: true
+
+  # --- target_key_level: 12 ---
+  - player: "Player 10"
+    dungeon: "Murder Row"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+
+  - player: "Player 3"
+    dungeon: "Altar of Fangs"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+
+  - player: "Player 1"
+    dungeon: "Ruby Life Pools"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+
+  # --- target_key_level: 16 ---
+  - player: "Player 11"
+    dungeon: "Altar of Fangs"
+    key_level: 16
+    target_key_level: 16
+    exact_match: true
+    acl: true
+
+  - player: "Player 2"
+    dungeon: "Voidscar Arena"
+    key_level: 16
+    target_key_level: 16
+    exact_match: true
+    acl: true
+
+  - player: "Player 12"
+    dungeon: "Ruby Life Pools"
+    key_level: 16
+    target_key_level: 16
+    exact_match: true
+    acl: true

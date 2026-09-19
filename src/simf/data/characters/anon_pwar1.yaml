@@ -1,0 +1,19 @@
+# AnonPWar1 — Horde Protection Warrior (non-Earthen)
+# Stats from COMBATANT_INFO in Archive-WoWCombatLog-050726_224207.txt (2026-05-07)
+# armor_from_gear = COMBATANT_INFO armor (5233) — already includes all passive talent
+# multipliers, so talent loadout uses kiratank-defensive (no armor-multiplier talents)
+# to avoid double-counting.
+
+name: AnonPWar1
+race: orc
+class_spec: protection_warrior
+talents: kiratank-defensive
+
+strength: 2130
+stamina: 33481
+armor_from_gear: 5233
+
+haste_rating: 939
+crit_rating: 592
+mastery_rating: 664
+versatility_rating: 272

@@ -1,0 +1,148 @@
+# brewmaster_monk — Season 2 (zone 55) cross-player key-level accuracy
+# spot-check, ROUND 2 (2026-08-31), following up on round 1
+# (src/simf/data/calibration_corpora/brewmaster_monk_s2_keylevel_2026_08_30.yaml,
+# docs/validation/s2_cross_spec_keylevel_check_2026_08_30.md). Same
+# methodology (reportData.reports(zoneID: 55), CombatantInfo-confirmed
+# gear-certain fights, scripts/cross_player_validation.py at K=3430,
+# iterations=50, seed=42, healing_profile=m+_high_key_healer), fresh
+# discovery pass — 10/11 fights below are NEW (not in the round-1 manifest);
+# the 11th (Player 1, kl2 exact) is a disclosed REUSE of round-1's own only
+# key-2 fight, because two independent 500+-report scans (round 1's and this
+# one's) each turned up only one other real key-2/3 Brewmaster Monk log, and
+# this round's second one (a widened kl3 candidate, Player 2/Den of
+# Nalorakk) failed a stricter per-fight identity re-check (see below) and had
+# to be discarded. The key-2 bucket is therefore n=2, one fight short of the
+# requested 3 — disclosed, not padded.
+#
+# METHODOLOGY NOTE — a real discovery-script bug was found and fixed mid-run:
+# batching multiple candidate fight IDs into one playerDetails(fightIDs:[...])
+# call and then attributing every player found ANYWHERE in that batch to
+# EVERY fight in the batch produces a false cross-product (WCL's
+# playerDetails aggregates roster membership across the whole requested set,
+# it does not say which specific fight each player appeared in). This
+# inflated the raw candidate count into the hundreds and produced several
+# false positives (wrong player/wrong spec entirely — e.g. a candidate
+# fight's real occupant turned out to be a Guardian Druid, not the named
+# Brewmaster Monk). Every fight below was re-verified with a SINGLE-fight-ID
+# playerDetails call (no batching) plus a full character_from_wcl +
+# wcl_to_replay_data gear-certain/non-empty-events check with the correct
+# per-fight actor_id passed as target_actor_id — this is what
+# character_from_wcl/wcl_to_replay_data need to avoid silently falling back
+# to "the first tank-spec CombatantInfo event in the fight," which is a
+# DIFFERENT, unrelated tank when a report contains more than one. Two
+# additional candidates failed at this final gear-certain step after passing
+# the per-fight roster check (Player 3: ACL off / no CombatantInfo; Player 4:
+# the report had been edited between discovery and validation, the
+# previously-seen fight IDs no longer existed) and were swapped for verified
+# alternates.
+#
+# Discovery also surfaced several real "static multi-Brewmaster group"
+# reports (3+ different named Brewmaster Monk characters logged together in
+# the same 5-man, across dozens of consecutive keys) -- e.g. one report with
+# 3 such characters (Player 5/Player 6/Player 7) and another with 2 (Player
+# 8/Player 9). Only ONE fight per such report was used per bucket (never two
+# players from the same report in the same bucket) to avoid quietly halving
+# the bucket's real independence.
+#
+# Used to spot-check whether simf's Brewmaster Monk model (calibrated: false)
+# holds up against a SECOND, independent slice of live-patch (12.1.0) Season
+# 2 play, split out by key level, and to compare against round 1's numbers.
+
+spec: brewmaster_monk
+k_constant: 3430
+iterations: 50
+mean_bias_pct: 25.0
+rmse: 0.273
+within_15pct: 0.27
+
+fights:
+  - player: "Player 10"
+    dungeon: "Temple of Sethraliss"
+    key_level: 2
+    target_key_level: 2
+    exact_match: true
+    acl: true
+    delta_at_k3430: 3.4
+
+  - player: "Player 1"
+    dungeon: "Altar of Fangs"
+    key_level: 2
+    target_key_level: 2
+    exact_match: true
+    acl: true
+    delta_at_k3430: 34.7
+    # REUSED from round-1's manifest (brewmaster_monk_s2_keylevel_2026_08_30.yaml)
+    # -- disclosed, see header note. This round's own independent scan found
+    # no usable second key-2/3 fight.
+
+  - player: "Player 11"
+    dungeon: "Murder Row"
+    key_level: 8
+    target_key_level: 8
+    exact_match: true
+    acl: true
+    delta_at_k3430: 31.3
+
+  - player: "Player 12"
+    dungeon: "Ruby Life Pools"
+    key_level: 8
+    target_key_level: 8
+    exact_match: true
+    acl: true
+    delta_at_k3430: 28.9
+
+  - player: "Player 13"
+    dungeon: "Den of Nalorakk"
+    key_level: 10
+    target_key_level: 8
+    exact_match: false
+    acl: true
+    delta_at_k3430: 23.4
+
+  - player: "Player 14"
+    dungeon: "Voidscar Arena"
+    key_level: 11
+    target_key_level: 12
+    exact_match: false
+    acl: true
+    delta_at_k3430: 13.2
+
+  - player: "Player 5"
+    dungeon: "Kings' Rest"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+    delta_at_k3430: 12.0
+
+  - player: "Player 15"
+    dungeon: "Den of Nalorakk"
+    key_level: 11
+    target_key_level: 12
+    exact_match: false
+    acl: true
+    delta_at_k3430: 40.9
+
+  - player: "Player 16"
+    dungeon: "Altar of Fangs"
+    key_level: 16
+    target_key_level: 16
+    exact_match: true
+    acl: true
+    delta_at_k3430: 19.8
+
+  - player: "Player 17"
+    dungeon: "Voidscar Arena"
+    key_level: 16
+    target_key_level: 16
+    exact_match: true
+    acl: true
+    delta_at_k3430: 33.0
+
+  - player: "Player 8"
+    dungeon: "The Blinding Vale"
+    key_level: 16
+    target_key_level: 16
+    exact_match: true
+    acl: true
+    delta_at_k3430: 34.3

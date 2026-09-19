@@ -1,0 +1,28 @@
+# Danger-pull cheat sheet — per-dungeon "what to watch for before you pull"
+# reference data. ROADMAP.md Batch G / Season 2 Readiness bucket A: "build
+# the rendering shell against the catalog stub now; content is data-only to
+# finish post-launch."
+#
+# Schema: `dungeons:` maps a dungeon id (matching `dungeons.yaml`'s `id`
+# field, either the live `dungeons:` catalog or the `season_2_catalog:`
+# stub) to a list of pull entries:
+#
+#   - pull: short name of the trash pull / boss mechanic
+#     danger: one sentence on WHY it's dangerous (the mechanic, not just "it hurts")
+#     tip: one sentence on what to actually do about it
+#
+# An empty list (or a missing dungeon id entirely) means "no data yet" — the
+# UI (ui/helpers/danger_pull_cheatsheet.py) renders an honest placeholder
+# rather than a fabricated entry. Every Season 2 dungeon is seeded here with
+# an empty list on purpose: the mechanism is real and wired end-to-end today,
+# the actual pull-by-pull content waits on real Season 2 logs to replay
+# (same discipline as dungeons.yaml's `school_mix`/`par_time_ms` fields).
+dungeons:
+  altar_of_fangs: []
+  murder_row: []
+  den_of_nalorakk: []
+  the_blinding_vale: []
+  voidscar_arena: []
+  ruby_life_pools: []
+  temple_of_sethraliss: []
+  kings_rest: []

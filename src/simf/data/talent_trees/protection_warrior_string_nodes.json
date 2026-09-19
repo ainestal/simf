@@ -1,0 +1,3011 @@
+{
+  "class_id": 1,
+  "spec_id": 73,
+  "nodes": [
+    {
+      "node_id": 90261,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112112,
+          "name": "Battle Stance",
+          "spell_id": 386164,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90264,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112115,
+          "name": "Bloodborne",
+          "spell_id": 385704,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 132884,
+          "name": "Sudden Death",
+          "spell_id": 29725,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90265,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112116,
+          "name": "Violent Outburst",
+          "spell_id": 386477,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90267,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135932,
+          "name": "Fervor of Battle",
+          "spell_id": 202316,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90269,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112121,
+          "name": "Die by the Sword",
+          "spell_id": 118038,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90270,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112122,
+          "name": "Mortal Strike",
+          "spell_id": 12294,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90271,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112123,
+          "name": "Overpower",
+          "spell_id": 7384,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90273,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112125,
+          "name": "Improved Execute",
+          "spell_id": 316405,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90274,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112126,
+          "name": "Sudden Death",
+          "spell_id": 29725,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90276,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112128,
+          "name": "Fueled by Violence",
+          "spell_id": 383103,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 136701,
+          "name": "Ignore Pain",
+          "spell_id": 1277297,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90277,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112129,
+          "name": "Bloodsurge",
+          "spell_id": 384361,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90279,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112131,
+          "name": "Improved Overpower",
+          "spell_id": 385571,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90282,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112134,
+          "name": "Tactician",
+          "spell_id": 184783,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90283,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 112135,
+          "name": "Bloodborne",
+          "spell_id": 383287,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90285,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112137,
+          "name": "Dreadnaught",
+          "spell_id": 262150,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90290,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112144,
+          "name": "Colossus Smash",
+          "spell_id": 167105,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90291,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112145,
+          "name": "Massacre",
+          "spell_id": 281001,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90292,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112146,
+          "name": "Impale",
+          "spell_id": 383430,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90293,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112147,
+          "name": "Cleave",
+          "spell_id": 845,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90295,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112149,
+          "name": "Ignore Pain",
+          "spell_id": 190456,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90296,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112150,
+          "name": "Devastating Focus",
+          "spell_id": 1264330,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90297,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112151,
+          "name": "Devastator",
+          "spell_id": 236279,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90298,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112152,
+          "name": "Revenge",
+          "spell_id": 6572,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90299,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112153,
+          "name": "Fight Through the Flames",
+          "spell_id": 452494,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90300,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112154,
+          "name": "Bloodsurge",
+          "spell_id": 384361,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90301,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112155,
+          "name": "Instigate",
+          "spell_id": 394311,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90302,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112156,
+          "name": "Shield Wall",
+          "spell_id": 871,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90303,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112157,
+          "name": "Strategist",
+          "spell_id": 384041,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90304,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112158,
+          "name": "Brace For Impact",
+          "spell_id": 386030,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90305,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112159,
+          "name": "Demoralizing Shout",
+          "spell_id": 1160,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90306,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112160,
+          "name": "Armor Specialization",
+          "spell_id": 1234769,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90308,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112162,
+          "name": "Thunderlord",
+          "spell_id": 385840,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90309,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112163,
+          "name": "Best Served Cold",
+          "spell_id": 202560,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90310,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112165,
+          "name": "Deep Wounds",
+          "spell_id": 1261060,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90311,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 112166,
+          "name": "Enduring Defenses",
+          "spell_id": 386027,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90312,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112167,
+          "name": "Heavy Repercussions",
+          "spell_id": 203177,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 132885,
+          "name": "Into the Fray",
+          "spell_id": 202603,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90313,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112169,
+          "name": "Heavy Handed",
+          "spell_id": 1235088,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90314,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112170,
+          "name": "Booming Voice",
+          "spell_id": 202743,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90315,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112171,
+          "name": "Shield Specialization",
+          "spell_id": 386011,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90317,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112173,
+          "name": "Shield Charge",
+          "spell_id": 385952,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90318,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112174,
+          "name": "Defender's Aegis",
+          "spell_id": 397103,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 132881,
+          "name": "Impenetrable Wall",
+          "spell_id": 384072,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90319,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112176,
+          "name": "Fueled by Violence",
+          "spell_id": 383103,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90320,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112177,
+          "name": "Tough as Nails",
+          "spell_id": 385888,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90322,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 112179,
+          "name": "Two-Handed Weapon Specialization",
+          "spell_id": 382896,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90324,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 112181,
+          "name": "One-Handed Weapon Specialization",
+          "spell_id": 382895,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90325,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112182,
+          "name": "Berserker Stance",
+          "spell_id": 386196,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90326,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112183,
+          "name": "Impending Victory",
+          "spell_id": 202168,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90327,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112184,
+          "name": "Battle Stance",
+          "spell_id": 386164,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90328,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112185,
+          "name": "War Machine",
+          "spell_id": 262231,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90329,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112186,
+          "name": "Intervene",
+          "spell_id": 3411,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90330,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112187,
+          "name": "Defensive Stance",
+          "spell_id": 386208,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90331,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112188,
+          "name": "Rallying Cry",
+          "spell_id": 97462,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90332,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112190,
+          "name": "Second Wind",
+          "spell_id": 29838,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90337,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112198,
+          "name": "Storm Bolt",
+          "spell_id": 107570,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90343,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112205,
+          "name": "Thunder Clap",
+          "spell_id": 6343,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90344,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112206,
+          "name": "Fast Footwork",
+          "spell_id": 382260,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90346,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112208,
+          "name": "Heroic Leap",
+          "spell_id": 6544,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90347,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112209,
+          "name": "Barbaric Training",
+          "spell_id": 383082,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90348,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112211,
+          "name": "Berserker Shout",
+          "spell_id": 384100,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 112210,
+          "name": "Fearless",
+          "spell_id": 1271925,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90351,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112215,
+          "name": "Wrecking Throw",
+          "spell_id": 384110,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 112214,
+          "name": "Shattering Throw",
+          "spell_id": 64382,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90352,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112216,
+          "name": "Frothing Berserker",
+          "spell_id": 392792,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90353,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112217,
+          "name": "Pain and Gain",
+          "spell_id": 382549,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90355,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112219,
+          "name": "Bounding Stride",
+          "spell_id": 202163,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90360,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 112224,
+          "name": "Wild Strikes",
+          "spell_id": 382946,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90366,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 112233,
+          "name": "Armored to the Teeth",
+          "spell_id": 384124,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90368,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 112235,
+          "name": "Reinforced Plates",
+          "spell_id": 382939,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90371,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112238,
+          "name": "Leeching Strikes",
+          "spell_id": 382258,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90373,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 112240,
+          "name": "Dual Wield Specialization",
+          "spell_id": 382900,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90374,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112241,
+          "name": "Rumbling Earth",
+          "spell_id": 275339,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90375,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112242,
+          "name": "Shockwave",
+          "spell_id": 46968,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90378,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112245,
+          "name": "Overwhelming Rage",
+          "spell_id": 382767,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90380,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112247,
+          "name": "Champion's Spear",
+          "spell_id": 376079,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90381,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 112248,
+          "name": "Cruel Strikes",
+          "spell_id": 392777,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90382,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112249,
+          "name": "Double Time",
+          "spell_id": 103827,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90385,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112253,
+          "name": "Spell Reflection",
+          "spell_id": 23920,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90387,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112255,
+          "name": "Wrath and Fury",
+          "spell_id": 392936,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90388,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 119139,
+          "name": "Reckless Abandon",
+          "spell_id": 396749,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90390,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112259,
+          "name": "Improved Raging Blow",
+          "spell_id": 383854,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90391,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112260,
+          "name": "Rampaging Ruin",
+          "spell_id": 1265357,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90392,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112261,
+          "name": "Bloodthirst",
+          "spell_id": 23881,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90394,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112263,
+          "name": "Warpaint",
+          "spell_id": 208154,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90395,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112264,
+          "name": "Enraged Regeneration",
+          "spell_id": 184364,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90396,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112265,
+          "name": "Raging Blow",
+          "spell_id": 85288,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90397,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 112266,
+          "name": "Spite",
+          "spell_id": 383852,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90398,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112267,
+          "name": "Frenzied Enrage",
+          "spell_id": 383848,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 119112,
+          "name": "Powerful Enrage",
+          "spell_id": 440277,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90399,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112268,
+          "name": "Fresh Meat",
+          "spell_id": 215568,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90401,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112270,
+          "name": "Bloodborne",
+          "spell_id": 385703,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90402,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112271,
+          "name": "Cold Steel, Hot Blood",
+          "spell_id": 383959,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90403,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112272,
+          "name": "Focus in Chaos",
+          "spell_id": 383486,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90405,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112274,
+          "name": "Bloodcraze",
+          "spell_id": 393950,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90406,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112275,
+          "name": "Frenzy",
+          "spell_id": 335077,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90407,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112276,
+          "name": "Hack and Slash",
+          "spell_id": 383877,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90408,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112277,
+          "name": "Rampage",
+          "spell_id": 184367,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90410,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112279,
+          "name": "Massacre",
+          "spell_id": 206315,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90412,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112281,
+          "name": "Recklessness",
+          "spell_id": 1719,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90415,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112285,
+          "name": "Avatar",
+          "spell_id": 107574,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 112284,
+          "name": "Bladestorm",
+          "spell_id": 227847,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90421,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 112292,
+          "name": "Deft Experience",
+          "spell_id": 383295,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90425,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 112296,
+          "name": "Critical Thinking",
+          "spell_id": 383297,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90427,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112298,
+          "name": "Improved Whirlwind",
+          "spell_id": 12950,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90428,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 112299,
+          "name": "Cruelty",
+          "spell_id": 392931,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90429,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112300,
+          "name": "Improved Execute",
+          "spell_id": 316402,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90430,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112301,
+          "name": "Sudden Death",
+          "spell_id": 29725,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90432,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112304,
+          "name": "Whirling Blade",
+          "spell_id": 1235113,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 132880,
+          "name": "Ravager",
+          "spell_id": 228920,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90433,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112305,
+          "name": "Avatar",
+          "spell_id": 107574,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90434,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112306,
+          "name": "Indomitable",
+          "spell_id": 202095,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90435,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112307,
+          "name": "Battle-Scarred Veteran",
+          "spell_id": 386394,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90438,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112310,
+          "name": "Bloodletting",
+          "spell_id": 383154,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90439,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112311,
+          "name": "Fatality",
+          "spell_id": 383703,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90441,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112314,
+          "name": "Bladestorm",
+          "spell_id": 227847,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 136702,
+          "name": "Ravager",
+          "spell_id": 228920,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90444,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 112317,
+          "name": "Critical Thinking",
+          "spell_id": 389306,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90445,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112318,
+          "name": "Executioner's Precision",
+          "spell_id": 386634,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90447,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 112320,
+          "name": "Sharpened Blades",
+          "spell_id": 383341,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90448,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112321,
+          "name": "Punish",
+          "spell_id": 275334,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90449,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112323,
+          "name": "Unyielding Stance",
+          "spell_id": 1235047,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90450,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112324,
+          "name": "Spellbreaker",
+          "spell_id": 1235023,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 112110,
+          "name": "Hunker Down",
+          "spell_id": 1235022,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 90451,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 112325,
+          "name": "Brutal Vitality",
+          "spell_id": 384036,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 92536,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 114739,
+          "name": "Powerful Momentum",
+          "spell_id": 1261050,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 92537,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 114643,
+          "name": "Defensive Stance",
+          "spell_id": 386208,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 92538,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 114644,
+          "name": "Defensive Stance",
+          "spell_id": 386208,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 92614,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 114733,
+          "name": "Overpowering Finish",
+          "spell_id": 400205,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 137473,
+          "name": "Mass Execution",
+          "spell_id": 1273075,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 92615,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 114740,
+          "name": "Master Tactician",
+          "spell_id": 1261057,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 94784,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117381,
+          "name": "Show No Mercy",
+          "spell_id": 444771,
+          "id_sub_tree": 60,
+          "hero_tree_name": "Slayer"
+        }
+      ]
+    },
+    {
+      "node_id": 94785,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117382,
+          "name": "Thunder Blast",
+          "spell_id": 435607,
+          "id_sub_tree": 61,
+          "hero_tree_name": "Mountain Thane"
+        }
+      ]
+    },
+    {
+      "node_id": 94786,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117383,
+          "name": "Culling Cyclone",
+          "spell_id": 444778,
+          "id_sub_tree": 60,
+          "hero_tree_name": "Slayer"
+        },
+        {
+          "entry_id": 123409,
+          "name": "Brutal Finish",
+          "spell_id": 446085,
+          "id_sub_tree": 60,
+          "hero_tree_name": "Slayer"
+        }
+      ]
+    },
+    {
+      "node_id": 94787,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117384,
+          "name": "Fierce Followthrough",
+          "spell_id": 444773,
+          "id_sub_tree": 60,
+          "hero_tree_name": "Slayer"
+        },
+        {
+          "entry_id": 123770,
+          "name": "Opportunist",
+          "spell_id": 444774,
+          "id_sub_tree": 60,
+          "hero_tree_name": "Slayer"
+        }
+      ]
+    },
+    {
+      "node_id": 94788,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117385,
+          "name": "Imminent Demise",
+          "spell_id": 444769,
+          "id_sub_tree": 60,
+          "hero_tree_name": "Slayer"
+        }
+      ]
+    },
+    {
+      "node_id": 94789,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117386,
+          "name": "Boneshaker",
+          "spell_id": 429639,
+          "id_sub_tree": 62,
+          "hero_tree_name": "Colossus"
+        },
+        {
+          "entry_id": 119858,
+          "name": "Earthquaker",
+          "spell_id": 440992,
+          "id_sub_tree": 62,
+          "hero_tree_name": "Colossus"
+        }
+      ]
+    },
+    {
+      "node_id": 94792,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117389,
+          "name": "Gathering Clouds",
+          "spell_id": 436201,
+          "id_sub_tree": 61,
+          "hero_tree_name": "Mountain Thane"
+        },
+        {
+          "entry_id": 118834,
+          "name": "Thorim's Might",
+          "spell_id": 436152,
+          "id_sub_tree": 61,
+          "hero_tree_name": "Mountain Thane"
+        }
+      ]
+    },
+    {
+      "node_id": 94793,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117390,
+          "name": "Dominance of the Colossus",
+          "spell_id": 429636,
+          "id_sub_tree": 62,
+          "hero_tree_name": "Colossus"
+        }
+      ]
+    },
+    {
+      "node_id": 94794,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117391,
+          "name": "Precise Might",
+          "spell_id": 431548,
+          "id_sub_tree": 62,
+          "hero_tree_name": "Colossus"
+        }
+      ]
+    },
+    {
+      "node_id": 94795,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117392,
+          "name": "Relentless Pursuit",
+          "spell_id": 444776,
+          "id_sub_tree": 60,
+          "hero_tree_name": "Slayer"
+        },
+        {
+          "entry_id": 123408,
+          "name": "Vicious Agility",
+          "spell_id": 444777,
+          "id_sub_tree": 60,
+          "hero_tree_name": "Slayer"
+        }
+      ]
+    },
+    {
+      "node_id": 94796,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117393,
+          "name": "Practiced Strikes",
+          "spell_id": 429647,
+          "id_sub_tree": 62,
+          "hero_tree_name": "Colossus"
+        }
+      ]
+    },
+    {
+      "node_id": 94797,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117394,
+          "name": "Flashing Skies",
+          "spell_id": 437079,
+          "id_sub_tree": 61,
+          "hero_tree_name": "Mountain Thane"
+        },
+        {
+          "entry_id": 118833,
+          "name": "Snap Induction",
+          "spell_id": 456270,
+          "id_sub_tree": 61,
+          "hero_tree_name": "Mountain Thane"
+        }
+      ]
+    },
+    {
+      "node_id": 94798,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117395,
+          "name": "Keep Your Feet on the Ground",
+          "spell_id": 438590,
+          "id_sub_tree": 61,
+          "hero_tree_name": "Mountain Thane"
+        },
+        {
+          "entry_id": 118836,
+          "name": "Steadfast as the Peaks",
+          "spell_id": 434970,
+          "id_sub_tree": 61,
+          "hero_tree_name": "Mountain Thane"
+        }
+      ]
+    },
+    {
+      "node_id": 94799,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117396,
+          "name": "One Against Many",
+          "spell_id": 429637,
+          "id_sub_tree": 62,
+          "hero_tree_name": "Colossus"
+        },
+        {
+          "entry_id": 119856,
+          "name": "Arterial Bleed",
+          "spell_id": 440995,
+          "id_sub_tree": 62,
+          "hero_tree_name": "Colossus"
+        }
+      ]
+    },
+    {
+      "node_id": 94800,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117397,
+          "name": "Ground Current",
+          "spell_id": 436148,
+          "id_sub_tree": 61,
+          "hero_tree_name": "Mountain Thane"
+        }
+      ]
+    },
+    {
+      "node_id": 94801,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117398,
+          "name": "Slayer's Malice",
+          "spell_id": 444779,
+          "id_sub_tree": 60,
+          "hero_tree_name": "Slayer"
+        }
+      ]
+    },
+    {
+      "node_id": 94803,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117400,
+          "name": "Lightning Strikes",
+          "spell_id": 434969,
+          "id_sub_tree": 61,
+          "hero_tree_name": "Mountain Thane"
+        }
+      ]
+    },
+    {
+      "node_id": 94805,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117402,
+          "name": "Avatar of the Storm",
+          "spell_id": 437134,
+          "id_sub_tree": 61,
+          "hero_tree_name": "Mountain Thane"
+        }
+      ]
+    },
+    {
+      "node_id": 94806,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117403,
+          "name": "Mountain of Muscle and Scars",
+          "spell_id": 429642,
+          "id_sub_tree": 62,
+          "hero_tree_name": "Colossus"
+        }
+      ]
+    },
+    {
+      "node_id": 94807,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117404,
+          "name": "Burst of Power",
+          "spell_id": 437118,
+          "id_sub_tree": 61,
+          "hero_tree_name": "Mountain Thane"
+        }
+      ]
+    },
+    {
+      "node_id": 94808,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117405,
+          "name": "Strength of the Mountain",
+          "spell_id": 437068,
+          "id_sub_tree": 61,
+          "hero_tree_name": "Mountain Thane"
+        }
+      ]
+    },
+    {
+      "node_id": 94809,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117406,
+          "name": "Reap the Storm",
+          "spell_id": 444775,
+          "id_sub_tree": 60,
+          "hero_tree_name": "Slayer"
+        }
+      ]
+    },
+    {
+      "node_id": 94810,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117407,
+          "name": "Overwhelming Blades",
+          "spell_id": 444772,
+          "id_sub_tree": 60,
+          "hero_tree_name": "Slayer"
+        }
+      ]
+    },
+    {
+      "node_id": 94811,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117408,
+          "name": "Tide of Battle",
+          "spell_id": 429641,
+          "id_sub_tree": 62,
+          "hero_tree_name": "Colossus"
+        }
+      ]
+    },
+    {
+      "node_id": 94812,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117409,
+          "name": "Martial Expert",
+          "spell_id": 429638,
+          "id_sub_tree": 62,
+          "hero_tree_name": "Colossus"
+        }
+      ]
+    },
+    {
+      "node_id": 94813,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117410,
+          "name": "Death Drive",
+          "spell_id": 444770,
+          "id_sub_tree": 60,
+          "hero_tree_name": "Slayer"
+        }
+      ]
+    },
+    {
+      "node_id": 94814,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117411,
+          "name": "Slayer's Dominance",
+          "spell_id": 444767,
+          "id_sub_tree": 60,
+          "hero_tree_name": "Slayer"
+        }
+      ]
+    },
+    {
+      "node_id": 94815,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117412,
+          "name": "No Stranger to Pain",
+          "spell_id": 429644,
+          "id_sub_tree": 62,
+          "hero_tree_name": "Colossus"
+        },
+        {
+          "entry_id": 119857,
+          "name": "Veteran Vitality",
+          "spell_id": 440993,
+          "id_sub_tree": 62,
+          "hero_tree_name": "Colossus"
+        }
+      ]
+    },
+    {
+      "node_id": 94816,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117413,
+          "name": "Crashing Thunder",
+          "spell_id": 436707,
+          "id_sub_tree": 61,
+          "hero_tree_name": "Mountain Thane"
+        }
+      ]
+    },
+    {
+      "node_id": 94817,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117414,
+          "name": "Storm Bolts",
+          "spell_id": 436162,
+          "id_sub_tree": 61,
+          "hero_tree_name": "Mountain Thane"
+        },
+        {
+          "entry_id": 118835,
+          "name": "Storm Shield",
+          "spell_id": 438597,
+          "id_sub_tree": 61,
+          "hero_tree_name": "Mountain Thane"
+        }
+      ]
+    },
+    {
+      "node_id": 94818,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117415,
+          "name": "Demolish",
+          "spell_id": 436358,
+          "id_sub_tree": 62,
+          "hero_tree_name": "Colossus"
+        }
+      ]
+    },
+    {
+      "node_id": 94819,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117416,
+          "name": "Colossal Might",
+          "spell_id": 429634,
+          "id_sub_tree": 62,
+          "hero_tree_name": "Colossus"
+        }
+      ]
+    },
+    {
+      "node_id": 94820,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 117417,
+          "name": "Unrelenting Onslaught",
+          "spell_id": 444780,
+          "id_sub_tree": 60,
+          "hero_tree_name": "Slayer"
+        }
+      ]
+    },
+    {
+      "node_id": 95956,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 118850,
+          "name": "Honed Reflexes",
+          "spell_id": 391271,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 95959,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 118853,
+          "name": "Crackling Thunder",
+          "spell_id": 203201,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 99851,
+      "node_type": 3,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 123391,
+          "name": "0",
+          "spell_id": 0,
+          "id_sub_tree": 62,
+          "hero_tree_name": "Colossus"
+        },
+        {
+          "entry_id": 123388,
+          "name": "0",
+          "spell_id": 0,
+          "id_sub_tree": 61,
+          "hero_tree_name": "Mountain Thane"
+        }
+      ]
+    },
+    {
+      "node_id": 99852,
+      "node_type": 3,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 123392,
+          "name": "0",
+          "spell_id": 0,
+          "id_sub_tree": 61,
+          "hero_tree_name": "Mountain Thane"
+        },
+        {
+          "entry_id": 123389,
+          "name": "0",
+          "spell_id": 0,
+          "id_sub_tree": 60,
+          "hero_tree_name": "Slayer"
+        }
+      ]
+    },
+    {
+      "node_id": 99853,
+      "node_type": 3,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 123393,
+          "name": "0",
+          "spell_id": 0,
+          "id_sub_tree": 62,
+          "hero_tree_name": "Colossus"
+        },
+        {
+          "entry_id": 123390,
+          "name": "0",
+          "spell_id": 0,
+          "id_sub_tree": 60,
+          "hero_tree_name": "Slayer"
+        }
+      ]
+    },
+    {
+      "node_id": 107575,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 132878,
+          "name": "Massacre",
+          "spell_id": 281001,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 107576,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 132879,
+          "name": "Last Stand",
+          "spell_id": 1243659,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 107577,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 132882,
+          "name": "Enduring Alacrity",
+          "spell_id": 384063,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 107578,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 132883,
+          "name": "Focused Vigor",
+          "spell_id": 384067,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 107579,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 132886,
+          "name": "Disrupting Shout",
+          "spell_id": 386071,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 108542,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 134031,
+          "name": "Stance Mastery",
+          "spell_id": 1280961,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 108543,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 134032,
+          "name": "Anger Management",
+          "spell_id": 152278,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 108544,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 134033,
+          "name": "Battlefield Commander",
+          "spell_id": 424742,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 108674,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 134214,
+          "name": "Intervene",
+          "spell_id": 3411,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 134213,
+          "name": "Interpose",
+          "spell_id": 1244088,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 108676,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 134217,
+          "name": "Intervene",
+          "spell_id": 3411,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 134216,
+          "name": "Interpose",
+          "spell_id": 1244088,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 108685,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 134225,
+          "name": "Resonant Voice",
+          "spell_id": 1243660,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 108686,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 134226,
+          "name": "Crushing Force",
+          "spell_id": 382764,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 108705,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 134254,
+          "name": "Intimidating Shout",
+          "spell_id": 5246,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 136627,
+          "name": "Piercing Howl",
+          "spell_id": 12323,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109391,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135597,
+          "name": "Rend",
+          "spell_id": 772,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109679,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135933,
+          "name": "Battlelord",
+          "spell_id": 386630,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109680,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135934,
+          "name": "Martial Prowess",
+          "spell_id": 1273062,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109681,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135936,
+          "name": "Brute Force",
+          "spell_id": 1261046,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 135935,
+          "name": "Efficiency",
+          "spell_id": 1261047,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109682,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135937,
+          "name": "Collateral Damage",
+          "spell_id": 334779,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109683,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135939,
+          "name": "Tactical Edge",
+          "spell_id": 1261051,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 135938,
+          "name": "Crushing Combo",
+          "spell_id": 1261056,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109684,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135940,
+          "name": "Deep Wounds",
+          "spell_id": 1261060,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109685,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135941,
+          "name": "Mortal Wounds",
+          "spell_id": 1261062,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109686,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 135943,
+          "name": "Just Warming Up",
+          "spell_id": 1261048,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 135942,
+          "name": "Broad Strokes",
+          "spell_id": 1261049,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109687,
+      "node_type": 0,
+      "max_ranks": 2,
+      "entries": [
+        {
+          "entry_id": 135944,
+          "name": "Strength of Arms",
+          "spell_id": 400803,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109809,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 136068,
+          "name": "Capacitance",
+          "spell_id": 1270724,
+          "id_sub_tree": 61,
+          "hero_tree_name": "Mountain Thane"
+        }
+      ]
+    },
+    {
+      "node_id": 109810,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 136069,
+          "name": "Conductivity",
+          "spell_id": 1270723,
+          "id_sub_tree": 61,
+          "hero_tree_name": "Mountain Thane"
+        }
+      ]
+    },
+    {
+      "node_id": 109811,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 136070,
+          "name": "Storm Surge",
+          "spell_id": 275336,
+          "id_sub_tree": 61,
+          "hero_tree_name": "Mountain Thane"
+        }
+      ]
+    },
+    {
+      "node_id": 109812,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 136071,
+          "name": "Celeritous Conclusion",
+          "spell_id": 1270710,
+          "id_sub_tree": 62,
+          "hero_tree_name": "Colossus"
+        }
+      ]
+    },
+    {
+      "node_id": 109813,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 136072,
+          "name": "Cut to the Bone",
+          "spell_id": 1270709,
+          "id_sub_tree": 62,
+          "hero_tree_name": "Colossus"
+        }
+      ]
+    },
+    {
+      "node_id": 109814,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 136073,
+          "name": "Decimator",
+          "spell_id": 1270704,
+          "id_sub_tree": 62,
+          "hero_tree_name": "Colossus"
+        }
+      ]
+    },
+    {
+      "node_id": 109815,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 136074,
+          "name": "Unhinged",
+          "spell_id": 386628,
+          "id_sub_tree": 60,
+          "hero_tree_name": "Slayer"
+        }
+      ]
+    },
+    {
+      "node_id": 109816,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 136075,
+          "name": "Deadly Focus",
+          "spell_id": 1270718,
+          "id_sub_tree": 60,
+          "hero_tree_name": "Slayer"
+        }
+      ]
+    },
+    {
+      "node_id": 109817,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 136076,
+          "name": "Violent Euphoria",
+          "spell_id": 1270717,
+          "id_sub_tree": 60,
+          "hero_tree_name": "Slayer"
+        }
+      ]
+    },
+    {
+      "node_id": 109962,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 136447,
+          "name": "Ragedrinker",
+          "spell_id": 1265356,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109963,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 136448,
+          "name": "Vicious Contempt",
+          "spell_id": 383885,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109964,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 136449,
+          "name": "Surge of Adrenaline",
+          "spell_id": 1265359,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109965,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 136450,
+          "name": "Kill or Be Killed",
+          "spell_id": 1265361,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109966,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 136451,
+          "name": "Deep Wounds",
+          "spell_id": 1261060,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109967,
+      "node_type": 2,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 136452,
+          "name": "Meat Cleaver",
+          "spell_id": 280392,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 137487,
+          "name": "Carving Blades",
+          "spell_id": 1300463,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109968,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 136453,
+          "name": "Executioner's Wrath",
+          "spell_id": 1265570,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 109969,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 136454,
+          "name": "Scent of Blood",
+          "spell_id": 1265355,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 110118,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 136625,
+          "name": "Javelineer",
+          "spell_id": 1271948,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 110119,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 136626,
+          "name": "Field Dressing",
+          "spell_id": 1271926,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 110176,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 136703,
+          "name": "Avatar",
+          "spell_id": 107574,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 110203,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 136735,
+          "name": "Odyn's Fury",
+          "spell_id": 385059,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 110330,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 136890,
+          "name": "Invigorating Fury",
+          "spell_id": 383468,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 110407,
+      "node_type": 1,
+      "max_ranks": 4,
+      "entries": [
+        {
+          "entry_id": 136989,
+          "name": "Master of Warfare",
+          "spell_id": 1269314,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 136988,
+          "name": "Master of Warfare",
+          "spell_id": 1269306,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 136987,
+          "name": "Master of Warfare",
+          "spell_id": 1269307,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 110411,
+      "node_type": 1,
+      "max_ranks": 4,
+      "entries": [
+        {
+          "entry_id": 137001,
+          "name": "Phalanx",
+          "spell_id": 1269311,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 137000,
+          "name": "Phalanx",
+          "spell_id": 1269312,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 136999,
+          "name": "Phalanx",
+          "spell_id": 1269313,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 110412,
+      "node_type": 1,
+      "max_ranks": 4,
+      "entries": [
+        {
+          "entry_id": 137004,
+          "name": "Rampaging Berserker",
+          "spell_id": 1269308,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 137003,
+          "name": "Rampaging Berserker",
+          "spell_id": 1269309,
+          "id_sub_tree": null
+        },
+        {
+          "entry_id": 137002,
+          "name": "Rampaging Berserker",
+          "spell_id": 1269310,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 110653,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 137471,
+          "name": "Blood and Thunder",
+          "spell_id": 384277,
+          "id_sub_tree": null
+        }
+      ]
+    },
+    {
+      "node_id": 110654,
+      "node_type": 0,
+      "max_ranks": 1,
+      "entries": [
+        {
+          "entry_id": 137472,
+          "name": "Storm of Blood",
+          "spell_id": 1299025,
+          "id_sub_tree": null
+        }
+      ]
+    }
+  ],
+  "source": "SimulationCraft trait_data.inc (midnight branch) \u2014 see scripts/fetch_talent_string_nodes.py",
+  "generated": "2026-08-31"
+}

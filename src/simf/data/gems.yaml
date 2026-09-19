@@ -1,0 +1,137 @@
+# Midnight 12.0.5 gem catalog — tank-relevant gems for the survival gem suggester.
+#
+# Every numeric value below was CONFIRMED via a direct Wowhead `&xml` item
+# fetch (2026-06-24). The Midnight gem system, verified across all four colors:
+#
+#   - Four base colors, each a secondary stat:
+#       Peridot = Haste, Lapis = Versatility, Garnet = Crit, Amethyst = Mastery
+#   - A prefix adds a second stat: Quick=Haste, Versatile=Vers, Deadly=Crit,
+#     Masterful=Mastery.
+#   - PURE-stat gem (prefix matches the base colour, e.g. "Versatile Lapis")
+#     collapses to a single +17 of that stat — NOT 16+7.
+#   - HYBRID gem (prefix differs from base) = +16 base stat & +7 prefix stat.
+#   - Two ilvl tiers share names (older 278 = +14/+6, max 295 = +16/+7); the
+#     IDs below are the ilvl-295 (max) tier.
+#   - "Eversong Diamond" metas are the only primary-stat gems and are
+#     Unique-Equipped (Thalassian Diamond — only ONE socketable on a character).
+#
+# THERE IS NO STAMINA GEM in Midnight 12.0.5. The only non-secondary survival
+# stats obtainable from any gem are primary stat (Eversong Diamond) and +13
+# Armor (Stoic Eversong Diamond meta only). This is load-bearing for the
+# suggester: a tank cannot gem pure stamina.
+#
+# `stats` keys are the canonical marginal keys used everywhere else
+# (core/marginals.py, optimizer/per_dungeon.py):
+#   primary  -> resolved to `agility` or `strength` per spec by the suggester
+#   armor_from_gear, haste_rating, crit_rating, mastery_rating, versatility_rating
+#
+# The suggester scores each gem by Σ_stat (∂eHP/∂stat × gem_stat) against the
+# character's sim-derived marginals, so crit/mastery/haste gems automatically
+# score 0 survival for specs whose marginal for that stat is 0 (e.g. haste is 0
+# for every spec except an Elune's-Chosen Guardian). No per-gem spec logic.
+
+gems:
+  # ---- Eversong Diamond metas (Unique-Equipped: only ONE socketable) -------
+  - id: 240983
+    name: Indecipherable Eversong Diamond
+    ilvl: 295
+    unique_equipped: true
+    stats: {primary: 32}
+
+  - id: 240971
+    name: Stoic Eversong Diamond
+    ilvl: 295
+    unique_equipped: true
+    # The one defensive meta: +23 primary AND +13 Armor. Armor carries real
+    # eHP for every tank, so this competes with Indecipherable for the single
+    # Thalassian Diamond slot on plate tanks where primary (strength) is weak.
+    stats: {primary: 23, armor_from_gear: 13}
+
+  - id: 240967
+    name: Powerful Eversong Diamond
+    ilvl: 295
+    unique_equipped: true
+    # +23 primary plus a +crit-effectiveness-per-colour proc that is NOT a flat
+    # stat, so the suggester only credits the +23 primary (the proc has no
+    # survival value modelled).
+    stats: {primary: 23}
+
+  # ---- Peridot (Haste base) ------------------------------------------------
+  - id: 240888
+    name: Flawless Quick Peridot
+    ilvl: 295
+    stats: {haste_rating: 17}
+
+  - id: 240894
+    name: Flawless Versatile Peridot
+    ilvl: 295
+    stats: {haste_rating: 16, versatility_rating: 7}
+
+  - id: 240890
+    name: Flawless Deadly Peridot
+    ilvl: 295
+    stats: {haste_rating: 16, crit_rating: 7}
+
+  - id: 240892
+    name: Flawless Masterful Peridot
+    ilvl: 295
+    stats: {haste_rating: 16, mastery_rating: 7}
+
+  # ---- Lapis (Versatility base) — the survival workhorses for plate tanks --
+  - id: 240912
+    name: Flawless Versatile Lapis
+    ilvl: 295
+    stats: {versatility_rating: 17}
+
+  - id: 240916
+    name: Flawless Quick Lapis
+    ilvl: 295
+    stats: {versatility_rating: 16, haste_rating: 7}
+
+  - id: 240914
+    name: Flawless Deadly Lapis
+    ilvl: 295
+    stats: {versatility_rating: 16, crit_rating: 7}
+
+  - id: 240918
+    name: Flawless Masterful Lapis
+    ilvl: 295
+    stats: {versatility_rating: 16, mastery_rating: 7}
+
+  # ---- Garnet (Crit base) — 0 survival except the vers hybrid --------------
+  # Full family kept for current-gem RECOGNITION (so a user's equipped crit gem
+  # isn't shown as "unknown"); only the vers hybrid carries any survival value.
+  - id: 240904
+    name: Flawless Deadly Garnet
+    ilvl: 295
+    stats: {crit_rating: 17}
+  - id: 240906
+    name: Flawless Quick Garnet
+    ilvl: 295
+    stats: {crit_rating: 16, haste_rating: 7}
+  - id: 240908
+    name: Flawless Masterful Garnet
+    ilvl: 295
+    stats: {crit_rating: 16, mastery_rating: 7}
+  - id: 240910
+    name: Flawless Versatile Garnet
+    ilvl: 295
+    stats: {crit_rating: 16, versatility_rating: 7}
+
+  # ---- Amethyst (Mastery base) — 0 survival except the vers hybrid ---------
+  - id: 240896
+    name: Flawless Masterful Amethyst
+    ilvl: 295
+    stats: {mastery_rating: 17}
+  - id: 240898
+    name: Flawless Deadly Amethyst
+    ilvl: 295
+    stats: {mastery_rating: 16, crit_rating: 7}
+  - id: 240900
+    name: Flawless Quick Amethyst
+    ilvl: 295
+    stats: {mastery_rating: 16, haste_rating: 7}
+  - id: 240902
+    name: Flawless Versatile Amethyst
+    ilvl: 295
+    stats: {mastery_rating: 16, versatility_rating: 7}

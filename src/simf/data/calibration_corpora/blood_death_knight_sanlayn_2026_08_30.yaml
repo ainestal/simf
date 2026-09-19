@@ -1,0 +1,125 @@
+# blood_death_knight — San'layn hero-talent WCL corpus (2026-08-30)
+#
+# NOT a ratified calibration manifest. This is a reusable record of 12 real,
+# gear-certain (CombatantInfo/ACL-on) Season 2 WCL fights (zone 55, "Mythic+
+# Season 2"), all confirmed San'layn hero-talent Blood DK tanks — confirmed
+# via `wcl_api.fetch_buff_windows(..., ability_ids={434034, 440289, 440290})`:
+# every one of these 12 fights showed Blood-Soaked Ground (434034) active and
+# NEVER showed Rune Carved Plates (440289/440290).
+#
+# Context: docs/validation/phase4_blood_dk_characterization_2026_07_03.md
+# characterized Blood DK against 5 real zone-47 (Season 1) WCL fights — ALL
+# FIVE Deathbringer. San'layn had never been represented in the in-repo
+# corpus, blocking any comparison of whether hero-talent choice explains a
+# meaningful chunk of Blood DK's residual. These 12 fights close that gap.
+#
+# IMPORTANT CORRECTION: these are the SAME 12 fights as
+# `blood_death_knight_s2_keylevel_2026_08_30.yaml` (that manifest's own
+# cross-player check, run the same day). That check's "first-ever PASS any
+# spec has posted" (n=12, mean bias +3.2%, RMSE 0.125) was reported without
+# checking hero-talent composition — it turns out to be a San'layn-only
+# result, not the hero-talent-diverse sample the framing implied. This file
+# exists to make that hero-talent identity explicit and durable, and to sit
+# alongside a fresh re-run of the original 5 Deathbringer fights at today's
+# constants for comparison.
+#
+# Deathbringer comparison (today's constants, same tool, same K/iters): 5
+# fights across 4 players (Player 3 appears twice) — mean bias +3.5%, RMSE
+# 0.114, 4/5 within ±15% (re-confirmed Deathbringer via the same buff-window
+# check: 68-110 Rune Carved Plates windows each, zero Blood-Soaked Ground).
+#
+# Result: San'layn (all 12) mean bias +3.2%, RMSE 0.125, 10/12 within ±15%.
+# San'layn excluding 2 flagged outliers (see below): mean bias +2.1%, RMSE
+# 0.095, 9/10 within ±15% — tighter than Deathbringer's own fit. Hero-talent
+# choice explains essentially none of the residual difference (San'layn vs
+# Deathbringer land within 0.3pp of each other in mean bias) — a real,
+# encouraging generalization signal, though NOT grounds for any
+# calibration_tier change (see docs/validation/s2_calibration_followups_2026_08_30.md).
+#
+# Two flagged outliers within the 12 (kept in the manifest, not removed —
+# real data, real caveats):
+#   - Player 5 (Murder Row, +16): armor snapshot 7,533 vs the corpus's normal
+#     2,299-3,457 band. Ossuary (219788, "Bone Shield >=5 charges") is active
+#     at the exact fight-start timestamp — the SAME armor-snapshot-pollution
+#     bug the original characterization doc found on 2 of 7 probed fights.
+#     Third confirmed instance of this known, still-unfixed pipeline gap.
+#   - Player 6 (Voidscar Arena, +16): only 250 replay events vs 1,000-4,500 for
+#     every other fight — almost certainly a short/partial pull, high-noise.
+#
+# F-consistency / LOO-CV: still NOT feasible. Both gates require per-hit LIVE
+# armor from local ACL-on .txt combat logs (see `calibrate_spec_from_wcl.py`'s
+# own docstring) — zero local Blood DK logs of EITHER hero talent exist
+# in-repo. A WCL-only corpus, however large, caps at `characterized`.
+#
+# `specs.blood_death_knight.calibration_tier` is UNCHANGED by this file
+# (stays `characterized`) — this is corpus growth / measurement, not a
+# promotion. See docs/validation/s2_calibration_followups_2026_08_30.md for
+# the full writeup.
+
+spec: blood_death_knight
+hero_talent: san_layn
+k_constant: 3430
+iterations: 300
+
+fights:
+  - player: "Player 7"
+    dungeon: "Den of Nalorakk"
+    key_level: 2
+    acl: true
+
+  - player: "Player 8"
+    dungeon: "Kings' Rest"
+    key_level: 2
+    acl: true
+
+  - player: "Player 9"
+    dungeon: "The Blinding Vale"
+    key_level: 2
+    acl: true
+
+  - player: "Player 10"
+    dungeon: "Voidscar Arena"
+    key_level: 8
+    acl: true
+
+  - player: "Player 11"
+    dungeon: "Altar of Fangs"
+    key_level: 8
+    acl: true
+
+  - player: "Player 12"
+    dungeon: "Ruby Life Pools"
+    key_level: 8
+    acl: true
+
+  - player: "Player 13"
+    dungeon: "Kings' Rest"
+    key_level: 12
+    acl: true
+
+  - player: "Player 14"
+    dungeon: "Voidscar Arena"
+    key_level: 12
+    acl: true
+
+  - player: "Player 15"
+    dungeon: "Temple of Sethraliss"
+    key_level: 12
+    acl: true
+
+  - player: "Player 16"
+    dungeon: "Temple of Sethraliss"
+    key_level: 16
+    acl: true
+
+  - player: "Player 6"
+    dungeon: "Voidscar Arena"
+    key_level: 16
+    acl: true
+    flagged: "only 250 replay events — likely a short/partial pull, high-noise sample"
+
+  - player: "Player 5"
+    dungeon: "Murder Row"
+    key_level: 16
+    acl: true
+    flagged: "armor-snapshot-pollution — Ossuary (Bone Shield >=5 charges) active at COMBATANT_INFO capture"

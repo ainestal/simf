@@ -1,0 +1,38 @@
+# Dense melee pack — pure physical damage, no casters.
+# Models packs like Brackenhide Hollow gnolls or City of Threads
+# spider clusters: high mob count, fast swing timers, no magic.
+# Ideal for testing armor DR and Shield Block coverage.
+#
+# Damage values calibrated to produce ~300k raw/s sustained,
+# ~15–20% above m+_pull_caster to reflect the density penalty
+# of all-melee packs with no magic school to absorb.
+profile: m+_pull_melee
+duration_s: 45
+mobs:
+  - count: 6
+    swing_timer_s: 1.8
+    swing_damage_mean: 85000
+    swing_damage_variance: 0.25
+    school: physical
+    attack_type: melee
+  - count: 1
+    swing_timer_s: 2.0
+    swing_damage_mean: 120000
+    swing_damage_variance: 0.20
+    school: physical
+    attack_type: melee
+tank_busters:
+  - time_s: 18.0
+    damage: 420000
+    school: physical
+    attack_type: melee
+    is_avoidable_by_spell_reflect: false
+  - time_s: 38.0
+    damage: 420000
+    school: physical
+    attack_type: melee
+    is_avoidable_by_spell_reflect: false
+affix:
+  fortified: false
+  tyrannical: false
+  seasonal_modifier: 1.0

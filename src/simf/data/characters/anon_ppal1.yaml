@@ -1,0 +1,17 @@
+# AnonPPal1 — Protection Paladin (EU server, March 2026)
+# Stats from COMBATANT_INFO in Archive-WoWCombatLog-033026_213217.txt (2026-03-30)
+# armor_from_gear = COMBATANT_INFO armor (4669) — all passive multipliers included.
+
+name: AnonPPal1
+race: human
+class_spec: protection_paladin
+talents: default-paladin
+
+strength: 1655
+stamina: 27608
+armor_from_gear: 4669
+
+haste_rating: 958
+crit_rating: 696
+mastery_rating: 319
+versatility_rating: 297

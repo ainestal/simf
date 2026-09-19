@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+# pre-commit — ruff lint + format on staged Python files.
+# Installed via `make install-hooks` (symlinks to .git/hooks/pre-commit).
+#
+# Resolves the ruff binary via scripts/detect_venv.py (same walk-up logic the
+# Makefile uses since PR #97). Worktrees without a local `.venv` find the
+# parent clone's `.venv` automatically — no manual symlink needed.
+#
+# Resolution order:
+#   1. `<venv>/bin/ruff` where venv is resolved by scripts/detect_venv.py.
+#   2. `command -v ruff` (system-wide install).
+#   3. Skip with a clear warning (don't fail-hard, same philosophy as the
+#      pre-push SKIP_PUSH_TESTS escape hatch from PR #110).
+set -euo pipefail
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+
+RUFF=""
+VENV_DIR=""
+if [[ -x "$REPO_ROOT/scripts/detect_venv.py" ]] || [[ -f "$REPO_ROOT/scripts/detect_venv.py" ]]; then
+  VENV_DIR="$(python3 "$REPO_ROOT/scripts/detect_venv.py" 2>/dev/null || true)"
+fi
+
+if [[ -n "$VENV_DIR" && -x "$VENV_DIR/bin/ruff" ]]; then
+  RUFF="$VENV_DIR/bin/ruff"
+elif command -v ruff >/dev/null 2>&1; then
+  RUFF="$(command -v ruff)"
+else
+  echo "pre-commit: ruff not found (no .venv detected and no system-wide ruff)." >&2
+  echo "pre-commit: skipping lint — run \`make install\` to enable hook checks." >&2
+  exit 0
+fi
+
+# Only check Python files that are staged for commit.
+mapfile -t FILES < <(git diff --cached --name-only --diff-filter=ACMR | grep -E '\.py$' || true)
+if [[ ${#FILES[@]} -eq 0 ]]; then
+  exit 0
+fi
+
+# Lint with autofix. If ruff fixes anything, re-stage the changes.
+"$RUFF" check --fix "${FILES[@]}"
+"$RUFF" format "${FILES[@]}"
+git add "${FILES[@]}"
+
+# Secret scan on staged content — same skip-gracefully philosophy as ruff
+# above (this repo handles real Blizzard/WCL OAuth credentials, but not
+# every contributor will have gitleaks installed locally; CI is the real
+# gate, this is an early local warning).
+if command -v gitleaks >/dev/null 2>&1; then
+  gitleaks protect --staged --source "$REPO_ROOT" --redact
+else
+  echo "pre-commit: gitleaks not found — skipping secret scan (CI still checks this)." >&2
+fi

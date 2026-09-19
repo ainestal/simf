@@ -1,0 +1,118 @@
+# vengeance_demon_hunter — deliberate key-level 4/6/8 gap-fill sweep (2026-08-30)
+#
+# NOT a ratified calibration manifest. Follow-up to
+# docs/validation/s2_cross_spec_keylevel_check_2026_08_30.md, which found VDH's
+# long-documented "17-43pp magic-DR residual" instead showing a CLIFF: near-zero/
+# negative at key level 2 (AnonPlayerX7 -0.5%, Player 1 -12.6%, BOTH on Altar of Fangs -- a
+# single-dungeon confound), then +25% to +59% from key ~10 upward. That check's
+# "key 8" bucket real-averaged key level 10 (WCL manifest widening), leaving key
+# levels 2-10 entirely unsampled.
+#
+# This manifest targets the literal key levels 4, 6, and 8 (no widening -- every
+# entry below is exact_match: true) with >=2 distinct dungeons represented per
+# key level, specifically to test whether the cliff is real or a dungeon/sampling
+# artifact. Discovered via reportData.reports(zoneID: 55) (zone 55 = "Mythic+
+# Season 2", confirmed live 2026-08-30), the same global recent-public-reports
+# feed used by the check this manifest follows up on. Confirmed gear-certain
+# (CombatantInfo / ACL-on) via character_from_wcl for all 9 fights.
+#
+# Every one of the 9 fights below comes from a DIFFERENT report code and a
+# DIFFERENT named player -- no shared report/session across any two entries, so
+# none of the per-key-level buckets share a correlated gear/skill source. 6 of
+# the S2 pool's 8 dungeons are represented across the 9 fights (2-3 distinct
+# dungeons per key-level bucket): Den of Nalorakk, Murder Row, Kings' Rest,
+# Temple of Sethraliss, Altar of Fangs, The Blinding Vale. Not represented:
+# Voidscar Arena, Ruby Life Pools (both had usable VDH candidates in the wider
+# scan but were dropped in favor of maximizing per-bucket dungeon diversity and
+# avoiding same-report reuse).
+#
+# RESULT: kl4 (n=3) mean +21.1%, RMSE 0.235; kl6 (n=3) mean +35.2%, RMSE 0.382;
+# kl8 (n=3) mean +32.0%, RMSE 0.348. Laid against the prior check's kl2 (~-6.6%),
+# kl12 (+29.9%), kl16 (+41.6%): a fast ramp from key 2 to key 4-6, then a
+# plateau around +30-45% from key ~4 through at least key 16 -- NOT a late
+# cliff. Falsifies the dungeon-artifact hypothesis directly: Altar of Fangs
+# (both kl2 fights) reappears here at kl8 (Player 2, +13.7% -- much lower than
+# its own bucket's mean), and 3 more dungeons (Den of Nalorakk, Murder Row,
+# Kings' Rest) each appear at two different key levels here, all moving the
+# same direction (higher key level -> higher bias). See
+# docs/validation/s2_calibration_followups_2026_08_30.md for the full writeup,
+# caveats, and recommended framing update. No engine/constants change made or
+# proposed -- the magic-DR gap stays held per the 2026-07-26 maintainer
+# direction; this is characterization only.
+#
+# Deltas measured at canonical K=3430, iterations=50, seed=42,
+# healing_profile=m+_high_key_healer, via scripts/cross_player_validation.py
+# (the same tool + gate used for every prior cross-player check in this
+# project). skip_loo_cv=True inside that tool (these are different-player
+# replays, not held-out runs of one player's own corpus).
+
+spec: vengeance_demon_hunter
+k_constant: 3430
+iterations: 50
+
+fights:
+  # --- key level 4 ---
+  - player: "Player 3"
+    dungeon: "Den of Nalorakk"
+    key_level: 4
+    target_key_level: 4
+    exact_match: true
+    acl: true
+
+  - player: "Player 4"
+    dungeon: "Murder Row"
+    key_level: 4
+    target_key_level: 4
+    exact_match: true
+    acl: true
+
+  - player: "Player 5"
+    dungeon: "Kings' Rest"
+    key_level: 4
+    target_key_level: 4
+    exact_match: true
+    acl: true
+
+  # --- key level 6 ---
+  - player: "Player 6"
+    dungeon: "Temple of Sethraliss"
+    key_level: 6
+    target_key_level: 6
+    exact_match: true
+    acl: true
+
+  - player: "Player 7"
+    dungeon: "Kings' Rest"
+    key_level: 6
+    target_key_level: 6
+    exact_match: true
+    acl: true
+
+  - player: "Player 8"
+    dungeon: "Murder Row"
+    key_level: 6
+    target_key_level: 6
+    exact_match: true
+    acl: true
+
+  # --- key level 8 ---
+  - player: "Player 2"
+    dungeon: "Altar of Fangs"
+    key_level: 8
+    target_key_level: 8
+    exact_match: true
+    acl: true
+
+  - player: "Player 9"
+    dungeon: "Den of Nalorakk"
+    key_level: 8
+    target_key_level: 8
+    exact_match: true
+    acl: true
+
+  - player: "Player 10"
+    dungeon: "The Blinding Vale"
+    key_level: 8
+    target_key_level: 8
+    exact_match: true
+    acl: true

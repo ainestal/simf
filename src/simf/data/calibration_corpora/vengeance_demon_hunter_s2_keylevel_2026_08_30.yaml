@@ -1,0 +1,100 @@
+# vengeance_demon_hunter — Season 2 (zone 55) cross-player accuracy spot-check
+# (2026-08-30).
+#
+# NOT a ratified calibration manifest. This is a reusable record of 11 real,
+# independent-player WCL fights (zone 55, "Midnight Mythic+ Season 2"),
+# discovered via reportData.reports(zoneID: 55) (a global recent-public-reports
+# feed that, unlike characterRankings, does not redact report/fight codes) and
+# confirmed gear-certain/ACL-on via CombatantInfo. Fights are bucketed by the
+# target keystone level they were collected for; `key_level` is the fight's
+# REAL key level (which can differ from `target_key_level` when only a
+# widened +/-2 tolerance match was found — see `exact_match`). Used to
+# spot-check whether simf's VDH model holds up against fresh, live-patch
+# (12.1.0) play this project didn't already have logs for.
+#
+# Deltas measured at canonical K=3430, iterations=50, seed=42,
+# healing_profile=m+_high_key_healer, via scripts/cross_player_validation.py
+# (the same tool + gate used for Prot Warrior's 2026-07-25 and 2026-08-14
+# cross-player checks).
+
+spec: vengeance_demon_hunter
+k_constant: 3430
+iterations: 50
+
+fights:
+  - player: "AnonPlayerX7"
+    dungeon: "Altar of Fangs"
+    key_level: 2
+    target_key_level: 2
+    exact_match: true
+    acl: true
+
+  - player: "Player 1"
+    dungeon: "Altar of Fangs"
+    key_level: 2
+    target_key_level: 2
+    exact_match: true
+    acl: true
+
+  - player: "Player 2"
+    dungeon: "Altar of Fangs"
+    key_level: 10
+    target_key_level: 8
+    exact_match: false
+    acl: true
+
+  - player: "Player 3"
+    dungeon: "Voidscar Arena"
+    key_level: 10
+    target_key_level: 8
+    exact_match: false
+    acl: true
+
+  - player: "Player 4"
+    dungeon: "Ruby Life Pools"
+    key_level: 10
+    target_key_level: 8
+    exact_match: false
+    acl: true
+
+  - player: "Player 5"
+    dungeon: "Den of Nalorakk"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+
+  - player: "Player 6"
+    dungeon: "Altar of Fangs"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+
+  - player: "Player 7"
+    dungeon: "Altar of Fangs"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+
+  - player: "Player 8"
+    dungeon: "The Blinding Vale"
+    key_level: 16
+    target_key_level: 16
+    exact_match: true
+    acl: true
+
+  - player: "Player 9"
+    dungeon: "The Blinding Vale"
+    key_level: 15
+    target_key_level: 16
+    exact_match: false
+    acl: true
+
+  - player: "Player 10"
+    dungeon: "Den of Nalorakk"
+    key_level: 15
+    target_key_level: 16
+    exact_match: false
+    acl: true

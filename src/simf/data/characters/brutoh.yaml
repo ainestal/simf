@@ -1,0 +1,44 @@
+# Brutoh — Earthen Dwarf Protection Warrior, level 90, EU/Uldum
+# Stats from the Blizzard Armory /statistics endpoint (exact sheet values,
+# not gear-derived), read 2026-06-10 post-vault — Heart of Wind 298 (myth 6/6)
+# equipped in trinket2. Parse conventions: secondaries = rating_bonus x 100
+# (rating_per_pct = 100), armor backed out of Earthen 1.10x, HP from
+# statistics.health. The previous sheet read (2026-05-06) is FROZEN in
+# brutoh-calibration-2026-05.yaml — the K-calibration log corpus is May-era
+# and its baselines are anchored there.
+# Midnight 12.0.5 stat-squished scale.
+
+name: Brutoh
+race: earthen
+class_spec: protection_warrior
+talents: brutoh-actual            # matches log talents (Phalanx + Fueled by Violence + kiratank base) per MGT+12 audit 2026-05-16
+
+# Primary stats (Armory /statistics, 2026-06-10)
+strength: 2232
+stamina: 37736
+armor_from_gear: 5234            # Armory effective 5758; backed out Earthen 1.10x → 5234
+shield_armor: 989                # Spellbreaker's Rebuke at ilvl 295 (post-voidcore upgrade 2026-05-19). In-game tooltip ground truth read 2026-05-20: 989 armor / 66 str / 952 stam / 42 crit / 42 haste. The YAML's bonus_ids list (12214/12497/12066/8960/12384/8790/13622) was captured pre-upgrade at ilvl 285 — Wowhead XML returns 931 for that older state (correct for that ilvl, ~6% lower than current). Historical calibration logs in examples/ are all pre-2026-05-19 ilvl 285; the K sweep in docs/validation/k_calibration_f12_2026_05_20.md was correctly run against 931. Current sim runs use 989.
+
+# Secondary ratings. Sheet 2026-06-10: 24.09% haste / 16.80% crit / 10.37% mastery
+# / 4.54% vers. haste/crit/vers in REAL lvl-90 units (rating_per_pct 44/46/54),
+# rescaled to preserve those % (2026-06-28 recalibration); mastery stays per-spec /100.
+haste_rating: 1060               # → 24.09% haste (1060/44)
+crit_rating: 773                 # → 16.80% crit (773/46)
+mastery_rating: 1037             # → 10.37% mastery (1037/100, per-spec conversion)
+versatility_rating: 245          # → 4.54% / 2.27% DR (245/54)
+
+max_hp_override: 830192          # Armory statistics.health, 2026-06-10
+
+# Bundled SimC export — populates equipped items + bag + vault when the demo
+# is loaded, so the Gear tab is fully wired without manual entry. Relative to
+# the repository root.
+# Refreshed 2026-06-10 to the synthetic pre-vault-pickup reconstruction of
+# that morning's export (real vault choice: Heart of Wind 272 vs an equipped
+# 298 Mark of Light — a genuine Tuesday-vault question). Note the stat block
+# above is the post-pickup Armory sheet while this gear state is pre-pickup —
+# a hair inconsistent, accepted: the trinket swap is survivability-neutral
+# (PR #150 verdict) and the demo's vault story is worth more than the rounding.
+# Calibration ground truth is brutoh-calibration-2026-05.yaml (frozen).
+# Packaged under the data dir (relative to simf/data) so the demo's gear ships
+# in the wheel / public container — resolved by _load_demo_character via DATA_DIR.
+simc_path: characters/brutoh-vault-2026-06-10.simc

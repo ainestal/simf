@@ -1,0 +1,140 @@
+# AnonBrewmaster1 - Brewmaster - 2026-05-10 17:37 - EU/AnonRealm2
+# SimC Addon 12.0.5-02
+# WoW 12.0.5.67451, TOC 120005
+# Requires SimulationCraft 1000-01 or newer
+
+monk="AnonBrewmaster1"
+level=90
+race=human
+region=eu
+server=anonrealm2
+role=tank
+professions=leatherworking=100/jewelcrafting=100
+spec=brewmaster
+# loot_spec=mistweaver
+
+talents=CwQAi6cZM+HWADeySjzG9Lwx8DAAAgZbzYGGzyMPwGzMjBAAAAAAYZBjYmBmhZ2MwMzMDzCzMmZZYZbW2mNMLAAwysMtMbzsMAAz2s0MzMbMsBmZmZYaMAAgB
+
+# Saved Loadout: raid single offensive
+# talents=CwQAi6cZM+HWADeySjzG9Lwx8DAAAgZbzYGzY2mxGmZMAAAAAAALLYgZGYGmZzAzMzMMLMzYmlhlNbbjZMLAAwysNWmtZWGAgZbWMzMzmZYDMzMzwYMAAgB
+# Saved Loadout: m+ shadopan defensive
+# talents=CwQAi6cZM+HWADeySjzG9Lwx8DAAAwMbbGDGz2MPwGzMjBAAAAAAYZBDMzAzwMbGYmZmhZhZGzsMssNLbzGmFAAYb2GLz2MLDAwsNLmZmZjhNAmZYMGAAwA
+# Saved Loadout: m+ moh
+# talents=CwQAi6cZM+HWADeySjzG9Lwx8DAAAgZbzYGGzyMPwGzMjBAAAAAAYZBDMzAzwMbGYmZmhZhZGzsMssNLbzGmFAAYZWGLz2MLDAwsNLmZmZjhNwMzMDjxAAAG
+# Saved Loadout: raid single def
+# talents=CwQAi6cZM+HWADeySjzG9Lwx8DAAAgZbzYGPwYWM2mxMjBAAAAAAYZBDMzAzwMbGYmZmhZhZGzsMssZbbWGmFAAYZ2GLz2MLDAwsNLmZmZzMsBmZmZYMGAAwA
+
+# Silvermoon Sunguard (263)
+head=,id=266430,enchant_id=7960,bonus_id=13577/12790/12667
+# Masterwork Sin'dorei Amulet (285)
+neck=,id=240950,gem_id=240983,bonus_id=12214/12497/12066/8795/13622,crafted_stats=36/32,crafting_quality=5
+# Aurastones of Ra-den's Chosen (289)
+shoulder=,id=250013,enchant_id=8031,bonus_id=6652/13440/13340/13574/12806
+# Imperator's Banner (276)
+back=,id=249335,bonus_id=6652/13577/13334/12798
+# Battle Garb of Ra-den's Chosen (289)
+chest=,id=250018,enchant_id=7987,bonus_id=13336/13440/6652/13575/12806
+# Brown Linen Shirt (1)
+shirt=,id=4344
+# Illustrious Guild Tabard (1)
+tabard=,id=69209
+# Strikeguards of Ra-den's Chosen (272)
+wrist=,id=250011,bonus_id=6652/12667/13440/12797
+# Thunderfists of Ra-den's Chosen (276)
+hands=,id=250016,bonus_id=6652/13440/13337/13574/12798
+# Silvermoon Agent's Utility Belt (285)
+waist=,id=244573,bonus_id=12214/13667/12497/12066/8960/12384/8795/13622/12667,crafted_stats=32/49,crafting_quality=5
+# Swiftsweepers of Ra-den's Chosen (289)
+legs=,id=250014,enchant_id=8163,bonus_id=43/13440/13339/13575/12806
+# Boots of Burning Focus (276)
+feet=,id=258577,enchant_id=7993,bonus_id=13440/6652/13577/12699/12798
+# Loa Worshiper's Band (285)
+finger1=,id=251513,enchant_id=7997,gem_id=240910,bonus_id=12214/8960/12497/12066/13622,crafting_quality=5
+# Eredath Seal of Nobility (276)
+finger2=,id=151308,enchant_id=7996,gem_id=240909,bonus_id=13440/6652/13668/12699/12798
+# Gaze of the Alnseer (276)
+trinket1=,id=249343,bonus_id=6652/13334/12798
+# Solarflare Prism (289)
+trinket2=,id=252420,bonus_id=13440/6652/12699/12806
+# Roostwarden's Bough (289)
+main_hand=,id=251077,enchant_id=8039,bonus_id=13440/6652/12701/12806
+
+### Gear from Bags
+#
+# Barbed Ymirheim Choker (276)
+# neck=,id=50228,bonus_id=13440/6652/13668/12699/12798
+#
+# Tarnished Gold Locket (220)
+# neck=,id=264612,gem_id=240903,bonus_id=12769/6652/13668/11311
+#
+# Warcloak of the Butcher (220)
+# back=,id=264593,bonus_id=12769/6652/13578/11311
+#
+# Wretched Scholar's Gilded Robe (253)
+# chest=,id=250456,bonus_id=6652/13577/13333/12787
+#
+# Stonecarved Smashers (220)
+# hands=,id=264584,bonus_id=12769/6652/13578/11311
+#
+# Snapdragon Pantaloons (220)
+# legs=,id=264543,bonus_id=12769/6652/13578/11311
+#
+# Noble's Signet Ring (1)
+# finger1=,id=265814,bonus_id=13639
+#
+# Platinum Star Band (253)
+# finger1=,id=193708,bonus_id=12787/6652/13668/12699/11215
+#
+# Bifurcation Band (276)
+# finger1=,id=251115,bonus_id=13440/6652/13668/12699/12798
+#
+# Noble's Signet Ring (1)
+# finger1=,id=265814,bonus_id=13639
+#
+# Crucible of Erratic Energies (263)
+# trinket1=,id=264507,bonus_id=12790
+#
+# Refueling Orb (272)
+# trinket1=,id=250246,bonus_id=12801/13440/6652/12699
+#
+# Heart of Wind (276)
+# trinket1=,id=250256,bonus_id=13440/6652/12699/12798
+#
+# Algeth'ar Puzzle Box (276)
+# trinket1=,id=193701,bonus_id=13440/6652/12699/12798
+#
+# Arena Master (12)
+# trinket1=,id=18706
+#
+# Sealed Chaos Urn (224)
+# trinket1=,id=251787,bonus_id=12770/6652/11215
+#
+# Nevermelting Ice Crystal (266)
+# trinket1=,id=50259,bonus_id=12795/13440/6652/12699
+#
+# Bloomforged Claw (285)
+# main_hand=,id=237845,enchant_id=7981,bonus_id=12214/12497/12066/8791/13622,crafted_stats=49/40,crafting_quality=5
+#
+# Bloomforged Claw (285)
+# main_hand=,id=237845,enchant_id=8039,bonus_id=12214/12497/12066/13640/8960/8791/13622,crafted_stats=49/32,crafting_quality=5
+#
+# Sharpened Borer Claw (220)
+# main_hand=,id=264640,bonus_id=12769/6652/11311
+#
+# Ash'an's Spare Cleaver (220)
+# main_hand=,id=264643,bonus_id=12769/6652/11311
+#
+# Steelbark Bulwark (220)
+# off_hand=,id=264613,bonus_id=12769/6652/11311
+
+### Additional Character Info
+#
+# catalyst_currencies=3269:8/3378:5/2813:8/3116:8
+#
+# upgrade_currencies=c:3347:52/c:3383:509/c:1813:3420/c:3341:298/c:3343:261/c:1792:364/c:3345:8
+#
+# slot_high_watermarks=0:263:276/1:285:285/2:289:289/3:289:289/4:285:289/5:289:289/6:276:289/7:272:285/8:276:282/9:276:276/10:276:276/11:276:289/12:289:289/13:36:276/14:285:289/15:285:285/16:246:285
+#
+# upgrade_achievements=19326/19397/19398/19577/19578/19579/40107/40115/40118/40942/40943/41886/41887/41888/41892/42767/42768/61809
+
+# Checksum: f199e1d4

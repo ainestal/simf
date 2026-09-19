@@ -1,0 +1,33 @@
+# Local development stack — Streamlit UI + the Phase 5.1 FastAPI service.
+
+services:
+  simf-ui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: ui
+    image: simf-ui:dev
+    container_name: simf-ui
+    ports:
+      - "8501:8501"
+    environment:
+      STREAMLIT_SERVER_HEADLESS: "true"
+      STREAMLIT_BROWSER_GATHER_USAGE_STATS: "false"
+    # Optional: bind-mount the user's local Blizzard API config if present.
+    # Comment out if `~/.simf/` doesn't exist on the host.
+    volumes:
+      - ${HOME}/.simf:/root/.simf:ro
+    restart: unless-stopped
+
+  simf-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: api
+    image: simf-api:dev
+    container_name: simf-api
+    ports:
+      - "8000:8000"
+    environment:
+      UVICORN_WORKERS: "1"
+    restart: unless-stopped

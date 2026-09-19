@@ -1,0 +1,52 @@
+# protection_paladin — cross-player WCL accuracy check (2026-08-14).
+#
+# NOT a ratified calibration manifest. This is a reusable record of 5 real,
+# independent-player WCL fights (zone 47, "Mythic+ Season 1"), discovered via
+# reportData.reports(zoneID: 47) (a global recent-public-reports feed that,
+# unlike characterRankings, does not redact report/fight codes) and confirmed
+# ACL-on via CombatantInfo. Used to spot-check whether simf's predictions
+# hold up against fresh, live-patch (12.1.0) play this project didn't already
+# have logs for. See docs/validation/cross_spec_accuracy_check_2026_08_14.md.
+#
+# Deltas measured at canonical K=3430, iterations=50, seed=42,
+# healing_profile=m+_high_key_healer, via scripts/cross_player_validation.py
+# (the same tool + gate used for Prot Warrior's 2026-07-25 cross-player check).
+
+spec: protection_paladin
+k_constant: 3430
+iterations: 50
+mean_bias_pct: 31.4
+rmse: 0.351
+within_15pct: 0.0
+
+fights:
+  - player: "Player 1"
+    dungeon: "Algeth'ar Academy"
+    key_level: 10
+    acl: true
+    delta_at_k3430: 27.7
+
+  - player: "Player 2"
+    dungeon: "The Seat of the Triumvirate"
+    key_level: 10
+    acl: true
+    delta_at_k3430: 15.6
+
+  - player: "Player 3"
+    dungeon: "Nexus-Point Xenas"
+    key_level: 10
+    acl: true
+    delta_at_k3430: 30.5
+
+  - player: "Player 4"
+    dungeon: "Magisters' Terrace"
+    key_level: 14
+    acl: true
+    delta_at_k3430: 21.8
+
+  - player: "Player 5"
+    dungeon: "Nexus-Point Xenas"
+    key_level: 14
+    acl: true
+    delta_at_k3430: 61.3
+

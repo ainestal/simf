@@ -1,0 +1,17 @@
+title = "simf gitleaks config"
+
+# Use gitleaks' built-in secret-detection rules; we only add path exclusions.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Paths with no source code — caches, venv (examples/ holds real user-pasted content and must stay scanned)"
+paths = [
+  '''\.venv/''',
+  '''\.git/''',
+  '''\.mypy_cache/''',
+  '''\.pytest_cache/''',
+  '''\.ruff_cache/''',
+  '''\.hypothesis/''',
+  '''\.coverage_html/''',
+]

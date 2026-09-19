@@ -1,0 +1,104 @@
+# simf CI — lint + type check + tests on every PR.
+#
+# Phase 5.3 of the ROADMAP. Mirrors most of the local `make check` gate
+# (green here == green `make check` on a clean clone), with two steps
+# split out to weekly-audit.yml instead of running on every PR: pip-audit
+# (CVE data doesn't change minute-to-minute, so a per-PR run adds no new
+# signal over a weekly one) and gitleaks's full-history sweep (old commits
+# don't change and were already scanned clean, so rescanning all of history
+# on every PR is redundant work — this workflow scans only each PR's own
+# new commits instead).
+#
+# pull_request only, no push trigger: every commit that reaches master
+# already passed this exact gate as a PR check (CONTRIBUTING.md forbids direct
+# pushes to master), so a push-triggered re-run would just repeat the same
+# checks against commits that already passed them.
+
+name: ci
+
+on:
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0 # full history — diff-cover + gitleaks both need origin/<base> reachable
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.13"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install .[dev,ui,api]
+
+      - name: Ruff lint
+        run: ruff check src tests
+
+      - name: Ruff format check
+        run: ruff format --check src tests
+
+      - name: Mypy
+        # Hard gate on the engine (core/io/optimizer, via [tool.mypy] files) —
+        # matches `make typecheck`, so green here == green `make check`. A new
+        # type error in the engine now fails CI instead of scrolling past. ui/
+        # stays excluded (under review); the config is still lenient
+        # (check_untyped_defs off) — tighten that over time as a follow-up.
+        run: mypy
+
+      - name: Deptry (unused/missing/transitive dependency check)
+        run: deptry .
+
+      - name: Install gitleaks
+        # Pinned release tarball, not the gitleaks-action — avoids that
+        # action's org-license ambiguity for a simple secret-scan step.
+        # Checksum-verified against gitleaks' own published release manifest
+        # before extracting. Bump GITLEAKS_VERSION here AND in
+        # weekly-audit.yml when updating.
+        env:
+          GITLEAKS_VERSION: "8.30.1"
+        run: |
+          cd /tmp
+          curl -sLO "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          curl -sLO "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_checksums.txt"
+          sha256sum -c <(grep "gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" "gitleaks_${GITLEAKS_VERSION}_checksums.txt")
+          tar -xz -C /usr/local/bin -f "gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" gitleaks
+
+      - name: Gitleaks (secret scan, this PR's new commits only)
+        # Full-history sweep runs weekly (weekly-audit.yml) — old commits
+        # were already scanned clean and don't change, so rescanning all
+        # of history on every PR was repeated cost for no new signal.
+        # Falls back to a full scan on workflow_dispatch (no PR base ref).
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            gitleaks git --log-opts="origin/${BASE_REF}..HEAD"
+          else
+            gitleaks git --log-opts="--all"
+          fi
+
+      - name: Pytest (with coverage, for the diff-cover gate below)
+        run: pytest -n auto --tb=short --cov=src/simf --cov-report=xml
+
+      - name: Diff-cover (changed-lines coverage gate)
+        # Gates only NEW/changed lines against origin/master, not a global
+        # coverage percentage — legacy untested modules (ui/ etc, already
+        # excluded from [tool.coverage.run]) can't hold this hostage, and a
+        # small undertested new PR can't hide inside a large well-tested repo.
+        run: diff-cover coverage.xml --compare-branch=origin/master --fail-under=80
+
+  # docker-build job removed 2026-05-20 — Docker isn't on the current
+  # critical path and the build burns Actions minutes. Restore from
+  # git history when Phase 5 public deploy needs it.

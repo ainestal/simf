@@ -1,0 +1,114 @@
+# brewmaster_monk — Season 2 (zone 55) cross-player key-level accuracy
+# spot-check (2026-08-30).
+#
+# NOT a ratified calibration manifest. This is a reusable record of 10 real,
+# independent-player WCL fights (zone 55, "Mythic+ Season 2"), discovered via
+# reportData.reports(zoneID: 55) (a global recent-public-reports feed that,
+# unlike characterRankings, does not redact report/fight codes) and confirmed
+# ACL-on / gear-certain via CombatantInfo. Fights are bucketed by
+# target_key_level (the key level the discovery scan was trying to fill for
+# that bucket); key_level is the fight's REAL key level, which for the +8
+# bucket's two widened entries is actually +10 (no exact +8 candidate turned
+# up in 500 scanned reports, so the discovery step's +/-2 widening rule was
+# used — see exact_match: false on those two). The +2 bucket has only 1/3
+# fights filled and could not be topped up even with the (narrow) +2-to-+3
+# widening the discovery task allowed: no key_level-3 Brewmaster Monk log
+# was found anywhere in the full 500-report scan. This is reported as a
+# genuine finding, not padded.
+#
+# Used to spot-check whether simf's Brewmaster Monk model (calibrated: false)
+# holds up against fresh, live-patch (12.1.0) Season 2 play this project
+# didn't already have logs for, split out by key level.
+#
+# Deltas measured at canonical K=3430, iterations=50, seed=42,
+# healing_profile=m+_high_key_healer, via scripts/cross_player_validation.py
+# (the same tool + gate used for Prot Warrior's 2026-07-25 and 2026-08-14
+# cross-player checks).
+
+spec: brewmaster_monk
+k_constant: 3430
+iterations: 50
+mean_bias_pct: 26.9
+rmse: 0.281
+within_15pct: 0.0
+
+fights:
+  - player: "Player 1"
+    dungeon: "Altar of Fangs"
+    key_level: 2
+    target_key_level: 2
+    exact_match: true
+    acl: true
+    delta_at_k3430: 34.7
+
+  - player: "Player 2"
+    dungeon: "Temple of Sethraliss"
+    key_level: 8
+    target_key_level: 8
+    exact_match: true
+    acl: true
+    delta_at_k3430: 26.0
+
+  - player: "Player 3"
+    dungeon: "Kings' Rest"
+    key_level: 10
+    target_key_level: 8
+    exact_match: false
+    acl: true
+    delta_at_k3430: 16.3
+
+  - player: "Player 4"
+    dungeon: "Murder Row"
+    key_level: 10
+    target_key_level: 8
+    exact_match: false
+    acl: true
+    delta_at_k3430: 20.0
+
+  - player: "Player 5"
+    dungeon: "Voidscar Arena"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+    delta_at_k3430: 20.6
+
+  - player: "Player 6"
+    dungeon: "Den of Nalorakk"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+    delta_at_k3430: 25.8
+
+  - player: "Player 7"
+    dungeon: "Murder Row"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+    delta_at_k3430: 41.4
+
+  - player: "Player 8"
+    dungeon: "The Blinding Vale"
+    key_level: 16
+    target_key_level: 16
+    exact_match: true
+    acl: true
+    delta_at_k3430: 31.0
+
+  - player: "Player 9"
+    dungeon: "Den of Nalorakk"
+    key_level: 16
+    target_key_level: 16
+    exact_match: true
+    acl: true
+    delta_at_k3430: 36.1
+
+  - player: "Player 10"
+    dungeon: "Kings' Rest"
+    key_level: 16
+    target_key_level: 16
+    exact_match: true
+    acl: true
+    delta_at_k3430: 17.0

@@ -1,0 +1,106 @@
+# Wowhead spell IDs + zamimg icon slugs for talent chips (icon + linked
+# name) on the unified Gear-tab "Talents" section.
+#
+# Researched 2026-07-11 against the live "Midnight" (12.0.x) Protection
+# Warrior talent tree, cross-checked three ways per talent: Wowhead's current
+# "Protection Warrior Abilities and Talents Guide" page, each candidate
+# spell's own embedded name/icon data, and mechanical description text
+# matching the known Protection Warrior mechanic. All 13 entries below are
+# high-confidence except where noted. Two stale-ID traps were caught during
+# research (an older, same-named "Warrior Spells"-category baseline spell
+# sharing a name with the current "Warrior Talents"-category node) — the
+# live-guide-linked id was taken in both cases:
+#   - brutal_vitality: 384036 (current), NOT 335010 (stale predecessor)
+#   - fueled_by_violence: 383103 (current), NOT 347213 (stale predecessor)
+#
+# fight_through_flames's real in-game name is "Fight Through the Flames"
+# (includes "the") — a plain de-snake-case of the talent id would miss it.
+#
+# Wowhead's `spell=<id>&xml` endpoint 301-redirects to a plain HTML spell
+# page today (unlike the item `&xml` endpoint used by
+# `io/item_db.py::fetch_item_icon_wowhead`, which still serves real XML) —
+# so these were hand-verified against the page's embedded
+# `WH.Gatherer.addData(6, 1, {"<id>": {"name_enus": ..., "icon": ...}})`
+# JSON blob instead. This file is a static seed, not a live-fetched cache —
+# talent nodes change far less often than item ilvls, and shipping a fixed
+# fallback means the Talents section never blocks on a network call (a
+# 2026-07-11 persona check — novice/engaged/elite tank — was explicit that
+# icons must never gate rendering; see talent_ux_workshop_2026_07_11 memory).
+protection_warrior:
+  indomitable:
+    display_name: "Indomitable"
+    wowhead_spell_id: 202095
+    icon_slug: ability_warrior_intensifyrage
+  battle_scarred_veteran:
+    display_name: "Battle-Scarred Veteran"
+    wowhead_spell_id: 386394
+    icon_slug: ability_warrior_endlessrage
+    # Threshold trigger (core/policy.py) — HP must drop below 30% (an ICD-
+    # gated proc), not an every-hit passive. See talent_search.py's
+    # `inert_in_scenario` field: a fixed sweep profile COULD in principle go
+    # all N iterations without ever crossing the threshold, which would
+    # render an exact zero that must not be mislabeled "within noise" — but
+    # empirically (2026-07-11, tests/test_talent_single_swap_deltas.py) this
+    # talent does NOT hit that case at the panel's real 500-iteration/Brutoh
+    # defaults — HP drops below 30% often enough to register a real, if
+    # small, effect. This trigger text is a safety net for a leaner
+    # character/profile/iteration-count combo where it might, not a claim
+    # that it does today.
+    trigger: "needs your HP below 30%"
+  brutal_vitality:
+    display_name: "Brutal Vitality"
+    wowhead_spell_id: 384036
+    icon_slug: ability_warrior_renewedvigor
+  brace_for_impact:
+    display_name: "Brace For Impact"
+    wowhead_spell_id: 386030
+    icon_slug: ability_warrior_shieldguard
+  thunderlord:
+    display_name: "Thunderlord"
+    wowhead_spell_id: 385840
+    icon_slug: ability_vehicle_electrocharge
+  enduring_defenses:
+    display_name: "Enduring Defenses"
+    wowhead_spell_id: 386027
+    icon_slug: ability_defend
+  unyielding_stance:
+    display_name: "Unyielding Stance"
+    wowhead_spell_id: 1235047
+    icon_slug: ability_warrior_defensivestance
+    # No `trigger` field — this buffs Defensive Stance's own passive DR
+    # (mitigation.py), which applies unconditionally to every event for any
+    # Prot Warrior, not a press-gated cooldown. (Corrected 2026-08-07: this
+    # entry previously, incorrectly, described it as buffing Demoralizing
+    # Shout — a different ability the code was miscoded to credit it onto.)
+  fueled_by_violence:
+    display_name: "Fueled by Violence"
+    wowhead_spell_id: 383103
+    icon_slug: ability_demonhunter_bloodlet
+    # Structural (not threshold) impossibility under the fixed swap-panel
+    # profile: this talent heals on a Spell-Reflect deflect, but every tank-
+    # buster in data/profiles/damage/m+_boss_tankbuster.yaml is
+    # `attack_type: melee` / `is_avoidable_by_spell_reflect: false` — Spell
+    # Reflect itself never even activates (its own precondition needs a
+    # spell-type tank buster), so no iteration count could ever trigger
+    # this, unlike the two threshold-gated talents above.
+    trigger: "heals when Spell Reflect deflects an incoming spell — this profile's tank-busters are all melee, so that can never happen here"
+  anger_management:
+    display_name: "Anger Management"
+    wowhead_spell_id: 152278
+    icon_slug: warrior_talent_icon_angermanagement
+  phalanx:
+    display_name: "Phalanx"
+    wowhead_spell_id: 1269312
+    icon_slug: inv12_apextalent_warrior_phalanx
+  fight_through_flames:
+    display_name: "Fight Through the Flames"
+    wowhead_spell_id: 452494
+    icon_slug: ability_racial_foregedinflames
+  reinforced_plates:
+    display_name: "Reinforced Plates"
+    wowhead_spell_id: 382939
+    icon_slug: inv_chest_plate04
+  armor_specialization:
+    display_name: "Armor Specialization"
+    wowhead_spell_id: 1234769
+    icon_slug: inv_chest_plate05

@@ -1,0 +1,314 @@
+# M+ dungeon catalog — active season (promoted 2026-08-30 by scripts/promote_season2_catalog.py)
+#
+# map_id: WoW instance map ID (from CHALLENGE_MODE_START log event)
+# abbrev: short identifier used in calibration notes (e.g. WR, NP, PoS)
+# school_mix: approximate fraction of pre-mitigation damage by magic school.
+#   Based on WCL aggregates and calibration logs where available.
+# recommended_profile: the archetype profile that best represents this dungeon's
+#   damage pattern. Used as the default when the dungeon is selected in the UI.
+# calibration_note: gap vs sim at the calibration key level (positive = sim under-predicts).
+# par_time_ms: in-game M+ timer in milliseconds (WoW CHALLENGE_MODE_END's success
+#   field is "completed?", not "timed?" — we have to compare duration_ms ourselves).
+#   Leave null when we haven't verified the par against a real depleted log; the UI
+#   then surfaces "COMPLETED" (no ✓ / ✗) rather than risking a wrong claim.
+#
+# Promoted from season_2_catalog: on 2026-08-30. See season_1_catalog: below for the prior season's data.
+
+dungeons:
+  - id: altar_of_fangs
+    name: "Altar of Fangs"
+    abbrev: AoF
+    origin: "Midnight (new in 12.1.0)"
+    recommended_profile: m+_pull_melee
+    school_mix:
+      physical: 0.91
+      nature:   0.09
+    description: >
+      Brand-new Midnight dungeon (12.1.0). School mix measured 2026-08-30 from
+      3 real Season 2 WCL replays (zone 55: 3 different tank specs, 6,761
+      combined damage-taken events): 90.7% physical, 9.3% nature. The most
+      melee-dominant, least magic-diverse dungeon in this sample.
+      par_time_ms not yet verified against a depleted run.
+
+  - id: murder_row
+    name: "Murder Row"
+    abbrev: MRow
+    origin: "Midnight"
+    recommended_profile: m+_pull_melee
+    school_mix:
+      physical: 0.87
+      fire:     0.10
+      shadow:   0.03
+    description: >
+      School mix measured 2026-08-30 from 3 real Season 2 WCL replays (zone
+      55: 3
+      different tank specs, 9,760 combined damage-taken events): 86.6%
+      physical, 10.2% fire, 2.5% shadow, plus trace nature/holy (<1% combined,
+      folded into physical). par_time_ms not yet verified.
+
+  - id: den_of_nalorakk
+    name: "Den of Nalorakk"
+    abbrev: DoN
+    origin: "Midnight"
+    recommended_profile: m+_dungeon_physical_chain
+    school_mix:
+      physical: 0.93
+      frost:    0.03
+      nature:   0.02
+      fire:     0.01
+      shadow:   0.01
+    description: >
+      School mix measured 2026-08-30 from 3 real Season 2 WCL replays (zone
+      55: 3
+      different tank specs, 6,460 combined damage-taken events; excludes
+      self-inflicted Brewmaster Stagger ticks, which carry a post-mitigation
+      amount and would double-count real incoming damage): 93.2% physical,
+      remainder split thinly across frost/nature/fire/shadow (each under 3%)
+      — no single dominant magic school, the most physical-chain-like dungeon
+      in this sample. par_time_ms not yet verified.
+
+  - id: the_blinding_vale
+    name: "The Blinding Vale"
+    abbrev: TBV
+    origin: "Midnight"
+    recommended_profile: m+_pull_melee
+    school_mix:
+      physical: 0.88
+      nature:   0.06
+      holy:     0.06
+    description: >
+      School mix measured 2026-08-30 from 3 real Season 2 WCL replays (zone
+      55: 3
+      different tank specs, 6,063 combined damage-taken events): 88.3%
+      physical, 6.0% nature, 5.7% holy. par_time_ms not yet verified.
+
+  - id: voidscar_arena
+    name: "Voidscar Arena"
+    abbrev: VA
+    origin: "Midnight"
+    recommended_profile: m+_pull_melee
+    school_mix:
+      physical: 0.86
+      shadow:   0.07
+      nature:   0.04
+      fire:     0.03
+    description: >
+      School mix measured 2026-08-30 from 3 real Season 2 WCL replays (zone
+      55: 3
+      different tank specs, 11,289 combined damage-taken events): 86.5%
+      physical, 6.9% shadow, 4.0% nature, 2.6% fire. par_time_ms not yet
+      verified.
+
+  - id: ruby_life_pools
+    name: "Ruby Life Pools"
+    abbrev: RLP
+    origin: "Dragonflight"
+    recommended_profile: m+_pull_melee
+    school_mix:
+      physical: 0.81
+      fire:     0.11
+      nature:   0.07
+      frost:    0.01
+    description: >
+      School mix measured 2026-08-30 from 3 real Season 2 WCL replays (zone
+      55: 3
+      different tank specs, 9,447 combined damage-taken events): 81.0%
+      physical, 10.9% fire, 6.7% nature — the lowest physical share and
+      highest sustained-magic share of the 8 Season 2 dungeons sampled here,
+      but still closer to the existing Pit of Saron precedent (75% physical /
+      25% magic, one school at 20%, also mapped to m+_pull_melee) than to
+      m+_aoe_dot_pull's own precedent (Algeth'ar Academy: 50% physical / 50%
+      magic). Ruby Life Pools' fire-elemental reputation suggests this pick
+      may undersell its magic pressure; a wider replay would help confirm.
+      par_time_ms not yet verified.
+
+  - id: temple_of_sethraliss
+    name: "Temple of Sethraliss"
+    abbrev: ToS
+    origin: "Battle for Azeroth"
+    recommended_profile: m+_pull_melee
+    school_mix:
+      physical: 0.87
+      nature:   0.11
+      shadow:   0.02
+    description: >
+      School mix measured 2026-08-30 from 3 real Season 2 WCL replays (zone
+      55: 3
+      different tank specs, 7,958 combined damage-taken events): 87.0%
+      physical, 10.9% nature, 2.1% shadow. Reworked for Season 2 per
+      Blizzard's Season 2 Dungeon Philosophy post — this school mix reflects
+      the reworked encounter, not old Battle for Azeroth data. par_time_ms
+      not yet verified.
+
+  - id: kings_rest
+    name: "King's Rest"
+    abbrev: KR
+    origin: "Battle for Azeroth"
+    recommended_profile: m+_dungeon_physical_chain
+    school_mix:
+      physical: 0.91
+      nature:   0.04
+      shadow:   0.03
+      fire:     0.02
+    description: >
+      School mix measured 2026-08-30 from 3 real Season 2 WCL replays (zone
+      55: 3
+      different tank specs, 4,790 combined damage-taken events; excludes
+      self-inflicted Brewmaster Stagger ticks, which carry a post-mitigation
+      amount and would double-count real incoming damage; WCL renders the
+      dungeon name "Kings' Rest", Blizzard's official name is "King's Rest"
+      — same dungeon, cosmetic apostrophe difference). 91.0% physical,
+      remainder split thinly across nature/shadow/fire (each under 4%, plus a
+      trace frost component folded into nature). Reworked for Season 2 per
+      Blizzard's Season 2 Dungeon Philosophy post — this school mix reflects
+      the reworked encounter, not old Battle for Azeroth data. par_time_ms
+      not yet verified.
+
+
+# ─── Season 1 archive — patch 12.0.5, superseded by Season 2 on promotion ───
+#
+# This is the FULL Season 1 dungeons: block, promoted out of active service
+# when season_2_catalog: was promoted into dungeons: (see
+# scripts/promote_season2_catalog.py). Kept for historical calibration
+# reference (per-dungeon school_mix/gap notes below are still real, measured
+# data about THAT season) — not read by load_dungeon_catalog(), which only
+# reads the live dungeons: key above.
+
+season_1_catalog:
+  - id: windrunner_spire
+    name: "Windrunner Spire"
+    abbrev: WR
+    map_id: 2805
+    par_time_ms: null  # TODO: verify against a real depleted Windrunner log
+    recommended_profile: m+_pull_caster
+    school_mix:
+      physical: 0.65
+      shadow:   0.25
+      nature:   0.10
+    description: >
+      Elf fortress in the Windrunner highlands. Mix of physical melee elites and
+      shadow caster mobs. Calibration: +3.4% mean gap across 3 replays (+12, +14,
+      +14 partial); ranges -3.9% to +7.6%. Refit 2026-05-18, K=2700.
+
+  - id: nexus_point_xenas
+    name: "Nexus-Point Xenas"
+    abbrev: NP
+    map_id: 2915
+    par_time_ms: null  # TODO: verify against a real depleted Nexus-Point log
+    recommended_profile: m+_dungeon_spelldrain
+    school_mix:
+      physical: 0.30
+      arcane:   0.40
+      void:     0.30
+    description: >
+      Void-touched arcane nexus. Heavy magic damage — arcane and void schools dominate.
+      Calibration: -5.7% gap at +12 (1 replay). Flipped from +9.3% pre-Phalanx-fix
+      (2026-05-16) to -5.7% post-fix — magic-DR layers may be overshooting on
+      arcane/void schools. Needs second NPX replay to confirm direction.
+
+  - id: algeth_ar_academy
+    name: "Algeth'ar Academy"
+    abbrev: Algaz
+    map_id: 2526
+    # Confirmed 2026-05-18 from log WoWCombatLog-051826_135935 + user report
+    # "almost a minute over time" — run duration was 31:52, par must be 31:00.
+    par_time_ms: 1860000
+    recommended_profile: m+_aoe_dot_pull
+    school_mix:
+      physical: 0.50
+      arcane:   0.30
+      fire:     0.20
+    description: >
+      Dragonflight arcane academy. Physical melee plus arcane/fire casters and
+      periodic dragon-breath. Calibration: -12.2% mean gap across 2 replays
+      (+12: -16.4%, +14: -8.1%). Refit 2026-05-18 — gap is now CONFIRMED across
+      multiple keys, no longer a one-off. Echo of Doragosa is immune to both
+      Demoralizing Shout and Phalanx Mark (commit 2026-05-16). Remaining root
+      cause uninvestigated — probable suspects are arcane / fire DR coefficients
+      and Algeth'ar-specific mob mechanics the engine does not model yet.
+      Worst outlier in the calibration corpus.
+
+  - id: pit_of_saron
+    name: "Pit of Saron"
+    abbrev: PoS
+    map_id: 658
+    par_time_ms: null  # TODO: verify against a real depleted PoS log
+    recommended_profile: m+_pull_melee
+    school_mix:
+      physical: 0.75
+      frost:    0.20
+      shadow:   0.05
+    description: >
+      Classic Wrath of the Lich King dungeon. Predominantly physical undead mobs
+      with frost casts from spellcasters. Calibration: +2.1% mean gap across 4
+      replays (+12 / +13 / +13 / +14); range -0.5% to +4.9%. Best-fit dungeon
+      in the corpus. Refit 2026-05-18.
+
+  - id: skyreach
+    name: "Skyreach"
+    abbrev: Sky
+    map_id: 1209
+    par_time_ms: null  # TODO: verify against a real depleted Skyreach log
+    recommended_profile: m+_pull_caster
+    school_mix:
+      physical: 0.60
+      fire:     0.30
+      air:      0.10
+    description: >
+      Warlords of Draenor Arakkoa sun temple. Physical melee with fire and air
+      caster pressure. Calibration: -11.3% gap at +14 (1 partial replay, no
+      CHALLENGE_MODE_END). Crosses the |10%| trust threshold but the sample is
+      thin — needs a second full-completion Skyreach replay to confirm.
+
+  - id: seat_of_the_triumvirate
+    name: "Seat of the Triumvirate"
+    abbrev: SotT
+    map_id: 1753
+    par_time_ms: null  # TODO: verify against a real depleted SotT log
+    recommended_profile: m+_dungeon_spelldrain
+    school_mix:
+      physical: 0.20
+      arcane:   0.45
+      shadow:   0.35
+    description: >
+      Legion void-touched eredar fortress. Arcane and void/shadow magic dominates.
+      Very little blockable physical — Shield Block has reduced value here.
+
+  - id: maisara_caverns
+    name: "Maisara Caverns"
+    abbrev: MaiC
+    map_id: 2874
+    par_time_ms: null  # TODO: verify against a real depleted Maisara log
+    recommended_profile: m+_aoe_dot_pull
+    school_mix:
+      physical: 0.55
+      nature:   0.25
+      shadow:   0.20
+    description: >
+      New Midnight dungeon. Mixed physical melee with nature/shadow casters.
+      Calibration: -0.4% mean gap across 2 replays (+12: -4.1%, +14: +3.2%);
+      dramatically improved from -8.7% single-replay 2026-05-16 calibration —
+      the second replay revealed the original gap was noise. Refit 2026-05-18.
+
+  - id: magisters_terrace
+    name: "Magisters' Terrace"
+    abbrev: MGT
+    map_id: 2811
+    par_time_ms: null  # TODO: verify against a real depleted MGT log
+    recommended_profile: m+_dungeon_spelldrain
+    # School mix derived from Brutoh's +12 validation log (2026-05-15,
+    # WoWCombatLog-051526_210245.txt): auto-attack carries 76.7% of pre-mit
+    # damage; remainder is shadow-heavy (Umbral Splinters, Void Destruction,
+    # Shadow Bolt) plus minor arcane and fire bursts. See
+    # docs/validation/mgt_12_2026_05_15.md for the per-ability breakdown.
+    school_mix:
+      physical: 0.55
+      shadow:   0.30
+      arcane:   0.10
+      fire:     0.05
+    description: >
+      Burning Crusade Sin'dorei spire. Heavy shadow-school caster pressure on
+      the Selin / Vexallus / Degentrius pulls. Magic mit had a documented
+      -14pp shadow gap pre-2026-05-16; closed to -4.5pp by the Phalanx + party
+      magic-DR fix in commit 0a65396. Calibration: +3.9% mean gap across 3
+      replays (+12 / +13 / +14); ranges +0.2% to +6.4%. Refit 2026-05-18.

@@ -1,0 +1,66 @@
+# Community WCL log corpus — opt-in submissions for cross-player calibration.
+#
+# Decided 2026-07-06 (docs/validation/phase6_5_community_log_corpus_decision_2026_07_06.md),
+# built 2026-07-26 (Season 2 readiness punch list). The MVP this file backs:
+# a visitor submits a Warcraft Logs report link via the GitHub issue template
+# (.github/ISSUE_TEMPLATE/wcl-log-submission.yml), the owner reviews it by
+# hand, and — only then — appends an entry here. `scripts/
+# recalibrate_from_community_corpus.py` reads this file and re-runs
+# `calibrate_spec_from_wcl.py`'s K-sweep/LOO-CV per spec against every
+# `consented: true` entry.
+#
+# WHY THIS EXISTS: simf is 2-of-6 calibrated because of data scarcity
+# (VDH/Blood DK/Brewmaster/Prot Paladin are each characterized on a SINGLE
+# player's build), not modeling skill — see ROADMAP.md's Active Triage Queue
+# item 5. The `calibrated` tier's own promotion bar (`core.constants.
+# spec_is_calibrated`) needs multiple players/builds; this registry is the
+# only path to ever clearing that bar for a spec other than Prot Warrior.
+#
+# APPEND-ONLY, HAND-REVIEWED. Never auto-ingest an arbitrary WCL code from an
+# issue straight into this file or a script that runs unattended — a
+# malicious or malformed report code is a resource-exhaustion vector against
+# the Pi the moment something pulls it without a human looking first. Adding
+# an entry here IS that human look: read the issue, open the report link
+# yourself, confirm it's a real Midnight (zone 47) Mythic+ fight for the
+# claimed spec, then copy the fields below.
+#
+# THIS IS NOT THE SAME as the one-off diagnostic corpora already in this
+# directory (e.g. prot_warrior_independent_wcl_2026_07_25.yaml) — those were
+# found via WCL's public rankings API without the players' knowledge, valid
+# only for a one-time internal cross-check, never cited by character name in
+# a way that implies consent. Every entry in THIS file was submitted by
+# someone who explicitly checked the consent box on the issue template
+# knowing their character name may be cited in a docs/validation/ finding.
+#
+# Schema per entry:
+#   spec:            class_spec slug (e.g. "vengeance_demon_hunter") — must
+#                     match `character_from_wcl`'s gear-certain resolved spec,
+#                     not just what the submitter claimed in the issue.
+#   wcl_code:         the report code from the WCL URL
+#                     (warcraftlogs.com/reports/<CODE>).
+#   fight_id:         the fight number within that report.
+#   source_id:        the WCL actor id of the target tank (int), or null to
+#                     fall back to a name lookup (less robust for duplicate/
+#                     non-Latin names — prefer the id when the issue's link
+#                     includes a `source=` query param).
+#   target_name:      the tank's in-game name, for `character_from_wcl` and
+#                     for citing in a validation doc.
+#   submitted_via:    the GitHub issue number, e.g. "issue #431".
+#   submitted_date:   ISO date the issue was opened (not when this entry was
+#                     appended — keep the two traceable separately if they
+#                     differ).
+#   consented:        must be `true` — the issue template's consent checkbox
+#                     was checked. Never append an entry where this would be
+#                     false; if consent wasn't given, don't add the row at
+#                     all rather than recording `consented: false`.
+#   contributed_to:   path to the docs/validation/*.md finding this fight
+#                     helped produce, once one exists — `null` until then.
+#   notes:            anything a re-reviewer should know (e.g. ACL on/off,
+#                     an unusual build).
+#
+# Recalibration is manual — see scripts/recalibrate_from_community_corpus.py.
+# No automatic/scheduled re-run: every tier promotion in this project has
+# been human-ratified with a validation doc, and this registry is exactly
+# the place to keep that discipline, not relax it.
+
+submissions: []

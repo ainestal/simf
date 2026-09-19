@@ -1,0 +1,92 @@
+name: Submit a WCL log for calibration
+description: >-
+  Share a Warcraft Logs report so simf can check its tank-survivability model
+  against a real M+ run for a spec that needs more data.
+title: "[WCL submission] "
+labels:
+  - calibration-data
+body:
+  - type: markdown
+    attributes:
+      value: |
+        simf's tank survivability model is only as good as the real combat
+        logs it's been checked against. Right now that's mostly one player's
+        (the maintainer's) own Protection Warrior and Guardian Druid logs —
+        every other spec (Vengeance DH, Blood DK, Brewmaster Monk, Protection
+        Paladin) is characterized on a single player's build, which isn't
+        enough to trust the model generalizes to *your* gear and playstyle.
+
+        A link to a **public or unlisted Warcraft Logs report** of a Mythic+
+        run (any dungeon, any key level, Midnight season) helps close that
+        gap — no combat log file, no addon export, nothing installed. Just
+        the report link and which tank in it to look at.
+
+        **What happens after you submit:** the maintainer reviews this issue
+        by hand (never auto-ingested), opens your report, and — if it's a
+        usable Midnight M+ fight — adds it to `src/simf/data/
+        community_corpus.yaml`, a small registry in the repo. Your fight is
+        then used to compute how far simf's predictions run from what your
+        log actually recorded (a K-sweep / calibration delta). If it
+        contributes to a real finding, the result may be published in a
+        `docs/validation/*.md` writeup that names your character — the same
+        way every existing validation doc in this project cites real
+        characters (per-hit forensics needs a real name to re-derive against
+        the log later). Nothing beyond the report link, character name, and
+        spec is collected.
+  - type: input
+    id: wcl_url
+    attributes:
+      label: Warcraft Logs report URL
+      description: >-
+        The full URL, e.g. https://www.warcraftlogs.com/reports/AbCdEfGh123456.
+        A link with a specific fight selected (?fight=N) or a specific
+        source actor selected (&source=N) is even better — it saves a
+        lookup step.
+      placeholder: "https://www.warcraftlogs.com/reports/..."
+    validations:
+      required: true
+  - type: input
+    id: character_name
+    attributes:
+      label: Tank character name
+      description: The exact in-game name of the tank in that report to analyze.
+      placeholder: "e.g. Brutoh"
+    validations:
+      required: true
+  - type: dropdown
+    id: spec
+    attributes:
+      label: Tank spec
+      description: Which spec was this character playing in the run?
+      options:
+        - Protection Warrior
+        - Guardian Druid
+        - Vengeance Demon Hunter
+        - Blood Death Knight
+        - Brewmaster Monk
+        - Protection Paladin
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else worth knowing?
+      description: >-
+        Optional — e.g. "this run had Advanced Combat Logging off," a
+        talent/build note, or which key level/dungeon if it's not obvious
+        from the report.
+    validations:
+      required: false
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Consent
+      options:
+        - label: >-
+            I'm sharing this report so simf can use it to check and improve
+            its survivability model. I understand the report link and my
+            character name will be stored in a small file in this repo, and
+            that findings from analyzing this fight may be published in the
+            repo's documentation and may name my character.
+          required: true

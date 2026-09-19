@@ -1,0 +1,110 @@
+# simf — Midnight Season 1 tank tier-set registry
+#
+# Tier sets are 5-piece bonuses with thresholds at 2pc and 4pc. Slots: head,
+# shoulder, chest, hands, legs (standard for Midnight S1). The fifth piece
+# rotates depending on raid/crafting drop tables.
+#
+# Item ids are the BoP equipment-set droppable versions. Catalyst conversions
+# share the same id because they remap to the same set bonus.
+#
+# Source: Wowhead set page + in-game tooltip (2026-05-15). Spec field maps to
+# `Character.class_spec` so multi-spec tier (e.g. shared paladin pieces) lists
+# every spec it applies to.
+#
+# Bonus copy is preserved verbatim from Wowhead / Maxroll tooltips, including
+# minor typos ("beyong", missing "and") — fixing them would risk drifting from
+# the in-game string the user is comparing against.
+
+sets:
+  - id: night_ender_warrior
+    name: "Night Ender's Vesture"
+    spec: protection_warrior
+    # Item ids drawn from Brutoh's brutoh-vault.simc — Night Ender pieces
+    # are the Midnight S1 Protection Warrior tier set.
+    # 5-slot set; head was previously missing from this list (latent bug
+    # discovered during the v0.9.4 cross-spec expansion — the comment
+    # "head / shoulder" on 249950 was wrong; 249950 is shoulder only).
+    item_ids:
+      - 249952  # head  — Night Ender's Tusks
+      - 249950  # shoulder — Night Ender's Pauldrons
+      - 249955  # chest — Night Ender's Breastplate
+      - 249953  # hands — Night Ender's Fists
+      - 249951  # legs — Night Ender's Chausses
+    # 2pc + 4pc bonus copy from the in-game tooltip. Defensive flavour;
+    # not modeled mathematically yet — these strings exist so the UI can
+    # surface what the bonus actually does when N pieces are equipped.
+    bonus_2pc: "Shield Block reduces magic damage taken by 8% for its duration."
+    bonus_4pc: "Devastate has a 10% chance to grant 20s of Shield Block."
+
+  - id: luminant_verdict_paladin
+    name: "Luminant Verdict's Vestments"
+    spec: protection_paladin
+    # Source: wowhead.com/item-set=1985/luminant-verdicts-vestments
+    # Slot mapping verified against warcraft.wiki.gg/wiki/Luminant_Verdict's_Vestments.
+    item_ids:
+      - 249961  # head — Luminant Verdict's Unwavering Gaze
+      - 249959  # shoulder — Luminant Verdict's Providence Watch
+      - 249964  # chest — Luminant Verdict's Divine Warplate
+      - 249962  # hands — Luminant Verdict's Gauntlets
+      - 249960  # legs — Luminant Verdict's Greaves
+    bonus_2pc: "Shield of the Righteous deals 20% increased damage."
+    bonus_4pc: "After casting Shield of the Righteous, your next Avenger's Shield deals 5% increased damage. Stacks up to 5."
+
+  - id: ra_den_brewmaster
+    name: "Way of Ra-den's Chosen"
+    spec: brewmaster_monk
+    # Source: wowhead.com/item-set=1984/way-of-ra-dens-chosen
+    # Slot mapping verified against warcraft.wiki.gg/wiki/Way_of_Ra-den's_Chosen.
+    item_ids:
+      - 250015  # head — Fearsome Visage of Ra-den's Chosen
+      - 250013  # shoulder — Aurastones of Ra-den's Chosen
+      - 250018  # chest — Battle Garb of Ra-den's Chosen
+      - 250016  # hands — Thunderfists of Ra-den's Chosen
+      - 250014  # legs — Swiftsweepers of Ra-den's Chosen
+    bonus_2pc: "Keg Smash damage increased by 10%. Breath of Fire damage increased by 10%."
+    bonus_4pc: "Keg Smash's Energy cost is reduced by 5 and when it strikes a target afflicted by Breath of Fire it deals additional Fire damage."
+
+  - id: luminous_bloom_druid
+    name: "Sprouts of the Luminous Bloom"
+    spec: guardian_druid
+    # Source: wowhead.com/item-set=1980/sprouts-of-the-luminous-bloom
+    # Slot mapping verified against warcraft.wiki.gg/wiki/Sprouts_of_the_Luminous_Bloom.
+    # Wowhead's set page lists pieces without slot labels — paired by item name.
+    item_ids:
+      - 250024  # head — Branches of the Luminous Bloom
+      - 250022  # shoulder — Seedpods of the Luminous Bloom
+      - 250027  # chest — Trunk of the Luminous Bloom
+      - 250025  # hands — Arbortenders of the Luminous Bloom
+      - 250023  # legs — Phloemwraps of the Luminous Bloom
+    bonus_2pc: "Raze and Ravage damage increased by 10%. Moonfire deal 10% increased damage."
+    bonus_4pc: "Raze and Ravage have an additional 5% chance to activate Galactic Guardian. Moonfire's periodic damage has a chance to make your next Raze or Ravage strike again at 100% effectiveness."
+
+  - id: relentless_rider_dk
+    name: "Relentless Rider's Lament"
+    spec: blood_death_knight
+    # Source: wowhead.com/item-set=1978/relentless-riders-lament
+    # Slot mapping verified against warcraft.wiki.gg/wiki/Relentless_Rider's_Lament.
+    # Wowhead's slot inference mistakenly labels Dreadthorns as feet — wiki
+    # confirms it is the shoulder piece.
+    item_ids:
+      - 249970  # head — Relentless Rider's Crown
+      - 249968  # shoulder — Relentless Rider's Dreadthorns
+      - 249973  # chest — Relentless Rider's Cuirass
+      - 249971  # hands — Relentless Rider's Bonegrasps
+      - 249969  # legs — Relentless Rider's Legguards
+    bonus_2pc: "Your Blood Boil deals 8% increased damage and generates 3 Runic Power."
+    bonus_4pc: "Your Death Strike deals 8% increased damage has a 10% chance to grant a charge of Blood Boil."
+
+  - id: devouring_reaver_dh
+    name: "Devouring Reaver's Sheathe"
+    spec: vengeance_demon_hunter
+    # Source: wowhead.com/item-set=1979/devouring-reavers-sheathe
+    # Slot mapping verified against warcraft.wiki.gg/wiki/Devouring_Reaver's_Sheathe.
+    item_ids:
+      - 250033  # head — Devouring Reaver's Intake
+      - 250031  # shoulder — Devouring Reaver's Exhaustplates
+      - 250036  # chest — Devouring Reaver's Engine
+      - 250034  # hands — Devouring Reaver's Essence Grips
+      - 250032  # legs — Devouring Reaver's Pistons
+    bonus_2pc: "Fracture damage increased by 35%."
+    bonus_4pc: "Fracture has a 30% chance to spark a violent detonation, causing Fire damage onto nearby enemies. Damage reduced beyong 5 targets."

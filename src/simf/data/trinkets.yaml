@@ -1,0 +1,410 @@
+# simf — Midnight 12.0.5 Season 1 defensive tank trinket catalog
+# Sourced from Icy Veins, Method.gg, Wowhead, and Warcraft Wiki (May 2026).
+# All effect values are at Normal-mode base ilvl unless noted.
+# Stat values use the same rating convention as constants.yaml:
+#   rating = percent × 100  (e.g. 2.5% versatility = versatility_rating: 250)
+# Items marked VERIFY need in-game confirmation for exact numbers.
+# ilvl_base is the Normal-difficulty drop ilvl.
+# ilvl_scaling: heroic +13, mythic +26 above base (standard Midnight S1 gaps).
+
+trinkets:
+
+  # ---------------------------------------------------------------------------
+  # RAID TRINKETS
+  # ---------------------------------------------------------------------------
+
+  - id: 249343
+    name: "Gaze of the Alnseer"
+    source: "Chimaerus – The Dreamrift (Raid)"
+    ilvl_base: 250
+    type: "proc_stat"
+    stats:
+      mastery_rating: 95         # flat passive mastery at base ilvl 250
+    effect:
+      type: primary_stat_proc
+      # "your damage and healing has a chance to grant Alnsight for 12s; while
+      # active, abilities manifest Alnscorned and grant 40 Primary Stat for 12s"
+      # Nerfed post-release; 40 primary stat per stack, up to 15 stacks (VERIFY)
+      stat_key: agility_or_strength
+      value_per_stack: 40        # primary stat per Alnscorned stack (VERIFY post-nerf)
+      max_stacks: 15
+      duration_s: 12.0
+      proc_ppm: 2.0              # ~2 procs per minute (VERIFY)
+      icd_s: 0.0                 # no ICD stated; PPM-gated
+    tanks: all
+    notes: "Best-in-slot passive trinket for all tank specs in Midnight S1. Mastery secondary + stacking primary stat proc. High uptime scales with GCDs (especially Brewmaster)."
+
+  - id: 260235
+    name: "Umbral Plume"
+    source: "Belo'ren, Child of Al'ar – March on Quel'Danas (Raid)"
+    ilvl_base: 256
+    type: "passive_stat"
+    stats:
+      agility_or_strength: 87   # agility for AGI specs, strength for STR specs
+      crit_rating: 236           # wanes over 60s before returning; modeled as avg
+    effect:
+      type: null
+      # Plume builds 60 stacks, loses 1/s (= 60s rotation). Average ~30 stacks → ~50%.
+      # Out-of-combat: transforms into Radiant Plume (mastery instead of crit), 5-min CD.
+      notes: "60-stack crit buff decaying at 1/s; ~50% average uptime on crit component. Agility/Strength is always active."
+    tanks: all
+    notes: "S-tier passive. Transformable to Radiant Plume (mastery) for specs preferring mastery. Solid stat stick for all tanks."
+
+  - id: 249806
+    name: "Radiant Plume"
+    source: "Belo'ren, Child of Al'ar – March on Quel'Danas (Raid)"
+    ilvl_base: 256
+    type: "passive_stat"
+    stats:
+      agility_or_strength: 87
+      mastery_rating: 236        # mastery variant; wanes same as Umbral Plume
+    effect:
+      type: null
+    tanks: all
+    notes: "Holy-form variant of Umbral Plume. Same mechanic, mastery instead of crit. Preferred by specs that value mastery (e.g. Prot Warrior, Brewmaster)."
+
+  - id: 249339
+    name: "Gloom-Spattered Dreadscale"
+    source: "Vaelgor & Ezzorak – The Voidspire (Raid)"
+    ilvl_base: 253
+    type: "on_use_absorb"
+    stats:
+      crit_rating: 95            # passive secondary stat (VERIFY exact value)
+    effect:
+      type: absorb
+      # "Unleash hungering Gloom: deals 75503 Shadow dmg split between nearby
+      # enemies AND absorbs up to 50% of incoming damage until equal amount prevented.
+      # Damage +30% per additional enemy hit, up to 150%."
+      damage_to_enemies: 75503   # at base ilvl; scales with ilvl
+      absorb_pct_of_damage: 0.50 # absorbs 50% of damage dealt (equal-amount cap)
+      # Practical absorb shield at 1 target ≈ 75503×0.5 = ~37750; scales to ~113k at 3+ targets
+      value: 37750               # conservative single-target estimate at base ilvl
+      cooldown_s: 120.0
+      duration_s: 0.0            # no expiration timer; see duration_model below
+      duration_model: "until_consumed" # shield persists until its absorb cap is
+                                  # used up, not a fixed window — trinket_db.py's
+                                  # on_use_absorb handler branches on this (a bare
+                                  # duration_s: 0.0 would silently compute uptime=0)
+    tanks: all
+    notes: "Top defensive on-use. Absorb scales with nearby enemies—best on AoE pulls. 2-min CD makes it poolable for dangerous windows."
+
+  - id: 249346
+    name: "Heart of Ancient Hunger"
+    source: "Vorasius – The Voidspire (Raid)"
+    ilvl_base: 253
+    type: "passive_stat"
+    stats:
+      agility_or_strength: 95   # VERIFY — strength for warriors/pallies, agility for monks/druids/DHs
+    effect:
+      type: null
+    tanks: all
+    notes: "Pure primary-stat stick. Solid DPS and secondary survivability via larger HP pool (strength → parry for warriors). VERIFY exact stat values."
+
+  # ---------------------------------------------------------------------------
+  # DUNGEON TRINKETS — M+ drops
+  # ---------------------------------------------------------------------------
+
+  - id: 252421
+    name: "Rotting Globule"
+    source: "Ick – Pit of Saron (M+ Dungeon)"
+    ilvl_base: 250             # Midnight 12.0.5 M+ +2 drop floor (matches raid-Normal baseline)
+    type: "on_use_absorb"
+    stats: {}
+    effect:
+      type: absorb
+      # "Cover yourself in four fetid pustules, absorbing 110555 damage for 15s.
+      # Each time the shield loses 25% of its value, a pustule erupts dealing
+      # 2868 Plague damage split among nearby enemies."
+      value: 110555
+      duration_s: 15.0
+      cooldown_s: 120.0
+      side_effect: "Each 25% absorbed triggers a 2868 Plague AoE splash (offensive bonus)"
+    tanks: all
+    notes: "B-tier absorb on-use. Large 110k absorb shield for 15s on 2-min CD. No passive stats — pure active defensive value. Good for predictable burst windows."
+
+  - id: 252418
+    name: "Solar Core Igniter"
+    source: "Araknath – Skyreach (M+ Dungeon)"
+    ilvl_base: 250             # M+ +2 drop floor (see Rotting Globule comment for source)
+    type: "on_use_absorb"
+    stats: {}
+    effect:
+      type: absorb_pct_with_vers_return
+      # "Ignite the Solar Core for 15s: radiant shield absorbs 50% of incoming
+      # damage, up to 103645. Gain up to 292 Versatility for 10s if the shield
+      # expires, based on remaining power."
+      absorb_pct: 0.50
+      value: 103645             # cap on absorb amount at base ilvl
+      duration_s: 15.0
+      cooldown_s: 90.0
+      vers_on_expire: 292       # versatility rating gained if shield not fully consumed
+    tanks: all
+    notes: "A-tier on-use absorb. 90s CD (shorter than Dreadscale). Absorbs 50% of incoming up to cap; unused shield converts to Versatility buff. Strong in single-target or steady-damage situations."
+
+  - id: 250242
+    name: "Jelly Replicator"
+    source: "Gemellus – Magister's Terrace (M+ Dungeon)"
+    ilvl_base: 250             # M+ +2 drop floor
+    type: "proc_absorb"
+    stats: {}
+    effect:
+      type: absorb_proc
+      # "Taking damage has a chance to form a jelly shield for 10s,
+      # absorbing 40% of incoming damage up to 37881.
+      # If HP falls below 35%, thickens for 5s absorbing up to 16425."
+      absorb_pct: 0.40
+      value: 37881             # absorb cap at base ilvl
+      duration_s: 10.0
+      icd_s: 30.0              # VERIFY internal cooldown
+      emergency_absorb: 16425  # bonus absorb when HP < 35%
+      emergency_trigger_hp_pct: 0.35
+      emergency_duration_s: 5.0
+    tanks: all
+    notes: "C-tier passive proc absorb. Procs on damage taken; bonus emergency absorb at 35% HP. Pure reactive defense with no passive stats. Useful filler if better options unavailable."
+
+  - id: 250256
+    name: "Heart of Wind"
+    source: "Restless Heart – Windrunner Spire (M+ Dungeon)"
+    ilvl_base: 250             # M+ +2 drop floor
+    type: "proc_stat"
+    stats:
+      # Re-verified 2026-06-10's Season 2 punch-list item (2026-07-26): the
+      # old figure was a PROPORTIONAL backscale (value × 250/272) from a
+      # render 22 ilvls away — wrong functional form. Live Wowhead renders
+      # at ilvl 246 (+79) and 253 (+84) — the tightest bracket the known
+      # upgrade-track bonus_id ladder offers around 250 — interpolate to
+      # +82 at 250 (79 + 5×4/7). The old proportional method assumes the
+      # stat is proportional to ilvl (passes through the origin); it isn't
+      # — trinket primary-stat budgets grow super-linearly with ilvl (local
+      # slope 0.71/ilvl at 246-253 vs 1.11/ilvl at 289-298), so anchoring on
+      # a distant high-ilvl render both used the wrong shape AND borrowed a
+      # steeper slope than the true one near 250, compounding into a real
+      # 13% overstatement (93 → 82). `optimizer/trinket_db.py`'s docstring
+      # confirms passive stats are used as-is (not further ilvl-scaled),
+      # so this number is exactly what "not yet owned" Vault/Gear cards
+      # show for this trinket at its drop floor.
+      agility_or_strength: 82
+    effect:
+      type: haste_proc
+      # "Your spells and abilities have a chance to awaken the Heart of Wind,
+      # surrounding you with strong gales that increase your Haste by X for
+      # 10s." Re-verified 2026-07-26: live renders at 246 (+208), 253
+      # (+217), and 289 (+264, cross-checked via the live rendered page)
+      # all agree on one constant slope (~1.29/ilvl, unlike the primary
+      # stat above) — interpolating that same slope to 250 gives 213, a
+      # much smaller correction (-4%) than the primary stat's, since a
+      # constant-slope quantity doesn't compound the same way when
+      # backscaled from a nearby ilvl (272 is only 22 away, not 39-48).
+      stat_key: haste_rating
+      value: 213
+      duration_s: 10.0
+      # proc_ppm stays VERIFY — re-checked live (2026-07-26, both the raw
+      # Wowhead &xml tooltip endpoint and a real headless-browser render of
+      # the item page) and found no proc-rate data exposed anywhere for
+      # this item; whatever sourced the original "~3 RPPM" estimate isn't
+      # reproducible via any tool available here. Leave as an estimate —
+      # don't re-attempt the same lookup path in a future session.
+      proc_ppm: 3.0            # VERIFY — unverifiable via Wowhead's item/xml or rendered page (checked 2026-07-26)
+      icd_s: 0.0
+    tanks: all
+    notes: "A-tier stat stick from M+. Passive primary stat + haste proc. Popular choice for tanks who want dungeon-accessible throughput and rage generation (haste helps warriors)."
+
+  - id: 250241
+    name: "Mark of Light"
+    source: "Lothraxion – Nexus-Point Xenas (M+ Dungeon)"
+    ilvl_base: 250             # M+ +2 drop floor
+    type: "proc_stat"
+    stats:
+      # Re-verified 2026-07-26 (Season 2 punch-list item) — same fix as
+      # Heart of Wind's stat line above, same root cause: the old figure
+      # backscaled proportionally from a 289/298 render (39-48 ilvls away)
+      # assuming the stat is proportional to ilvl. Live renders at 246
+      # (+79) and 253 (+84) — sharing the identical trinket primary-stat
+      # budget Heart of Wind's own 246/253 renders show, confirming
+      # trinkets at a given ilvl+quality share one budget curve regardless
+      # of which stat is labeled — interpolate to +82 at 250, a 23% cut
+      # from the old 107.
+      strength: 82
+    effect:
+      # "Your attacks have a chance to unleash a Radiant Strike at your target,
+      # dealing Holy damage split among nearby enemies." (Wowhead spell 1250582.)
+      # Pure offensive proc — no absorb / heal / DR rider (verified on the spell
+      # tooltip 2026-06-10). No stat_key on purpose: the defensive ledger credits
+      # the passive Strength only, same convention as Undreamt God's Oozing Vestige.
+      type: damage_proc
+      # Re-verified 2026-07-26: the old 10881 backscaled proportionally
+      # from the 289 render (12579), 39 ilvls away. Live renders at 246
+      # (6603) and 253 (7095) bracket ilvl_base=250 tightly (interpolate:
+      # 6603 + 492×4/7 = 6884) — a 37% cut from the old figure, the
+      # largest correction of this sweep, since damage compounds the same
+      # super-linear-budget error the primary stat does (local slope
+      # 70.3/ilvl at 246-253 vs ~202/ilvl between the 289/298 renders —
+      # nearly 3× steeper far from 250 than close to it).
+      damage: 6884
+      proc_ppm: 3.5            # VERIFY — same unverifiable-via-available-tools status as Heart of Wind's proc_ppm above (checked 2026-07-26)
+      splits: true             # damage splits among nearby enemies — wanes on big pulls
+      icd_s: 0.0
+    tanks: all
+    notes: "Offensive proc stick: passive Strength + Holy damage proc. Zero direct survivability contribution beyond the passive Strength (which the closed-form eHP ledger doesn't credit for warriors). DPS proc splits among enemies, so single-target padding, weak on large M+ pulls."
+
+  - id: 250144
+    name: "Emberwing Feather"
+    source: "Emberdawn – Windrunner Spire (M+ Dungeon)"
+    ilvl_base: 250             # M+ +2 drop floor
+    type: "on_use_stat"
+    stats:
+      agility_or_strength: 26  # passive primary stat (VERIFY)
+    effect:
+      type: haste_on_use
+      # "Unleash an Emberwing Heatwave, increasing your Haste by 141 for 15s.
+      # Low chance to suffer Emberwing Burn, reducing another secondary stat by 43 for 10s."
+      stat_key: haste_rating
+      value: 141
+      duration_s: 15.0
+      cooldown_s: 120.0
+      penalty_stat: random_secondary
+      penalty_value: 43
+      penalty_duration_s: 10.0
+      penalty_chance: 0.15     # VERIFY — "low chance"
+    tanks: all
+    notes: "On-use haste burst. Good for coordinating with offensive cooldowns. Minor RNG penalty on secondary stat. Primarily DPS value; limited direct survivability contribution."
+
+  - id: 252420
+    name: "Solarflare Prism"
+    source: "High Sage Viryx – Skyreach (M+ Dungeon)"
+    ilvl_base: 250             # M+ +2 drop floor
+    type: "proc_stat"
+    stats:
+      agility_or_strength: 107  # VERIFY — confirmed +128 [Agility or Strength] @298 render (Wowhead 2026-06-10), linear-ratio backscaled to 250. Was {} because item_db's name_map lacked the two-way agi/str label — the item is NOT stat-less.
+    effect:
+      type: crit_proc
+      # "Your damaging abilities have a chance to unleash the prism's radiant
+      # light, increasing your Critical Strike by 249 for 10 sec, further
+      # increased by 1 for every 1% of the target's missing health, up to a
+      # maximum of 304." (confirmed @298 render, spell 1254640, 2026-06-10)
+      stat_key: crit_rating
+      value_base: 209          # 249 @298, linear-backscaled to ilvl_base 250
+      value_cap: 255           # 304 @298, linear-backscaled to ilvl_base 250
+      # Value scales linearly with target's missing health; modeled at avg
+      value_avg: 232           # midpoint of base/cap, same convention as before
+      duration_s: 10.0
+      proc_ppm: 2.0            # VERIFY
+      icd_s: 0.0
+    tanks: all
+    notes: "A-tier crit proc WITH a passive agi/str primary (a parser gap hid it until 2026-06-10). Proc scales on execute targets (best vs low-HP enemies). Good for all melee tank specs."
+
+  - id: 151307
+    name: "Void Stalker's Contract"
+    source: "Saprish – Seat of the Triumvirate (M+ Dungeon)"
+    ilvl_base: 250             # M+ +2 drop floor (legacy Legion trinket re-tuned for Midnight M+)
+    type: "on_use_damage"
+    stats:
+      agility_or_strength: 6   # VERIFY — original base was very low; may scale in M+
+    effect:
+      type: damage_on_use
+      # "Call two Void Stalkers to strike your target from two directions,
+      # inflicting up to 1106 Physical dmg to all enemies in their paths."
+      # Values scale significantly in Midnight M+ context (VERIFY)
+      damage: 1106             # base; scales with key level / ilvl in M+
+      cooldown_s: 90.0
+      does_not_split: true     # damage does NOT split between targets (vs adds it's full value per stalker)
+    tanks: all
+    notes: "On-use single-target/add cleave damage. Does not split — strong for sniping priority adds. Primarily offensive; minimal direct survivability value for tanks."
+
+  - id: 151312
+    name: "Ampoule of Pure Void"
+    source: "Zuraal the Ascended – Seat of the Triumvirate (M+ Dungeon)"
+    ilvl_base: 250             # M+ +2 drop floor (legacy Legion trinket re-tuned for Midnight M+)
+    type: "on_use_heal"
+    stats: {}
+    effect:
+      type: void_puddle_heal
+      # "Spawn a Void puddle at your feet for 10s. Deals Shadow damage to enemies
+      # standing in it; heals you for 300% of that damage dealt."
+      duration_s: 10.0
+      cooldown_s: 60.0
+      heal_pct_of_damage: 3.0  # 300% of damage dealt → self-heal
+      notes: "AoE-dependent; healing scales with enemies in puddle. Useless on single target with no damage, excellent on big pulls."
+    tanks: all
+    notes: "On-use self-heal via AoE puddle. Shines on large pulls where many enemies take full damage. Minimal value on bosses or sparse packs."
+
+  # ---------------------------------------------------------------------------
+  # CRAFTED TRINKETS
+  # ---------------------------------------------------------------------------
+
+  - id: 241340
+    name: "Magister's Alchemist Stone"
+    source: "Crafted – Alchemy (Embellishment, requires 30 Transmutation Authority)"
+    ilvl_base: 285             # Midnight 12.0.5 crafted quality 5 baseline; matches Brutoh's quality-5 wrist + off-hand at ilvl 285
+    type: "passive_stat"
+    stats:
+      versatility_rating: 93   # flat secondary at base ilvl
+    effect:
+      type: primary_stat_proc
+      # "When you heal or deal damage, chance to gain 35 of your highest primary stat for 15s."
+      stat_key: agility_or_strength
+      value: 35
+      duration_s: 15.0
+      proc_ppm: 1.5            # VERIFY estimated PPM
+      icd_s: 0.0
+    tanks: all
+    notes: "Crafted embellishment. Solid passive versatility (best tank secondary) + minor primary stat proc. Accessible without raiding. 1 embellishment slot cost."
+
+  # ---------------------------------------------------------------------------
+  # SPEC-SPECIFIC NOTABLE TRINKETS
+  # ---------------------------------------------------------------------------
+
+  - id: 193701
+    name: "Algeth'ar Puzzle Box"
+    source: "Echo of Doragosa – Algeth'ar Academy (M+ Dungeon)"
+    ilvl_base: 250             # M+ +2 drop floor (re-tuned for Midnight M+ from Dragonflight original)
+    type: "on_use_stat"
+    stats: {}
+    effect:
+      type: mastery_on_use
+      # "Increase your Mastery by X for 20s." (VERIFY exact mastery value at current ilvl scaling)
+      stat_key: mastery_rating
+      value: 300               # VERIFY — original DF values; may be retuned for Midnight
+      duration_s: 20.0
+      cooldown_s: 120.0
+      cast_time_s: 2.0         # 2-second cast — cannot be used while taking damage
+    tanks:
+      - protection_warrior
+      - guardian_druid
+    notes: "Strong on-use mastery burst. 2-second cast is a major limitation in M+ — only usable in safe windows. Valuable for Prot Warrior (block value scaling) and Guardian Druid."
+
+  - id: 249344
+    name: "Light Company Guidon"
+    source: "Imperator Averzian – The Voidspire (Raid)"
+    ilvl_base: 253
+    type: "on_use_stat"
+    stats:
+      agility_or_strength: 80  # VERIFY
+    effect:
+      type: haste_on_use
+      # "Increase movement speed of allies; activating in tandem with other version
+      # provides a Haste buff for 15s." (VERIFY exact haste value)
+      stat_key: haste_rating
+      value: 200               # VERIFY
+      duration_s: 15.0
+      cooldown_s: 90.0
+    tanks:
+      - blood_death_knight      # particularly recommended for San'layn Blood DKs
+    notes: "Raid on-use haste stick. Method recommends macroing into Dancing Rune Weapon for Blood DK. Primarily offensive value; Blood DK San'layn gets additional synergy."
+
+  - id: 249805
+    name: "Undreamt God's Oozing Vestige"
+    source: "Raid – The Voidspire (VERIFY boss)"
+    ilvl_base: 253
+    type: "proc_stat"
+    stats:
+      agility_or_strength: 80  # VERIFY
+    effect:
+      type: damage_stack_proc
+      # "Stacking damage proc; at max 5 stacks deals bonus damage cleaving nearby enemies.
+      # Damage increases per enemy struck, up to 5 enemies."
+      max_stacks: 5
+      cleavage_bonus_pct: 0.20  # VERIFY
+      icd_s: 0.0
+    tanks: all
+    notes: "C-tier offensive proc. DPS value only; no survivability contribution. Listed for completeness."

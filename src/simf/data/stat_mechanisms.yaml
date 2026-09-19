@@ -1,0 +1,199 @@
+# Per-(class_spec, stat) plain-language mechanism glosses.
+#
+# One entry per (class_spec, stat) pair this engine tracks (the 8 stats
+# `optimizer/survivability_weights.py:PERTURBED_STATS` perturbs, plus
+# `leech_rating`, which the survival model never wires up for anyone).
+#
+# Every entry is one of two things:
+#   - a REAL mechanism: `gloss` is a plain-English sentence describing the
+#     actual code path (no "marginal"/"regression"/"K constant"/"ETMI"
+#     jargon), and `source_ref` names the file:symbol that implements it —
+#     verified against the engine source on 2026-07-09, not assumed from
+#     general WoW theorycraft. `optimizer/stat_mechanisms.py:mechanism_tag`
+#     only surfaces this gloss when the character's own live marginals show
+#     the stat is actually priced (nonzero) for their build.
+#   - the literal sentinel string "not modeled yet — no survival credit"
+#     (source_ref: null) for a (spec, stat) pair with NO mechanism anywhere
+#     in the engine. mechanism_tag returns this unconditionally — saying
+#     "not modeled" about a stat that is genuinely never priced is always
+#     true, so it isn't gated on the marginal (which is always zero anyway).
+#
+# Keep this file honest, not comprehensive-sounding: a "not modeled yet"
+# entry is a true statement about THIS codebase today, not a claim about
+# WoW itself (e.g. Brewmaster's real-game Elusive Brawler mastery isn't
+# wired here — that's a gap in simf, not evidence mastery does nothing for
+# a real Brewmaster).
+
+protection_warrior:
+  stamina:
+    gloss: "Stamina raises your maximum health directly, so you can take more total damage before you die."
+    source_ref: "character.py:max_hp"
+  armor_from_gear:
+    gloss: "Armor reduces the physical damage you take, and two Warrior talents (Reinforced Plates, Armor Specialization) add a further percentage on top of your gear's armor."
+    source_ref: "character.py:total_armor"
+  versatility_rating:
+    gloss: "In simf's model, Versatility cuts a flat percentage off every hit you take, physical or magic; it isn't modeled as also boosting the healing you receive."
+    source_ref: "mitigation.py:cached_versatility_dr"
+  haste_rating:
+    gloss: "Haste speeds up your rage generation, and more rage means more uses of Shield Block and Demoralizing Shout over a fight."
+    source_ref: "policy.py:ActiveMitigationPolicy.tick"
+  crit_rating:
+    gloss: "Crit converts directly into bonus parry chance via the Riposte spec ability, so it raises your avoidance outright. With the Brutal Vitality talent, critical strikes also raise the damage you deal, and a slice of that damage becomes an Ignore Pain absorb shield."
+    source_ref: "character.py:base_parry"
+  mastery_rating:
+    gloss: "Mastery raises your chance to block an attack and your chance to land a stronger, double-value block, both of which cut physical damage taken."
+    source_ref: "character.py:base_block"
+  strength:
+    gloss: "Strength raises your parry chance, letting you avoid physical attacks outright."
+    source_ref: "character.py:base_parry"
+  agility:
+    gloss: "not modeled yet — no survival credit"
+    source_ref: null
+  leech_rating:
+    gloss: "not modeled yet — no survival credit"
+    source_ref: null
+
+protection_paladin:
+  stamina:
+    gloss: "Stamina raises your maximum health directly, so you can take more total damage before you die."
+    source_ref: "character.py:max_hp"
+  armor_from_gear:
+    gloss: "Armor reduces the physical damage you take, following the same curve every tank uses."
+    source_ref: "character.py:total_armor"
+  versatility_rating:
+    gloss: "In simf's model, Versatility cuts a flat percentage off every hit you take, physical or magic; it isn't modeled as also boosting the healing you receive."
+    source_ref: "protection_paladin.py:apply_protection_paladin_mitigation"
+  haste_rating:
+    gloss: "Haste speeds up how fast you generate Holy Power, letting you cast Shield of the Righteous more often for its damage reduction and block window."
+    source_ref: "protection_paladin.py:ProtPalPolicy.tick"
+  crit_rating:
+    gloss: "not modeled yet — no survival credit"
+    source_ref: null
+  mastery_rating:
+    gloss: "Mastery raises your chance to block attacks outside of Shield of the Righteous' window, cutting physical damage taken."
+    source_ref: "protection_paladin.py:apply_protection_paladin_mitigation"
+  strength:
+    gloss: "Strength raises your parry chance, letting you avoid physical attacks outright."
+    source_ref: "character.py:base_parry"
+  agility:
+    gloss: "not modeled yet — no survival credit"
+    source_ref: null
+  leech_rating:
+    gloss: "not modeled yet — no survival credit"
+    source_ref: null
+
+blood_death_knight:
+  stamina:
+    gloss: "Stamina raises your maximum health directly, so you can take more total damage before you die."
+    source_ref: "character.py:max_hp"
+  armor_from_gear:
+    gloss: "Armor reduces the physical damage you take, following the same curve every tank uses."
+    source_ref: "character.py:total_armor"
+  versatility_rating:
+    gloss: "In simf's model, Versatility cuts a flat percentage off every hit you take, physical or magic; it isn't modeled as also boosting the healing you receive."
+    source_ref: "blood_death_knight.py:apply_blood_dk_mitigation"
+  haste_rating:
+    gloss: "not modeled yet — no survival credit"
+    source_ref: null
+  crit_rating:
+    gloss: "not modeled yet — no survival credit"
+    source_ref: null
+  mastery_rating:
+    gloss: "In simf's model, higher Mastery scales up how much Death Strike heals you for, so more health recovered per press."
+    source_ref: "blood_death_knight.py:BloodDKPolicy.decide"
+  strength:
+    gloss: "Strength adds bonus armor on top of your gear while Bone Shield is up, and also raises your parry chance — both cut physical damage taken."
+    source_ref: "blood_death_knight.py:apply_blood_dk_mitigation"
+  agility:
+    gloss: "not modeled yet — no survival credit"
+    source_ref: null
+  leech_rating:
+    gloss: "not modeled yet — no survival credit"
+    source_ref: null
+
+vengeance_demon_hunter:
+  stamina:
+    gloss: "Stamina raises your maximum health directly, so you can take more total damage before you die."
+    source_ref: "character.py:max_hp"
+  armor_from_gear:
+    gloss: "Armor reduces the physical damage you take, and it gets multiplied further while Metamorphosis is active."
+    source_ref: "vengeance_dh.py:apply_vengeance_dh_mitigation"
+  versatility_rating:
+    gloss: "In simf's model, Versatility cuts a flat percentage off every hit you take, physical or magic; it isn't modeled as also boosting the healing you receive."
+    source_ref: "vengeance_dh.py:apply_vengeance_dh_mitigation"
+  haste_rating:
+    gloss: "not modeled yet — no survival credit"
+    source_ref: null
+  crit_rating:
+    gloss: "not modeled yet — no survival credit"
+    source_ref: null
+  mastery_rating:
+    gloss: "not modeled yet — no survival credit"
+    source_ref: null
+  strength:
+    gloss: "Strength adds a small amount of parry chance in the avoidance model, though Vengeance itself gears Agility, so this rarely matters in practice."
+    source_ref: "character.py:base_parry"
+  agility:
+    gloss: "Agility adds bonus armor while Demon Spikes is active, cutting physical damage taken during that window."
+    source_ref: "vengeance_dh.py:apply_vengeance_dh_mitigation"
+  leech_rating:
+    gloss: "not modeled yet — no survival credit"
+    source_ref: null
+
+brewmaster_monk:
+  stamina:
+    gloss: "Stamina raises your maximum health directly, so you can take more total damage before you die."
+    source_ref: "character.py:max_hp"
+  armor_from_gear:
+    gloss: "Armor reduces the physical damage you take, following the same curve every tank uses."
+    source_ref: "character.py:total_armor"
+  versatility_rating:
+    gloss: "In simf's model, Versatility cuts a flat percentage off every hit you take, physical or magic; it isn't modeled as also boosting the healing you receive."
+    source_ref: "brewmaster_monk.py:apply_brewmaster_mitigation"
+  haste_rating:
+    gloss: "not modeled yet — no survival credit"
+    source_ref: null
+  crit_rating:
+    gloss: "not modeled yet — no survival credit"
+    source_ref: null
+  mastery_rating:
+    gloss: "not modeled yet — no survival credit"
+    source_ref: null
+  strength:
+    gloss: "not modeled yet — no survival credit"
+    source_ref: null
+  agility:
+    gloss: "not modeled yet — no survival credit"
+    source_ref: null
+  leech_rating:
+    gloss: "not modeled yet — no survival credit"
+    source_ref: null
+
+guardian_druid:
+  stamina:
+    gloss: "Stamina raises your maximum health directly — in Bear Form it's worth even more, since Bear Form adds 40% more max health on top of it."
+    source_ref: "character.py:max_hp"
+  armor_from_gear:
+    gloss: "Armor reduces the physical damage you take. Bear Form multiplies your armor by 3.2, and Ironfur stacks add further bonus armor on top of that."
+    source_ref: "character.py:total_armor"
+  versatility_rating:
+    gloss: "In simf's model, Versatility cuts a flat percentage off every hit you take, physical or magic; it isn't modeled as also boosting the healing you receive."
+    source_ref: "guardian_druid.py:apply_guardian_mitigation"
+  haste_rating:
+    gloss: "For an Elune's Chosen Guardian, haste raises your rage generation, which keeps more Ironfur stacks up for more armor. It does nothing for a Druid of the Claw build."
+    source_ref: "character.py:_guardian_ironfur_avg_stacks"
+  crit_rating:
+    gloss: "not modeled yet — no survival credit"
+    source_ref: null
+  mastery_rating:
+    gloss: "Mastery (Nature's Guardian) increases how much you're healed by non-percent heals and absorbs, so more of the damage you take gets healed back."
+    source_ref: "character.py:incoming_healing_multiplier"
+  strength:
+    gloss: "not modeled yet — no survival credit"
+    source_ref: null
+  agility:
+    gloss: "Agility adds bonus armor through Ironfur and also raises your dodge chance directly."
+    source_ref: "character.py:total_armor"
+  leech_rating:
+    gloss: "not modeled yet — no survival credit"
+    source_ref: null

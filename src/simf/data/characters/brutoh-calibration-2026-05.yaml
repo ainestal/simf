@@ -1,0 +1,33 @@
+# Brutoh — FROZEN calibration-era snapshot (in-game character sheet 2026-05-06).
+#
+# The K=3430 calibration (16-log corpus, RMSE 0.068) and every replay-anchored
+# validation doc were measured against THIS stat block, and the log corpus
+# itself is May-era — replaying those logs against a later gear state shifts
+# the baselines. Do NOT update this file; it is deliberately frozen
+# (2026-06-10, when the living brutoh.yaml moved to the June Armory sheet).
+# `calibrate-k` and `replay-log` default here; the living character for the
+# demo and the user-facing CLI tools is brutoh.yaml.
+# Midnight 12.0.5 stat-squished scale.
+
+name: Brutoh
+race: earthen
+class_spec: protection_warrior
+talents: brutoh-actual            # matches log talents (Phalanx + Fueled by Violence + kiratank base) per MGT+12 audit 2026-05-16
+
+# Primary stats (from character sheet)
+strength: 2182
+stamina: 34176
+armor_from_gear: 5015            # in-game shows 5517; backed out Earthen 1.10x → 5015
+shield_armor: 989                # Spellbreaker's Rebuke at ilvl 295 (post-voidcore upgrade 2026-05-19). In-game tooltip ground truth read 2026-05-20: 989 armor / 66 str / 952 stam / 42 crit / 42 haste. The YAML's bonus_ids list (12214/12497/12066/8960/12384/8790/13622) was captured pre-upgrade at ilvl 285 — Wowhead XML returns 931 for that older state (correct for that ilvl, ~6% lower than current). Historical calibration logs in examples/ are all pre-2026-05-19 ilvl 285; the K sweep in docs/validation/k_calibration_f12_2026_05_20.md was correctly run against 931. Current sim runs use 989.
+
+# Secondary ratings (2026-06-28 recalibration). haste/crit/vers are now in REAL
+# level-90 units (rating_per_pct 44/46/54), rescaled to PRESERVE the in-game %
+# so the K calibration is a no-op. MASTERY stays in its per-spec 100 units (mastery
+# rating→% is per-spec ≈100, not a uniform 44-54 combat rating). In-game shows:
+# 23.18% / 13.91% / 16.08% / 2.96% (1.48% DR).
+haste_rating: 1020               # → 23.18% haste (1020/44)
+crit_rating: 640                 # → 13.91% crit (640/46)
+mastery_rating: 1608             # → 16.08% mastery (1608/100, per-spec conversion)
+versatility_rating: 160          # → 2.96% vers / 1.48% DR (160/54)
+
+max_hp_override: 751872          # in-game HP

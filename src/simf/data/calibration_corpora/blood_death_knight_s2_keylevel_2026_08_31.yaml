@@ -1,0 +1,158 @@
+# blood_death_knight — Season 2 (zone 55) cross-player accuracy spot-check,
+# ROUND 2 (2026-08-31), bucketed by target keystone level.
+#
+# NOT a ratified calibration manifest. Independent follow-up to
+# blood_death_knight_s2_keylevel_2026_08_30.yaml (round 1, the day before) —
+# same methodology (reportData.reports(zoneID: 55), CombatantInfo-confirmed
+# gear-certain), fresh discovery. All 12 fights below are NEW: none overlap
+# report_code+fight_id with round 1's two manifests
+# (blood_death_knight_s2_keylevel_2026_08_30.yaml,
+# blood_death_knight_sanlayn_2026_08_30.yaml).
+#
+# Discovery notes:
+#   - Scanned reportData.reports(zoneID: 55) across multiple startTime-sliced
+#     windows (page<=25 hard cap per window; used endTime slicing to go
+#     further back) to build a pool of ~400 distinct Blood DK candidate
+#     fights near each target key level, then picked 3 per bucket favoring
+#     (a) exact key-level match, (b) distinct players, (c) distinct dungeons.
+#   - Target 8, 12, 16 buckets: 3 distinct dungeons and 3 distinct players
+#     each, met almost entirely with exact key-level matches (one widened
+#     fight in the 8-bucket, below).
+#   - Target 2 bucket: genuinely thin, same live-data pattern round 1 flagged
+#     ("logging population has largely moved past trivial keys" — now 13
+#     days into the season, one day further than round 1). Only ONE report
+#     had any exact key-level-2 Blood DK fight at all in the scanned pool;
+#     used 2 of its 3 tanks (Player 1, Player 2 — distinct players, distinct
+#     dungeons: Den of Nalorakk / Murder Row) plus one widened key-3 fight
+#     from a DIFFERENT report (Player 3) to avoid an all-same-report bucket.
+#     Disclosed per the task's reuse-when-thin convention: 2 of 3 fights
+#     still share one report/session — a real independence caveat for that
+#     bucket only.
+#   - Hero-talent classification (via
+#     wcl_api.fetch_buff_windows(..., ability_ids={434034, 440289, 440290})):
+#     7 San'layn (434034 Blood-Soaked Ground), 5 Deathbringer (440289/440290
+#     Rune Carved Plates) — a real mix, unlike round 1's corpus which turned
+#     out (unchecked at the time) to be 12/12 San'layn. hero_talent noted
+#     per fight below.
+#
+# VALIDATION RUN STATUS: COMPLETE (re-run after the initial attempt hit a WCL
+# 429 — see docs/validation/s2_cross_spec_keylevel_check_round2_2026_08_31.md
+# for the full incident; the underlying cause, fetch_buff_windows() never
+# threading cache_dir through to _gql, is now fixed in wcl_api.py).
+#
+# RESULT (n=12, K=3430, iterations=50, seed=42, healing_profile=
+# m+_high_key_healer, via scripts/cross_player_validation.py): mean bias
+# -1.6%, RMSE 0.087, 92% within +/-15% — GATE PASS. A SECOND consecutive
+# cross-player PASS for Blood DK (round 1: +3.2%/0.125/83%, also PASS) — the
+# only spec that has now passed this gate twice. Per-fight deltas: Player 1
+# -2.9%, Player 2 -1.2%, Player 3 +3.1%, Player 4 -8.3%, Player 5 +3.6%,
+# Player 6 -4.3%, Player 7 -4.7%, Player 8 +7.2%, Player 9 -23.0% (outlier),
+# Player 10 -5.1%, Player 11 +5.0%, Player 12 +11.3%.
+#
+# Reproduce: python scripts/cross_player_validation.py \
+#   --manifest <this file> --wcl-cache-dir examples/wcl_cache
+
+spec: blood_death_knight
+k_constant: 3430
+iterations: 50
+
+fights:
+  # --- target_key_level: 2 ---
+  - player: "Player 1"
+    dungeon: "Den of Nalorakk"
+    key_level: 2
+    target_key_level: 2
+    exact_match: true
+    acl: true
+    hero_talent: san_layn
+
+  - player: "Player 2"
+    dungeon: "Murder Row"
+    key_level: 2
+    target_key_level: 2
+    exact_match: true
+    acl: true
+    hero_talent: san_layn
+
+  - player: "Player 3"
+    dungeon: "Murder Row"
+    key_level: 3
+    target_key_level: 2
+    exact_match: false
+    acl: true
+    hero_talent: deathbringer
+
+  # --- target_key_level: 8 ---
+  - player: "Player 4"
+    dungeon: "Temple of Sethraliss"
+    key_level: 8
+    target_key_level: 8
+    exact_match: true
+    acl: true
+    hero_talent: san_layn
+
+  - player: "Player 5"
+    dungeon: "Murder Row"
+    key_level: 8
+    target_key_level: 8
+    exact_match: true
+    acl: true
+    hero_talent: deathbringer
+
+  - player: "Player 6"
+    dungeon: "Altar of Fangs"
+    key_level: 9
+    target_key_level: 8
+    exact_match: false
+    acl: true
+    hero_talent: deathbringer
+
+  # --- target_key_level: 12 ---
+  - player: "Player 7"
+    dungeon: "Kings' Rest"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+    hero_talent: san_layn
+
+  - player: "Player 8"
+    dungeon: "Ruby Life Pools"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+    hero_talent: san_layn
+
+  - player: "Player 9"
+    dungeon: "Altar of Fangs"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+    hero_talent: deathbringer
+
+  # --- target_key_level: 16 ---
+  - player: "Player 10"
+    dungeon: "Murder Row"
+    key_level: 16
+    target_key_level: 16
+    exact_match: true
+    acl: true
+    hero_talent: san_layn
+
+  - player: "Player 11"
+    dungeon: "Temple of Sethraliss"
+    key_level: 16
+    target_key_level: 16
+    exact_match: true
+    acl: true
+    hero_talent: san_layn
+
+  - player: "Player 12"
+    dungeon: "Kings' Rest"
+    key_level: 16
+    target_key_level: 16
+    exact_match: true
+    acl: true
+    hero_talent: san_layn

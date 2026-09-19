@@ -1,0 +1,74 @@
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+.coverage
+htmlcov/
+.DS_Store
+
+# Playwright MCP screenshot artifacts from local browser-driven test/review runs
+.playwright-mcp/
+
+# Deploy secrets — never commit. A hosted instance's real secrets.env lives
+# outside this repo (deploy tooling is privately managed, not part of this repo).
+secrets.env
+*.secrets.env
+.vscode/
+.idea/
+benchmark_results.json
+
+# Personal / session-scoped artifacts (not part of the project)
+.worktrees/
+loop-progress.log
+loop-blocked.log
+loop-summary.md
+session.txt
+next.session
+
+# User-supplied combat logs / screenshots — kept locally, never in git
+# (some logs are hundreds of MB; GitHub rejects files >100 MB).
+examples/WoWCombatLog-*.txt
+examples/Logs/
+examples/Logs-*.zip
+examples/wetransfer_*.zip
+examples/Split-*.txt
+examples/screenshots/
+examples/Screenshot *.png
+examples/mai/
+# 1.7 GB Guardian calibration corpus (AnonGuardian1) — kept local, never in git
+examples/anonguardian1-guardian/
+# Prot Paladin calibration corpus (Bruttah) — kept local, never in git
+examples/bruttah-prot/
+# Opt-in WCL API response cache (io/wcl_api.py's _gql cache_dir param) —
+# raw JSON per query, reusable across sessions, never in git.
+examples/wcl_cache/
+
+# Local UI redesign scratch — designer iterations / mockups / token
+# experiments that live outside the canonical Streamlit codebase.
+# Anything ready for production gets ported into src/simf/ui/.
+ui-revamp/
+
+# Local profiling artifacts (py-spy + cProfile dumps). Anchored to the repo
+# root — an UNANCHORED `profiles/` also matched src/simf/data/profiles/, which
+# made hatchling silently drop the sim damage/healing profiles from the wheel
+# (the installed public app then crashed with FileNotFoundError on any sim).
+.profiling/
+/profiles/
+
+# Coverage report artifacts
+.coverage
+.coverage.*
+.coverage_html/
+coverage.xml
+
+# post-merge hook's simf-owner reconcile log (scripts/hooks/post-merge) —
+# a local bounce artifact, never part of the project.
+.simf-owner-bounce.log

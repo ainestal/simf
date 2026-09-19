@@ -1,0 +1,137 @@
+# guardian_druid — Season 2 (zone 55) cross-player accuracy spot-check,
+# ROUND 2 (2026-08-31), following up on the 2026-08-30 round-1 check
+# (src/simf/data/calibration_corpora/guardian_druid_s2_keylevel_2026_08_30.yaml,
+# docs/validation/s2_cross_spec_keylevel_check_2026_08_30.md).
+#
+# NOT a ratified calibration manifest. 12 fresh, independent-player WCL
+# fights from Midnight Mythic+ Season 2 (WCL zone 55, "Mythic+ Season 2"),
+# discovered via reportData.reports(zoneID: 55) (same global recent-reports
+# feed as round 1, which does not redact codes) and confirmed ACL-on via
+# CombatantInfo. NONE of these 12 fights overlap round 1's 10 -- fresh
+# discovery, not reuse, for every entry. Grouped into 4 buckets targeting
+# key levels 2, 8, 12, and 16 (3 fights/bucket); widened up to +/-2 (+/-1 for
+# the "2" bucket) where an exact match wasn't picked, per the same widening
+# convention as round 1. Every bucket has >=2 distinct dungeons (round 1's
+# stated quality gap): kl2 spans Ruby Life Pools + Den of Nalorakk, kl8 spans
+# Murder Row + Altar of Fangs + Temple of Sethraliss, kl12 spans Den of
+# Nalorakk + Voidscar Arena + The Blinding Vale (all 3 exact-match), kl16
+# spans Ruby Life Pools + Temple of Sethraliss + Murder Row. Combined with
+# round 1's dungeon list (Voidscar Arena, Altar of Fangs, Temple of
+# Sethraliss, Ruby Life Pools, Murder Row, Kings' Rest), all 8 Season 2
+# dungeons have now been sampled across the two Guardian Druid rounds.
+#
+# Discovery notes: scanned 11 pages (275 reports, 228 fights) of
+# reportData.reports(zoneID: 55) starting from page 1 -- well under the
+# page<=25 hard cap observed in round 1 -- and filled all 4 buckets to 3+
+# distinct players each without needing to widen the scan window or hit the
+# cap. Guardian Druid read noticeably less sparse in this scan than round 1's
+# (which needed a full 500-report scan and still only found 1 kl=2 fight);
+# this round found 3 distinct kl=2 players inside 275 reports -- most likely
+# day-to-day variance in who logged, not a real population shift.
+#
+# Operational note: mid-run, WCL's shared owner-key hourly point budget
+# (ADR 0001) was fully exhausted by other agents running the same round-2
+# check concurrently for other specs (persistent HTTP 429 on every endpoint,
+# including the plaintext rateLimitData query, for several minutes);
+# discovery paused and resumed automatically once the hourly window rolled
+# over (limit_per_hour=3600, confirmed via fetch_rate_limit). This is
+# shared-infrastructure contention, not a Guardian-Druid-specific or
+# data-availability issue, and required no code changes to route around --
+# unrelated to the fit numbers below.
+#
+# Deltas measured at canonical K=3430, iterations=50, seed=42,
+# healing_profile=m+_high_key_healer, via scripts/cross_player_validation.py
+# (same tool + gate as round 1 and every prior cross-player check).
+
+spec: guardian_druid
+k_constant: 3430
+iterations: 50
+
+fights:
+  # --- target_key_level: 2 ---
+  - player: "Player 1"
+    dungeon: "Ruby Life Pools"
+    key_level: 2
+    target_key_level: 2
+    exact_match: true
+    acl: true
+
+  - player: "Player 2"
+    dungeon: "Ruby Life Pools"
+    key_level: 2
+    target_key_level: 2
+    exact_match: true
+    acl: true
+
+  - player: "Player 3"
+    dungeon: "Den of Nalorakk"
+    key_level: 3
+    target_key_level: 2
+    exact_match: false
+    acl: true
+
+  # --- target_key_level: 8 ---
+  - player: "Player 4"
+    dungeon: "Murder Row"
+    key_level: 8
+    target_key_level: 8
+    exact_match: true
+    acl: true
+
+  - player: "Player 5"
+    dungeon: "Altar of Fangs"
+    key_level: 10
+    target_key_level: 8
+    exact_match: false
+    acl: true
+
+  - player: "Player 6"
+    dungeon: "Temple of Sethraliss"
+    key_level: 10
+    target_key_level: 8
+    exact_match: false
+    acl: true
+
+  # --- target_key_level: 12 ---
+  - player: "Player 7"
+    dungeon: "Den of Nalorakk"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+
+  - player: "Player 8"
+    dungeon: "Voidscar Arena"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+
+  - player: "Player 9"
+    dungeon: "The Blinding Vale"
+    key_level: 12
+    target_key_level: 12
+    exact_match: true
+    acl: true
+
+  # --- target_key_level: 16 ---
+  - player: "Player 10"
+    dungeon: "Ruby Life Pools"
+    key_level: 16
+    target_key_level: 16
+    exact_match: true
+    acl: true
+
+  - player: "Player 11"
+    dungeon: "Temple of Sethraliss"
+    key_level: 15
+    target_key_level: 16
+    exact_match: false
+    acl: true
+
+  - player: "Player 12"
+    dungeon: "Murder Row"
+    key_level: 17
+    target_key_level: 16
+    exact_match: false
+    acl: true

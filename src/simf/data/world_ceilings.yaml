@@ -1,0 +1,67 @@
+# Real-world key-level completion ceilings, per tank spec, current
+# season (Midnight 12.0.5). Surfaces below the verdict headline as a
+# context caveat: simf reports "damage-stream survives at +N" but real
+# completion rates above +16-+17 are dominated by mechanic execution,
+# group composition, and DPS — and the tail of players actually timing
+# those keys is tiny. The caption keeps the simulator honest about that
+# gap.
+#
+# Numbers are deliberately hand-wavy — pinpoint accuracy isn't the
+# point. `world_max_key` is the highest key timed by anyone on this
+# spec this season; `broad_completion_key` is the level above which
+# completion gets rare (~100+ players have timed it). The caveat copy
+# uses `population_descriptor` to phrase how rare that tail is in plain
+# English (e.g. "a few hundred", "a few dozen").
+#
+# Source: Warcraft Logs season rankings as of 2026-05-27. Non-Warrior
+# values are best-effort approximations until Brutoh (or another tank
+# main) verifies them against the relevant character pool — flagged
+# with `placeholder: true`. The caption renders regardless; the flag is
+# documentation hygiene, not a runtime gate.
+
+season: "midnight_1"
+sources:
+  - https://www.warcraftlogs.com/zone/rankings/47  # Midnight Season 1 M+ rankings
+
+specs:
+  protection_warrior:
+    world_max_key: 20
+    broad_completion_key: 17
+    caveat_below: 14
+    population_descriptor: "a few hundred"
+    placeholder: false
+
+  protection_paladin:
+    world_max_key: 21
+    broad_completion_key: 17
+    caveat_below: 14
+    population_descriptor: "a few hundred"
+    placeholder: true
+
+  blood_death_knight:
+    world_max_key: 21
+    broad_completion_key: 17
+    caveat_below: 14
+    population_descriptor: "a few hundred"
+    placeholder: true
+
+  vengeance_demon_hunter:
+    world_max_key: 21
+    broad_completion_key: 17
+    caveat_below: 14
+    population_descriptor: "a few hundred"
+    placeholder: true
+
+  brewmaster_monk:
+    world_max_key: 20
+    broad_completion_key: 16
+    caveat_below: 14
+    population_descriptor: "a few dozen"
+    placeholder: true
+
+  guardian_druid:
+    world_max_key: 20
+    broad_completion_key: 16
+    caveat_below: 14
+    population_descriptor: "a few dozen"
+    placeholder: true

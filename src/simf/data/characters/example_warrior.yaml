@@ -1,0 +1,15 @@
+name: example_warrior
+race: human                  # set to "earthen" to enable Titan-Wrought Frame
+class_spec: protection_warrior
+talents: kiratank-defensive
+
+strength: 50000
+stamina: 80000
+armor_from_gear: 25000
+
+haste_rating: 5000
+crit_rating: 2000
+mastery_rating: 8000
+versatility_rating: 7000
+
+max_hp_override: 8000000     # remove to derive from stamina

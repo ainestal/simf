@@ -1,0 +1,166 @@
+# Prot Warrior — INDEPENDENT-PLAYER diagnostic cross-check corpus (2026-07-25).
+#
+# NOT the ratified calibration manifest (that stays prot_warrior_2026_05.yaml,
+# Brutoh-only, unaffected by this file). This is a reusable record of 15 real,
+# other-player WCL fights found via characterRankings (zone 47, "Mythic+
+# Season 1"), used to test whether the Brutoh-only ratified calibration
+# generalizes. See docs/validation/protwarrior_independent_players_2026_07_25.md
+# and docs/validation/protwarrior_independent_players_lowkey_2026_07_25.md.
+#
+# Discovery method: worldData.encounter(id).characterRankings(className:
+# "Warrior", specName: "Protection"), EU/US region, deduped to distinct
+# players, one per dungeon per batch. The "highkey" batch is page 1 (top
+# parses, naturally +20-22 — WCL's ranking score heavily favors high keys).
+# The "lowkey" batch pages deep (page ~18) to reach the LOWEST key level each
+# dungeon's rankings index still covers — empirically +17-18, NOT the
+# originally-hoped +12-14 (the rankings index caps out and returns nothing
+# past roughly page 25-29; low keys apparently aren't indexed as "notable"
+# parses at all, regardless of how deep you page).
+#
+# Raw WCL API responses (damage events, CombatantInfo, report metadata) for
+# every fight below are cached at examples/wcl_cache/ (gitignored, git-local
+# only) via wcl_api._gql's opt-in cache_dir — re-running calibrate-k
+# --wcl-url --wcl-cache-dir examples/wcl_cache against any of these will not
+# re-hit the network. Deltas below were measured on branch
+# calibration/protwarrior-kyfotg-magic-dr (KYFOTG credit LIVE) at fixed
+# K=3430, iterations=50 — NOT comparable to a run without that credit.
+
+spec: protection_warrior
+source_doc: docs/validation/protwarrior_independent_players_lowkey_2026_07_25.md
+measured_with: calibration/protwarrior-kyfotg-magic-dr  # KYFOTG credit live
+k_constant: 3430
+iterations: 50
+
+fights:
+  # --- "highkey" batch — page 1 (top parses), naturally +20-22 ---
+  - player: AnonPlayerX4
+    region: US
+    dungeon: "Algeth'ar Academy"
+    key_level: 22
+    acl: true
+    kyfotg_present: true
+    delta_at_k3430: 7.3
+    batch: highkey
+  - player: Player 1
+    region: EU
+    dungeon: "Magisters' Terrace"
+    key_level: 22
+    acl: true
+    kyfotg_present: true
+    delta_at_k3430: 23.7
+    batch: highkey
+  - player: Player 2
+    region: EU
+    dungeon: "Maisara Caverns"
+    key_level: 21
+    acl: true
+    kyfotg_present: true
+    delta_at_k3430: 5.3
+    batch: highkey
+  - player: Player 3
+    region: US
+    dungeon: "Nexus-Point Xenas"
+    key_level: 20
+    acl: true
+    kyfotg_present: true
+    delta_at_k3430: 31.4
+    batch: highkey
+  - player: Player 4
+    region: US
+    dungeon: "Pit of Saron"
+    key_level: 21
+    acl: true
+    kyfotg_present: true
+    delta_at_k3430: 15.4
+    batch: highkey
+  - player: Player 5
+    region: EU
+    dungeon: "Seat of the Triumvirate"
+    key_level: 20
+    acl: true
+    kyfotg_present: true
+    delta_at_k3430: 10.0
+    batch: highkey
+  - player: Player 6
+    region: EU
+    dungeon: "Skyreach"
+    key_level: 21
+    acl: false  # ACL off — used --character fallback gear, NOT comparable; excluded from stats
+    kyfotg_present: true
+    delta_at_k3430: 18.9
+    batch: highkey
+  - player: Player 7
+    region: US
+    dungeon: "Windrunner Spire"
+    key_level: 20
+    acl: true
+    kyfotg_present: true
+    delta_at_k3430: -1.9
+    batch: highkey
+
+  # --- "lowkey" batch — page ~18, the deepest key level each dungeon's
+  # rankings index still reaches (empirically +17-18, not +12-14) ---
+  - player: Player 8
+    region: EU
+    dungeon: "Algeth'ar Academy"
+    key_level: 18
+    acl: true
+    kyfotg_present: true
+    delta_at_k3430: 8.4
+    batch: lowkey
+  - player: Player 9
+    region: US
+    dungeon: "Magisters' Terrace"
+    key_level: 18
+    acl: true
+    kyfotg_present: true
+    delta_at_k3430: 26.0
+    batch: lowkey
+  - player: Player 10
+    region: EU
+    dungeon: "Maisara Caverns"
+    key_level: 18
+    acl: true
+    kyfotg_present: true
+    delta_at_k3430: -0.5
+    batch: lowkey
+  - player: Player 11
+    region: EU
+    dungeon: "Nexus-Point Xenas"
+    key_level: 17
+    acl: true
+    kyfotg_present: true
+    delta_at_k3430: 21.9
+    batch: lowkey
+  - player: Player 12
+    region: EU
+    dungeon: "Pit of Saron"
+    key_level: 18
+    acl: true
+    kyfotg_present: true
+    delta_at_k3430: 6.0
+    batch: lowkey
+  - player: Player 13
+    region: EU
+    dungeon: "Seat of the Triumvirate"
+    key_level: 18
+    acl: true
+    kyfotg_present: true
+    delta_at_k3430: 11.4
+    batch: lowkey
+  - player: Player 14
+    region: EU
+    dungeon: "Skyreach"
+    key_level: 18
+    acl: true
+    kyfotg_present: true
+    delta_at_k3430: 1.9
+    batch: lowkey
+  - player: Player 15
+    region: EU
+    dungeon: "Windrunner Spire"
+    key_level: 18
+    acl: true
+    kyfotg_present: true
+    delta_at_k3430: -0.9
+    batch: lowkey

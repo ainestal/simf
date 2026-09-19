@@ -1,0 +1,36 @@
+# Physical-chain pack — represents a dense melee pack where nearly all damage
+# is physical and blockable. Models corridor packs like Siege of Boralus
+# tidesages without spells, or Rookery guards: lots of melee swingers, very
+# little magic. Shield Block and block value dominate here; Versatility and
+# Fueled by Violence have minimal impact. Good profile to benchmark SB uptime
+# and measure block value / crit block contributions.
+profile: m+_dungeon_physical_chain
+duration_s: 60
+mobs:
+  - count: 6
+    swing_timer_s: 1.8
+    swing_damage_mean: 75000
+    swing_damage_variance: 0.25
+    school: physical
+    attack_type: melee
+  - count: 2
+    swing_timer_s: 2.5
+    swing_damage_mean: 110000
+    swing_damage_variance: 0.20
+    school: physical
+    attack_type: melee
+tank_busters:
+  - time_s: 20.0
+    damage: 600000
+    school: physical
+    attack_type: melee
+    is_avoidable_by_spell_reflect: false
+  - time_s: 45.0
+    damage: 600000
+    school: physical
+    attack_type: melee
+    is_avoidable_by_spell_reflect: false
+affix:
+  fortified: false
+  tyrannical: false
+  seasonal_modifier: 1.0

@@ -1,0 +1,1710 @@
+{
+  "config": {
+    "logs_dir": "examples",
+    "target": "Brutoh-Uldum-EU",
+    "character": "src/simf/data/characters/brutoh.yaml",
+    "party_magic_dr": true
+  },
+  "per_log": [
+    {
+      "log": "WoWCombatLog-012526_203228.txt",
+      "runs": []
+    },
+    {
+      "log": "WoWCombatLog-050626_153703.txt",
+      "runs": [
+        {
+          "map_name": "Windrunner Spire",
+          "key_level": 12,
+          "duration_s": 1298.0599999427795,
+          "per_school": {
+            "physical": {
+              "school": "physical",
+              "n_events": 1658,
+              "sum_base": 250627014.0,
+              "actual_dr_pct": 85.12422008906032,
+              "predicted_dr_pct": 73.39963721158556,
+              "gap_pp": -11.724582877474754,
+              "p50_pp_unweighted": -13.888527413365503,
+              "p90_pp_unweighted": 4.218498934958779,
+              "max_abs_pp": 58.103961278545015,
+              "mean_pp": -9.804894760814644
+            },
+            "arcane": {
+              "school": "arcane",
+              "n_events": 12,
+              "sum_base": 568252.0,
+              "actual_dr_pct": 27.85595123290371,
+              "predicted_dr_pct": 26.682204160000012,
+              "gap_pp": -1.173747072903697,
+              "p50_pp_unweighted": -4.053019290264281,
+              "p90_pp_unweighted": 3.600368267443384,
+              "max_abs_pp": 4.299200898327371,
+              "mean_pp": -1.3502369180480662
+            },
+            "shadow": {
+              "school": "shadow",
+              "n_events": 15,
+              "sum_base": 1118085.0,
+              "actual_dr_pct": 20.236922953084957,
+              "predicted_dr_pct": 26.68220415999999,
+              "gap_pp": 6.445281206915032,
+              "p50_pp_unweighted": 1.2127079482868286,
+              "p90_pp_unweighted": 45.930156353868504,
+              "max_abs_pp": 45.930297149466035,
+              "mean_pp": 7.441300511145471
+            },
+            "nature": {
+              "school": "nature",
+              "n_events": 196,
+              "sum_base": 9193067.0,
+              "actual_dr_pct": 36.393675799382294,
+              "predicted_dr_pct": 26.682204159999856,
+              "gap_pp": -9.711471639382442,
+              "p50_pp_unweighted": -2.629223010452364,
+              "p90_pp_unweighted": 4.297923033984519,
+              "max_abs_pp": 80.3517185833822,
+              "mean_pp": -9.142280624954811
+            },
+            "fire": {
+              "school": "fire",
+              "n_events": 32,
+              "sum_base": 3956884.0,
+              "actual_dr_pct": 29.74289870514273,
+              "predicted_dr_pct": 26.682204159999976,
+              "gap_pp": -3.0606945451427503,
+              "p50_pp_unweighted": -1.911743430276791,
+              "p90_pp_unweighted": 4.297614507049859,
+              "max_abs_pp": 32.1773968415697,
+              "mean_pp": -1.7244589372365136
+            }
+          },
+          "run_index": 0
+        }
+      ]
+    },
+    {
+      "log": "WoWCombatLog-050626_172823.txt",
+      "runs": [
+        {
+          "map_name": "Algeth'ar Academy",
+          "key_level": 12,
+          "duration_s": 1929.2839999198914,
+          "per_school": {
+            "physical": {
+              "school": "physical",
+              "n_events": 1592,
+              "sum_base": 259999308.0,
+              "actual_dr_pct": 82.76801913642015,
+              "predicted_dr_pct": 72.8690993043444,
+              "gap_pp": -9.898919832075759,
+              "p50_pp_unweighted": -14.74136347104908,
+              "p90_pp_unweighted": 33.92894481106513,
+              "max_abs_pp": 62.05025645456094,
+              "mean_pp": -7.11237235229965
+            },
+            "nature": {
+              "school": "nature",
+              "n_events": 82,
+              "sum_base": 12256579.0,
+              "actual_dr_pct": 30.25983025116552,
+              "predicted_dr_pct": 26.682204160000044,
+              "gap_pp": -3.5776260911654756,
+              "p50_pp_unweighted": -0.9798963741165068,
+              "p90_pp_unweighted": 2.3658935677780653,
+              "max_abs_pp": 58.18096139809258,
+              "mean_pp": -2.6829549989307133
+            },
+            "fire": {
+              "school": "fire",
+              "n_events": 38,
+              "sum_base": 1532109.0,
+              "actual_dr_pct": 35.34924734467326,
+              "predicted_dr_pct": 26.68220416,
+              "gap_pp": -8.667043184673261,
+              "p50_pp_unweighted": -5.778214538881943,
+              "p90_pp_unweighted": 2.3631127031594823,
+              "max_abs_pp": 58.18278335985475,
+              "mean_pp": -8.233428727189052
+            },
+            "arcane": {
+              "school": "arcane",
+              "n_events": 397,
+              "sum_base": 37706499.0,
+              "actual_dr_pct": 31.386241931397553,
+              "predicted_dr_pct": 26.316401127474364,
+              "gap_pp": -5.069840803923187,
+              "p50_pp_unweighted": -2.982146174338529,
+              "p90_pp_unweighted": 3.1342823034377854,
+              "max_abs_pp": 423.7206649441215,
+              "mean_pp": -0.6769021183593213
+            }
+          },
+          "run_index": 0
+        }
+      ]
+    },
+    {
+      "log": "WoWCombatLog-051026_073906.txt",
+      "runs": [
+        {
+          "map_name": "Nexus-Point Xenas",
+          "key_level": 12,
+          "duration_s": 1288.3799998760223,
+          "per_school": {
+            "physical": {
+              "school": "physical",
+              "n_events": 673,
+              "sum_base": 122903158.0,
+              "actual_dr_pct": 86.44488126171665,
+              "predicted_dr_pct": 73.50520295380414,
+              "gap_pp": -12.939678307912505,
+              "p50_pp_unweighted": -14.705704261409824,
+              "p90_pp_unweighted": 0.23844162938722047,
+              "max_abs_pp": 50.37759640781117,
+              "mean_pp": -12.462489595193148
+            },
+            "arcane": {
+              "school": "arcane",
+              "n_events": 265,
+              "sum_base": 18191408.0,
+              "actual_dr_pct": 30.65253112898133,
+              "predicted_dr_pct": 26.682204159999944,
+              "gap_pp": -3.970326968981386,
+              "p50_pp_unweighted": -0.6094551531198977,
+              "p90_pp_unweighted": 2.4001812733259635,
+              "max_abs_pp": 64.32243819813763,
+              "mean_pp": -4.35706008065492
+            },
+            "shadow": {
+              "school": "shadow",
+              "n_events": 245,
+              "sum_base": 15724005.0,
+              "actual_dr_pct": 30.91861774401623,
+              "predicted_dr_pct": 26.68220416000007,
+              "gap_pp": -4.236413584016163,
+              "p50_pp_unweighted": -3.657715585282173,
+              "p90_pp_unweighted": 9.134462164761633,
+              "max_abs_pp": 64.96046841290512,
+              "mean_pp": -4.622288261285216
+            },
+            "holy": {
+              "school": "holy",
+              "n_events": 135,
+              "sum_base": 10650203.0,
+              "actual_dr_pct": 31.685349096162764,
+              "predicted_dr_pct": 26.682204160000023,
+              "gap_pp": -5.00314493616274,
+              "p50_pp_unweighted": -5.745771623844897,
+              "p90_pp_unweighted": 2.3997009806526037,
+              "max_abs_pp": 32.77539676717789,
+              "mean_pp": -4.981376984229058
+            }
+          },
+          "run_index": 0
+        }
+      ]
+    },
+    {
+      "log": "WoWCombatLog-051026_090846.txt",
+      "runs": [
+        {
+          "map_name": "Windrunner Spire",
+          "key_level": 14,
+          "duration_s": 1707.0030000209808,
+          "per_school": {
+            "physical": {
+              "school": "physical",
+              "n_events": 1931,
+              "sum_base": 375752572.0,
+              "actual_dr_pct": 86.5376346645473,
+              "predicted_dr_pct": 73.45848237248318,
+              "gap_pp": -13.079152292064112,
+              "p50_pp_unweighted": -15.385083193997861,
+              "p90_pp_unweighted": 3.6369362017776297,
+              "max_abs_pp": 53.621528111397346,
+              "mean_pp": -10.81266207242016
+            },
+            "arcane": {
+              "school": "arcane",
+              "n_events": 25,
+              "sum_base": 1601530.0,
+              "actual_dr_pct": 40.00343421603092,
+              "predicted_dr_pct": 26.682204160000012,
+              "gap_pp": -13.321230056030908,
+              "p50_pp_unweighted": -8.831510835699131,
+              "p90_pp_unweighted": -5.391493741231586,
+              "max_abs_pp": 33.428472083315675,
+              "mean_pp": -13.15896324925828
+            },
+            "nature": {
+              "school": "nature",
+              "n_events": 242,
+              "sum_base": 14925625.0,
+              "actual_dr_pct": 39.68026129559063,
+              "predicted_dr_pct": 26.682204159999955,
+              "gap_pp": -12.99805713559068,
+              "p50_pp_unweighted": -8.829323680215762,
+              "p90_pp_unweighted": -3.2241861868426818,
+              "max_abs_pp": 65.41118080865621,
+              "mean_pp": -9.793932337887064
+            },
+            "fire": {
+              "school": "fire",
+              "n_events": 45,
+              "sum_base": 6617776.0,
+              "actual_dr_pct": 36.06264400608301,
+              "predicted_dr_pct": 26.68220415999999,
+              "gap_pp": -9.380439846083021,
+              "p50_pp_unweighted": -10.825830381542056,
+              "p90_pp_unweighted": -5.391827194813694,
+              "max_abs_pp": 15.581030377920058,
+              "mean_pp": -9.221034835789887
+            },
+            "shadow": {
+              "school": "shadow",
+              "n_events": 27,
+              "sum_base": 2563588.0,
+              "actual_dr_pct": 38.66202369491509,
+              "predicted_dr_pct": 26.682204160000012,
+              "gap_pp": -11.979819534915082,
+              "p50_pp_unweighted": -8.83129391170403,
+              "p90_pp_unweighted": 22.469577414215575,
+              "max_abs_pp": 64.90682509598736,
+              "mean_pp": -10.016469364693892
+            }
+          },
+          "run_index": 2
+        }
+      ]
+    },
+    {
+      "log": "WoWCombatLog-051026_105836.txt",
+      "runs": [
+        {
+          "map_name": "Pit of Saron",
+          "key_level": 13,
+          "duration_s": 1658.8069999217987,
+          "per_school": {
+            "physical": {
+              "school": "physical",
+              "n_events": 1731,
+              "sum_base": 328772807.0,
+              "actual_dr_pct": 86.44139294646713,
+              "predicted_dr_pct": 73.40854256044734,
+              "gap_pp": -13.03285038601979,
+              "p50_pp_unweighted": -14.53633225148444,
+              "p90_pp_unweighted": -0.2558090624713394,
+              "max_abs_pp": 44.33505185988123,
+              "mean_pp": -13.130391817796335
+            },
+            "shadow": {
+              "school": "shadow",
+              "n_events": 319,
+              "sum_base": 16752411.0,
+              "actual_dr_pct": 29.319320066825007,
+              "predicted_dr_pct": 26.68220416000009,
+              "gap_pp": -2.637115906824916,
+              "p50_pp_unweighted": -2.7491317761737966,
+              "p90_pp_unweighted": 3.386769929244527,
+              "max_abs_pp": 64.11374534414645,
+              "mean_pp": -2.1950047597799727
+            },
+            "frost": {
+              "school": "frost",
+              "n_events": 187,
+              "sum_base": 12331313.0,
+              "actual_dr_pct": 21.462045444795695,
+              "predicted_dr_pct": 26.682204159999912,
+              "gap_pp": 5.2201587152042155,
+              "p50_pp_unweighted": 1.0843275840212496,
+              "p90_pp_unweighted": 3.387940653280139,
+              "max_abs_pp": 80.09166104771778,
+              "mean_pp": 3.3224650751987443
+            },
+            "nature": {
+              "school": "nature",
+              "n_events": 35,
+              "sum_base": 3818538.0,
+              "actual_dr_pct": 30.177570578058933,
+              "predicted_dr_pct": 26.682204160000012,
+              "gap_pp": -3.4953664180589206,
+              "p50_pp_unweighted": -4.866383327058122,
+              "p90_pp_unweighted": 1.0856454655268077,
+              "max_abs_pp": 17.51590998655509,
+              "mean_pp": -3.9319289525137915
+            }
+          },
+          "run_index": 1
+        }
+      ]
+    },
+    {
+      "log": "WoWCombatLog-051026_151539.txt",
+      "runs": [
+        {
+          "map_name": "Skyreach",
+          "key_level": 14,
+          "duration_s": 574.1349999904633,
+          "per_school": {
+            "physical": {
+              "school": "physical",
+              "n_events": 601,
+              "sum_base": 104300366.0,
+              "actual_dr_pct": 85.1419965295232,
+              "predicted_dr_pct": 73.59578237232516,
+              "gap_pp": -11.546214157198042,
+              "p50_pp_unweighted": -14.008757415444883,
+              "p90_pp_unweighted": 2.5091089174048054,
+              "max_abs_pp": 62.14616024519552,
+              "mean_pp": -9.747348493122528
+            },
+            "nature": {
+              "school": "nature",
+              "n_events": 95,
+              "sum_base": 5619539.0,
+              "actual_dr_pct": 36.392949670782606,
+              "predicted_dr_pct": 26.682204159999976,
+              "gap_pp": -9.710745510782626,
+              "p50_pp_unweighted": -5.186798124843861,
+              "p90_pp_unweighted": 2.4642393358794035,
+              "max_abs_pp": 32.74201518501142,
+              "mean_pp": -10.852001398658041
+            },
+            "fire": {
+              "school": "fire",
+              "n_events": 76,
+              "sum_base": 9548191.0,
+              "actual_dr_pct": 37.18665661380255,
+              "predicted_dr_pct": 26.682204159999976,
+              "gap_pp": -10.504452453802571,
+              "p50_pp_unweighted": -5.185459026969408,
+              "p90_pp_unweighted": 3.0278683193049902,
+              "max_abs_pp": 64.15617270339817,
+              "mean_pp": -7.482741127886192
+            }
+          },
+          "run_index": 0
+        }
+      ]
+    },
+    {
+      "log": "WoWCombatLog-051326_171842.txt",
+      "runs": [
+        {
+          "map_name": "Pit of Saron",
+          "key_level": 13,
+          "duration_s": 1421.3289999961853,
+          "per_school": {
+            "physical": {
+              "school": "physical",
+              "n_events": 1595,
+              "sum_base": 307893634.0,
+              "actual_dr_pct": 86.99905175694539,
+              "predicted_dr_pct": 73.28564452062014,
+              "gap_pp": -13.713407236325247,
+              "p50_pp_unweighted": -14.761542382480963,
+              "p90_pp_unweighted": -0.665406191378084,
+              "max_abs_pp": 61.93664448092755,
+              "mean_pp": -13.63990223620668
+            },
+            "shadow": {
+              "school": "shadow",
+              "n_events": 277,
+              "sum_base": 14645286.0,
+              "actual_dr_pct": 29.031211817918745,
+              "predicted_dr_pct": 26.682204159999923,
+              "gap_pp": -2.3490076579188224,
+              "p50_pp_unweighted": -5.878714048479661,
+              "p90_pp_unweighted": 2.249447892716243,
+              "max_abs_pp": 128.98924239577815,
+              "mean_pp": -5.572667194720957
+            },
+            "frost": {
+              "school": "frost",
+              "n_events": 168,
+              "sum_base": 10667296.0,
+              "actual_dr_pct": 24.132057458609946,
+              "predicted_dr_pct": 26.682204159999955,
+              "gap_pp": 2.5501467013900103,
+              "p50_pp_unweighted": -3.796688090667877,
+              "p90_pp_unweighted": 30.398109453862965,
+              "max_abs_pp": 77.8186445897975,
+              "mean_pp": 1.8140015288437124
+            },
+            "nature": {
+              "school": "nature",
+              "n_events": 44,
+              "sum_base": 3592058.0,
+              "actual_dr_pct": 27.23085206307916,
+              "predicted_dr_pct": 26.682204160000023,
+              "gap_pp": -0.5486479030791358,
+              "p50_pp_unweighted": -4.415466462280815,
+              "p90_pp_unweighted": 26.68485294134471,
+              "max_abs_pp": 26.707858341631606,
+              "mean_pp": 3.9020043066961905
+            }
+          },
+          "run_index": 0
+        }
+      ]
+    },
+    {
+      "log": "WoWCombatLog-051426_194643.txt",
+      "runs": [
+        {
+          "map_name": "Magisters' Terrace",
+          "key_level": 13,
+          "duration_s": 1583.6850001811981,
+          "per_school": {},
+          "run_index": 1
+        },
+        {
+          "map_name": "Skyreach",
+          "key_level": 14,
+          "duration_s": 1537.8120000362396,
+          "per_school": {},
+          "run_index": 4
+        },
+        {
+          "map_name": "Nexus-Point Xenas",
+          "key_level": 10,
+          "duration_s": 1344.9590001106262,
+          "per_school": {},
+          "run_index": 5
+        }
+      ]
+    },
+    {
+      "log": "WoWCombatLog-051526_133447.txt",
+      "runs": [
+        {
+          "map_name": "Seat of the Triumvirate",
+          "key_level": 13,
+          "duration_s": 409.7420001029968,
+          "per_school": {},
+          "run_index": 1
+        }
+      ]
+    },
+    {
+      "log": "WoWCombatLog-051526_151316.txt",
+      "runs": [
+        {
+          "map_name": "Seat of the Triumvirate",
+          "key_level": 13,
+          "duration_s": 2117.9939999580383,
+          "per_school": {},
+          "run_index": 1
+        }
+      ]
+    },
+    {
+      "log": "WoWCombatLog-051526_164802.txt",
+      "runs": [
+        {
+          "map_name": "Magisters' Terrace",
+          "key_level": 14,
+          "duration_s": 2079.6829998493195,
+          "per_school": {},
+          "run_index": 0
+        }
+      ]
+    },
+    {
+      "log": "WoWCombatLog-051526_210245.txt",
+      "runs": [
+        {
+          "map_name": "Magisters' Terrace",
+          "key_level": 12,
+          "duration_s": 1711.6319999694824,
+          "per_school": {
+            "physical": {
+              "school": "physical",
+              "n_events": 1784,
+              "sum_base": 220389249.0,
+              "actual_dr_pct": 87.39998020502352,
+              "predicted_dr_pct": 73.40246793204915,
+              "gap_pp": -13.997512272974365,
+              "p50_pp_unweighted": -15.480217655316974,
+              "p90_pp_unweighted": -0.6688267866405972,
+              "max_abs_pp": 29.12972285297746,
+              "mean_pp": -13.362510843699152
+            },
+            "arcane": {
+              "school": "arcane",
+              "n_events": 166,
+              "sum_base": 13334554.0,
+              "actual_dr_pct": 29.48228339695501,
+              "predicted_dr_pct": 26.682204159999966,
+              "gap_pp": -2.8000792369550442,
+              "p50_pp_unweighted": -3.7958320157105874,
+              "p90_pp_unweighted": 2.2490104590315476,
+              "max_abs_pp": 27.978673052267766,
+              "mean_pp": -3.42543167172061
+            },
+            "fire": {
+              "school": "fire",
+              "n_events": 55,
+              "sum_base": 1739426.0,
+              "actual_dr_pct": 34.024097604612095,
+              "predicted_dr_pct": 26.682204159999955,
+              "gap_pp": -7.341893444612135,
+              "p50_pp_unweighted": -5.882113513378062,
+              "p90_pp_unweighted": 2.249417984062318,
+              "max_abs_pp": 31.606873403170177,
+              "mean_pp": -7.570116990689086
+            },
+            "shadow": {
+              "school": "shadow",
+              "n_events": 890,
+              "sum_base": 31975254.0,
+              "actual_dr_pct": 38.262398165781576,
+              "predicted_dr_pct": 26.68220415999989,
+              "gap_pp": -11.580194005781685,
+              "p50_pp_unweighted": -5.869981739960606,
+              "p90_pp_unweighted": 2.2501134073968143,
+              "max_abs_pp": 65.22738875126235,
+              "mean_pp": -8.954254695725442
+            },
+            "nature": {
+              "school": "nature",
+              "n_events": 7,
+              "sum_base": 463012.0,
+              "actual_dr_pct": -0.0010798856185045835,
+              "predicted_dr_pct": 26.682204160000012,
+              "gap_pp": 26.683284045618517,
+              "p50_pp_unweighted": 26.68868840328883,
+              "p90_pp_unweighted": 26.690716971781757,
+              "max_abs_pp": 26.690716971781757,
+              "mean_pp": 26.686311516689035
+            }
+          },
+          "run_index": 0
+        },
+        {
+          "map_name": "Pit of Saron",
+          "key_level": 12,
+          "duration_s": 1196.2290000915527,
+          "per_school": {
+            "physical": {
+              "school": "physical",
+              "n_events": 1378,
+              "sum_base": 243960131.0,
+              "actual_dr_pct": 86.77653358039883,
+              "predicted_dr_pct": 73.41850813339492,
+              "gap_pp": -13.358025447003918,
+              "p50_pp_unweighted": -14.87831486635086,
+              "p90_pp_unweighted": -0.26666527033053167,
+              "max_abs_pp": 53.47906184578258,
+              "mean_pp": -13.31137174442353
+            },
+            "shadow": {
+              "school": "shadow",
+              "n_events": 246,
+              "sum_base": 11940218.0,
+              "actual_dr_pct": 35.148026610569424,
+              "predicted_dr_pct": 26.682204159999976,
+              "gap_pp": -8.46582245056945,
+              "p50_pp_unweighted": -6.38080395776101,
+              "p90_pp_unweighted": 1.6886609905615668,
+              "max_abs_pp": 60.60097094172032,
+              "mean_pp": -8.273769052286568
+            },
+            "frost": {
+              "school": "frost",
+              "n_events": 135,
+              "sum_base": 9949876.0,
+              "actual_dr_pct": 20.524677895483322,
+              "predicted_dr_pct": 26.682204160000023,
+              "gap_pp": 6.157526264516699,
+              "p50_pp_unweighted": -2.061786965354362,
+              "p90_pp_unweighted": 54.86398868796097,
+              "max_abs_pp": 72.19663618979516,
+              "mean_pp": 4.074513657545573
+            },
+            "nature": {
+              "school": "nature",
+              "n_events": 39,
+              "sum_base": 4057382.0,
+              "actual_dr_pct": 31.063010581700222,
+              "predicted_dr_pct": 26.682204160000012,
+              "gap_pp": -4.380806421700212,
+              "p50_pp_unweighted": -4.311994092703331,
+              "p90_pp_unweighted": 1.6887297792283817,
+              "max_abs_pp": 21.563450830487074,
+              "mean_pp": -4.330090899594094
+            },
+            "arcane": {
+              "school": "arcane",
+              "n_events": 1,
+              "sum_base": 338629.0,
+              "actual_dr_pct": 30.994392092821343,
+              "predicted_dr_pct": 26.68220416,
+              "gap_pp": -4.3121879328213435,
+              "p50_pp_unweighted": -4.3121879328213435,
+              "p90_pp_unweighted": -4.3121879328213435,
+              "max_abs_pp": 4.3121879328213435,
+              "mean_pp": -4.3121879328213435
+            }
+          },
+          "run_index": 2
+        },
+        {
+          "map_name": "Windrunner Spire",
+          "key_level": 14,
+          "duration_s": 983.8339998722076,
+          "per_school": {
+            "physical": {
+              "school": "physical",
+              "n_events": 1229,
+              "sum_base": 221762440.0,
+              "actual_dr_pct": 86.66263141765576,
+              "predicted_dr_pct": 73.3757246389723,
+              "gap_pp": -13.286906778683448,
+              "p50_pp_unweighted": -14.879965885762413,
+              "p90_pp_unweighted": 0.1319393179360917,
+              "max_abs_pp": 61.38809258003216,
+              "mean_pp": -12.930719253991873
+            },
+            "shadow": {
+              "school": "shadow",
+              "n_events": 67,
+              "sum_base": 6495328.0,
+              "actual_dr_pct": 37.592682001586375,
+              "predicted_dr_pct": 26.682204160000012,
+              "gap_pp": -10.910477841586363,
+              "p50_pp_unweighted": -6.3825006519167005,
+              "p90_pp_unweighted": 1.6884244698538153,
+              "max_abs_pp": 58.31675498253652,
+              "mean_pp": -10.663520455841622
+            },
+            "arcane": {
+              "school": "arcane",
+              "n_events": 41,
+              "sum_base": 2380679.0,
+              "actual_dr_pct": 35.11981245686629,
+              "predicted_dr_pct": 26.682204160000012,
+              "gap_pp": -8.437608296866284,
+              "p50_pp_unweighted": -6.382882335269047,
+              "p90_pp_unweighted": -0.5607598875028375,
+              "max_abs_pp": 36.309289675420054,
+              "mean_pp": -8.183005539590145
+            },
+            "fire": {
+              "school": "fire",
+              "n_events": 42,
+              "sum_base": 5571680.0,
+              "actual_dr_pct": 37.866819343537315,
+              "predicted_dr_pct": 26.682204159999976,
+              "gap_pp": -11.184615183537339,
+              "p50_pp_unweighted": -12.285322319054293,
+              "p90_pp_unweighted": -4.926606847702077,
+              "max_abs_pp": 15.337126111692434,
+              "mean_pp": -10.846928155045374
+            },
+            "nature": {
+              "school": "nature",
+              "n_events": 94,
+              "sum_base": 9590362.0,
+              "actual_dr_pct": 50.32739118711056,
+              "predicted_dr_pct": 26.68220416,
+              "gap_pp": -23.64518702711056,
+              "p50_pp_unweighted": -12.285573738315936,
+              "p90_pp_unweighted": -1.6858245686159232,
+              "max_abs_pp": 62.067435335555956,
+              "mean_pp": -18.37886840861652
+            }
+          },
+          "run_index": 3
+        }
+      ]
+    },
+    {
+      "log": "WoWCombatLog-051626_073744.txt",
+      "runs": [
+        {
+          "map_name": "Algeth'ar Academy",
+          "key_level": 13,
+          "duration_s": 1512.8440001010895,
+          "per_school": {},
+          "run_index": 2
+        }
+      ]
+    },
+    {
+      "log": "WoWCombatLog-051626_161343.txt",
+      "runs": [
+        {
+          "map_name": "Nexus-Point Xenas",
+          "key_level": 14,
+          "duration_s": 0.0,
+          "per_school": {},
+          "run_index": 0
+        }
+      ]
+    },
+    {
+      "log": "WoWCombatLog-051626_161830.txt",
+      "runs": [
+        {
+          "map_name": "Nexus-Point Xenas",
+          "key_level": 12,
+          "duration_s": 1312.8259999752045,
+          "per_school": {},
+          "run_index": 1
+        },
+        {
+          "map_name": "Maisara Caverns",
+          "key_level": 12,
+          "duration_s": 1634.7969999313354,
+          "per_school": {
+            "physical": {
+              "school": "physical",
+              "n_events": 1369,
+              "sum_base": 286319712.0,
+              "actual_dr_pct": 86.2931218651128,
+              "predicted_dr_pct": 73.40321674434036,
+              "gap_pp": -12.889905120772449,
+              "p50_pp_unweighted": -14.570715095622045,
+              "p90_pp_unweighted": -0.2957021831218709,
+              "max_abs_pp": 58.076307440381946,
+              "mean_pp": -12.89548233691728
+            },
+            "shadow": {
+              "school": "shadow",
+              "n_events": 436,
+              "sum_base": 24653420.0,
+              "actual_dr_pct": 34.14729477695184,
+              "predicted_dr_pct": 26.68220416,
+              "gap_pp": -7.465090616951842,
+              "p50_pp_unweighted": -9.45862323669453,
+              "p90_pp_unweighted": -3.9048830042097356,
+              "max_abs_pp": 112.51115566927068,
+              "mean_pp": -10.16721360881238
+            },
+            "bleed": {
+              "school": "bleed",
+              "n_events": 75,
+              "sum_base": 6081134.0,
+              "actual_dr_pct": 32.43005334202469,
+              "predicted_dr_pct": 70.41124112267366,
+              "gap_pp": 37.98118778064897,
+              "p50_pp_unweighted": 36.987313381854804,
+              "p90_pp_unweighted": 42.77697129243442,
+              "max_abs_pp": 42.777242528915224,
+              "mean_pp": 37.932467548154534
+            },
+            "fire": {
+              "school": "fire",
+              "n_events": 3,
+              "sum_base": 142224.0,
+              "actual_dr_pct": 29.871892226347175,
+              "predicted_dr_pct": 26.682204160000023,
+              "gap_pp": -3.1896880663471516,
+              "p50_pp_unweighted": -3.9054603691933587,
+              "p90_pp_unweighted": -1.7581434606547153,
+              "max_abs_pp": 3.9054603691933587,
+              "mean_pp": -3.189688066347144
+            },
+            "nature": {
+              "school": "nature",
+              "n_events": 144,
+              "sum_base": 4025609.0,
+              "actual_dr_pct": 36.534621221286024,
+              "predicted_dr_pct": 26.68220415999989,
+              "gap_pp": -9.852417061286134,
+              "p50_pp_unweighted": -9.459976401966703,
+              "p90_pp_unweighted": -3.904728287397552,
+              "max_abs_pp": 39.9992281028276,
+              "mean_pp": -9.774538259106414
+            },
+            "frost": {
+              "school": "frost",
+              "n_events": 2,
+              "sum_base": 111635.0,
+              "actual_dr_pct": 38.056165181170776,
+              "predicted_dr_pct": 26.682204160000012,
+              "gap_pp": -11.373961021170764,
+              "p50_pp_unweighted": -11.373965660232288,
+              "p90_pp_unweighted": -11.373929391471616,
+              "max_abs_pp": 11.37400192899296,
+              "mean_pp": -11.373965660232288
+            }
+          },
+          "run_index": 3
+        }
+      ]
+    },
+    {
+      "log": "WoWCombatLog-051726_090237.txt",
+      "runs": [
+        {
+          "map_name": "Pit of Saron",
+          "key_level": 14,
+          "duration_s": 1538.042000055313,
+          "per_school": {
+            "physical": {
+              "school": "physical",
+              "n_events": 1939,
+              "sum_base": 416502163.0,
+              "actual_dr_pct": 86.32485517248082,
+              "predicted_dr_pct": 73.30689605892735,
+              "gap_pp": -13.017959113553468,
+              "p50_pp_unweighted": -14.292807935406149,
+              "p90_pp_unweighted": 0.24455346556290225,
+              "max_abs_pp": 46.19076640944952,
+              "mean_pp": -12.929722764922042
+            },
+            "shadow": {
+              "school": "shadow",
+              "n_events": 339,
+              "sum_base": 19435366.0,
+              "actual_dr_pct": 30.543505072145283,
+              "predicted_dr_pct": 26.682204159999976,
+              "gap_pp": -3.8613009121453046,
+              "p50_pp_unweighted": -2.1777767219250954,
+              "p90_pp_unweighted": 4.008993198819577,
+              "max_abs_pp": 65.03799461583178,
+              "mean_pp": -3.595021816774064
+            },
+            "frost": {
+              "school": "frost",
+              "n_events": 195,
+              "sum_base": 14700467.0,
+              "actual_dr_pct": 18.30860883535197,
+              "predicted_dr_pct": 26.682204159999923,
+              "gap_pp": 8.373595324647953,
+              "p50_pp_unweighted": 1.6888780501713496,
+              "p90_pp_unweighted": 64.69482814727054,
+              "max_abs_pp": 177.99658309264976,
+              "mean_pp": 11.378977303222966
+            },
+            "nature": {
+              "school": "nature",
+              "n_events": 28,
+              "sum_base": 3616210.0,
+              "actual_dr_pct": 26.840310712043824,
+              "predicted_dr_pct": 26.682204160000033,
+              "gap_pp": -0.15810655204379076,
+              "p50_pp_unweighted": 1.6884982402630255,
+              "p90_pp_unweighted": 4.008667496392,
+              "max_abs_pp": 4.31225193236453,
+              "mean_pp": -0.06117119909221177
+            }
+          },
+          "run_index": 1
+        }
+      ]
+    },
+    {
+      "log": "WoWCombatLog-051726_134819.txt",
+      "runs": [
+        {
+          "map_name": "Magisters' Terrace",
+          "key_level": 13,
+          "duration_s": 1635.744999885559,
+          "per_school": {
+            "physical": {
+              "school": "physical",
+              "n_events": 1639,
+              "sum_base": 253016693.0,
+              "actual_dr_pct": 87.46840588893477,
+              "predicted_dr_pct": 73.3930484570555,
+              "gap_pp": -14.075357431879265,
+              "p50_pp_unweighted": -15.308086534272547,
+              "p90_pp_unweighted": -0.5309634745210179,
+              "max_abs_pp": 27.273233397897968,
+              "mean_pp": -13.52864772577554
+            },
+            "arcane": {
+              "school": "arcane",
+              "n_events": 255,
+              "sum_base": 22932693.0,
+              "actual_dr_pct": 29.389854039383856,
+              "predicted_dr_pct": 26.682204160000012,
+              "gap_pp": -2.7076498793838444,
+              "p50_pp_unweighted": -3.28175513323421,
+              "p90_pp_unweighted": 2.808371720019065,
+              "max_abs_pp": 32.55649172934636,
+              "mean_pp": -2.8064739603548627
+            },
+            "fire": {
+              "school": "fire",
+              "n_events": 37,
+              "sum_base": 1450771.0,
+              "actual_dr_pct": 27.820655361873104,
+              "predicted_dr_pct": 26.682204160000023,
+              "gap_pp": -1.1384512018730808,
+              "p50_pp_unweighted": 0.5248495419840515,
+              "p90_pp_unweighted": 2.809394990843339,
+              "max_abs_pp": 5.38418377867983,
+              "mean_pp": -1.3539591540417764
+            },
+            "shadow": {
+              "school": "shadow",
+              "n_events": 727,
+              "sum_base": 22260120.0,
+              "actual_dr_pct": 32.496500468101694,
+              "predicted_dr_pct": 26.6822041600001,
+              "gap_pp": -5.814296308101596,
+              "p50_pp_unweighted": -5.378455964888484,
+              "p90_pp_unweighted": 2.8095961043329565,
+              "max_abs_pp": 42.74401390505651,
+              "mean_pp": -4.773266251458801
+            }
+          },
+          "run_index": 0
+        },
+        {
+          "map_name": "Magisters' Terrace",
+          "key_level": 14,
+          "duration_s": 1674.7469999790192,
+          "per_school": {
+            "physical": {
+              "school": "physical",
+              "n_events": 1698,
+              "sum_base": 259407146.0,
+              "actual_dr_pct": 87.69469750844875,
+              "predicted_dr_pct": 73.72974875782991,
+              "gap_pp": -13.964948750618833,
+              "p50_pp_unweighted": -15.53767289752559,
+              "p90_pp_unweighted": -0.9993222562065232,
+              "max_abs_pp": 29.129191331742376,
+              "mean_pp": -13.580583544700643
+            },
+            "arcane": {
+              "school": "arcane",
+              "n_events": 266,
+              "sum_base": 24134107.0,
+              "actual_dr_pct": 32.543516111866076,
+              "predicted_dr_pct": 26.68220416000011,
+              "gap_pp": -5.861311951865966,
+              "p50_pp_unweighted": -6.377590148133833,
+              "p90_pp_unweighted": 1.688629417348475,
+              "max_abs_pp": 34.838913738434826,
+              "mean_pp": -5.575661326428226
+            },
+            "fire": {
+              "school": "fire",
+              "n_events": 56,
+              "sum_base": 2245690.0,
+              "actual_dr_pct": 29.98864491537122,
+              "predicted_dr_pct": 26.682204159999976,
+              "gap_pp": -3.3064407553712427,
+              "p50_pp_unweighted": -4.198689426577729,
+              "p90_pp_unweighted": 1.6894058653638577,
+              "max_abs_pp": 12.593016212184116,
+              "mean_pp": -3.355849495501767
+            },
+            "shadow": {
+              "school": "shadow",
+              "n_events": 754,
+              "sum_base": 20109248.0,
+              "actual_dr_pct": 34.611741821474375,
+              "predicted_dr_pct": 26.68220415999999,
+              "gap_pp": -7.929537661474384,
+              "p50_pp_unweighted": -6.3820043587539566,
+              "p90_pp_unweighted": 1.6877207258095939,
+              "max_abs_pp": 38.97985734706004,
+              "mean_pp": -6.472292528624854
+            }
+          },
+          "run_index": 1
+        }
+      ]
+    },
+    {
+      "log": "WoWCombatLog-051726_180912.txt",
+      "runs": [
+        {
+          "map_name": "Nexus-Point Xenas",
+          "key_level": 2,
+          "duration_s": 905.0349998474121,
+          "per_school": {},
+          "run_index": 0
+        },
+        {
+          "map_name": "Seat of the Triumvirate",
+          "key_level": 5,
+          "duration_s": 893.8159999847412,
+          "per_school": {},
+          "run_index": 1
+        }
+      ]
+    },
+    {
+      "log": "WoWCombatLog-051826_135935.txt",
+      "runs": [
+        {
+          "map_name": "Maisara Caverns",
+          "key_level": 14,
+          "duration_s": 1471.1840000152588,
+          "per_school": {
+            "physical": {
+              "school": "physical",
+              "n_events": 1308,
+              "sum_base": 326051571.0,
+              "actual_dr_pct": 87.54970758904885,
+              "predicted_dr_pct": 73.4736165536771,
+              "gap_pp": -14.076091035371752,
+              "p50_pp_unweighted": -16.009541959463846,
+              "p90_pp_unweighted": -1.863061475161333,
+              "max_abs_pp": 57.04381612703921,
+              "mean_pp": -14.02471776154035
+            },
+            "shadow": {
+              "school": "shadow",
+              "n_events": 426,
+              "sum_base": 22624188.0,
+              "actual_dr_pct": 30.30232952448946,
+              "predicted_dr_pct": 26.682204159999923,
+              "gap_pp": -3.620125364489535,
+              "p50_pp_unweighted": -2.7448642283309344,
+              "p90_pp_unweighted": 26.68655022832425,
+              "max_abs_pp": 36.21240013901378,
+              "mean_pp": 0.576791538278947
+            },
+            "bleed": {
+              "school": "bleed",
+              "n_events": 42,
+              "sum_base": 4697234.0,
+              "actual_dr_pct": 34.18673627926563,
+              "predicted_dr_pct": 70.41124112267366,
+              "gap_pp": 36.22450484340802,
+              "p50_pp_unweighted": 34.04091727095522,
+              "p90_pp_unweighted": 41.711974414701146,
+              "max_abs_pp": 41.712430813608336,
+              "mean_pp": 36.24190729068091
+            },
+            "nature": {
+              "school": "nature",
+              "n_events": 105,
+              "sum_base": 4104111.0,
+              "actual_dr_pct": 30.983591818057555,
+              "predicted_dr_pct": 26.68220415999999,
+              "gap_pp": -4.301387658057565,
+              "p50_pp_unweighted": -8.388114499240585,
+              "p90_pp_unweighted": -1.8702754920710363,
+              "max_abs_pp": 36.21230820849587,
+              "mean_pp": -5.756372652818709
+            },
+            "fire": {
+              "school": "fire",
+              "n_events": 2,
+              "sum_base": 114890.0,
+              "actual_dr_pct": 41.79476020541387,
+              "predicted_dr_pct": 26.68220416,
+              "gap_pp": -15.112556045413871,
+              "p50_pp_unweighted": -15.112556045413877,
+              "p90_pp_unweighted": -0.5612460967673427,
+              "max_abs_pp": 29.663865994060412,
+              "mean_pp": -15.112556045413877
+            },
+            "frost": {
+              "school": "frost",
+              "n_events": 1,
+              "sum_base": 410320.0,
+              "actual_dr_pct": 29.426545135504,
+              "predicted_dr_pct": 26.682204160000023,
+              "gap_pp": -2.7443409755039783,
+              "p50_pp_unweighted": -2.7443409755039783,
+              "p90_pp_unweighted": -2.7443409755039783,
+              "max_abs_pp": 2.7443409755039783,
+              "mean_pp": -2.7443409755039783
+            }
+          },
+          "run_index": 0
+        },
+        {
+          "map_name": "Algeth'ar Academy",
+          "key_level": 14,
+          "duration_s": 1771.1870000362396,
+          "per_school": {
+            "physical": {
+              "school": "physical",
+              "n_events": 1646,
+              "sum_base": 342542023.0,
+              "actual_dr_pct": 84.14465602662713,
+              "predicted_dr_pct": 73.05373027546023,
+              "gap_pp": -11.090925751166903,
+              "p50_pp_unweighted": -15.922628781241482,
+              "p90_pp_unweighted": 18.921551891716458,
+              "max_abs_pp": 42.779862600206044,
+              "mean_pp": -9.551448620910985
+            },
+            "nature": {
+              "school": "nature",
+              "n_events": 75,
+              "sum_base": 15123173.0,
+              "actual_dr_pct": 35.48677251791009,
+              "predicted_dr_pct": 26.68220415999989,
+              "gap_pp": -8.804568357910203,
+              "p50_pp_unweighted": -5.9885411971389635,
+              "p90_pp_unweighted": -1.690806176885149,
+              "max_abs_pp": 59.73087769575122,
+              "mean_pp": -7.1990976383286
+            },
+            "fire": {
+              "school": "fire",
+              "n_events": 9,
+              "sum_base": 423345.0,
+              "actual_dr_pct": 33.35624608770624,
+              "predicted_dr_pct": 26.682204160000023,
+              "gap_pp": -6.67404192770622,
+              "p50_pp_unweighted": -7.4208398208443604,
+              "p90_pp_unweighted": 0.5247059661719677,
+              "max_abs_pp": 9.459680583597397,
+              "mean_pp": -6.662721605997009
+            },
+            "arcane": {
+              "school": "arcane",
+              "n_events": 384,
+              "sum_base": 41984042.0,
+              "actual_dr_pct": 37.97337331169781,
+              "predicted_dr_pct": 26.40080311602859,
+              "gap_pp": -11.572570195669218,
+              "p50_pp_unweighted": -7.420326323807524,
+              "p90_pp_unweighted": 0.5251306055224836,
+              "max_abs_pp": 302.7231557751176,
+              "mean_pp": -7.396600970131363
+            }
+          },
+          "run_index": 1
+        }
+      ]
+    },
+    {
+      "log": "WoWCombatLog-051826_150937.txt",
+      "runs": [
+        {
+          "map_name": "Magisters' Terrace",
+          "key_level": 14,
+          "duration_s": 1571.9790000915527,
+          "per_school": {},
+          "run_index": 1
+        }
+      ]
+    },
+    {
+      "log": "WoWCombatLog-051826_212525.txt",
+      "runs": [
+        {
+          "map_name": "Nexus-Point Xenas",
+          "key_level": 12,
+          "duration_s": 1435.6740000247955,
+          "per_school": {
+            "physical": {
+              "school": "physical",
+              "n_events": 735,
+              "sum_base": 123101393.0,
+              "actual_dr_pct": 85.36269041244724,
+              "predicted_dr_pct": 73.40440240360748,
+              "gap_pp": -11.958288008839768,
+              "p50_pp_unweighted": -14.89184748780793,
+              "p90_pp_unweighted": 1.3356297967917796,
+              "max_abs_pp": 39.50886645248898,
+              "mean_pp": -11.41875962229648
+            },
+            "shadow": {
+              "school": "shadow",
+              "n_events": 254,
+              "sum_base": 15080224.0,
+              "actual_dr_pct": 35.63973585538251,
+              "predicted_dr_pct": 26.682204160000122,
+              "gap_pp": -8.957531695382393,
+              "p50_pp_unweighted": -6.295227319160446,
+              "p90_pp_unweighted": 0.6756533915444951,
+              "max_abs_pp": 54.82040179928802,
+              "mean_pp": -10.473590604062133
+            },
+            "arcane": {
+              "school": "arcane",
+              "n_events": 179,
+              "sum_base": 13582087.0,
+              "actual_dr_pct": 39.41934696781135,
+              "predicted_dr_pct": 26.682204160000055,
+              "gap_pp": -12.737142807811297,
+              "p50_pp_unweighted": -9.750267757118735,
+              "p90_pp_unweighted": -4.221265755097814,
+              "max_abs_pp": 53.21074526783314,
+              "mean_pp": -13.075180781105171
+            },
+            "holy": {
+              "school": "holy",
+              "n_events": 149,
+              "sum_base": 12368488.0,
+              "actual_dr_pct": 35.04213287832757,
+              "predicted_dr_pct": 26.682204159999955,
+              "gap_pp": -8.359928718327614,
+              "p50_pp_unweighted": -6.294604543327931,
+              "p90_pp_unweighted": 9.596856554106846,
+              "max_abs_pp": 54.820698304436824,
+              "mean_pp": -7.25631423392552
+            }
+          },
+          "run_index": 0
+        }
+      ]
+    },
+    {
+      "log": "WoWCombatLog-051926_132910.txt",
+      "runs": [
+        {
+          "map_name": "Algeth'ar Academy",
+          "key_level": 10,
+          "duration_s": 1226.5329999923706,
+          "per_school": {
+            "physical": {
+              "school": "physical",
+              "n_events": 1028,
+              "sum_base": 142472919.0,
+              "actual_dr_pct": 83.42170205693617,
+              "predicted_dr_pct": 73.10654336787815,
+              "gap_pp": -10.315158689058023,
+              "p50_pp_unweighted": -16.451521523326498,
+              "p90_pp_unweighted": 23.380383236253003,
+              "max_abs_pp": 49.721867885767736,
+              "mean_pp": -9.932863252197693
+            },
+            "nature": {
+              "school": "nature",
+              "n_events": 35,
+              "sum_base": 2760659.0,
+              "actual_dr_pct": 44.69121322119103,
+              "predicted_dr_pct": 26.682204159999966,
+              "gap_pp": -18.009009061191062,
+              "p50_pp_unweighted": -12.816810708113824,
+              "p90_pp_unweighted": -6.336559024190047,
+              "max_abs_pp": 29.412195457974878,
+              "mean_pp": -13.80117447812493
+            },
+            "fire": {
+              "school": "fire",
+              "n_events": 18,
+              "sum_base": 548661.0,
+              "actual_dr_pct": 38.2070167188847,
+              "predicted_dr_pct": 26.682204160000012,
+              "gap_pp": -11.52481255888469,
+              "p50_pp_unweighted": -11.592016629190837,
+              "p90_pp_unweighted": -6.336035332466283,
+              "max_abs_pp": 16.53290408504835,
+              "mean_pp": -11.428125160755291
+            },
+            "arcane": {
+              "school": "arcane",
+              "n_events": 233,
+              "sum_base": 19472108.0,
+              "actual_dr_pct": 39.954862616826084,
+              "predicted_dr_pct": 26.374028516331517,
+              "gap_pp": -13.580834100494565,
+              "p50_pp_unweighted": -13.543711605693066,
+              "p90_pp_unweighted": -6.337323213342549,
+              "max_abs_pp": 64.78630859180424,
+              "mean_pp": -13.500666075560437
+            }
+          },
+          "run_index": 0
+        }
+      ]
+    },
+    {
+      "log": "WoWCombatLog-051726_190811.txt",
+      "runs": [
+        {
+          "map_name": "Nexus-Point Xenas",
+          "key_level": 2,
+          "duration_s": 904.9789998531342,
+          "per_school": {},
+          "run_index": 0
+        },
+        {
+          "map_name": "Seat of the Triumvirate",
+          "key_level": 5,
+          "duration_s": 893.7640001773834,
+          "per_school": {},
+          "run_index": 1
+        },
+        {
+          "map_name": "Algeth'ar Academy",
+          "key_level": 8,
+          "duration_s": 1141.1550002098083,
+          "per_school": {},
+          "run_index": 2
+        }
+      ]
+    },
+    {
+      "log": "WoWCombatLog-051726_213227.txt",
+      "runs": []
+    },
+    {
+      "log": "WoWCombatLog-051826_171535.txt",
+      "runs": [
+        {
+          "map_name": "Magisters' Terrace",
+          "key_level": 10,
+          "duration_s": 1354.2509999275208,
+          "per_school": {},
+          "run_index": 0
+        },
+        {
+          "map_name": "Magisters' Terrace",
+          "key_level": 10,
+          "duration_s": 1300.8470001220703,
+          "per_school": {},
+          "run_index": 1
+        },
+        {
+          "map_name": "Magisters' Terrace",
+          "key_level": 10,
+          "duration_s": 1439.537999868393,
+          "per_school": {},
+          "run_index": 2
+        },
+        {
+          "map_name": "Maisara Caverns",
+          "key_level": 10,
+          "duration_s": 1728.2170000076294,
+          "per_school": {},
+          "run_index": 3
+        },
+        {
+          "map_name": "Windrunner Spire",
+          "key_level": 12,
+          "duration_s": 1256.5329999923706,
+          "per_school": {},
+          "run_index": 4
+        },
+        {
+          "map_name": "Algeth'ar Academy",
+          "key_level": 12,
+          "duration_s": 1215.3710000514984,
+          "per_school": {},
+          "run_index": 5
+        }
+      ]
+    },
+    {
+      "log": "WoWCombatLog-051926_180447.txt",
+      "runs": [
+        {
+          "map_name": "Algeth'ar Academy",
+          "key_level": 13,
+          "duration_s": 1548.6470000743866,
+          "per_school": {},
+          "run_index": 0
+        }
+      ]
+    },
+    {
+      "log": "WoWCombatLog-051926_213719.txt",
+      "runs": [
+        {
+          "map_name": "Maisara Caverns",
+          "key_level": 10,
+          "duration_s": 1303.8039999008179,
+          "per_school": {},
+          "run_index": 1
+        },
+        {
+          "map_name": "Skyreach",
+          "key_level": 10,
+          "duration_s": 1220.156000137329,
+          "per_school": {},
+          "run_index": 2
+        }
+      ]
+    }
+  ],
+  "aggregate": {
+    "physical": {
+      "n_events": 25534,
+      "n_runs": 18,
+      "actual_dr_pct": 86.14378934570412,
+      "predicted_dr_pct": 73.3551922280431,
+      "gap_pp_weighted": -12.788597117661027,
+      "gap_pp_mean_across_runs": -12.664771304944022,
+      "gap_pp_p50_across_runs": -13.02540474978663,
+      "gap_pp_p90_across_runs": -10.273534803359798,
+      "gap_pp_max_abs_across_runs": 14.076091035371752,
+      "max_run_label": "WoWCombatLog-051826_135935.txt[0] Maisara Caverns+14",
+      "per_run_gaps": [
+        -11.724582877474754,
+        -9.898919832075759,
+        -12.939678307912505,
+        -13.079152292064112,
+        -13.03285038601979,
+        -11.546214157198042,
+        -13.713407236325247,
+        -13.997512272974365,
+        -13.358025447003918,
+        -13.286906778683448,
+        -12.889905120772449,
+        -13.017959113553468,
+        -14.075357431879265,
+        -13.964948750618833,
+        -14.076091035371752,
+        -11.090925751166903,
+        -11.958288008839768,
+        -10.315158689058023
+      ],
+      "per_run_labels": [
+        "WoWCombatLog-050626_153703.txt[0] Windrunner Spire+12",
+        "WoWCombatLog-050626_172823.txt[0] Algeth'ar Academy+12",
+        "WoWCombatLog-051026_073906.txt[0] Nexus-Point Xenas+12",
+        "WoWCombatLog-051026_090846.txt[2] Windrunner Spire+14",
+        "WoWCombatLog-051026_105836.txt[1] Pit of Saron+13",
+        "WoWCombatLog-051026_151539.txt[0] Skyreach+14",
+        "WoWCombatLog-051326_171842.txt[0] Pit of Saron+13",
+        "WoWCombatLog-051526_210245.txt[0] Magisters' Terrace+12",
+        "WoWCombatLog-051526_210245.txt[2] Pit of Saron+12",
+        "WoWCombatLog-051526_210245.txt[3] Windrunner Spire+14",
+        "WoWCombatLog-051626_161830.txt[3] Maisara Caverns+12",
+        "WoWCombatLog-051726_090237.txt[1] Pit of Saron+14",
+        "WoWCombatLog-051726_134819.txt[0] Magisters' Terrace+13",
+        "WoWCombatLog-051726_134819.txt[1] Magisters' Terrace+14",
+        "WoWCombatLog-051826_135935.txt[0] Maisara Caverns+14",
+        "WoWCombatLog-051826_135935.txt[1] Algeth'ar Academy+14",
+        "WoWCombatLog-051826_212525.txt[0] Nexus-Point Xenas+12",
+        "WoWCombatLog-051926_132910.txt[0] Algeth'ar Academy+10"
+      ]
+    },
+    "arcane": {
+      "n_events": 2224,
+      "n_runs": 12,
+      "actual_dr_pct": 34.018259034295596,
+      "predicted_dr_pct": 26.521123367291388,
+      "gap_pp_weighted": -7.497135667004207,
+      "gap_pp_mean_across_runs": -7.128710775308895,
+      "gap_pp_p50_across_runs": -5.4655763778945765,
+      "gap_pp_p90_across_runs": -1.6339179148477414,
+      "gap_pp_max_abs_across_runs": 13.580834100494565,
+      "max_run_label": "WoWCombatLog-051926_132910.txt[0] Algeth'ar Academy+10",
+      "per_run_gaps": [
+        -1.173747072903697,
+        -5.069840803923187,
+        -3.970326968981386,
+        -13.321230056030908,
+        -2.8000792369550442,
+        -4.3121879328213435,
+        -8.437608296866284,
+        -2.7076498793838444,
+        -5.861311951865966,
+        -11.572570195669218,
+        -12.737142807811297,
+        -13.580834100494565
+      ],
+      "per_run_labels": [
+        "WoWCombatLog-050626_153703.txt[0] Windrunner Spire+12",
+        "WoWCombatLog-050626_172823.txt[0] Algeth'ar Academy+12",
+        "WoWCombatLog-051026_073906.txt[0] Nexus-Point Xenas+12",
+        "WoWCombatLog-051026_090846.txt[2] Windrunner Spire+14",
+        "WoWCombatLog-051526_210245.txt[0] Magisters' Terrace+12",
+        "WoWCombatLog-051526_210245.txt[2] Pit of Saron+12",
+        "WoWCombatLog-051526_210245.txt[3] Windrunner Spire+14",
+        "WoWCombatLog-051726_134819.txt[0] Magisters' Terrace+13",
+        "WoWCombatLog-051726_134819.txt[1] Magisters' Terrace+14",
+        "WoWCombatLog-051826_135935.txt[1] Algeth'ar Academy+14",
+        "WoWCombatLog-051826_212525.txt[0] Nexus-Point Xenas+12",
+        "WoWCombatLog-051926_132910.txt[0] Algeth'ar Academy+10"
+      ]
+    },
+    "shadow": {
+      "n_events": 5022,
+      "n_runs": 14,
+      "actual_dr_pct": 33.23071745012055,
+      "predicted_dr_pct": 26.68220415999999,
+      "gap_pp_weighted": -6.548513290120561,
+      "gap_pp_mean_across_runs": -5.954389452374465,
+      "gap_pp_p50_across_runs": -6.6396934625267185,
+      "gap_pp_p90_across_runs": 2.048136774498105,
+      "gap_pp_max_abs_across_runs": 11.979819534915082,
+      "max_run_label": "WoWCombatLog-051026_090846.txt[2] Windrunner Spire+14",
+      "per_run_gaps": [
+        6.445281206915032,
+        -4.236413584016163,
+        -11.979819534915082,
+        -2.637115906824916,
+        -2.3490076579188224,
+        -11.580194005781685,
+        -8.46582245056945,
+        -10.910477841586363,
+        -7.465090616951842,
+        -3.8613009121453046,
+        -5.814296308101596,
+        -7.929537661474384,
+        -3.620125364489535,
+        -8.957531695382393
+      ],
+      "per_run_labels": [
+        "WoWCombatLog-050626_153703.txt[0] Windrunner Spire+12",
+        "WoWCombatLog-051026_073906.txt[0] Nexus-Point Xenas+12",
+        "WoWCombatLog-051026_090846.txt[2] Windrunner Spire+14",
+        "WoWCombatLog-051026_105836.txt[1] Pit of Saron+13",
+        "WoWCombatLog-051326_171842.txt[0] Pit of Saron+13",
+        "WoWCombatLog-051526_210245.txt[0] Magisters' Terrace+12",
+        "WoWCombatLog-051526_210245.txt[2] Pit of Saron+12",
+        "WoWCombatLog-051526_210245.txt[3] Windrunner Spire+14",
+        "WoWCombatLog-051626_161830.txt[3] Maisara Caverns+12",
+        "WoWCombatLog-051726_090237.txt[1] Pit of Saron+14",
+        "WoWCombatLog-051726_134819.txt[0] Magisters' Terrace+13",
+        "WoWCombatLog-051726_134819.txt[1] Magisters' Terrace+14",
+        "WoWCombatLog-051826_135935.txt[0] Maisara Caverns+14",
+        "WoWCombatLog-051826_212525.txt[0] Nexus-Point Xenas+12"
+      ]
+    },
+    "nature": {
+      "n_events": 1221,
+      "n_runs": 14,
+      "actual_dr_pct": 36.021983098262034,
+      "predicted_dr_pct": 26.682204159999966,
+      "gap_pp_weighted": -9.339778938262066,
+      "gap_pp_mean_across_runs": -5.893579485124306,
+      "gap_pp_p50_across_runs": -6.592687389805207,
+      "gap_pp_p90_across_runs": 13.262588746787364,
+      "gap_pp_max_abs_across_runs": 26.683284045618517,
+      "max_run_label": "WoWCombatLog-051526_210245.txt[0] Magisters' Terrace+12",
+      "per_run_gaps": [
+        -9.711471639382442,
+        -3.5776260911654756,
+        -12.99805713559068,
+        -3.4953664180589206,
+        -9.710745510782626,
+        -0.5486479030791358,
+        26.683284045618517,
+        -4.380806421700212,
+        -23.64518702711056,
+        -9.852417061286134,
+        -0.15810655204379076,
+        -4.301387658057565,
+        -8.804568357910203,
+        -18.009009061191062
+      ],
+      "per_run_labels": [
+        "WoWCombatLog-050626_153703.txt[0] Windrunner Spire+12",
+        "WoWCombatLog-050626_172823.txt[0] Algeth'ar Academy+12",
+        "WoWCombatLog-051026_090846.txt[2] Windrunner Spire+14",
+        "WoWCombatLog-051026_105836.txt[1] Pit of Saron+13",
+        "WoWCombatLog-051026_151539.txt[0] Skyreach+14",
+        "WoWCombatLog-051326_171842.txt[0] Pit of Saron+13",
+        "WoWCombatLog-051526_210245.txt[0] Magisters' Terrace+12",
+        "WoWCombatLog-051526_210245.txt[2] Pit of Saron+12",
+        "WoWCombatLog-051526_210245.txt[3] Windrunner Spire+14",
+        "WoWCombatLog-051626_161830.txt[3] Maisara Caverns+12",
+        "WoWCombatLog-051726_090237.txt[1] Pit of Saron+14",
+        "WoWCombatLog-051826_135935.txt[0] Maisara Caverns+14",
+        "WoWCombatLog-051826_135935.txt[1] Algeth'ar Academy+14",
+        "WoWCombatLog-051926_132910.txt[0] Algeth'ar Academy+10"
+      ]
+    },
+    "fire": {
+      "n_events": 413,
+      "n_runs": 12,
+      "actual_dr_pct": 35.04028293461218,
+      "predicted_dr_pct": 26.68220415999999,
+      "gap_pp_weighted": -8.358078774612189,
+      "gap_pp_mean_across_runs": -7.590427434453945,
+      "gap_pp_p50_across_runs": -8.004468314642699,
+      "gap_pp_p90_across_runs": -1.7151242048539816,
+      "gap_pp_max_abs_across_runs": 15.112556045413871,
+      "max_run_label": "WoWCombatLog-051826_135935.txt[0] Maisara Caverns+14",
+      "per_run_gaps": [
+        -3.0606945451427503,
+        -8.667043184673261,
+        -9.380439846083021,
+        -10.504452453802571,
+        -7.341893444612135,
+        -11.184615183537339,
+        -3.1896880663471516,
+        -1.1384512018730808,
+        -3.3064407553712427,
+        -15.112556045413871,
+        -6.67404192770622,
+        -11.52481255888469
+      ],
+      "per_run_labels": [
+        "WoWCombatLog-050626_153703.txt[0] Windrunner Spire+12",
+        "WoWCombatLog-050626_172823.txt[0] Algeth'ar Academy+12",
+        "WoWCombatLog-051026_090846.txt[2] Windrunner Spire+14",
+        "WoWCombatLog-051026_151539.txt[0] Skyreach+14",
+        "WoWCombatLog-051526_210245.txt[0] Magisters' Terrace+12",
+        "WoWCombatLog-051526_210245.txt[3] Windrunner Spire+14",
+        "WoWCombatLog-051626_161830.txt[3] Maisara Caverns+12",
+        "WoWCombatLog-051726_134819.txt[0] Magisters' Terrace+13",
+        "WoWCombatLog-051726_134819.txt[1] Magisters' Terrace+14",
+        "WoWCombatLog-051826_135935.txt[0] Maisara Caverns+14",
+        "WoWCombatLog-051826_135935.txt[1] Algeth'ar Academy+14",
+        "WoWCombatLog-051926_132910.txt[0] Algeth'ar Academy+10"
+      ]
+    },
+    "holy": {
+      "n_events": 284,
+      "n_runs": 2,
+      "actual_dr_pct": 33.489028546410395,
+      "predicted_dr_pct": 26.68220415999999,
+      "gap_pp_weighted": -6.806824386410404,
+      "gap_pp_mean_across_runs": -6.681536827245177,
+      "gap_pp_p50_across_runs": -6.681536827245177,
+      "gap_pp_p90_across_runs": -5.00314493616274,
+      "gap_pp_max_abs_across_runs": 8.359928718327614,
+      "max_run_label": "WoWCombatLog-051826_212525.txt[0] Nexus-Point Xenas+12",
+      "per_run_gaps": [
+        -5.00314493616274,
+        -8.359928718327614
+      ],
+      "per_run_labels": [
+        "WoWCombatLog-051026_073906.txt[0] Nexus-Point Xenas+12",
+        "WoWCombatLog-051826_212525.txt[0] Nexus-Point Xenas+12"
+      ]
+    },
+    "frost": {
+      "n_events": 688,
+      "n_runs": 6,
+      "actual_dr_pct": 21.003648530014186,
+      "predicted_dr_pct": 26.682204159999944,
+      "gap_pp_weighted": 5.67855562998576,
+      "gap_pp_mean_across_runs": 1.3638541681806893,
+      "gap_pp_p50_across_runs": 3.885152708297113,
+      "gap_pp_p90_across_runs": 8.373595324647953,
+      "gap_pp_max_abs_across_runs": 11.373961021170764,
+      "max_run_label": "WoWCombatLog-051626_161830.txt[3] Maisara Caverns+12",
+      "per_run_gaps": [
+        5.2201587152042155,
+        2.5501467013900103,
+        6.157526264516699,
+        -11.373961021170764,
+        8.373595324647953,
+        -2.7443409755039783
+      ],
+      "per_run_labels": [
+        "WoWCombatLog-051026_105836.txt[1] Pit of Saron+13",
+        "WoWCombatLog-051326_171842.txt[0] Pit of Saron+13",
+        "WoWCombatLog-051526_210245.txt[2] Pit of Saron+12",
+        "WoWCombatLog-051626_161830.txt[3] Maisara Caverns+12",
+        "WoWCombatLog-051726_090237.txt[1] Pit of Saron+14",
+        "WoWCombatLog-051826_135935.txt[0] Maisara Caverns+14"
+      ]
+    },
+    "bleed": {
+      "n_events": 117,
+      "n_runs": 2,
+      "actual_dr_pct": 33.19561922547087,
+      "predicted_dr_pct": 70.41124112267366,
+      "gap_pp_weighted": 37.21562189720279,
+      "gap_pp_mean_across_runs": 37.1028463120285,
+      "gap_pp_p50_across_runs": 37.1028463120285,
+      "gap_pp_p90_across_runs": 37.98118778064897,
+      "gap_pp_max_abs_across_runs": 37.98118778064897,
+      "max_run_label": "WoWCombatLog-051626_161830.txt[3] Maisara Caverns+12",
+      "per_run_gaps": [
+        37.98118778064897,
+        36.22450484340802
+      ],
+      "per_run_labels": [
+        "WoWCombatLog-051626_161830.txt[3] Maisara Caverns+12",
+        "WoWCombatLog-051826_135935.txt[0] Maisara Caverns+14"
+      ]
+    }
+  }
+}

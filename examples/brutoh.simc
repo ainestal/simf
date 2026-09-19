@@ -1,0 +1,58 @@
+# Brutoh - Protection - 2026-05-06 10:47 - EU/Uldum
+# SimC Addon 12.0.5-02
+# WoW 12.0.5.67314, TOC 120005
+# Requires SimulationCraft 1000-01 or newer
+
+warrior="Brutoh"
+level=90
+race=earthen_dwarf
+region=eu
+server=uldum
+role=tank
+professions=alchemy=100/jewelcrafting=87
+spec=protection
+# loot_spec=protection
+
+talents=CkEAjLzRlq54bI5v+r8Sr9Xw43CAAYMjZmZmZGziZmlZMGjGzYYxMzMjZYmBAAAALzMAzYAGstNjZZZZ0MzwMsMLNmZDzMzMDjtBAzMzMAgZAPA
+
+# Saved Loadout: raid-wowhead
+# talents=CkEAjLzRlq54bI5v+r8Sr9Xw4bZAAgZmZMzMjZmZzYWmxYMjhZGWGzMzwMmZAAAAwyAwMGgB2glFDjZAMbYmNYGzMY2GAMzAAwAMA
+# Saved Loadout: Kirawarrior-m+
+# talents=CkEAjLzRlq54bI5v+r8Sr9Xw4bBAAMmxMzMzMjZxMzyMGjhxMGWMzMzYGmZAAAAwyMDwMGgBbbzYWWWGmZGmhlZxYmNMzMzMM2GAMzMzAAmB8AA
+# Saved Loadout: myDelver
+# talents=CkEAjLzRlq54bI5v+r8Sr9Xw4DAAYMDzMzMzYWMzsMjxYYMjx2yMzMzwwMDAAAAWmZAmxAMwGssYYMDgZBzsBzMzMY2GAMzAAwAMA
+
+# Crown of the Dark Envoy (289)
+head=,id=151333,enchant_id=7961,bonus_id=13440/6652/12667/13577/12699/12806
+# Barbed Ymirheim Choker (272)
+neck=,id=50228,gem_id=240983,bonus_id=12801/13440/6652/13668/12699
+# Night Ender's Pauldrons (276)
+shoulder=,id=249950,enchant_id=7970,bonus_id=6652/13440/13340/13574/12798
+# Potion-Stained Cloak (276)
+back=,id=193712,bonus_id=13440/40/13577/12699/12798
+# Night Ender's Breastplate (276)
+chest=,id=249955,enchant_id=7987,bonus_id=6652/13440/13336/13575/12798
+# Spellbreaker's Bracers (285)
+wrist=,id=237834,bonus_id=12214/12497/12066/8960/12384/8792/13622/12667,crafted_stats=32/36,crafting_quality=5
+# Night Ender's Fists (276)
+hands=,id=249953,bonus_id=6652/13337/13574/12798
+# Night Ender's Girdle (289)
+waist=,id=249949,bonus_id=6652/12667/13440/12806
+# Night Ender's Chausses (272)
+legs=,id=249951,enchant_id=8159,bonus_id=6652/12801/13440/13339/13575/3157
+# Night Ender's Greatboots (272)
+feet=,id=249954,bonus_id=6652/12801/13440/3157
+# Bifurcation Band (289)
+finger1=,id=251115,enchant_id=8025,gem_id=240894,bonus_id=13440/6652/13668/12699/12806
+# Omission of Light (276)
+finger2=,id=251093,enchant_id=8022,gem_id=240904,bonus_id=13440/6652/13668/12699/12798
+# Solarflare Prism (289)
+trinket1=,id=252420,bonus_id=13440/6652/12699/12806
+# Mark of Light (289)
+trinket2=,id=250241,bonus_id=13440/6652/12699/12806
+# Wildthorn Razorfang (276)
+main_hand=,id=262731,enchant_id=7982,bonus_id=6652/12798
+# Spellbreaker's Rebuke (285)
+off_hand=,id=237831,bonus_id=12214/12497/12066/8960/12384/8790/13622,crafted_stats=32/40,crafting_quality=5
+
+# Checksum: 2ffb4683

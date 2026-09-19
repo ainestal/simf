@@ -1,0 +1,52 @@
+# Magic-pressure pack — represents dungeons with sustained unblockable spell damage.
+# Models 3 caster mobs that spam spells on a short cadence with minimal melee.
+# Mirrors packs like Stonevault Excavators, Ara-Kara weavers, or Brackenhide
+# shamans: the bulk of incoming damage is nature/shadow/frost, very little is
+# blockable physical. Shield Block uptime has low value here; Versatility and
+# Ignore Pain dominate.
+#
+# Some casts are reflect-able to demonstrate Fueled by Violence healing value.
+profile: m+_dungeon_spelldrain
+duration_s: 60
+mobs:
+  - count: 3
+    swing_timer_s: 3.5
+    swing_damage_mean: 40000
+    swing_damage_variance: 0.25
+    school: physical
+    attack_type: melee
+    casts:
+      - spell: nature_bolt
+        cadence_s: 2.0
+        damage_mean: 130000
+        school: nature
+      - spell: shadow_word
+        cadence_s: 4.0
+        damage_mean: 90000
+        school: shadow
+  - count: 1
+    swing_timer_s: 10.0
+    swing_damage_mean: 20000
+    swing_damage_variance: 0.20
+    school: physical
+    attack_type: melee
+    casts:
+      - spell: frost_lance
+        cadence_s: 2.5
+        damage_mean: 110000
+        school: frost
+tank_busters:
+  - time_s: 25.0
+    damage: 500000
+    school: nature
+    attack_type: spell
+    is_avoidable_by_spell_reflect: true
+  - time_s: 50.0
+    damage: 500000
+    school: nature
+    attack_type: spell
+    is_avoidable_by_spell_reflect: true
+affix:
+  fortified: false
+  tyrannical: false
+  seasonal_modifier: 1.0
